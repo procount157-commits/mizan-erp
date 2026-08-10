@@ -14,3 +14,17 @@ __pycache__/
 # IDE
 .vscode/
 .idea/
+# Docker / local data
+postgres_data/
+filestore/
+docker/data/
+docker/logs/
+
+# Backup / temporary files
+*.save
+*.bak
+*.tmp
+
+# Odoo
+.odoo/
+third_party/
