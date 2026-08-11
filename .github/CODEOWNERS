@@ -1,0 +1,20 @@
+# =============================================================================
+# Mizan ERP — Code Owners
+# Changes to the paths below require approval from the listed owners.
+# GitHub automatically requests their review on every pull request.
+# =============================================================================
+
+# Default: catch-all for anything not matched below
+*                                       @procount157-commits
+
+# Core Odoo module — models, views, tests, security
+/custom_addons/mizan_core/              @procount157-commits
+
+# Docker infrastructure and environment config
+/docker/                                @procount157-commits
+
+# CI/CD workflows — changes here affect every developer's pipeline
+/.github/workflows/                     @procount157-commits
+
+# Branch protection and access-control scripts — high-impact changes
+/scripts/setup-branch-protection.sh    @procount157-commits
