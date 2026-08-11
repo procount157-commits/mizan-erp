@@ -1,24 +1,33 @@
 services:
+
   db:
     image: postgres:16
     container_name: mizan-db
     restart: unless-stopped
-    network_mode: host
     environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: odoo
-      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+      POSTGRES_USER: ${POSTGRES_USER:-odoo}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set in .env}
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    # PostgreSQL is intentionally NOT published on the host.
+    # It is accessible only to the odoo service via the internal compose network.
 
   odoo:
     build: .
     container_name: mizan-odoo
     restart: unless-stopped
-    network_mode: host
     depends_on:
       - db
-    command: odoo --config=/etc/odoo/odoo.conf
+    # db_password is injected at runtime so it is never stored in odoo.conf
+    command: >
+      odoo
+      --config=/etc/odoo/odoo.conf
+      --db_password ${POSTGRES_PASSWORD}
+    ports:
+      - "8069:8069"
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - ../odoo:/opt/odoo
       - ../custom_addons:/mnt/custom_addons

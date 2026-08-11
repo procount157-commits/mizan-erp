@@ -220,7 +220,7 @@ class MizanInvoiceLine(models.Model):
     )
 
     tax_amount = fields.Float(
-        string="Tax",
+        string="Tax Amount",
         compute="_compute_amounts",
         store=True,
     )
