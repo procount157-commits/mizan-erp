@@ -1,0 +1,1315 @@
+You are the lead software engineer, DevOps engineer, Git/GitHub engineer, Odoo developer, QA engineer, and project maintainer for this project.
+
+Your job is to take full ownership of the current Replit workspace and turn it into a clean, working, maintainable Mizan ERP development environment.
+
+IMPORTANT:
+Do NOT blindly overwrite or delete existing work.
+Do NOT reset the repository.
+Do NOT use git reset --hard.
+Do NOT use git clean -fd.
+Do NOT discard local modifications.
+Do NOT force push.
+Do NOT delete existing Mizan ERP functionality unless it is proven to be invalid and you have preserved a backup.
+Do NOT assume GitHub is the only source of truth.
+The current Replit workspace may contain important work that has not yet been pushed to GitHub.
+
+The project must remain a commercial ERP/SaaS foundation based on Odoo Community.
+
+The product name is:
+
+MIZAN ERP
+
+Arabic brand:
+ميزان ERP
+
+The system is intended to become a professional, global accounting/ERP system built on Odoo Community, with custom modules and a customized user experience.
+
+IMPORTANT PRODUCT REQUIREMENT:
+This project is NOT an AI product.
+Do NOT introduce AI features, AI agents, LLMs, OpenAI APIs, AI chatbots, AI accounting, AI automation, or AI dependencies into Mizan ERP unless explicitly requested later.
+
+==================================================
+1. CURRENT PROJECT CONTEXT
+==================================================
+
+The project currently exists inside Replit at approximately:
+
+/home/runner/workspace
+
+The repository contains or has contained:
+
+custom_addons/
+docker/
+odoo/
+README.md
+.replit
+.gitignore
+attached_assets/
+third_party/
+
+The Git remote configuration is approximately:
+
+origin:
+https://github.com/procount157-commits/mizan-erp
+
+gitsafe-backup:
+git://gitsafe:5418/backup.git
+
+The repository has previously contained these branches/remotes:
+
+main
+origin/main
+replit-agent
+gitsafe-backup/main
+
+The Git history observed previously included commits such as:
+
+d9cc7877 Add Mizan ERP Docker setup and core addon
+
+5f3b644a Add Replit configuration file
+
+b94fc23d Add Replit configuration file
+
+bb4f9d12 Merge remote-tracking branch 'origin/main'
+
+1dad3459 Update manifest dependencies and metadata in mizan_core
+
+6b0503d6 Update manifest dependencies and metadata in mizan_core
+
+The exact current Git state MUST be inspected by you.
+Do not rely blindly on this description.
+
+==================================================
+2. VERY IMPORTANT EXISTING GIT ISSUE
+==================================================
+
+There has been a naming/path problem in the current repository.
+
+Some terminal output displayed filenames such as:
+
+**init**.py
+**manifest**.py
+
+instead of the expected Odoo filenames:
+
+__init__.py
+__manifest__.py
+
+There was also confusing shell escaping involving:
+
+custom\_addons
+
+The current filesystem MUST be inspected using Python/os.path and Git commands.
+
+Do NOT assume the displayed escaped text is the actual filename.
+
+You MUST determine the exact filesystem names.
+
+For example, inspect using Python:
+
+python3 -c "import os; ..."
+
+and use:
+
+git ls-tree -r --name-only HEAD
+
+and:
+
+git status
+
+and:
+
+git diff --name-status
+
+and:
+
+git diff --stat
+
+Do not rename anything until you have confirmed the actual filesystem names.
+
+If the files genuinely have invalid names, rename them safely to the correct Odoo names:
+
+__init__.py
+__manifest__.py
+
+including:
+
+custom_addons/mizan_core/__init__.py
+custom_addons/mizan_core/__manifest__.py
+custom_addons/mizan_core/controllers/__init__.py
+custom_addons/mizan_core/models/__init__.py
+
+Preserve their contents.
+
+After renaming, verify Git sees the rename correctly.
+
+==================================================
+3. CURRENT WORKING TREE HAS IMPORTANT MODIFICATIONS
+==================================================
+
+Previously, git status showed changes similar to:
+
+modified:
+custom_addons/mizan_core/__init__.py
+custom_addons/mizan_core/__manifest__.py
+custom_addons/mizan_core/models/__init__.py
+custom_addons/mizan_core/models/models.py
+custom_addons/mizan_core/security/ir.model.access.csv
+custom_addons/mizan_core/views/views.xml
+docker/docker-compose.yml
+docker/odoo.conf
+
+deleted:
+custom_addons/mizan_core/demo/demo.xml
+
+untracked:
+attached_assets/
+
+There were approximately:
+
+515 insertions
+139 deletions
+
+in the working tree compared with the committed version.
+
+These modifications are potentially important.
+
+You MUST inspect them before doing anything destructive.
+
+Use:
+
+git status
+
+git diff --stat
+
+git diff --name-status
+
+git diff -- custom_addons/mizan_core/__manifest__.py
+
+git diff -- custom_addons/mizan_core/models/models.py
+
+git diff -- custom_addons/mizan_core/views/views.xml
+
+git diff -- docker/docker-compose.yml
+
+git diff -- docker/odoo.conf
+
+Also inspect the deleted demo.xml and determine whether it was intentionally removed.
+
+==================================================
+4. FIRST OBJECTIVE — FULL PROJECT AUDIT
+==================================================
+
+Before changing code, perform a complete technical audit.
+
+Create an internal understanding of:
+
+A. Filesystem
+B. Git state
+C. GitHub state
+D. Odoo source version
+E. Custom addons
+F. Docker configuration
+G. Replit configuration
+H. Python environment
+I. PostgreSQL configuration
+J. Odoo configuration
+K. Dependencies
+L. Current application functionality
+M. Current errors
+
+Run appropriate commands such as:
+
+pwd
+
+ls -la
+
+find . -maxdepth 2 -type d | sort
+
+git status
+
+git branch -a
+
+git remote -v
+
+git log --oneline --decorate --graph --all --max-count=30
+
+git diff --stat
+
+git diff --name-status
+
+git ls-tree -r --name-only HEAD | head -200
+
+git ls-tree -r --name-only origin/main | head -200
+
+python3 --version
+
+pip --version
+
+docker --version
+
+docker compose version
+
+Check whether PostgreSQL is available.
+
+Check whether Odoo can be imported/executed.
+
+Determine the Odoo version from the actual source/configuration.
+
+Do NOT guess the Odoo version.
+
+==================================================
+5. GIT SAFETY POLICY
+==================================================
+
+The current Replit workspace may contain valuable local development work.
+
+Therefore:
+
+NEVER run:
+
+git reset --hard
+
+git clean -fd
+
+git clean -fdx
+
+git checkout -- .
+
+git restore .
+
+git push --force
+
+unless I explicitly authorize it.
+
+Before modifying Git state:
+
+Create a safety backup branch if necessary.
+
+For example:
+
+git branch backup-before-agent-work-YYYYMMDD-HHMM
+
+If there are uncommitted modifications, preserve them.
+
+If necessary, create a temporary patch backup:
+
+git diff > /tmp/mizan-working-tree-backup.patch
+
+Also preserve untracked files if necessary.
+
+The goal is:
+
+NO DATA LOSS.
+
+==================================================
+6. GITHUB / REPLIT SYNCHRONIZATION
+==================================================
+
+Determine the relationship between:
+
+HEAD
+main
+origin/main
+replit-agent
+gitsafe-backup/main
+
+Build a clear graph of the history.
+
+Determine:
+
+- Which commits exist only locally?
+- Which commits exist on GitHub?
+- Which commits exist only on replit-agent?
+- Which commits are merge commits?
+- Which changes are uncommitted?
+
+Do NOT blindly merge or reset.
+
+If GitHub contains code that Replit does not have, preserve it.
+
+If Replit contains code that GitHub does not have, preserve it.
+
+The final repository should contain the union of valid work from both sides.
+
+Resolve conflicts logically.
+
+==================================================
+7. MIZAN ERP ARCHITECTURE
+==================================================
+
+The project is intended to use Odoo Community as the ERP foundation.
+
+Expected structure:
+
+odoo/
+    Odoo source code
+    addons/
+    core framework
+
+custom_addons/
+    mizan_core/
+        __init__.py
+        __manifest__.py
+        controllers/
+        models/
+        security/
+        views/
+        demo/
+
+docker/
+    Dockerfile
+    docker-compose.yml
+    odoo.conf
+
+The custom module:
+
+mizan_core
+
+is the beginning of the Mizan ERP custom layer.
+
+The custom module should eventually become the main customization layer for:
+
+Accounting
+Customers
+Vendors
+Contacts
+Companies
+Tax
+VAT
+Corporate Tax
+Financial reporting
+Users
+Permissions
+Business workflows
+ERP modules
+Localization
+Professional UI
+
+Do not implement all of these blindly right now.
+
+First stabilize the foundation.
+
+==================================================
+8. MIZAN CORE CURRENT FUNCTIONALITY
+==================================================
+
+Inspect the actual current code.
+
+Pay special attention to:
+
+models/models.py
+
+views/views.xml
+
+views/templates.xml
+
+security/ir.model.access.csv
+
+__manifest__.py
+
+controllers/controllers.py
+
+demo/demo.xml
+
+Determine what the current module actually implements.
+
+There appears to be a Mizan Contact model.
+
+There may be fields such as:
+
+name
+contact_type
+email
+phone
+company
+notes
+etc.
+
+Do not assume exact fields.
+Read the actual source.
+
+Document the actual model.
+
+Check:
+
+- model technical name
+- fields
+- selection values
+- required fields
+- indexes
+- security
+- menu items
+- actions
+- views
+- controllers
+- templates
+- demo data
+- dependencies
+
+==================================================
+9. FIX ODOO MODULE STRUCTURE
+==================================================
+
+Verify that the module follows Odoo standards.
+
+Expected:
+
+custom_addons/mizan_core/__init__.py
+
+custom_addons/mizan_core/__manifest__.py
+
+custom_addons/mizan_core/controllers/__init__.py
+
+custom_addons/mizan_core/controllers/controllers.py
+
+custom_addons/mizan_core/models/__init__.py
+
+custom_addons/mizan_core/models/models.py
+
+custom_addons/mizan_core/security/ir.model.access.csv
+
+custom_addons/mizan_core/views/views.xml
+
+custom_addons/mizan_core/views/templates.xml
+
+custom_addons/mizan_core/demo/demo.xml
+
+If demo.xml was intentionally removed, determine whether the manifest still references it.
+
+If the manifest references a missing file, fix the manifest.
+
+If a file is unnecessary, do not recreate it merely for cosmetic reasons.
+
+==================================================
+10. MANIFEST VALIDATION
+==================================================
+
+Inspect __manifest__.py.
+
+Validate:
+
+name
+version
+summary
+description
+author
+category
+license
+depends
+data
+demo
+installable
+application
+
+Ensure dependency names are valid Odoo modules.
+
+Ensure every file referenced in:
+
+data
+demo
+
+actually exists.
+
+Ensure XML files are valid.
+
+Ensure security CSV files are valid.
+
+Do not add unnecessary dependencies.
+
+Do not introduce AI dependencies.
+
+==================================================
+11. PYTHON CODE QUALITY
+==================================================
+
+Inspect all Python code.
+
+Fix:
+
+syntax errors
+invalid imports
+bad decorators
+deprecated API usage
+incorrect Odoo model definitions
+incorrect field definitions
+bad indentation
+unused broken imports
+invalid controller declarations
+incorrect access to environment
+incorrect compute methods
+incorrect API usage
+
+Do not rewrite working business logic just for style.
+
+Maintain compatibility with the actual Odoo version installed in the repository.
+
+==================================================
+12. XML VALIDATION
+==================================================
+
+Validate:
+
+views/views.xml
+views/templates.xml
+demo/demo.xml if present
+
+Check:
+
+XML syntax
+view inheritance
+model references
+field names
+actions
+menus
+external IDs
+templates
+security references
+
+Make sure every referenced model and field actually exists.
+
+==================================================
+13. SECURITY
+==================================================
+
+Inspect:
+
+security/ir.model.access.csv
+
+Make sure:
+
+- CSV format is valid.
+- model references are correct.
+- groups are valid.
+- permissions are logically appropriate.
+
+Do not grant unrestricted administrator privileges to normal users.
+
+Do not weaken security just to make the module install.
+
+==================================================
+14. DOCKER
+==================================================
+
+Inspect:
+
+docker/Dockerfile
+docker/docker-compose.yml
+docker/odoo.conf
+
+Validate:
+
+Odoo service
+PostgreSQL service
+ports
+volumes
+environment variables
+database configuration
+addons_path
+config path
+custom_addons path
+
+Make sure custom_addons is actually mounted or available to Odoo.
+
+Make sure the Odoo config's addons_path includes the custom module directory.
+
+Use proper PostgreSQL service dependency.
+
+Avoid hardcoding secrets.
+
+Use environment variables where appropriate.
+
+Do not expose PostgreSQL unnecessarily.
+
+==================================================
+15. REPLIT ENVIRONMENT
+==================================================
+
+Inspect:
+
+.replit
+
+Determine how the application is expected to run in Replit.
+
+Make Replit development reliable.
+
+The developer should be able to start the project using a simple documented command.
+
+For example, depending on the actual environment:
+
+python3 odoo/odoo-bin -c docker/odoo.conf
+
+or an appropriate command based on the actual configuration.
+
+Do NOT assume the command.
+Determine the correct command from the repository.
+
+==================================================
+16. DATABASE
+==================================================
+
+Determine whether PostgreSQL is:
+
+- running locally
+- running through Docker
+- configured externally
+- unavailable
+
+Do not destroy existing databases.
+
+Do not drop databases.
+
+Do not run destructive database migrations.
+
+If PostgreSQL is available, validate connection using the actual configuration.
+
+If a database is needed for testing, create a dedicated development/test database.
+
+Never delete production data.
+
+==================================================
+17. RUN ODOO
+==================================================
+
+After the code and configuration audit, start Odoo.
+
+First perform static checks.
+
+Then run Odoo.
+
+Capture startup logs.
+
+Fix errors systematically.
+
+Do not hide errors.
+
+Do not suppress exceptions.
+
+The final result should show Odoo successfully starting.
+
+==================================================
+18. INSTALL MIZAN CORE
+==================================================
+
+Install/update the mizan_core module in a safe development database.
+
+Use the correct Odoo command.
+
+Validate:
+
+- module loads
+- manifest loads
+- models load
+- security loads
+- XML loads
+- menus appear
+- views load
+- no registry errors
+- no ParseError
+- no External ID errors
+- no missing field errors
+- no missing model errors
+
+If the module was already installed, update it instead of blindly reinstalling.
+
+==================================================
+19. FUNCTIONAL TEST
+==================================================
+
+After installation:
+
+Open Odoo.
+
+Verify the Mizan module.
+
+Test the main Mizan functionality.
+
+Create a test contact/customer/vendor if supported.
+
+Verify fields.
+
+Verify save.
+
+Verify edit.
+
+Verify list view.
+
+Verify form view.
+
+Verify security.
+
+Verify menu navigation.
+
+Check browser/server logs.
+
+==================================================
+20. PROJECT DIRECTION
+==================================================
+
+Mizan ERP is intended to become a serious accounting/ERP product.
+
+The long-term vision includes:
+
+1. Company management
+2. Multi-company
+3. Contacts
+4. Customers
+5. Vendors
+6. Chart of Accounts
+7. Journals
+8. Accounting entries
+9. General Ledger
+10. Trial Balance
+11. Balance Sheet
+12. Profit & Loss
+13. Cash Flow
+14. Accounts Receivable
+15. Accounts Payable
+16. Invoicing
+17. Payments
+18. Bank reconciliation
+19. VAT
+20. UAE VAT support
+21. Corporate Tax support
+22. Financial reports
+23. Expense management
+24. Inventory
+25. Sales
+26. Purchases
+27. Projects
+28. Employees
+29. Payroll integration where appropriate
+30. User roles
+31. Permissions
+32. Audit logs
+33. Document management
+34. Localization
+35. Professional ERP interface
+
+But do NOT implement all of these now.
+
+Build a stable foundation first.
+
+==================================================
+21. UAE ACCOUNTING CONTEXT
+==================================================
+
+The commercial product will be relevant to the UAE market.
+
+The system may eventually need support for:
+
+UAE VAT
+Corporate Tax
+Tax Registration
+Tax Returns
+Tax Reports
+Tax Documentation
+Audit trails
+AML/KYC-related business workflows where appropriate
+
+However:
+
+Do not claim legal/tax compliance automatically.
+
+Do not invent UAE tax rules.
+
+Do not implement legal rules without verified requirements.
+
+Keep the architecture extensible.
+
+==================================================
+22. CODING PRINCIPLES
+==================================================
+
+Use:
+
+Python
+Odoo framework
+PostgreSQL
+XML
+JavaScript only where genuinely necessary
+CSS only where genuinely necessary
+Docker
+Git/GitHub
+
+Follow Odoo conventions.
+
+Keep modules modular.
+
+Avoid unnecessary third-party dependencies.
+
+Avoid modifying Odoo core unless absolutely necessary.
+
+Prefer custom modules over changing:
+
+odoo/addons/
+
+Do not modify Odoo core source just to make Mizan work.
+
+==================================================
+23. ODOO CORE POLICY
+==================================================
+
+The directory:
+
+odoo/
+
+is the Odoo Community source.
+
+Treat it as upstream/vendor code.
+
+Do not make unnecessary modifications inside:
+
+odoo/addons/
+
+If a requirement can be implemented through custom_addons, implement it there.
+
+If Odoo core modification is unavoidable:
+
+1. Explain why.
+2. Isolate the change.
+3. Document it.
+4. Keep it minimal.
+
+==================================================
+24. BACKUP POLICY
+==================================================
+
+Before significant changes:
+
+Create a Git backup branch.
+
+Example:
+
+backup-before-mizan-agent-YYYYMMDD-HHMM
+
+Also consider:
+
+git diff > /tmp/mizan-before-agent.patch
+
+Do not overwrite attached_assets.
+
+Do not delete unknown files.
+
+==================================================
+25. ATTACHED ASSETS
+==================================================
+
+Inspect:
+
+attached_assets/
+
+Determine what files exist.
+
+Do not delete them.
+
+Determine whether any are relevant to Mizan ERP.
+
+If they are images, documentation, screenshots, specifications, or assets, preserve them.
+
+Do not automatically commit large temporary files unless appropriate.
+
+Inspect .gitignore.
+
+==================================================
+26. THIRD PARTY
+==================================================
+
+Inspect:
+
+third_party/
+
+If empty, leave it alone.
+
+Do not populate it with arbitrary libraries.
+
+==================================================
+27. GITIGNORE
+==================================================
+
+Inspect .gitignore.
+
+Make sure it ignores appropriate development/runtime files:
+
+.env
+.pyc
+__pycache__
+logs
+database dumps
+local secrets
+temporary files
+Docker runtime data
+IDE files
+
+But do not ignore important source files.
+
+==================================================
+28. DOCUMENTATION
+==================================================
+
+Update README.md after the project is stabilized.
+
+README should document:
+
+Project name
+Purpose
+Architecture
+Odoo version
+Directory structure
+Development setup
+Replit setup
+Docker setup
+Database setup
+How to start Odoo
+How to update mizan_core
+How to access Odoo
+How to run tests
+Git workflow
+Development rules
+
+Do not document commands that have not actually been tested.
+
+==================================================
+29. TESTING
+==================================================
+
+Create a basic test strategy for mizan_core.
+
+At minimum validate:
+
+Python import
+Odoo module loading
+Manifest
+Security CSV
+XML
+Model registry
+Module installation
+Module upgrade
+
+If appropriate, add Odoo automated tests.
+
+Do not create fake tests that do not test actual behavior.
+
+==================================================
+30. PERFORMANCE
+==================================================
+
+Do not optimize prematurely.
+
+But avoid:
+
+N+1 ORM queries
+unnecessary compute fields
+unnecessary stored fields
+bad database indexes
+large loops over records
+raw SQL unless necessary
+
+Use Odoo ORM correctly.
+
+==================================================
+31. UI/UX
+==================================================
+
+The long-term Mizan ERP interface should be:
+
+Professional
+Clean
+Modern
+Fast
+Business-oriented
+Accounting-focused
+Responsive
+
+Do not add flashy UI that harms Odoo usability.
+
+Do not introduce AI UI.
+
+Keep the initial Mizan module simple and stable.
+
+==================================================
+32. IMPORTANT: DO NOT JUST REPORT PROBLEMS
+==================================================
+
+You are an implementation agent.
+
+After auditing the project, fix the issues you find.
+
+Do not stop at:
+
+"There is a problem."
+
+Instead:
+
+1. Identify it.
+2. Explain it internally.
+3. Back up the work.
+4. Fix it.
+5. Test it.
+6. Verify it.
+7. Commit it.
+
+Only stop when blocked by a genuinely external requirement such as:
+
+missing credentials
+missing service
+missing dependency
+unavailable database
+unavailable network
+ambiguous destructive decision
+
+==================================================
+33. GIT COMMIT STRATEGY
+==================================================
+
+Do not create dozens of meaningless commits.
+
+Use logical commits.
+
+For example:
+
+fix: normalize Mizan module structure
+
+fix: validate Mizan manifest and dependencies
+
+fix: repair Docker Odoo configuration
+
+feat: stabilize Mizan core contact model
+
+test: validate Mizan core installation
+
+docs: update Mizan ERP development setup
+
+Before committing:
+
+git status
+
+git diff
+
+Verify no secrets are being committed.
+
+==================================================
+34. PUSH POLICY
+==================================================
+
+DO NOT force push.
+
+DO NOT overwrite GitHub history.
+
+Before pushing:
+
+git fetch origin
+
+git status
+
+git log --oneline --decorate --graph --all --max-count=20
+
+Confirm the branch relationship.
+
+If safe:
+
+git push origin main
+
+If pushing would overwrite or create a dangerous history situation:
+
+STOP and explain the exact situation.
+
+Do not guess.
+
+==================================================
+35. FINAL VALIDATION
+==================================================
+
+At the end, verify all of the following:
+
+[ ] Git working tree understood
+[ ] No important local work lost
+[ ] GitHub history understood
+[ ] Replit history understood
+[ ] Invalid filenames fixed if actually invalid
+[ ] mizan_core structure valid
+[ ] __init__.py valid
+[ ] __manifest__.py valid
+[ ] models valid
+[ ] XML valid
+[ ] security valid
+[ ] Docker valid
+[ ] Odoo starts
+[ ] PostgreSQL works
+[ ] mizan_core installs
+[ ] mizan_core updates
+[ ] Mizan views load
+[ ] No critical Odoo errors
+[ ] No AI dependencies introduced
+[ ] README updated
+[ ] Git commits clean
+[ ] GitHub synchronization safe
+
+==================================================
+36. FINAL REPORT
+==================================================
+
+At the end, provide a concise but detailed report containing:
+
+1. Current Git branch
+2. GitHub remote
+3. Commit relationship between local and origin/main
+4. Files changed
+5. Files renamed
+6. Files added
+7. Files deleted
+8. Mizan Core functionality currently available
+9. Odoo version
+10. PostgreSQL status
+11. Docker status
+12. Replit status
+13. Tests performed
+14. Odoo startup result
+15. Mizan module installation result
+16. Remaining issues
+17. Exact command to start the project
+18. Exact command to update Mizan module
+19. Exact Git status
+20. Whether changes were pushed to GitHub
+
+==================================================
+37. CRITICAL EXECUTION ORDER
+==================================================
+
+Follow this exact order:
+
+PHASE 1
+Audit filesystem.
+
+PHASE 2
+Audit Git.
+
+PHASE 3
+Create safety backup.
+
+PHASE 4
+Inspect uncommitted changes.
+
+PHASE 5
+Inspect GitHub differences.
+
+PHASE 6
+Inspect Mizan Core.
+
+PHASE 7
+Fix filenames if and only if genuinely invalid.
+
+PHASE 8
+Fix Python.
+
+PHASE 9
+Fix XML.
+
+PHASE 10
+Fix security.
+
+PHASE 11
+Fix manifest.
+
+PHASE 12
+Fix Docker.
+
+PHASE 13
+Fix Replit startup.
+
+PHASE 14
+Validate PostgreSQL.
+
+PHASE 15
+Start Odoo.
+
+PHASE 16
+Install/update Mizan Core.
+
+PHASE 17
+Run functional tests.
+
+PHASE 18
+Document the working environment.
+
+PHASE 19
+Create logical Git commits.
+
+PHASE 20
+Synchronize with GitHub safely.
+
+PHASE 21
+Final validation.
+
+==================================================
+38. VERY IMPORTANT AGENT BEHAVIOR
+==================================================
+
+Do not repeatedly ask me to execute basic shell commands that you can safely execute yourself.
+
+You have access to the Replit workspace.
+
+Inspect the workspace yourself.
+
+Run the commands yourself.
+
+Fix the project yourself.
+
+Use terminal tools available to you.
+
+Only ask me when:
+
+- a destructive decision is required
+- credentials are required
+- an external service must be configured
+- there are two equally valid architectural choices that materially affect the product
+- pushing to GitHub would require overwriting remote history
+- a business requirement is genuinely ambiguous
+
+Otherwise, make the technically safest reasonable decision and continue.
+
+Do not stop after the first error.
+
+Trace the error to its root cause.
+
+Fix it.
+
+Retest.
+
+==================================================
+39. MOST IMPORTANT RULE
+==================================================
+
+PRESERVE EXISTING WORK.
+
+The current Replit workspace contains modifications to Mizan ERP that may be valuable.
+
+The GitHub repository contains another version of Mizan ERP.
+
+Your job is NOT to choose one blindly.
+
+Your job is to:
+
+AUDIT BOTH
+UNDERSTAND BOTH
+PRESERVE BOTH
+MERGE VALID WORK
+REMOVE ONLY INVALID/DUPLICATE WORK
+TEST EVERYTHING
+CREATE A CLEAN WORKING MIZAN ERP
+
+Do not destroy history.
+
+Do not force push.
+
+Do not reset the project.
+
+Do not introduce AI.
+
+Do not modify Odoo core unnecessarily.
+
+Build Mizan ERP professionally and incrementally.
+
+START NOW.
+
+First perform the full audit and report the findings internally, then execute the required fixes in the workspace.

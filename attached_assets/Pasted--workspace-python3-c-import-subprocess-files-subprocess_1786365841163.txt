@@ -1,0 +1,421 @@
+~/workspace$ python3 -c "import subprocess; files=subprocess.check_output(['git','ls-files','-z']).decode().split('\0'); [print('FILE:',repr(x)) for x in files if 'mizan_core' in x]"
+FILE: 'custom_addons/mizan_core/__init__.py'
+FILE: 'custom_addons/mizan_core/__manifest__.py'
+FILE: 'custom_addons/mizan_core/controllers/__init__.py'
+FILE: 'custom_addons/mizan_core/controllers/controllers.py'
+FILE: 'custom_addons/mizan_core/demo/demo.xml'
+FILE: 'custom_addons/mizan_core/models/__init__.py'
+FILE: 'custom_addons/mizan_core/models/models.py'
+FILE: 'custom_addons/mizan_core/security/ir.model.access.csv'
+FILE: 'custom_addons/mizan_core/views/templates.xml'
+FILE: 'custom_addons/mizan_core/views/views.xml'
+~/workspace$ git status
+git ls-tree -r --name-only HEAD | grep mizan_core
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+custom_addons/mizan_core/__init__.py
+custom_addons/mizan_core/__manifest__.py
+custom_addons/mizan_core/controllers/__init__.py
+custom_addons/mizan_core/controllers/controllers.py
+custom_addons/mizan_core/demo/demo.xml
+custom_addons/mizan_core/models/__init__.py
+custom_addons/mizan_core/models/models.py
+custom_addons/mizan_core/security/ir.model.access.csv
+custom_addons/mizan_core/views/templates.xml
+custom_addons/mizan_core/views/views.xml
+~/workspace$ python3 -c "import subprocess; u=chr(95); a=chr(42); d=chr(46); p='custom_addons/mizan_core'; init=u+u+'init'+d+'py'; manifest=u+u+'manifest'+d+'py'; src_init=a+a+'init'+a+a+d+'py'; src_manifest=a+a+'manifest'+a+a+d+'py'; items=[(p+'/'+src_init,p+'/'+init),(p+'/'+src_manifest,p+'/'+manifest),(p+'/controllers/'+src_init,p+'/controllers/'+init),(p+'/models/'+src_init,p+'/models/'+init)]; print('TARGETS:',[repr(x[1]) for x in items]); [subprocess.run(['git','mv','--',src,dst],check=True) for src,dst in items]; print('GIT RENAME SUCCESS')"
+TARGETS: ["'custom_addons/mizan_core/__init.py'", "'custom_addons/mizan_core/__manifest.py'", "'custom_addons/mizan_core/controllers/__init.py'", "'custom_addons/mizan_core/models/__init.py'"]
+fatal: bad source, source=custom_addons/mizan_core/**init**.py, destination=custom_addons/mizan_core/__init.py
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/nix/store/iizfzmqjdfvbyx82gqw92glb5zl6m4my-python3-3.12.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'mv', '--', 'custom_addons/mizan_core/**init**.py', 'custom_addons/mizan_core/__init.py']' returned non-zero exit status 128.
+~/workspace$ git status
+git ls-tree -r --name-only HEAD | grep 'mizan_core'
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+custom_addons/mizan_core/__init__.py
+custom_addons/mizan_core/__manifest__.py
+custom_addons/mizan_core/controllers/__init__.py
+custom_addons/mizan_core/controllers/controllers.py
+custom_addons/mizan_core/demo/demo.xml
+custom_addons/mizan_core/models/__init__.py
+custom_addons/mizan_core/models/models.py
+custom_addons/mizan_core/security/ir.model.access.csv
+custom_addons/mizan_core/views/templates.xml
+custom_addons/mizan_core/views/views.xml
+~/workspace$ python3 - <<'PY'
+import os
+import subprocess
+
+root = next(x for x in os.listdir('.') if x.startswith('custom'))
+base = os.path.join(root, 'mizan_core')
+
+files = {
+    os.path.join(base, '__init__.py'): """# -*- coding: utf-8 -*-
+
+from . import controllers
+from . import models
+""",
+
+    os.path.join(base, '__manifest__.py'): """# -*- coding: utf-8 -*-
+
+{
+    'name': 'mizan_core',
+    'summary': 'Mizan Core',
+    'description': '''
+Mizan Core module.
+''',
+    'author': 'My Company',
+    'website': 'https://www.yourcompany.com',
+    'category': 'Uncategorized',
+    'version': '0.1',
+    'depends': ['base'],
+    'data': [
+        'views/views.xml',
+        'views/templates.xml',
+    ],
+    'demo': [
+        'demo/demo.xml',
+    ],
+}
+""",
+
+    os.path.join(base, 'controllers', '__init__.py'): """# -*- coding: utf-8 -*-
+
+from . import controllers
+""",
+
+    os.path.join(base, 'models', '__init__.py'): """# -*- coding: utf-8 -*-
+
+from . import models
+""",
+PYint('MIZAN ODOO FILES RECREATED CORRECTLY')ys()], check=True), '--', path], check=True)
+rm 'custom_addons/mizan_core/__init__.py'
+rm 'custom_addons/mizan_core/controllers/__init__.py'
+rm 'custom_addons/mizan_core/models/__init__.py'
+rm 'custom_addons/mizan_core/__manifest__.py'
+MIZAN ODOO FILES RECREATED CORRECTLY
+~/workspace$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+    modified:   custom_addons/mizan_core/__manifest__.py
+
+~/workspace$ git status --short
+M  custom_addons/mizan_core/__manifest__.py
+~/workspace$ find custom_addons/mizan_core -type f -print | sort
+custom_addons/mizan_core/controllers/controllers.py
+custom_addons/mizan_core/controllers/__init__.py
+custom_addons/mizan_core/demo/demo.xml
+custom_addons/mizan_core/__init__.py
+custom_addons/mizan_core/__manifest__.py
+custom_addons/mizan_core/models/__init__.py
+custom_addons/mizan_core/models/models.py
+custom_addons/mizan_core/security/ir.model.access.csv
+custom_addons/mizan_core/views/templates.xml
+custom_addons/mizan_core/views/views.xml
+~/workspace$ python3 - <<'PY'
+import os
+
+root = next(x for x in os.listdir('.') if x.startswith('custom'))
+base = os.path.join(root, 'mizan_core')
+
+renames = [
+    (base, '__init__.py', '__init__.py'),
+    (base, '__manifest__.py', '__manifest__.py'),
+    (os.path.join(base, 'controllers'), '__init__.py', '__init__.py'),
+    (os.path.join(base, 'models'), '__init__.py', '__init__.py'),
+]
+
+for directory, target, _ in renames:
+    files = os.listdir(directory)
+
+    if target in files:
+        print(f'ALREADY EXISTS: {os.path.join(directory, target)}')
+        continue
+
+    candidates = [f for f in files if 'init' in f and directory.endswith(('mizan_core', 'controllers', 'models'))]
+
+    if directory == base:
+        candidates = [f for f in files if 'init' in f]
+    if directory == base and not candidates:
+        candidates = [f for f in files if 'manifest' in f]
+
+    if directory == base and target == '__manifest__.py':
+        candidates = [f for f in files if 'manifest' in f]
+
+    if not candidates:
+        raise FileNotFoundError(f'Could not find source file in {directory}')
+
+    source = candidates[0]
+    print(f'RENAME: {source} -> {target}')
+    os.rename(
+        os.path.join(directory, source),
+        os.path.join(directory, target)
+    )
+
+print('DONE')
+PY
+ALREADY EXISTS: custom_addons/mizan_core/__init__.py
+ALREADY EXISTS: custom_addons/mizan_core/__manifest__.py
+ALREADY EXISTS: custom_addons/mizan_core/controllers/__init__.py
+ALREADY EXISTS: custom_addons/mizan_core/models/__init__.py
+DONE
+~/workspace$ python3 - <<'PY'
+import os
+
+root = next(x for x in os.listdir('.') if x.startswith('custom'))
+base = os.path.join(root, 'mizan_core')
+
+def rename_matching(directory, keyword, target):
+    files = os.listdir(directory)
+    matches = [f for f in files if keyword in f]
+
+    if target in files:
+        print("TARGET ALREADY EXISTS:", os.path.join(directory, target))
+        return
+
+    if not matches:
+        raise Exception(f"NOT FOUND: {keyword} in {directory}")
+
+    if len(matches) > 1:
+        raise Exception(f"MULTIPLE MATCHES: {matches}")
+
+    source = matches[0]
+    print(f"RENAMING: {source} -> {target}")
+    os.rename(
+        os.path.join(directory, source),
+        os.path.join(directory, target)
+    )
+
+rename_matching(base, 'init', '__init__.py')
+rename_matching(base, 'manifest', '__manifest__.py')
+rename_matching(os.path.join(base, 'controllers'), 'init', '__init__.py')
+rename_matching(os.path.join(base, 'models'), 'init', '__init__.py')
+
+print("FILES RENAMED SUCCESSFULLY")
+PY
+TARGET ALREADY EXISTS: custom_addons/mizan_core/__init__.py
+TARGET ALREADY EXISTS: custom_addons/mizan_core/__manifest__.py
+TARGET ALREADY EXISTS: custom_addons/mizan_core/controllers/__init__.py
+TARGET ALREADY EXISTS: custom_addons/mizan_core/models/__init__.py
+FILES RENAMED SUCCESSFULLY
+~/workspace$ python3 - <<'PY'
+import os
+
+root = next(x for x in os.listdir('.') if x.startswith('custom'))
+base = os.path.join(root, 'mizan_core')
+
+files = [
+    (base, '__init__.py', 'init'),
+    (base, '__manifest__.py', 'manifest'),
+    (os.path.join(base, 'controllers'), '__init__.py', 'init'),
+    (os.path.join(base, 'models'), '__init__.py', 'init'),
+]
+
+for directory, target, keyword in files:
+    entries = os.listdir(directory)
+
+    # ابحث عن الملف الغريب، وليس الهدف
+    candidates = [
+        x for x in entries
+        if keyword in x and x != target
+    ]
+
+    if not candidates:
+        print(f'NO SOURCE FOUND for {target}')
+        continue
+
+    if len(candidates) > 1:
+        print(f'MULTIPLE SOURCES for {target}: {candidates}')
+        continue
+
+    source = candidates[0]
+
+    print(f'RENAMING: {repr(source)} -> {repr(target)}')
+
+    os.rename(
+        os.path.join(directory, source),
+        os.path.join(directory, target)
+    )
+
+print('RENAME PROCESS FINISHED')
+PY
+NO SOURCE FOUND for __init__.py
+NO SOURCE FOUND for __manifest__.py
+NO SOURCE FOUND for __init__.py
+NO SOURCE FOUND for __init__.py
+RENAME PROCESS FINISHED
+~/workspace$ python3 - <<'PY'
+import os
+
+root = next(x for x in os.listdir('.') if x.startswith('custom'))
+base = os.path.join(root, 'mizan_core')
+
+print("ROOT:", repr(root))
+print()
+print("FILES CURRENTLY IN MIZAN_CORE:")
+for directory, _, files in os.walk(base):
+    for f in sorted(files):
+        print(repr(os.path.join(directory, f)))
+PY
+ROOT: 'custom_addons'
+
+FILES CURRENTLY IN MIZAN_CORE:
+'custom_addons/mizan_core/__init__.py'
+'custom_addons/mizan_core/__manifest__.py'
+'custom_addons/mizan_core/controllers/__init__.py'
+'custom_addons/mizan_core/controllers/controllers.py'
+'custom_addons/mizan_core/demo/demo.xml'
+'custom_addons/mizan_core/models/__init__.py'
+'custom_addons/mizan_core/models/models.py'
+'custom_addons/mizan_core/security/ir.model.access.csv'
+'custom_addons/mizan_core/views/templates.xml'
+'custom_addons/mizan_core/views/views.xml'
+~/workspace$ mv 'custom_addons/mizan_core/**init**.py' 'custom_addons/mizan_core/__init__.py'
+mv: cannot stat 'custom_addons/mizan_core/**init**.py': No such file or directory
+~/workspace$ mv 'custom_addons/mizan_core/**manifest**.py' 'custom_addons/mizan_core/__manifest__.py'
+mv: cannot stat 'custom_addons/mizan_core/**manifest**.py': No such file or directory
+~/workspace$ mv 'custom_addons/mizan_core/controllers/**init**.py' 'custom_addons/mizan_core/controllers/__init__.py'
+mv: cannot stat 'custom_addons/mizan_core/controllers/**init**.py': No such file or directory
+~/workspace$ mv 'custom_addons/mizan_core/models/**init**.py' 'custom_addons/mizan_core/models/__init__.py'
+mv: cannot stat 'custom_addons/mizan_core/models/**init**.py': No such file or directory
+~/workspace$ find custom_addons/mizan_core -type f -print | sort
+custom_addons/mizan_core/controllers/controllers.py
+custom_addons/mizan_core/controllers/__init__.py
+custom_addons/mizan_core/demo/demo.xml
+custom_addons/mizan_core/__init__.py
+custom_addons/mizan_core/__manifest__.py
+custom_addons/mizan_core/models/__init__.py
+custom_addons/mizan_core/models/models.py
+custom_addons/mizan_core/security/ir.model.access.csv
+custom_addons/mizan_core/views/templates.xml
+custom_addons/mizan_core/views/views.xml
+~/workspace$ printf '%s\n' custom_addons/mizan_core/* custom_addons/mizan_core/controllers/* custom_addons/mizan_core/models/*
+custom_addons/mizan_core/controllers
+custom_addons/mizan_core/demo
+custom_addons/mizan_core/__init__.py
+custom_addons/mizan_core/__manifest__.py
+custom_addons/mizan_core/models
+custom_addons/mizan_core/security
+custom_addons/mizan_core/views
+custom_addons/mizan_core/controllers/controllers.py
+custom_addons/mizan_core/controllers/__init__.py
+custom_addons/mizan_core/models/__init__.py
+custom_addons/mizan_core/models/models.py
+~/workspace$ pwd
+/home/runner/workspace
+~/workspace$ ls -lb custom_addons/mizan_core
+total 8
+drwxr-xr-x 1 runner runner  50 Aug 10 11:53 controllers
+drwxr-xr-x 1 runner runner  16 Aug 10 10:52 demo
+-rw-r--r-- 1 runner runner  72 Aug 10 12:20 __init__.py
+-rw-r--r-- 1 runner runner 410 Aug 10 12:20 __manifest__.py
+drwxr-xr-x 1 runner runner  40 Aug 10 11:53 models
+drwxr-xr-x 1 runner runner  38 Aug 10 10:52 security
+drwxr-xr-x 1 runner runner  44 Aug 10 10:52 views
+~/workspace$ cd /home/runner/workspace
+
+mv 'custom_addons/mizan_core/**init**.py' \
+   'custom_addons/mizan_core/__init__.py'
+
+mv 'custom_addons/mizan_core/**manifest**.py' \
+   'custom_addons/mizan_core/__manifest__.py'
+
+mv 'custom_addons/mizan_core/controllers/**init**.py' \
+   'custom_addons/mizan_core/controllers/__init__.py'
+
+mv 'custom_addons/mizan_core/models/**init**.py' \
+   'custom_addons/mizan_core/models/__init__.py'
+mv: cannot stat 'custom_addons/mizan_core/**init**.py': No such file or directory
+mv: cannot stat 'custom_addons/mizan_core/**manifest**.py': No such file or directory
+mv: cannot stat 'custom_addons/mizan_core/controllers/**init**.py': No such file or directory
+mv: cannot stat 'custom_addons/mizan_core/models/**init**.py': No such file or directory
+~/workspace$ find custom_addons/mizan_core -type f -print | sort
+custom_addons/mizan_core/controllers/controllers.py
+custom_addons/mizan_core/controllers/__init__.py
+custom_addons/mizan_core/demo/demo.xml
+custom_addons/mizan_core/__init__.py
+custom_addons/mizan_core/__manifest__.py
+custom_addons/mizan_core/models/__init__.py
+custom_addons/mizan_core/models/models.py
+custom_addons/mizan_core/security/ir.model.access.csv
+custom_addons/mizan_core/views/templates.xml
+custom_addons/mizan_core/views/views.xml
+~/workspace$ git status --short
+M  custom_addons/mizan_core/__manifest__.py
+~/workspace$ cd /home/runner/workspace
+
+python3 - <<'PY'
+import os
+
+base = "custom_addons/mizan_core"
+
+renames = [
+    (f"{base}/**init**.py", f"{base}/__init__.py"),
+    (f"{base}/**manifest**.py", f"{base}/__manifest__.py"),
+    (f"{base}/controllers/**init**.py", f"{base}/controllers/__init__.py"),
+    (f"{base}/models/**init**.py", f"{base}/models/__init__.py"),
+]
+
+for source, target in renames:
+    print(f"SOURCE: {source}")
+    print(f"TARGET: {target}")
+
+    if not os.path.exists(source):
+        print(f"ERROR: source does not exist: {source}")
+        continue
+
+    if os.path.exists(target):
+        print(f"TARGET ALREADY EXISTS: {target}")
+        continue
+
+    os.rename(source, target)
+    print("RENAMED SUCCESSFULLY")
+
+print("\nFINAL FILES:")
+for root, dirs, files in os.walk(base):
+    for file in sorted(files):
+        print(os.path.join(root, file))
+PY
+SOURCE: custom_addons/mizan_core/**init**.py
+TARGET: custom_addons/mizan_core/__init__.py
+ERROR: source does not exist: custom_addons/mizan_core/**init**.py
+SOURCE: custom_addons/mizan_core/**manifest**.py
+TARGET: custom_addons/mizan_core/__manifest__.py
+ERROR: source does not exist: custom_addons/mizan_core/**manifest**.py
+SOURCE: custom_addons/mizan_core/controllers/**init**.py
+TARGET: custom_addons/mizan_core/controllers/__init__.py
+ERROR: source does not exist: custom_addons/mizan_core/controllers/**init**.py
+SOURCE: custom_addons/mizan_core/models/**init**.py
+TARGET: custom_addons/mizan_core/models/__init__.py
+ERROR: source does not exist: custom_addons/mizan_core/models/**init**.py
+
+FINAL FILES:
+custom_addons/mizan_core/__init__.py
+custom_addons/mizan_core/__manifest__.py
+custom_addons/mizan_core/controllers/__init__.py
+custom_addons/mizan_core/controllers/controllers.py
+custom_addons/mizan_core/demo/demo.xml
+custom_addons/mizan_core/models/__init__.py
+custom_addons/mizan_core/models/models.py
+custom_addons/mizan_core/security/ir.model.access.csv
+custom_addons/mizan_core/views/templates.xml
+custom_addons/mizan_core/views/views.xml
+~/workspace$ git status --short
+M  custom_addons/mizan_core/__manifest__.py
+~/workspace$ mv 'custom_addons/mizan_core/**init**.py' \
+   'custom_addons/mizan_core/__init__.py'
+mv: cannot stat 'custom_addons/mizan_core/**init**.py': No such file or directory
+~/workspace$ 

@@ -1,0 +1,1 @@
+- [Mizan ERP project setup](mizan-erp-setup.md) — Odoo 18 Community + Docker + mizan_core module; key architecture decisions and run commands
