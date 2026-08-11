@@ -7,11 +7,11 @@ services:
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-postgres}
       POSTGRES_USER: ${POSTGRES_USER:-odoo}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set in .env}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set in docker/.env}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     # PostgreSQL is intentionally NOT published on the host.
-    # It is accessible only to the odoo service via the internal compose network.
+    # It is accessible only to the odoo service via the internal Compose network.
 
   odoo:
     build: .
@@ -19,14 +19,16 @@ services:
     restart: unless-stopped
     depends_on:
       - db
-    # db_password is injected at runtime so it is never stored in odoo.conf
+    # DB credentials are injected at runtime so they are never stored in odoo.conf.
     command: >
       odoo
       --config=/etc/odoo/odoo.conf
+      --db_user ${POSTGRES_USER:-odoo}
       --db_password ${POSTGRES_PASSWORD}
     ports:
       - "8069:8069"
     environment:
+      POSTGRES_USER: ${POSTGRES_USER:-odoo}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - ../odoo:/opt/odoo

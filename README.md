@@ -72,6 +72,13 @@ The `mizan_core` module provides the foundation of the Mizan ERP custom layer.
 - Docker Desktop (macOS ARM64 or Linux)
 - Docker Compose v2
 
+### First-time setup
+
+```bash
+cp docker/.env.example docker/.env
+# Edit docker/.env and set a strong POSTGRES_PASSWORD
+```
+
 ### Start
 
 ```bash
@@ -134,11 +141,13 @@ Configuration is at `docker/odoo.conf`.
 
 | Setting | Value |
 |---|---|
-| `db_host` | `127.0.0.1` |
+| `db_host` | `db` (internal Compose service name) |
 | `db_port` | `5432` |
-| `db_user` | `odoo` |
+| `db_user` | set via `POSTGRES_USER` in `docker/.env` (default: `odoo`) |
+| `db_password` | set via `POSTGRES_PASSWORD` in `docker/.env` — never stored in config |
 | `addons_path` | `/opt/odoo/addons, /mnt/custom_addons, /mnt/oca_addons` |
 | `data_dir` | `/var/lib/odoo` |
+| `proxy_mode` | `False` — set to `True` only when behind a trusted reverse proxy |
 
 ---
 
