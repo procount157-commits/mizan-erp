@@ -1,21 +1,23 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'mizan_core',
-    'summary': 'Mizan Core',
-    'description': '''
-Mizan Core module.
-''',
-    'author': 'My Company',
-    'website': 'https://www.yourcompany.com',
-    'category': 'Uncategorized',
-    'version': '0.1',
-    'depends': ['base'],
-    'data': [
-        'views/views.xml',
-        'views/templates.xml',
+    "name": "Mizan Core",
+    "summary": "Mizan Core Foundation",
+    "description": """
+Mizan Core foundation module.
+""",
+    "author": "My Company",
+    "website": "https://www.yourcompany.com",
+    "category": "Uncategorized",
+    "version": "18.0.1.0.0",
+    "license": "LGPL-3",
+    "depends": [
+        "base",
     ],
-    'demo': [
-        'demo/demo.xml',
+    "data": [
+        "security/ir.model.access.csv",
+        "views/views.xml",
     ],
+    "installable": True,
+    "application": True,
 }

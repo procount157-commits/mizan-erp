@@ -4,27 +4,40 @@
 # Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.Python
 
 # Logs
 *.log
+logs/
 
-# Environment
+# Environment / Secrets
 .env
+.env.*
+!.env.example
 
 # IDE
 .vscode/
 .idea/
-# Docker / local data
-postgres_data/
+*.swp
+*.swo
+
+# Odoo runtime data
 filestore/
-docker/data/
-docker/logs/
+sessions/
+.local/share/Odoo/
 
-# Backup / temporary files
-*.save
-*.bak
+# Docker runtime data
+postgres_data/
+
+# Temporary files
+/tmp/
 *.tmp
+*.bak
+*.orig
 
-# Odoo
-.odoo/
-third_party/
+# Replit
+.replit
+replit.nix
+.upm/

@@ -1,38 +1,24 @@
-version: "3.9"
-
 services:
-
   db:
     image: postgres:16
     container_name: mizan-db
     restart: unless-stopped
-
+    network_mode: host
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
-
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-    ports:
-      - "5432:5432"
-
   odoo:
     build: .
-
     container_name: mizan-odoo
-
     restart: unless-stopped
-
+    network_mode: host
     depends_on:
       - db
-
     command: odoo --config=/etc/odoo/odoo.conf
-
-    ports:
-      - "8069:8069"
-
     volumes:
       - ../odoo:/opt/odoo
       - ../custom_addons:/mnt/custom_addons
