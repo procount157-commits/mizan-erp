@@ -1,3 +1,4 @@
+<<<<<<< ours
 # -*- coding: utf-8 -*-
 
 {
@@ -20,4 +21,19 @@ Mizan Core foundation module.
     ],
     "installable": True,
     "application": True,
+=======
+{
+    'name': 'Mizan Core',
+    'version': '1.0',
+    'summary': 'Mizan Core Module',
+    'category': 'Uncategorized',
+    'author': 'Mizan',
+    'depends': ['base'],
+    'data': [
+        'views/views.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+>>>>>>> theirs
 }

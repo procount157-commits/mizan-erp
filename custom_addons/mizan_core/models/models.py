@@ -1,5 +1,6 @@
-# -*- coding: utf-8 -*-
+from odoo import models, fields
 
+<<<<<<< Updated upstream
 from odoo import api, fields, models
 
 
@@ -244,3 +245,12 @@ class MizanInvoiceLine(models.Model):
             line.subtotal = subtotal
             line.tax_amount = tax
             line.total = subtotal + tax
+=======
+class MizanCore(models.Model):
+    _name = 'mizan_core.mizan_core'
+    _description = 'Mizan Core Model'
+
+    name = fields.Char(string='الاسم', required=True)
+    value = fields.Integer(string='القيمة')
+    description = fields.Text(string='الوصف')
+>>>>>>> Stashed changes

@@ -1,5 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+<<<<<<< Updated upstream
 access_mizan_contact_user,mizan.contact.user,model_mizan_contact,base.group_user,1,1,1,1
 access_mizan_tax_user,mizan.tax.user,model_mizan_tax,base.group_user,1,1,1,1
 access_mizan_invoice_user,mizan.invoice.user,model_mizan_invoice,base.group_user,1,1,1,1
 access_mizan_invoice_line_user,mizan.invoice.line.user,model_mizan_invoice_line,base.group_user,1,1,1,1
+=======
+access_mizan_core_mizan_core,access_mizan_core_mizan_core,model_mizan_core_mizan_core,base.group_user,1,1,1,1
+>>>>>>> Stashed changes

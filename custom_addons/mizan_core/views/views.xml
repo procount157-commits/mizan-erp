@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
+<<<<<<< Updated upstream
 
     <!-- ========================= -->
     <!-- CONTACTS                  -->
@@ -250,4 +251,25 @@
         sequence="30"
     />
 
+=======
+    <data>
+        <!-- القائمة الرئيسية لميزان -->
+        <menuitem id="menu_mizan_root" name="ميزان ERP" sequence="1"/>
+
+        <!-- القوائم الفرعية المجمعة -->
+        <menuitem id="menu_mizan_main" name="الرئيسية" parent="menu_mizan_root" sequence="10"/>
+        <menuitem id="menu_mizan_contracting" name="إدارة المقاولات" parent="menu_mizan_root" action="project.open_view_project_all" sequence="20"/>
+        <menuitem id="menu_mizan_restaurant" name="إدارة المطاعم" parent="menu_mizan_root" action="point_of_sale.action_pos_config_kanban" sequence="30"/>
+        <menuitem id="menu_mizan_hr" name="الموارد البشرية" parent="menu_mizan_root" action="hr.open_view_employee_list_my" sequence="40"/>
+
+        <!-- شاشة العمليات الداخلية -->
+        <record id="action_mizan_core" model="ir.actions.act_window">
+            <field name="name">سجلات ميزان</field>
+            <field name="res_model">mizan.core</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_mizan_core_records" name="السجلات العامة" parent="menu_mizan_main" action="action_mizan_core"/>
+    </data>
+>>>>>>> Stashed changes
 </odoo>
