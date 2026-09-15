@@ -17,6 +17,7 @@ logs/
 .env.*
 !.env.example
 !docker/.env.example
+docker/odoo_fixed.conf
 
 # IDE
 .vscode/

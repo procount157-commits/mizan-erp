@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_mizan_invoice_document" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[hasclass('page')]" position="before">
+            <div style="text-align: center; border-bottom: 2px solid #55666f; padding-bottom: 10px; margin-bottom: 20px;">
+                <h2 style="color: #55666f; margin: 0;">منظومة الميزان ERP</h2>
+                <p style="margin: 0; color: #a4a7ab;">فاتورة ضريبية رسمية - Mizan Official Invoice</p>
+            </div>
+        </xpath>
+    </template>
+</odoo>

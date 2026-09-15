@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_project_tree" model="ir.ui.view">
+        <field name="name">mizan.project.tree</field>
+        <field name="model">mizan.project</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="value"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_mizan_project" model="ir.actions.act_window">
+        <field name="name">Projects</field>
+        <field name="res_model">mizan.project</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_construction_root" name="Construction" sequence="20"/>
+    <menuitem id="menu_project_list" name="Projects" parent="menu_construction_root" action="action_mizan_project"/>
+</odoo>
