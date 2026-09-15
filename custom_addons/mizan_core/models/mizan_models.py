@@ -8,6 +8,14 @@ class MizanConstructionProject(models.Model):
     name = fields.Char(string='Project Name', required=True)
     code = fields.Char(string='Project Code', required=True)
     budget = fields.Float(string='Contract Value')
+    stage = fields.Selection([
+        ('planning', 'Planning'),
+        ('in_progress', 'In Progress'),
+        ('done', 'Completed'),
+        ('cancelled', 'Cancelled'),
+    ], string='Stage', default='planning', required=True)
+    date_start = fields.Date(string='Start Date')
+    date_end = fields.Date(string='End Date')
 
 class MizanGoldFixingContract(models.Model):
     _name = 'mizan.gold.contract'
