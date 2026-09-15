@@ -1,0 +1,14 @@
+# The Odoo core source tree is already provided by the odoo:18.0 base image.
+odoo/
+
+# Git metadata dominates the OCA tree (~1.4GB) and is never needed at runtime.
+.git/
+**/.git/
+
+# Runtime and local-only data
+docker/postgres_data/
+postgres_data/
+**/__pycache__/
+**/*.pyc
+docker/.env
+docker/odoo_fixed.conf

@@ -1,0 +1,27 @@
+# OCA repositories providing the free replacements for Odoo Enterprise features.
+# One "<branch> <url>" per line. Fetch them with: scripts/fetch-oca.sh
+#
+# The clones themselves are deliberately not committed: they are ~1.4 GB, almost
+# all of it .git metadata, and they are reproducible from this list.
+
+18.0 https://github.com/OCA/account-budgeting.git
+18.0 https://github.com/OCA/account-closing.git
+18.0 https://github.com/OCA/account-financial-reporting.git
+18.0 https://github.com/OCA/account-financial-tools.git
+18.0 https://github.com/OCA/account-reconcile.git
+18.0 https://github.com/OCA/bank-payment.git
+18.0 https://github.com/OCA/contract.git
+18.0 https://github.com/OCA/crm.git
+18.0 https://github.com/OCA/knowledge.git
+18.0 https://github.com/OCA/partner-contact.git
+18.0 https://github.com/OCA/project.git
+18.0 https://github.com/OCA/purchase-workflow.git
+18.0 https://github.com/OCA/queue.git
+18.0 https://github.com/OCA/reporting-engine.git
+18.0 https://github.com/OCA/sale-workflow.git
+18.0 https://github.com/OCA/server-tools.git
+18.0 https://github.com/OCA/server-ux.git
+18.0 https://github.com/OCA/stock-logistics-barcode.git
+18.0 https://github.com/OCA/stock-logistics-warehouse.git
+18.0 https://github.com/OCA/stock-logistics-workflow.git
+18.0 https://github.com/OCA/web.git

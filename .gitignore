@@ -43,3 +43,7 @@ postgres_data/
 .replit
 replit.nix
 .upm/
+
+# OCA clones are ~1.4GB of git metadata and are reproducible from
+# third_party/oca-repos.txt via scripts/fetch-oca.sh
+third_party/OCA/

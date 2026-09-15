@@ -31,10 +31,13 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-odoo}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
-      - ../odoo:/opt/odoo
       - ../custom_addons:/mnt/custom_addons
-      - ../third_party/OCA:/mnt/oca_addons
+      - mizan_oca:/mnt/oca_addons:ro
+      - odoo_filestore:/var/lib/odoo
       - ./odoo.conf:/etc/odoo/odoo.conf
 
 volumes:
   postgres_data:
+  odoo_filestore:
+  mizan_oca:
+    external: true

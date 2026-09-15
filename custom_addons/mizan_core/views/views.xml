@@ -1,23 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Construction Actions -->
-    <record id="action_mizan_projects" model="ir.actions.act_window">
-        <field name="name">Construction Projects</field>
-        <field name="res_model">mizan.contract.project</field>
-        <field name="view_mode">list,form</field>
-    </record>
-
-    <!-- Gold Actions -->
-    <record id="action_mizan_gold" model="ir.actions.act_window">
-        <field name="name">Gold Fixing Contracts</field>
-        <field name="res_model">mizan.gold.contract</field>
-        <field name="view_mode">list,form</field>
-    </record>
-
     <!-- Top Level Menu -->
-    <menuitem id="menu_mizan_root" name="Mizan ERP Enterprise" sequence="1"/>
-    
-    <!-- Sub Menus -->
-    <menuitem id="menu_mizan_projects_sub" name="Construction Projects" parent="menu_mizan_root" action="action_mizan_projects" sequence="10"/>
-    <menuitem id="menu_mizan_gold_sub" name="Gold Price Fixing" parent="menu_mizan_root" action="action_mizan_gold" sequence="20"/>
+    <menuitem id="menu_mizan_root" name="Mizan ERP" sequence="1"/>
+
+    <!-- Daily accounting screens are buried three levels deep inside the
+         Accounting app; surfacing them here is the difference between a client
+         finding the trial balance and calling support about it. -->
+    <menuitem id="menu_mizan_accounting" name="Accounting" parent="menu_mizan_root" sequence="30"
+              groups="account.group_account_readonly"/>
+
+    <menuitem id="menu_mizan_coa" name="Chart of Accounts" parent="menu_mizan_accounting"
+              action="account.action_account_form" sequence="10"/>
+    <menuitem id="menu_mizan_journals" name="Journals" parent="menu_mizan_accounting"
+              action="account.action_account_journal_form" sequence="20"/>
+    <menuitem id="menu_mizan_taxes" name="Taxes" parent="menu_mizan_accounting"
+              action="account.action_tax_form" sequence="30"/>
+
+    <menuitem id="menu_mizan_reports" name="Financial Reports" parent="menu_mizan_root" sequence="40"
+              groups="account.group_account_readonly"/>
+
+    <menuitem id="menu_mizan_trial_balance" name="Trial Balance" parent="menu_mizan_reports"
+              action="account_financial_report.action_trial_balance_wizard" sequence="10"/>
+    <menuitem id="menu_mizan_general_ledger" name="General Ledger" parent="menu_mizan_reports"
+              action="account_financial_report.action_general_ledger_wizard" sequence="20"/>
+    <menuitem id="menu_mizan_vat_report" name="VAT Report" parent="menu_mizan_reports"
+              action="account_financial_report.action_vat_report_wizard" sequence="30"/>
+    <menuitem id="menu_mizan_aged_partner" name="Aged Partner Balance" parent="menu_mizan_reports"
+              action="account_financial_report.action_aged_partner_balance_wizard" sequence="40"/>
+    <menuitem id="menu_mizan_open_items" name="Open Items" parent="menu_mizan_reports"
+              action="account_financial_report.action_open_items_wizard" sequence="50"/>
+
+    <!-- Master data lives under four different apps in stock Odoo; grouping it
+         here saves hunting for the same six screens every day. -->
+    <menuitem id="menu_mizan_master" name="Master Data" parent="menu_mizan_root" sequence="50"/>
+
+    <menuitem id="menu_mizan_customers" name="Customers" parent="menu_mizan_master"
+              action="account.res_partner_action_customer" sequence="10"/>
+    <menuitem id="menu_mizan_vendors" name="Vendors" parent="menu_mizan_master"
+              action="account.res_partner_action_supplier" sequence="20"/>
+    <menuitem id="menu_mizan_products" name="Products" parent="menu_mizan_master"
+              action="account.product_product_action_sellable" sequence="30"/>
+    <menuitem id="menu_mizan_currencies" name="Currencies" parent="menu_mizan_master"
+              action="base.action_currency_form" sequence="40"
+              groups="base.group_system"/>
+    <menuitem id="menu_mizan_payment_terms" name="Payment Terms" parent="menu_mizan_master"
+              action="account.action_payment_term_form" sequence="50"/>
+    <menuitem id="menu_mizan_fiscal_positions" name="Fiscal Positions" parent="menu_mizan_master"
+              action="account.action_account_fiscal_position_form" sequence="60"/>
+
+    <!-- The control panel: every menu entry and every module in one place, so a
+         deployment can be tailored per client without hunting through Settings. -->
+    <menuitem id="menu_mizan_control" name="Menu Control" parent="menu_mizan_root" sequence="90"
+              groups="base.group_system"/>
+
+    <record id="action_mizan_menu_control" model="ir.actions.act_window">
+        <field name="name">Show / Hide Menus</field>
+        <field name="res_model">ir.ui.menu</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'active_test': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Turn any application on or off</p>
+            <p>Untick <b>Active</b> to hide a menu, tick it to bring it back.
+               Change <b>Sequence</b> to reorder the apps.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_mizan_menu_editor" name="Show / Hide Menus" parent="menu_mizan_control"
+              action="action_mizan_menu_control" sequence="10"/>
+    <menuitem id="menu_mizan_modules" name="All Modules" parent="menu_mizan_control"
+              action="base.open_module_tree" sequence="20"/>
+    <menuitem id="menu_mizan_users" name="Users" parent="menu_mizan_control"
+              action="base.action_res_users" sequence="30"/>
+    <menuitem id="menu_mizan_companies" name="Companies" parent="menu_mizan_control"
+              action="base.action_res_company_form" sequence="40"/>
 </odoo>
