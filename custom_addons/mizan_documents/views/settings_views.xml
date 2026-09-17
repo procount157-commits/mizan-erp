@@ -17,6 +17,10 @@
                             <field name="mizan_stamp" widget="image"
                                    options="{'size': [180, 180]}" nolabel="1"/>
                         </group>
+                        <group string="Watermark">
+                            <field name="mizan_watermark" widget="image"
+                                   options="{'size': [180, 180]}" nolabel="1"/>
+                        </group>
                         <group string="Signature">
                             <field name="mizan_signature" widget="image"
                                    options="{'size': [220, 110]}" nolabel="1"/>

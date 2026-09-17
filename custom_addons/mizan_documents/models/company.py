@@ -18,6 +18,11 @@ class ResCompany(models.Model):
         help="Printed under the signature, e.g. the general manager.")
     mizan_signatory_title = fields.Char(string="Signatory Title")
 
+    mizan_watermark = fields.Image(
+        string="Document Watermark", max_width=1024, max_height=1024,
+        help="Printed faintly behind every document — a logo or a PAID / "
+             "COPY mark. A transparent PNG works best.")
+
     mizan_show_bank_on_quote = fields.Boolean(
         string="Show Bank Details on Quotations", default=True,
         help="Clients transfer against the quotation as often as the invoice, "
@@ -33,5 +38,6 @@ class ResConfigSettings(models.TransientModel):
         related="company_id.mizan_signatory_name", readonly=False)
     mizan_signatory_title = fields.Char(
         related="company_id.mizan_signatory_title", readonly=False)
+    mizan_watermark = fields.Image(related="company_id.mizan_watermark", readonly=False)
     mizan_show_bank_on_quote = fields.Boolean(
         related="company_id.mizan_show_bank_on_quote", readonly=False)

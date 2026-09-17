@@ -16,6 +16,7 @@ quotations as well as invoices.
     "data": [
         "data/mail_template.xml",
         "views/report_templates.xml",
+        "views/watermark_templates.xml",
         "views/settings_views.xml",
         "views/document_layout_views.xml",
     ],
