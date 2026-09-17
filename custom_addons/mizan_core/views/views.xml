@@ -116,6 +116,10 @@
               action="account.action_move_out_invoice_type" sequence="20"/>
     <menuitem id="menu_mizan_doc_credit" name="Credit Notes" parent="menu_mizan_documents"
               action="account.action_move_out_refund_type" sequence="30"/>
+    <menuitem id="menu_mizan_recurring_customer" name="Recurring Invoices" parent="menu_mizan_documents"
+              action="contract.action_customer_contract" sequence="35"/>
+    <menuitem id="menu_mizan_recurring_supplier" name="Recurring Bills" parent="menu_mizan_documents"
+              action="contract.action_supplier_contract" sequence="37"/>
     <menuitem id="menu_mizan_doc_receipt_voucher" name="Receipt Vouchers" parent="menu_mizan_documents"
               action="account.action_account_payments" sequence="40"/>
     <menuitem id="menu_mizan_doc_payment_voucher" name="Payment Vouchers" parent="menu_mizan_documents"

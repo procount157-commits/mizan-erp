@@ -9,7 +9,7 @@ whichever document is in front of them. This adds a company stamp and authorised
 signature to the printed quotation, invoice and voucher, and prints the IBAN on
 quotations as well as invoices.
 """,
-    "depends": ["account", "sale"],
+    "depends": ["account", "sale", "portal"],
     "installable": True,
     "application": False,
     "license": "LGPL-3",
@@ -19,5 +19,6 @@ quotations as well as invoices.
         "views/watermark_templates.xml",
         "views/settings_views.xml",
         "views/document_layout_views.xml",
+        "views/whatsapp_views.xml",
     ],
 }

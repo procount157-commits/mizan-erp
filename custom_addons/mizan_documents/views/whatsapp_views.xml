@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_move_form_mizan_whatsapp" model="ir.ui.view">
+        <field name="name">account.move.form.mizan.whatsapp</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_send_whatsapp" type="object"
+                        string="WhatsApp" icon="fa-whatsapp"
+                        invisible="state != 'posted' or move_type not in ('out_invoice', 'out_refund')"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_form_mizan_whatsapp" model="ir.ui.view">
+        <field name="name">sale.order.form.mizan.whatsapp</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_send_whatsapp" type="object"
+                        string="WhatsApp" icon="fa-whatsapp"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_payment_form_mizan_whatsapp" model="ir.ui.view">
+        <field name="name">account.payment.form.mizan.whatsapp</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_send_whatsapp" type="object"
+                        string="WhatsApp" icon="fa-whatsapp"
+                        invisible="state != 'paid'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Email and mobile in the contact list: the two things anyone opening a
+         customer or vendor list is usually there to look up. -->
+    <record id="view_partner_list_mizan_contact" model="ir.ui.view">
+        <field name="name">res.partner.list.mizan.contact</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='email']" position="after">
+                <field name="mobile" optional="show"/>
+                <field name="vat" string="TRN" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
