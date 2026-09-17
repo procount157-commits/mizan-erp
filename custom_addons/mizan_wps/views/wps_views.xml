@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mizan_wps_list" model="ir.ui.view">
+        <field name="name">mizan.wps.file.list</field>
+        <field name="model">mizan.wps.file</field>
+        <field name="arch" type="xml">
+            <list decoration-success="state == 'sent'">
+                <field name="name"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="employee_count" sum="Employees"/>
+                <field name="total_salary" sum="Total"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'generated'"
+                       decoration-success="state == 'sent'"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mizan_wps_form" model="ir.ui.view">
+        <field name="name">mizan.wps.file.form</field>
+        <field name="model">mizan.wps.file</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_collect_payslips" type="object"
+                            string="Collect Payslips" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_generate" type="object"
+                            string="Generate SIF File" class="btn-primary"
+                            invisible="state != 'draft' or not line_ids"/>
+                    <button name="action_mark_sent" type="object"
+                            string="Mark as Sent to Bank"
+                            invisible="state != 'generated'"/>
+                    <button name="action_draft" type="object" string="Reset to Draft"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Period">
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="salary_month"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Employer">
+                            <field name="employer_eid" placeholder="13-digit MOL ID"/>
+                            <field name="employer_bank_code"/>
+                            <field name="employee_count"/>
+                            <field name="total_salary"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="status"
+                         invisible="state != 'generated'">
+                        The file is ready. Download it below and upload it to your bank's
+                        WPS portal, then mark it as sent.
+                    </div>
+                    <group string="File" invisible="not sif_file">
+                        <field name="sif_file" filename="sif_filename" readonly="1"/>
+                        <field name="sif_filename" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Employee Records" name="lines">
+                            <field name="line_ids" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="employee_eid"/>
+                                    <field name="iban"/>
+                                    <field name="bank_code"/>
+                                    <field name="basic_salary" sum="Basic"/>
+                                    <field name="net_salary" sum="Net"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mizan_wps" model="ir.actions.act_window">
+        <field name="name">WPS Salary Files</field>
+        <field name="res_model">mizan.wps.file</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create this month's WPS file</p>
+            <p>Set the period and your establishment ID, collect the confirmed
+               payslips, and generate the SIF file your bank expects. Employees
+               missing an Emirates ID or IBAN are reported before the file is
+               built, rather than by the bank after it is rejected.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -14,6 +14,7 @@ quotations as well as invoices.
     "application": False,
     "license": "LGPL-3",
     "data": [
+        "data/mail_template.xml",
         "views/report_templates.xml",
         "views/settings_views.xml",
         "views/document_layout_views.xml",

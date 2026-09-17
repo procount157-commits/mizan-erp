@@ -96,6 +96,8 @@
               action="payroll.hr_payslip_action" sequence="30"/>
     <menuitem id="menu_mizan_payslip_runs" name="Payslip Batches" parent="menu_mizan_payroll"
               action="payroll.hr_payslip_run_action" sequence="40"/>
+    <menuitem id="menu_mizan_wps" name="WPS Salary Files" parent="menu_mizan_payroll"
+              action="mizan_wps.action_mizan_wps" sequence="45"/>
     <menuitem id="menu_mizan_salary_structures" name="Salary Structures" parent="menu_mizan_payroll"
               action="payroll.hr_payroll_structure_action" sequence="50"
               groups="hr.group_hr_manager"/>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mizan_wps_file_user,mizan.wps.file.user,model_mizan_wps_file,hr.group_hr_user,1,1,1,0
+access_mizan_wps_file_manager,mizan.wps.file.manager,model_mizan_wps_file,hr.group_hr_manager,1,1,1,1
+access_mizan_wps_line_user,mizan.wps.line.user,model_mizan_wps_line,hr.group_hr_user,1,1,1,0
+access_mizan_wps_line_manager,mizan.wps.line.manager,model_mizan_wps_line,hr.group_hr_manager,1,1,1,1

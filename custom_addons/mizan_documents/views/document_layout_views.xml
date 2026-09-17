@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- Invoices and bills: template picker beside the other print settings. -->
+    <!-- Invoices and bills. The picker goes in Other Info, next to the reference
+         and salesperson: the payment-terms area it sat in before is wrapped in
+         move_type conditions, so the field was there but almost never rendered. -->
     <record id="view_move_form_mizan_layout" model="ir.ui.view">
         <field name="name">account.move.form.mizan.layout</field>
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_move_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='invoice_payment_term_id']" position="after">
+            <xpath expr="//page[@id='other_tab']//field[@name='ref']" position="after">
                 <field name="mizan_layout_id" options="{'no_create': True}"
                        placeholder="Company default"/>
             </xpath>
@@ -27,7 +29,8 @@
         </field>
     </record>
 
-    <!-- Receipt and payment vouchers. -->
+    <!-- Receipt and payment vouchers: layout picker plus a send button, which
+         invoices have but payments never did. -->
     <record id="view_payment_form_mizan_layout" model="ir.ui.view">
         <field name="name">account.payment.form.mizan.layout</field>
         <field name="model">account.payment</field>
@@ -36,6 +39,11 @@
             <xpath expr="//field[@name='memo']" position="after">
                 <field name="mizan_layout_id" options="{'no_create': True}"
                        placeholder="Company default"/>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="action_send_receipt_email" type="object"
+                        string="Send by Email" icon="fa-envelope"
+                        invisible="state != 'paid'"/>
             </xpath>
         </field>
     </record>
