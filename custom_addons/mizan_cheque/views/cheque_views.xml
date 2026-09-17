@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mizan_cheque_list" model="ir.ui.view">
+        <field name="name">mizan.cheque.list</field>
+        <field name="model">mizan.cheque</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="is_overdue or state == 'bounced'"
+                  decoration-success="state == 'cleared'"
+                  decoration-muted="state == 'cancel'">
+                <field name="name"/>
+                <field name="cheque_type"/>
+                <field name="partner_id"/>
+                <field name="bank_name" optional="show"/>
+                <field name="issue_date" optional="hide"/>
+                <field name="due_date"/>
+                <field name="amount" sum="Total"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'registered'"
+                       decoration-warning="state == 'deposited'"
+                       decoration-success="state == 'cleared'"
+                       decoration-danger="state == 'bounced'"/>
+                <field name="is_overdue" column_invisible="1"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mizan_cheque_form" model="ir.ui.view">
+        <field name="name">mizan.cheque.form</field>
+        <field name="model">mizan.cheque</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_register" type="object" string="Register"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_deposit" type="object" string="Deposit"
+                            class="btn-primary" invisible="state != 'registered'"/>
+                    <button name="action_clear" type="object" string="Cleared"
+                            class="btn-primary"
+                            invisible="state not in ('registered', 'deposited')"/>
+                    <button name="action_bounce" type="object" string="Bounced"
+                            invisible="state not in ('registered', 'deposited')"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            invisible="state not in ('draft',)"/>
+                    <button name="action_draft" type="object" string="Reset to Draft"
+                            invisible="state != 'cancel'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,registered,deposited,cleared"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_moves" type="object"
+                                class="oe_stat_button" icon="fa-book"
+                                invisible="not move_register_id">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Journal</span>
+                                <span class="o_stat_text">Entries</span>
+                            </div>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Overdue" bg_color="text-bg-danger"
+                            invisible="not is_overdue"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Cheque number"/></h1>
+                    </div>
+                    <group>
+                        <group string="Cheque">
+                            <field name="cheque_type" widget="radio"
+                                   options="{'horizontal': true}"
+                                   readonly="state != 'draft'"/>
+                            <field name="partner_id" readonly="state != 'draft'"/>
+                            <field name="bank_name"/>
+                            <field name="amount" readonly="state != 'draft'"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="is_overdue" invisible="1"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="issue_date" readonly="state != 'draft'"/>
+                            <field name="due_date"/>
+                            <field name="settle_date" invisible="not settle_date"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group string="Accounting">
+                        <group>
+                            <field name="journal_id" readonly="state != 'draft'"/>
+                            <field name="cheque_account_id" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="counterpart_account_id" readonly="state != 'draft'"/>
+                            <field name="move_register_id" invisible="not move_register_id"/>
+                            <field name="move_settle_id" invisible="not move_settle_id"/>
+                        </group>
+                    </group>
+                    <field name="note" placeholder="Notes..."/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mizan_cheque_search" model="ir.ui.view">
+        <field name="name">mizan.cheque.search</field>
+        <field name="model">mizan.cheque</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="bank_name"/>
+                <filter name="received" string="Received"
+                        domain="[('cheque_type', '=', 'received')]"/>
+                <filter name="issued" string="Issued"
+                        domain="[('cheque_type', '=', 'issued')]"/>
+                <separator/>
+                <filter name="in_hand" string="In Hand"
+                        domain="[('state', '=', 'registered')]"/>
+                <filter name="deposited" string="Deposited"
+                        domain="[('state', '=', 'deposited')]"/>
+                <filter name="overdue" string="Overdue"
+                        domain="[('is_overdue', '=', True)]"/>
+                <filter name="bounced" string="Bounced"
+                        domain="[('state', '=', 'bounced')]"/>
+                <separator/>
+                <filter name="due_month" string="Due This Month"
+                        domain="[('due_date', '&gt;=', context_today().strftime('%Y-%m-01'))]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_partner" string="Party"
+                            context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_state" string="Status"
+                            context="{'group_by': 'state'}"/>
+                    <filter name="group_due" string="Due Date"
+                            context="{'group_by': 'due_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mizan_cheque_received" model="ir.actions.act_window">
+        <field name="name">Cheques Received</field>
+        <field name="res_model">mizan.cheque</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('cheque_type', '=', 'received')]</field>
+        <field name="context">{'default_cheque_type': 'received'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register a customer cheque</p>
+            <p>A post-dated cheque is neither cash nor an ordinary receivable.
+               Registering it moves the amount into a cheques-under-collection
+               account, and clearing it moves the money to the bank.</p>
+        </field>
+    </record>
+
+    <record id="action_mizan_cheque_issued" model="ir.actions.act_window">
+        <field name="name">Cheques Issued</field>
+        <field name="res_model">mizan.cheque</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('cheque_type', '=', 'issued')]</field>
+        <field name="context">{'default_cheque_type': 'issued'}</field>
+    </record>
+
+</odoo>

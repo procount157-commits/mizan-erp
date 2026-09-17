@@ -1,0 +1,132 @@
+// Cairo reads far better than the stock system stack for Arabic UI text, which
+// is what every screen in this deployment is.
+//
+// The files are served from this module rather than Google Fonts: an `@import
+// url()` lands mid-bundle once Odoo concatenates the assets, where browsers
+// ignore it — and a self-hosted install should not depend on an outside CDN.
+// One variable font covers the whole 400–700 range, split by unicode range.
+@font-face {
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('/mizan_core/static/src/fonts/cairo-arabic.woff2') format('woff2');
+    unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1,
+        U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF,
+        U+FE70-FE74, U+FE76-FEFC;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('/mizan_core/static/src/fonts/cairo-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+        U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('/mizan_core/static/src/fonts/cairo-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+        U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
+        U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+$mizan-font: 'Cairo', -apple-system, 'Segoe UI', Roboto, 'Noto Sans Arabic', sans-serif;
+
+body,
+.o_web_client,
+.o_main_navbar,
+.o_action_manager,
+.modal,
+.o_dialog,
+.dropdown-menu,
+.o_searchview,
+.o_list_table,
+.o_form_view {
+    font-family: $mizan-font;
+}
+
+// Numbers stay in a tabular face so amount columns line up down the page.
+.o_list_number,
+.o_field_monetary,
+.o_field_float,
+.o_field_integer {
+    font-variant-numeric: tabular-nums;
+}
+
+// Menu icons: Odoo renders data-menu-xmlid on every entry, so each section can
+// carry its own FontAwesome glyph without touching the templates. The rules are
+// written out rather than generated: Sass re-escapes a glyph passed as a mixin
+// argument, which silently produces an empty ::before.
+[data-menu-xmlid^="mizan_core.menu_mizan_"]::before {
+    font-family: FontAwesome;
+    font-weight: normal;
+    display: inline-block;
+    width: 1.4em;
+    margin-inline-end: .35em;
+    text-align: center;
+    opacity: .75;
+}
+
+[data-menu-xmlid="mizan_core.menu_mizan_home"]::before { content: "\f015"; }  // home
+[data-menu-xmlid="mizan_core.menu_mizan_items"]::before { content: "\f1b3"; }  // cubes
+[data-menu-xmlid="mizan_core.menu_mizan_banking"]::before { content: "\f19c"; }  // bank
+[data-menu-xmlid="mizan_core.menu_mizan_sales"]::before { content: "\f07a"; }  // cart
+[data-menu-xmlid="mizan_core.menu_mizan_purchases"]::before { content: "\f290"; }  // shopping bag
+[data-menu-xmlid="mizan_core.menu_mizan_contracting"]::before { content: "\f1ad"; }  // building
+[data-menu-xmlid="mizan_core.menu_mizan_accountant"]::before { content: "\f1ec"; }  // calculator
+[data-menu-xmlid="mizan_core.menu_mizan_vat"]::before { content: "\f295"; }  // percent
+[data-menu-xmlid="mizan_core.menu_mizan_reports"]::before { content: "\f080"; }  // bar chart
+[data-menu-xmlid="mizan_core.menu_mizan_settings"]::before { content: "\f013"; }  // cog
+
+// Quick-create systray button. A bare icon disappears among nine other systray
+// entries, so it is given a filled pill and a label — this is the control people
+// reach for dozens of times a day.
+.o_mizan_quick_create {
+    display: flex;
+    align-items: center;
+    margin-inline: .5rem;
+
+    .o_mizan_quick_btn {
+        display: flex;
+        align-items: center;
+        gap: .4rem;
+        padding: .3rem .85rem;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, .18);
+        color: #fff;
+        font-size: .85rem;
+        font-weight: 600;
+        white-space: nowrap;
+
+        .fa {
+            font-size: .95rem;
+        }
+
+        &:hover,
+        &:focus-visible {
+            background: rgba(255, 255, 255, .32);
+        }
+    }
+
+    .dropdown-item {
+        display: flex;
+        align-items: center;
+        padding-block: .45rem;
+
+        .fa {
+            width: 1.5em;
+            text-align: center;
+            margin-inline-end: .55em;
+            opacity: .7;
+        }
+    }
+}

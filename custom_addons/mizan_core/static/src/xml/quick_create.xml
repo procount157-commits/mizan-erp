@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="mizan_core.QuickCreate">
+        <div class="o_mizan_quick_create">
+            <Dropdown menuClass="'o_mizan_quick_menu'">
+                <button class="o_mizan_quick_btn" title="إضافة سريعة">
+                    <i class="fa fa-plus" role="img" aria-label="Quick create"/>
+                    <span>جديد</span>
+                </button>
+                <t t-set-slot="content">
+                    <t t-foreach="entries" t-as="entry" t-key="entry.label">
+                        <DropdownItem onSelected="() => this.onSelect(entry)">
+                            <i t-attf-class="fa {{ entry.icon }}"/>
+                            <t t-esc="entry.label"/>
+                        </DropdownItem>
+                    </t>
+                </t>
+            </Dropdown>
+        </div>
+    </t>
+
+</templates>

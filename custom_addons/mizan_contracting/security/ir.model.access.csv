@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mizan_contract_user,mizan.contract.user,model_mizan_contract,account.group_account_invoice,1,0,0,0
+access_mizan_contract_manager,mizan.contract.manager,model_mizan_contract,account.group_account_manager,1,1,1,1
+access_mizan_recognition_user,mizan.contract.recognition.user,model_mizan_contract_recognition,account.group_account_invoice,1,0,0,0
+access_mizan_recognition_manager,mizan.contract.recognition.manager,model_mizan_contract_recognition,account.group_account_manager,1,1,1,1

@@ -1,56 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Top Level Menu -->
-    <menuitem id="menu_mizan_root" name="Mizan ERP" sequence="1"/>
+    <!-- Navigation modelled on Zoho Books: grouped by business process
+         (Sales, Purchases, Accountant, VAT) instead of by Odoo app, so a
+         restaurant owner finds "record a payment" without knowing which
+         Odoo module owns it. -->
+    <menuitem id="menu_mizan_root" name="ProAccount" sequence="1"/>
 
-    <!-- Daily accounting screens are buried three levels deep inside the
-         Accounting app; surfacing them here is the difference between a client
-         finding the trial balance and calling support about it. -->
-    <menuitem id="menu_mizan_accounting" name="Accounting" parent="menu_mizan_root" sequence="30"
+    <!-- ===== Home ===== -->
+    <menuitem id="menu_mizan_home" name="Home" parent="menu_mizan_root" sequence="10"
+              action="account.open_account_journal_dashboard_kanban"/>
+
+    <!-- ===== Projects ===== -->
+    <menuitem id="menu_mizan_projects_top" name="Projects" parent="menu_mizan_root" sequence="20"
+              action="project.open_view_project_all"/>
+
+    <!-- ===== Banking ===== -->
+    <menuitem id="menu_mizan_banking" name="Banking" parent="menu_mizan_root" sequence="30"/>
+    <menuitem id="menu_mizan_bank_accounts" name="Bank &amp; Cash Accounts" parent="menu_mizan_banking"
+              action="account.action_account_journal_form" sequence="10"/>
+    <menuitem id="menu_mizan_reconcile" name="Reconciliation" parent="menu_mizan_banking"
+              action="account_reconcile_oca.action_bank_statement_line_reconcile" sequence="20"/>
+    <menuitem id="menu_mizan_cheques_received" name="Cheques Received" parent="menu_mizan_banking"
+              action="mizan_cheque.action_mizan_cheque_received" sequence="30"/>
+    <menuitem id="menu_mizan_cheques_issued" name="Cheques Issued" parent="menu_mizan_banking"
+              action="mizan_cheque.action_mizan_cheque_issued" sequence="40"/>
+
+    <!-- ===== Sales ===== -->
+    <menuitem id="menu_mizan_sales" name="Sales" parent="menu_mizan_root" sequence="40"/>
+    <menuitem id="menu_mizan_customers" name="Customers" parent="menu_mizan_sales"
+              action="account.res_partner_action_customer" sequence="10"/>
+    <menuitem id="menu_mizan_quotes" name="Quotes" parent="menu_mizan_sales"
+              action="sale.action_quotations_with_onboarding" sequence="20"/>
+    <menuitem id="menu_mizan_sale_orders" name="Sales Orders" parent="menu_mizan_sales"
+              action="sale.action_orders" sequence="30"/>
+    <menuitem id="menu_mizan_customer_invoices" name="Invoices" parent="menu_mizan_sales"
+              action="account.action_move_out_invoice_type" sequence="40"/>
+    <menuitem id="menu_mizan_payments_received" name="Receipt Vouchers" parent="menu_mizan_sales"
+              action="account.action_account_payments" sequence="50"/>
+    <menuitem id="menu_mizan_credit_notes" name="Credit Notes" parent="menu_mizan_sales"
+              action="account.action_move_out_refund_type" sequence="60"/>
+
+    <!-- ===== Purchases ===== -->
+    <menuitem id="menu_mizan_purchases" name="Purchases" parent="menu_mizan_root" sequence="50"/>
+    <menuitem id="menu_mizan_vendors" name="Vendors" parent="menu_mizan_purchases"
+              action="account.res_partner_action_supplier" sequence="10"/>
+    <menuitem id="menu_mizan_purchase_requests" name="Purchase Requests" parent="menu_mizan_purchases"
+              action="purchase_request.purchase_request_form_action" sequence="20"/>
+    <menuitem id="menu_mizan_purchase_orders" name="Purchase Orders" parent="menu_mizan_purchases"
+              action="purchase.purchase_form_action" sequence="30"/>
+    <menuitem id="menu_mizan_vendor_bills" name="Bills" parent="menu_mizan_purchases"
+              action="account.action_move_in_invoice_type" sequence="40"/>
+    <menuitem id="menu_mizan_payments_made" name="Payment Vouchers" parent="menu_mizan_purchases"
+              action="account.action_account_payments_payable" sequence="50"/>
+    <menuitem id="menu_mizan_expenses" name="Expenses" parent="menu_mizan_purchases"
+              action="hr_expense.action_hr_expense_sheet_all_all" sequence="60"/>
+
+    <!-- ===== Contracting =====
+         Job costing lives in analytic accounting, labour in timesheets, materials
+         in purchase requests and plant in maintenance. Contractors think of all
+         four as one job, so they are gathered under one section here. -->
+    <menuitem id="menu_mizan_contracting" name="Contracting" parent="menu_mizan_root" sequence="55"/>
+    <menuitem id="menu_mizan_contracts" name="Contracts" parent="menu_mizan_contracting"
+              action="mizan_contracting.action_mizan_contract" sequence="5"/>
+    <menuitem id="menu_mizan_revenue_recognition" name="Revenue Recognition" parent="menu_mizan_contracting"
+              action="mizan_contracting.action_mizan_recognition" sequence="7"
               groups="account.group_account_readonly"/>
+    <menuitem id="menu_mizan_projects" name="Projects" parent="menu_mizan_contracting"
+              action="project.open_view_project_all" sequence="10"/>
+    <menuitem id="menu_mizan_project_tasks" name="Work Items" parent="menu_mizan_contracting"
+              action="project.action_view_task" sequence="20"/>
+    <menuitem id="menu_mizan_timesheets" name="Timesheets" parent="menu_mizan_contracting"
+              action="hr_timesheet.timesheet_action_all" sequence="30"/>
+    <menuitem id="menu_mizan_cost_centers" name="Cost Centers" parent="menu_mizan_contracting"
+              action="analytic.action_account_analytic_account_form" sequence="40"
+              groups="analytic.group_analytic_accounting"/>
+    <menuitem id="menu_mizan_project_budgets" name="Budgets" parent="menu_mizan_contracting"
+              action="account_budget_oca.act_crossovered_budget_view" sequence="50"
+              groups="account.group_account_readonly"/>
+    <menuitem id="menu_mizan_equipment" name="Plant &amp; Equipment" parent="menu_mizan_contracting"
+              action="maintenance.hr_equipment_action" sequence="60"/>
+    <menuitem id="menu_mizan_maintenance_requests" name="Maintenance Requests" parent="menu_mizan_contracting"
+              action="maintenance.hr_equipment_request_action" sequence="70"/>
 
-    <menuitem id="menu_mizan_coa" name="Chart of Accounts" parent="menu_mizan_accounting"
+    <!-- ===== Accountant ===== -->
+    <menuitem id="menu_mizan_accountant" name="Accountant" parent="menu_mizan_root" sequence="60"
+              groups="account.group_account_readonly"/>
+    <menuitem id="menu_mizan_coa" name="Chart of Accounts" parent="menu_mizan_accountant"
               action="account.action_account_form" sequence="10"/>
-    <menuitem id="menu_mizan_journals" name="Journals" parent="menu_mizan_accounting"
-              action="account.action_account_journal_form" sequence="20"/>
-    <menuitem id="menu_mizan_taxes" name="Taxes" parent="menu_mizan_accounting"
-              action="account.action_tax_form" sequence="30"/>
+    <menuitem id="menu_mizan_journal_entries" name="Journal Entries" parent="menu_mizan_accountant"
+              action="account.action_move_journal_line" sequence="20"/>
+    <menuitem id="menu_mizan_journal_items" name="Journal Items" parent="menu_mizan_accountant"
+              action="account.action_account_moves_all" sequence="30"/>
+    <menuitem id="menu_mizan_assets" name="Fixed Assets" parent="menu_mizan_accountant"
+              action="account_asset_management.account_asset_action" sequence="40"/>
 
-    <menuitem id="menu_mizan_reports" name="Financial Reports" parent="menu_mizan_root" sequence="40"
+    <!-- ===== VAT ===== -->
+    <menuitem id="menu_mizan_vat" name="VAT" parent="menu_mizan_root" sequence="70"
               groups="account.group_account_readonly"/>
+    <menuitem id="menu_mizan_taxes" name="Tax Setup" parent="menu_mizan_vat"
+              action="account.action_tax_form" sequence="10"/>
+    <menuitem id="menu_mizan_vat_report" name="VAT Return" parent="menu_mizan_vat"
+              action="account_financial_report.action_vat_report_wizard" sequence="20"/>
 
+    <!-- ===== Reports ===== -->
+    <menuitem id="menu_mizan_reports" name="Reports" parent="menu_mizan_root" sequence="80"
+              groups="account.group_account_readonly"/>
     <menuitem id="menu_mizan_trial_balance" name="Trial Balance" parent="menu_mizan_reports"
               action="account_financial_report.action_trial_balance_wizard" sequence="10"/>
     <menuitem id="menu_mizan_general_ledger" name="General Ledger" parent="menu_mizan_reports"
               action="account_financial_report.action_general_ledger_wizard" sequence="20"/>
-    <menuitem id="menu_mizan_vat_report" name="VAT Report" parent="menu_mizan_reports"
-              action="account_financial_report.action_vat_report_wizard" sequence="30"/>
-    <menuitem id="menu_mizan_aged_partner" name="Aged Partner Balance" parent="menu_mizan_reports"
-              action="account_financial_report.action_aged_partner_balance_wizard" sequence="40"/>
+    <menuitem id="menu_mizan_aged_partner" name="Aged Receivables" parent="menu_mizan_reports"
+              action="account_financial_report.action_aged_partner_balance_wizard" sequence="30"/>
     <menuitem id="menu_mizan_open_items" name="Open Items" parent="menu_mizan_reports"
-              action="account_financial_report.action_open_items_wizard" sequence="50"/>
+              action="account_financial_report.action_open_items_wizard" sequence="40"/>
+    <menuitem id="menu_mizan_journal_ledger" name="Journal Ledger" parent="menu_mizan_reports"
+              action="account_financial_report.action_journal_ledger_wizard" sequence="50"/>
 
-    <!-- Master data lives under four different apps in stock Odoo; grouping it
-         here saves hunting for the same six screens every day. -->
-    <menuitem id="menu_mizan_master" name="Master Data" parent="menu_mizan_root" sequence="50"/>
-
-    <menuitem id="menu_mizan_customers" name="Customers" parent="menu_mizan_master"
-              action="account.res_partner_action_customer" sequence="10"/>
-    <menuitem id="menu_mizan_vendors" name="Vendors" parent="menu_mizan_master"
-              action="account.res_partner_action_supplier" sequence="20"/>
-    <menuitem id="menu_mizan_products" name="Products" parent="menu_mizan_master"
-              action="account.product_product_action_sellable" sequence="30"/>
-    <menuitem id="menu_mizan_currencies" name="Currencies" parent="menu_mizan_master"
-              action="base.action_currency_form" sequence="40"
-              groups="base.group_system"/>
-    <menuitem id="menu_mizan_payment_terms" name="Payment Terms" parent="menu_mizan_master"
-              action="account.action_payment_term_form" sequence="50"/>
-    <menuitem id="menu_mizan_fiscal_positions" name="Fiscal Positions" parent="menu_mizan_master"
-              action="account.action_account_fiscal_position_form" sequence="60"/>
-
-    <!-- The control panel: every menu entry and every module in one place, so a
-         deployment can be tailored per client without hunting through Settings. -->
-    <menuitem id="menu_mizan_control" name="Menu Control" parent="menu_mizan_root" sequence="90"
+    <!-- ===== Settings: per-deployment control, admins only ===== -->
+    <menuitem id="menu_mizan_settings" name="Settings" parent="menu_mizan_root" sequence="90"
               groups="base.group_system"/>
 
     <record id="action_mizan_menu_control" model="ir.actions.act_window">
@@ -61,16 +128,24 @@
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Turn any application on or off</p>
             <p>Untick <b>Active</b> to hide a menu, tick it to bring it back.
-               Change <b>Sequence</b> to reorder the apps.</p>
+               Change <b>Sequence</b> to reorder.</p>
         </field>
     </record>
 
-    <menuitem id="menu_mizan_menu_editor" name="Show / Hide Menus" parent="menu_mizan_control"
+    <menuitem id="menu_mizan_menu_editor" name="Show / Hide Menus" parent="menu_mizan_settings"
               action="action_mizan_menu_control" sequence="10"/>
-    <menuitem id="menu_mizan_modules" name="All Modules" parent="menu_mizan_control"
-              action="base.open_module_tree" sequence="20"/>
-    <menuitem id="menu_mizan_users" name="Users" parent="menu_mizan_control"
-              action="base.action_res_users" sequence="30"/>
-    <menuitem id="menu_mizan_companies" name="Companies" parent="menu_mizan_control"
-              action="base.action_res_company_form" sequence="40"/>
+    <menuitem id="menu_mizan_users" name="Users" parent="menu_mizan_settings"
+              action="base.action_res_users" sequence="20"/>
+    <menuitem id="menu_mizan_companies" name="Companies" parent="menu_mizan_settings"
+              action="base.action_res_company_form" sequence="30"/>
+    <menuitem id="menu_mizan_currencies" name="Currencies" parent="menu_mizan_settings"
+              action="base.action_currency_form" sequence="40"/>
+    <menuitem id="menu_mizan_payment_terms" name="Payment Terms" parent="menu_mizan_settings"
+              action="account.action_payment_term_form" sequence="50"/>
+    <menuitem id="menu_mizan_doc_layout" name="Invoice Layout" parent="menu_mizan_settings"
+              action="account.action_base_document_layout_configurator" sequence="55"/>
+    <menuitem id="menu_mizan_report_templates" name="Print Templates" parent="menu_mizan_settings"
+              action="base.ir_action_report" sequence="58"/>
+    <menuitem id="menu_mizan_modules" name="All Modules" parent="menu_mizan_settings"
+              action="base.open_module_tree" sequence="60"/>
 </odoo>

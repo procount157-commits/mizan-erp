@@ -1,0 +1,20 @@
+{
+    "name": "ProAccount Contracting",
+    "version": "1.0",
+    "category": "Accounting/Accounting",
+    "summary": "Percentage-of-completion revenue recognition and retention for contractors",
+    "description": """
+Long-term construction contracts cannot recognise revenue when the invoice is
+raised: IFRS 15 requires it to follow progress. This module measures progress by
+cost incurred against budget, posts the resulting revenue and WIP entries, and
+tracks the retention withheld on each progress claim.
+""",
+    "depends": ["account", "project", "analytic", "sale"],
+    "installable": True,
+    "application": False,
+    "license": "LGPL-3",
+    "data": [
+        "security/ir.model.access.csv",
+        "views/contract_views.xml",
+    ],
+}

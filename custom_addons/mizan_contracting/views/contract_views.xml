@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mizan_contract_list" model="ir.ui.view">
+        <field name="name">mizan.contract.list</field>
+        <field name="model">mizan.contract</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="state == 'cancel'" decoration-success="state == 'done'">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="contract_value" sum="Contract Value"/>
+                <field name="cost_incurred" sum="Cost to Date"/>
+                <field name="completion_percent" widget="percentage" optional="show"/>
+                <field name="revenue_recognised" sum="Recognised" optional="show"/>
+                <field name="revenue_to_recognise" sum="To Recognise"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'running'"
+                       decoration-success="state == 'done'"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mizan_contract_form" model="ir.ui.view">
+        <field name="name">mizan.contract.form</field>
+        <field name="model">mizan.contract</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start" type="object" string="Start"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_create_recognition" type="object"
+                            string="Recognise Revenue" class="btn-primary"
+                            invisible="state != 'running'"/>
+                    <button name="action_done" type="object" string="Mark Completed"
+                            invisible="state != 'running'"/>
+                    <button name="action_draft" type="object" string="Reset to Draft"
+                            invisible="state in ('draft', 'running')"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            invisible="state in ('cancel', 'done')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,running,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_recognitions" type="object"
+                                class="oe_stat_button" icon="fa-list">
+                            <field name="recognition_count" widget="statinfo"
+                                   string="Recognitions"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Contract name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Contract">
+                            <field name="code"/>
+                            <field name="partner_id"/>
+                            <field name="project_id"/>
+                            <field name="analytic_account_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="retention_percent"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Values">
+                            <field name="contract_value"/>
+                            <field name="budget_cost"/>
+                        </group>
+                        <group string="Progress">
+                            <field name="cost_incurred"/>
+                            <field name="completion_percent" widget="percentage"/>
+                            <field name="revenue_earned"/>
+                            <field name="revenue_recognised"/>
+                            <field name="revenue_to_recognise"
+                                   class="fw-bolder text-primary"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Revenue Recognitions" name="recognitions">
+                            <field name="recognition_ids" readonly="1">
+                                <list>
+                                    <field name="date"/>
+                                    <field name="completion_percent" widget="percentage"/>
+                                    <field name="amount" sum="Recognised"/>
+                                    <field name="retention_amount" sum="Retention"/>
+                                    <field name="net_amount" sum="Net"/>
+                                    <field name="state" widget="badge"
+                                           decoration-success="state == 'posted'"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mizan_recognition_list" model="ir.ui.view">
+        <field name="name">mizan.contract.recognition.list</field>
+        <field name="model">mizan.contract.recognition</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="date"/>
+                <field name="contract_id"/>
+                <field name="completion_percent" widget="percentage"/>
+                <field name="amount" sum="Recognised"/>
+                <field name="retention_amount" sum="Retention"/>
+                <field name="net_amount" sum="Net"/>
+                <field name="state" widget="badge" decoration-success="state == 'posted'"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mizan_recognition_form" model="ir.ui.view">
+        <field name="name">mizan.contract.recognition.form</field>
+        <field name="model">mizan.contract.recognition</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_post" type="object" string="Post Entry"
+                            class="btn-primary" invisible="state == 'posted'"/>
+                    <button name="action_view_move" type="object" string="Journal Entry"
+                            invisible="state != 'posted'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Recognition">
+                            <field name="contract_id" readonly="state == 'posted'"/>
+                            <field name="date" readonly="state == 'posted'"/>
+                            <field name="amount" readonly="state == 'posted'"/>
+                            <field name="completion_percent" widget="percentage"/>
+                            <field name="cost_incurred"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Accounts">
+                            <field name="journal_id" readonly="state == 'posted'"/>
+                            <field name="revenue_account_id" readonly="state == 'posted'"/>
+                            <field name="wip_account_id" readonly="state == 'posted'"/>
+                        </group>
+                    </group>
+                    <group string="Retention">
+                        <field name="retention_amount"/>
+                        <field name="net_amount"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mizan_contract" model="ir.actions.act_window">
+        <field name="name">Contracts</field>
+        <field name="res_model">mizan.contract</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register your first contract</p>
+            <p>Revenue is recognised from progress on site, not from the invoice
+               date: enter the contract value and the budgeted cost, book job costs
+               against the cost center, and the system works out what revenue you
+               have earned.</p>
+        </field>
+    </record>
+
+    <record id="action_mizan_recognition" model="ir.actions.act_window">
+        <field name="name">Revenue Recognitions</field>
+        <field name="res_model">mizan.contract.recognition</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>
