@@ -55,6 +55,8 @@
               inherit_id="sale.report_saleorder_document">
         <xpath expr="//div[@id='total']" position="after">
             <t t-set="company" t-value="doc.company_id"/>
+            <t t-call="mizan_documents.mizan_watermark_style"/>
+            <t t-call="mizan_documents.mizan_watermark_block"/>
             <t t-if="company.mizan_show_bank_on_quote">
                 <t t-call="mizan_documents.mizan_bank_block"/>
             </t>
@@ -62,11 +64,28 @@
         </xpath>
     </template>
 
-    <!-- Customer invoice and vendor bill. -->
+    <!-- Customer invoice and vendor bill.
+         Two templates are needed: l10n_gcc_invoice swaps the standard invoice
+         for a bilingual Arabic/English one whenever the company sits in a GCC
+         country, so inheriting only the standard template silently does
+         nothing here. -->
+    <template id="report_invoice_gcc_mizan"
+              inherit_id="l10n_gcc_invoice.arabic_english_invoice">
+        <xpath expr="//div[@id='total']" position="after">
+            <t t-set="company" t-value="o.company_id"/>
+            <t t-call="mizan_documents.mizan_watermark_style"/>
+            <t t-call="mizan_documents.mizan_watermark_block"/>
+            <t t-call="mizan_documents.mizan_bank_block"/>
+            <t t-call="mizan_documents.mizan_signature_block"/>
+        </xpath>
+    </template>
+
     <template id="report_invoice_mizan"
               inherit_id="account.report_invoice_document">
         <xpath expr="//div[@id='total']" position="after">
             <t t-set="company" t-value="o.company_id"/>
+            <t t-call="mizan_documents.mizan_watermark_style"/>
+            <t t-call="mizan_documents.mizan_watermark_block"/>
             <t t-call="mizan_documents.mizan_bank_block"/>
             <t t-call="mizan_documents.mizan_signature_block"/>
         </xpath>
@@ -77,6 +96,8 @@
               inherit_id="account.report_payment_receipt_document">
         <xpath expr="//table[last()]" position="after">
             <t t-set="company" t-value="o.company_id"/>
+            <t t-call="mizan_documents.mizan_watermark_style"/>
+            <t t-call="mizan_documents.mizan_watermark_block"/>
             <t t-call="mizan_documents.mizan_signature_block"/>
         </xpath>
     </template>

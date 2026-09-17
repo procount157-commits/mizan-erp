@@ -1,47 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- web.external_layout wraps every printed document, so hooking the
-         watermark here puts it on invoices, quotations, vouchers and any report
-         added later without touching each template. -->
-    <template id="mizan_watermark_layout" inherit_id="web.external_layout">
-        <xpath expr="." position="inside">
-            <t t-if="company.mizan_watermark">
-                <div class="mizan-watermark">
-                    <img t-att-src="image_data_uri(company.mizan_watermark)" alt=""/>
-                </div>
-            </t>
-        </xpath>
+    <!-- The watermark block, called by each document template.
+         An earlier version hooked into web.external_layout so it would cover
+         every report at once. That also put it in the Document Design preview,
+         which renders the same layout with a base.document.layout wizard in
+         place of the company — and the screen died before it could draw. Each
+         document calling the block explicitly costs three lines and keeps the
+         preview working. -->
+    <template id="mizan_watermark_block">
+        <t t-if="company.mizan_watermark">
+            <div class="mizan-watermark">
+                <img t-att-src="image_data_uri(company.mizan_watermark)" alt=""/>
+            </div>
+        </t>
     </template>
 
-    <!-- The styles live in their own assets template so wkhtmltopdf receives
-         them with the page rather than as a separate stylesheet request. -->
-    <template id="mizan_watermark_style" inherit_id="web.report_layout">
-        <xpath expr="//head" position="inside">
-            <style>
-                /* position: fixed repeats the mark on every page under
-                   wkhtmltopdf, which is what a watermark has to do. */
-                .mizan-watermark {
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%) rotate(-30deg);
-                    z-index: 0;
-                    pointer-events: none;
-                }
-                .mizan-watermark img {
-                    max-width: 380px;
-                    max-height: 380px;
-                    opacity: 0.08;
-                }
-                /* Keep the document text above the mark, otherwise the figures
-                   sit behind it and the PDF is unreadable. */
-                .article, .header, .footer, .page {
-                    position: relative;
-                    z-index: 1;
-                }
-            </style>
-        </xpath>
+    <template id="mizan_watermark_style">
+        <style>
+            /* position: fixed is what repeats the mark on every page under
+               wkhtmltopdf; anything else prints it once. */
+            .mizan-watermark {
+                position: fixed;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(-30deg);
+                z-index: 0;
+                pointer-events: none;
+            }
+            .mizan-watermark img {
+                max-width: 380px;
+                max-height: 380px;
+                opacity: 0.08;
+            }
+            /* Keep the figures above the mark, or the PDF is unreadable. */
+            .page, .article, table {
+                position: relative;
+                z-index: 1;
+            }
+        </style>
     </template>
 
 </odoo>
