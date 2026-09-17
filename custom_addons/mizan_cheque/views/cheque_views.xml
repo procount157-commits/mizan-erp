@@ -11,7 +11,7 @@
                 <field name="name"/>
                 <field name="cheque_type"/>
                 <field name="partner_id"/>
-                <field name="bank_name" optional="show"/>
+                <field name="bank_id" optional="show"/>
                 <field name="issue_date" optional="hide"/>
                 <field name="due_date"/>
                 <field name="amount" sum="Total"/>
@@ -71,7 +71,7 @@
                                    options="{'horizontal': true}"
                                    readonly="state != 'draft'"/>
                             <field name="partner_id" readonly="state != 'draft'"/>
-                            <field name="bank_name"/>
+                            <field name="bank_id" options="{'no_create': True}"/>
                             <field name="amount" readonly="state != 'draft'"/>
                             <field name="currency_id" invisible="1"/>
                             <field name="is_overdue" invisible="1"/>
@@ -108,7 +108,7 @@
             <search>
                 <field name="name"/>
                 <field name="partner_id"/>
-                <field name="bank_name"/>
+                <field name="bank_id" options="{'no_create': True}"/>
                 <filter name="received" string="Received"
                         domain="[('cheque_type', '=', 'received')]"/>
                 <filter name="issued" string="Issued"

@@ -82,6 +82,55 @@
     <menuitem id="menu_mizan_maintenance_requests" name="Maintenance Requests" parent="menu_mizan_contracting"
               action="maintenance.hr_equipment_request_action" sequence="70"/>
 
+    <!-- ===== Payroll =====
+         A contractor's largest recurring cost is wages, and UAE gratuity accrues
+         on the basic wage alone — so payroll sits beside the ledger, not buried
+         in an HR app. -->
+    <menuitem id="menu_mizan_payroll" name="Payroll" parent="menu_mizan_root" sequence="57"
+              groups="hr.group_hr_user"/>
+    <menuitem id="menu_mizan_employees" name="Employees" parent="menu_mizan_payroll"
+              action="hr.open_view_employee_list_my" sequence="10"/>
+    <menuitem id="menu_mizan_contracts_hr" name="Employment Contracts" parent="menu_mizan_payroll"
+              action="hr_contract.action_hr_contract" sequence="20"/>
+    <menuitem id="menu_mizan_payslips" name="Payslips" parent="menu_mizan_payroll"
+              action="payroll.hr_payslip_action" sequence="30"/>
+    <menuitem id="menu_mizan_payslip_runs" name="Payslip Batches" parent="menu_mizan_payroll"
+              action="payroll.hr_payslip_run_action" sequence="40"/>
+    <menuitem id="menu_mizan_salary_structures" name="Salary Structures" parent="menu_mizan_payroll"
+              action="payroll.hr_payroll_structure_action" sequence="50"
+              groups="hr.group_hr_manager"/>
+    <menuitem id="menu_mizan_salary_rules" name="Salary Rules" parent="menu_mizan_payroll"
+              action="payroll.action_salary_rule_form" sequence="60"
+              groups="hr.group_hr_manager"/>
+
+    <!-- ===== Documents =====
+         Every printable document a UAE contractor issues, in one place, because
+         staff look for "the quotation" by document name and not by the app that
+         happens to produce it. -->
+    <menuitem id="menu_mizan_documents" name="Documents" parent="menu_mizan_root" sequence="58"/>
+    <menuitem id="menu_mizan_doc_quotes" name="Quotations" parent="menu_mizan_documents"
+              action="sale.action_quotations_with_onboarding" sequence="10"/>
+    <menuitem id="menu_mizan_doc_invoices" name="Tax Invoices" parent="menu_mizan_documents"
+              action="account.action_move_out_invoice_type" sequence="20"/>
+    <menuitem id="menu_mizan_doc_credit" name="Credit Notes" parent="menu_mizan_documents"
+              action="account.action_move_out_refund_type" sequence="30"/>
+    <menuitem id="menu_mizan_doc_receipt_voucher" name="Receipt Vouchers" parent="menu_mizan_documents"
+              action="account.action_account_payments" sequence="40"/>
+    <menuitem id="menu_mizan_doc_payment_voucher" name="Payment Vouchers" parent="menu_mizan_documents"
+              action="account.action_account_payments_payable" sequence="50"/>
+    <menuitem id="menu_mizan_doc_journal_voucher" name="Journal Vouchers" parent="menu_mizan_documents"
+              action="account.action_move_journal_line" sequence="60"
+              groups="account.group_account_readonly"/>
+    <menuitem id="menu_mizan_doc_stamp" name="Stamp &amp; Signature" parent="menu_mizan_documents"
+              action="mizan_documents.action_mizan_company_documents" sequence="85"
+              groups="base.group_system"/>
+    <menuitem id="menu_mizan_doc_bank" name="Company Bank Accounts" parent="menu_mizan_documents"
+              action="mizan_documents.action_mizan_bank_accounts" sequence="87"
+              groups="account.group_account_manager"/>
+    <menuitem id="menu_mizan_doc_layout_quick" name="Document Design" parent="menu_mizan_documents"
+              action="account.action_base_document_layout_configurator" sequence="90"
+              groups="base.group_system"/>
+
     <!-- ===== Accountant ===== -->
     <menuitem id="menu_mizan_accountant" name="Accountant" parent="menu_mizan_root" sequence="60"
               groups="account.group_account_readonly"/>
@@ -142,10 +191,8 @@
               action="base.action_currency_form" sequence="40"/>
     <menuitem id="menu_mizan_payment_terms" name="Payment Terms" parent="menu_mizan_settings"
               action="account.action_payment_term_form" sequence="50"/>
-    <menuitem id="menu_mizan_doc_layout" name="Invoice Layout" parent="menu_mizan_settings"
+    <menuitem id="menu_mizan_doc_layout" name="Invoice Design" parent="menu_mizan_settings"
               action="account.action_base_document_layout_configurator" sequence="55"/>
-    <menuitem id="menu_mizan_report_templates" name="Print Templates" parent="menu_mizan_settings"
-              action="base.ir_action_report" sequence="58"/>
     <menuitem id="menu_mizan_modules" name="All Modules" parent="menu_mizan_settings"
               action="base.open_module_tree" sequence="60"/>
 </odoo>

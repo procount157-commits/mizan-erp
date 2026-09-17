@@ -27,7 +27,11 @@ class MizanCheque(models.Model):
 
     partner_id = fields.Many2one(
         "res.partner", string="Drawer / Beneficiary", required=True, tracking=True)
-    bank_name = fields.Char(string="Drawee Bank", tracking=True)
+    bank_id = fields.Many2one(
+        "res.bank", string="Drawee Bank", tracking=True,
+        help="l10n_ae loads the 174 UAE banks and exchange houses, so this is a "
+             "pick list rather than free text — which keeps cheque reports "
+             "groupable by bank.")
 
     company_id = fields.Many2one(
         "res.company", required=True, default=lambda self: self.env.company)

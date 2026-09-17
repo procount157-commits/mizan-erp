@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Invoices and bills: template picker beside the other print settings. -->
+    <record id="view_move_form_mizan_layout" model="ir.ui.view">
+        <field name="name">account.move.form.mizan.layout</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_payment_term_id']" position="after">
+                <field name="mizan_layout_id" options="{'no_create': True}"
+                       placeholder="Company default"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Quotations and sales orders. -->
+    <record id="view_order_form_mizan_layout" model="ir.ui.view">
+        <field name="name">sale.order.form.mizan.layout</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="mizan_layout_id" options="{'no_create': True}"
+                       placeholder="Company default"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Receipt and payment vouchers. -->
+    <record id="view_payment_form_mizan_layout" model="ir.ui.view">
+        <field name="name">account.payment.form.mizan.layout</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='memo']" position="after">
+                <field name="mizan_layout_id" options="{'no_create': True}"
+                       placeholder="Company default"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

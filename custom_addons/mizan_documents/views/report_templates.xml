@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Reusable stamp + signature block, so every document type renders it
+         identically instead of each report growing its own copy. -->
+    <template id="mizan_signature_block">
+        <div class="row mt-4" t-if="company.mizan_stamp or company.mizan_signature">
+            <div class="col-5 offset-7 text-center">
+                <div style="border-top: 1px solid #999; padding-top: 6px;">
+                    <img t-if="company.mizan_signature"
+                         t-att-src="image_data_uri(company.mizan_signature)"
+                         style="max-height: 60px; max-width: 100%;" alt="Signature"/>
+                    <div t-if="company.mizan_signatory_name" class="mt-1">
+                        <strong t-out="company.mizan_signatory_name"/>
+                    </div>
+                    <div t-if="company.mizan_signatory_title"
+                         style="font-size: 11px; color: #666;"
+                         t-out="company.mizan_signatory_title"/>
+                </div>
+            </div>
+            <div t-if="company.mizan_stamp"
+                 style="position: absolute; left: 30px; bottom: 40px; opacity: .85;">
+                <img t-att-src="image_data_uri(company.mizan_stamp)"
+                     style="max-height: 110px;" alt="Stamp"/>
+            </div>
+        </div>
+    </template>
+
+    <!-- Bank details block: a UAE client pays by transfer, so the IBAN has to be
+         on the page they are looking at. -->
+    <template id="mizan_bank_block">
+        <div class="mt-3" t-if="company.partner_id.bank_ids">
+            <div style="border: 1px solid #ddd; border-radius: 4px; padding: 8px 12px;
+                        font-size: 11px; background: #fafafa;">
+                <strong>تفاصيل التحويل البنكي / Bank Transfer Details</strong>
+                <table class="table table-sm mb-0" style="font-size: 11px;">
+                    <tr t-foreach="company.partner_id.bank_ids" t-as="acc">
+                        <td style="border: 0; padding: 2px 0;">
+                            <span t-out="acc.bank_id.name"/>
+                        </td>
+                        <td style="border: 0; padding: 2px 0;" dir="ltr">
+                            <strong>IBAN</strong> <span t-out="acc.acc_number"/>
+                        </td>
+                        <td t-if="acc.bank_id.bic" style="border: 0; padding: 2px 0;" dir="ltr">
+                            <strong>SWIFT</strong> <span t-out="acc.bank_id.bic"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </template>
+
+    <!-- Quotation: bank details then the signature block. -->
+    <template id="report_saleorder_mizan"
+              inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@id='total']" position="after">
+            <t t-set="company" t-value="doc.company_id"/>
+            <t t-if="company.mizan_show_bank_on_quote">
+                <t t-call="mizan_documents.mizan_bank_block"/>
+            </t>
+            <t t-call="mizan_documents.mizan_signature_block"/>
+        </xpath>
+    </template>
+
+    <!-- Customer invoice and vendor bill. -->
+    <template id="report_invoice_mizan"
+              inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='total']" position="after">
+            <t t-set="company" t-value="o.company_id"/>
+            <t t-call="mizan_documents.mizan_bank_block"/>
+            <t t-call="mizan_documents.mizan_signature_block"/>
+        </xpath>
+    </template>
+
+    <!-- Receipt and payment vouchers. -->
+    <template id="report_payment_receipt_mizan"
+              inherit_id="account.report_payment_receipt_document">
+        <xpath expr="//table[last()]" position="after">
+            <t t-set="company" t-value="o.company_id"/>
+            <t t-call="mizan_documents.mizan_signature_block"/>
+        </xpath>
+    </template>
+
+</odoo>
