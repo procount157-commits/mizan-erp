@@ -9,7 +9,7 @@ raised: IFRS 15 requires it to follow progress. This module measures progress by
 cost incurred against budget, posts the resulting revenue and WIP entries, and
 tracks the retention withheld on each progress claim.
 """,
-    "depends": ["account", "project", "analytic", "sale"],
+    "depends": ["account", "project", "analytic", "sale", "payroll"],
     "installable": True,
     "application": False,
     "license": "LGPL-3",

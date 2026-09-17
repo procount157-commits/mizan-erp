@@ -75,12 +75,27 @@ class MizanCheque(models.Model):
     move_settle_id = fields.Many2one(
         "account.move", string="Settlement Entry", readonly=True, copy=False)
 
+    invoice_ids = fields.Many2many(
+        "account.move", string="Settles Invoices",
+        domain="[('move_type', 'in', ('out_invoice', 'in_invoice')), "
+               "('state', '=', 'posted'), ('partner_id', '=', partner_id)]",
+        help="The invoices this cheque pays. Recording them means the customer "
+             "statement shows the debt as covered by a cheque in hand rather "
+             "than still outstanding.")
+    invoice_total = fields.Monetary(
+        string="Invoiced Total", compute="_compute_invoice_total")
+
     note = fields.Text()
 
     _sql_constraints = [
         ("name_partner_uniq", "unique(name, partner_id, company_id)",
          "This cheque number is already registered for that party."),
     ]
+
+    @api.depends("invoice_ids.amount_total")
+    def _compute_invoice_total(self):
+        for cheque in self:
+            cheque.invoice_total = sum(cheque.invoice_ids.mapped("amount_total"))
 
     @api.depends("due_date", "state")
     def _compute_is_overdue(self):
