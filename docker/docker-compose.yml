@@ -20,13 +20,49 @@ services:
     depends_on:
       - db
     # DB credentials are injected at runtime so they are never stored in odoo.conf.
+    #
+    # --db-filter decides which database this address serves. It has to resolve
+    # to exactly ONE database, or Odoo asks the visitor to choose and the
+    # database manager is disabled, so they get an error instead of a login.
+    # It is also what makes mobile work: the phone app and the installable web
+    # app both need the address to name one database by itself.
+    #   production: ^%d$$  — the subdomain, so alamana.proaccount.ae -> alamana
+    #   on a LAN IP there is no subdomain, so pin the one client instead.
     command: >
       odoo
       --config=/etc/odoo/odoo.conf
       --db_user ${POSTGRES_USER:-odoo}
       --db_password ${POSTGRES_PASSWORD}
+      --db-filter=${CLIENT_DB_FILTER:-^%d$$}
     ports:
       - "8069:8069"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-odoo}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ../custom_addons:/mnt/custom_addons
+      - mizan_oca:/mnt/oca_addons:ro
+      - odoo_filestore:/var/lib/odoo
+      - ./odoo.conf:/etc/odoo/odoo.conf
+
+  # The operations console runs on its own port, away from the address clients
+  # and their phones use. Keeping the control plane off the client-facing port
+  # is worth a second process on its own: whoever reaches a client's system
+  # should have no route to the screen that can suspend every other client.
+  odoo-ops:
+    build: .
+    container_name: mizan-odoo-ops
+    restart: unless-stopped
+    depends_on:
+      - db
+    command: >
+      odoo
+      --config=/etc/odoo/odoo.conf
+      --db_user ${POSTGRES_USER:-odoo}
+      --db_password ${POSTGRES_PASSWORD}
+      --db-filter=^${OPS_DB:-mizan_ops}$$
+    ports:
+      - "8070:8069"
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-odoo}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}

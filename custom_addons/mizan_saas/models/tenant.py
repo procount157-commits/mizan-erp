@@ -259,13 +259,20 @@ class MizanTenant(models.Model):
 
     # --------------------------------------------------------------- actions
     def action_open_tenant(self):
-        """Open the client's own system in a new tab."""
+        """Open the client's own system in a new tab.
+
+        With no URL of their own, go straight to this host naming the client's
+        database. The database selector is not an option: it is disabled on
+        purpose so the internet cannot reach the database manager, so falling
+        back to it produced "the database manager has been disabled" instead of
+        the client's system.
+        """
         self.ensure_one()
         if self.url:
             url = self.url
         else:
             base = self.env["ir.config_parameter"].sudo().get_param("web.base.url")
-            url = "%s/web/database/selector" % base
+            url = "%s/web/login?db=%s" % (base.rstrip("/"), self.database)
         return {"type": "ir.actions.act_url", "url": url, "target": "new"}
 
     def action_go_live(self):
