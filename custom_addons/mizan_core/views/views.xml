@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+    <data noupdate="1">
+        <!-- Platform administration: installing modules, creating companies and
+             managing user accounts. These belong to whoever runs the service,
+             not to the client renting it. A client who installs a module breaks
+             their own database and the next upgrade for everyone; a client who
+             adds companies changes what they are being billed for.
+
+             Deliberately granted to nobody here. Provisioning gives it to the
+             support login only, so a fresh client database has no account that
+             can reach any of it. -->
+        <record id="group_platform_admin" model="res.groups">
+            <field name="name">Platform Administration</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+            <field name="comment">Install modules, manage companies and user
+                accounts. Held by the service operator, never by the client.</field>
+        </record>
+    </data>
+
     <!-- Navigation modelled on Zoho Books: grouped by business process
          (Sales, Purchases, Accountant, VAT) instead of by Odoo app, so a
          restaurant owner finds "record a payment" without knowing which
@@ -47,8 +66,26 @@
     <menuitem id="menu_mizan_credit_notes" name="Credit Notes" parent="menu_mizan_sales"
               action="account.action_move_out_refund_type" sequence="60"/>
 
+    <!-- ===== Petty Cash =====
+         Its own section rather than a line inside Purchases. Everyone who
+         spends company money claims it back here, and a site engineer should
+         not have to walk past vendors, purchase orders and supplier bills to
+         file a fuel receipt. -->
+    <menuitem id="menu_mizan_petty" name="Petty Cash" parent="menu_mizan_root" sequence="45"/>
+    <menuitem id="menu_mizan_petty_my" name="My Claims" parent="menu_mizan_petty"
+              action="hr_expense.hr_expense_actions_my_all" sequence="10"/>
+    <menuitem id="menu_mizan_petty_reports" name="Expense Reports" parent="menu_mizan_petty"
+              action="hr_expense.action_hr_expense_sheet_my_all" sequence="20"/>
+    <menuitem id="menu_mizan_petty_approve" name="To Approve" parent="menu_mizan_petty"
+              action="hr_expense.action_hr_expense_sheet_department_to_approve" sequence="30"
+              groups="hr_expense.group_hr_expense_team_approver,hr_expense.group_hr_expense_user,hr_expense.group_hr_expense_manager"/>
+    <menuitem id="menu_mizan_petty_all" name="All Claims" parent="menu_mizan_petty"
+              action="hr_expense.action_hr_expense_sheet_all_all" sequence="40"
+              groups="hr_expense.group_hr_expense_user,hr_expense.group_hr_expense_manager,account.group_account_invoice"/>
+
     <!-- ===== Purchases ===== -->
-    <menuitem id="menu_mizan_purchases" name="Purchases" parent="menu_mizan_root" sequence="50"/>
+    <menuitem id="menu_mizan_purchases" name="Purchases" parent="menu_mizan_root" sequence="50"
+              groups="purchase.group_purchase_user,purchase_request.group_purchase_request_user,account.group_account_invoice"/>
     <menuitem id="menu_mizan_vendors" name="Vendors" parent="menu_mizan_purchases"
               action="account.res_partner_action_supplier" sequence="10"
               groups="purchase.group_purchase_user,account.group_account_invoice"/>
@@ -70,7 +107,8 @@
          Job costing lives in analytic accounting, labour in timesheets, materials
          in purchase requests and plant in maintenance. Contractors think of all
          four as one job, so they are gathered under one section here. -->
-    <menuitem id="menu_mizan_contracting" name="Contracting" parent="menu_mizan_root" sequence="55"/>
+    <menuitem id="menu_mizan_contracting" name="Contracting" parent="menu_mizan_root" sequence="55"
+              groups="account.group_account_readonly,project.group_project_manager"/>
     <menuitem id="menu_mizan_contracts" name="Contracts" parent="menu_mizan_contracting"
               action="mizan_contracting.action_mizan_contract" sequence="5"/>
     <menuitem id="menu_mizan_revenue_recognition" name="Revenue Recognition" parent="menu_mizan_contracting"
@@ -141,13 +179,13 @@
               groups="account.group_account_readonly"/>
     <menuitem id="menu_mizan_doc_stamp" name="Stamp &amp; Signature" parent="menu_mizan_documents"
               action="mizan_documents.action_mizan_company_documents" sequence="85"
-              groups="base.group_system"/>
+              groups="account.group_account_manager"/>
     <menuitem id="menu_mizan_doc_bank" name="Company Bank Accounts" parent="menu_mizan_documents"
               action="mizan_documents.action_mizan_bank_accounts" sequence="87"
               groups="account.group_account_manager"/>
     <menuitem id="menu_mizan_doc_layout_quick" name="Document Design" parent="menu_mizan_documents"
               action="account.action_base_document_layout_configurator" sequence="90"
-              groups="base.group_system"/>
+              groups="account.group_account_manager"/>
 
     <!-- ===== Accountant ===== -->
     <menuitem id="menu_mizan_accountant" name="Accountant" parent="menu_mizan_root" sequence="60"
@@ -197,7 +235,7 @@
 
     <!-- ===== Settings: per-deployment control, admins only ===== -->
     <menuitem id="menu_mizan_settings" name="Settings" parent="menu_mizan_root" sequence="90"
-              groups="base.group_system"/>
+              groups="account.group_account_manager"/>
 
     <record id="action_mizan_menu_control" model="ir.actions.act_window">
         <field name="name">Show / Hide Menus</field>
@@ -212,17 +250,38 @@
     </record>
 
     <menuitem id="menu_mizan_menu_editor" name="Show / Hide Menus" parent="menu_mizan_settings"
-              action="action_mizan_menu_control" sequence="10"/>
+              action="action_mizan_menu_control" sequence="10"
+              groups="mizan_core.group_platform_admin"/>
     <menuitem id="menu_mizan_users" name="Users" parent="menu_mizan_settings"
-              action="base.action_res_users" sequence="20"/>
+              action="base.action_res_users" sequence="20"
+              groups="mizan_core.group_platform_admin"/>
     <menuitem id="menu_mizan_companies" name="Companies" parent="menu_mizan_settings"
-              action="base.action_res_company_form" sequence="30"/>
+              action="base.action_res_company_form" sequence="30"
+              groups="mizan_core.group_platform_admin"/>
     <menuitem id="menu_mizan_currencies" name="Currencies" parent="menu_mizan_settings"
               action="base.action_currency_form" sequence="40"/>
     <menuitem id="menu_mizan_payment_terms" name="Payment Terms" parent="menu_mizan_settings"
               action="account.action_payment_term_form" sequence="50"/>
     <menuitem id="menu_mizan_doc_layout" name="Invoice Design" parent="menu_mizan_settings"
-              action="account.action_base_document_layout_configurator" sequence="55"/>
+              action="account.action_base_document_layout_configurator" sequence="55"
+              groups="account.group_account_manager"/>
     <menuitem id="menu_mizan_modules" name="All Modules" parent="menu_mizan_settings"
-              action="base.open_module_tree" sequence="60"/>
+              action="base.open_module_tree" sequence="60"
+              groups="mizan_core.group_platform_admin"/>
+
+    <!-- Odoo's own routes to the same screens. Hiding ours and leaving the
+         native Settings > Apps in place would move the door, not close it. -->
+    <record id="base.menu_management" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('mizan_core.group_platform_admin')])]"/>
+    </record>
+    <record id="base.menu_users" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('mizan_core.group_platform_admin')])]"/>
+    </record>
+    <record id="base.menu_action_res_users" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('mizan_core.group_platform_admin')])]"/>
+    </record>
+    <record id="base.menu_action_res_company_form" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('mizan_core.group_platform_admin')])]"/>
+    </record>
+
 </odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_document_layout_finance,base.document.layout.finance,web.model_base_document_layout,account.group_account_manager,1,1,1,1
+access_report_layout_finance,report.layout.finance,base.model_report_layout,account.group_account_manager,1,0,0,0
+access_res_company_finance,res.company.finance,base.model_res_company,account.group_account_manager,1,1,0,0
+access_ir_ui_view_finance,ir.ui.view.finance,base.model_ir_ui_view,account.group_account_manager,1,0,0,0

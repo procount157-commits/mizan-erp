@@ -235,6 +235,13 @@ class MizanTenantProvision(models.TransientModel):
                     "password": password,
                     "name": self.name,
                 })
+                # The client's administrator runs their company, not the
+                # platform. Leaving system rights here would let them install
+                # modules into a database we have to upgrade and support.
+                for xmlid in ("base.group_system", "mizan_core.group_platform_admin"):
+                    group = env.ref(xmlid, raise_if_not_found=False)
+                    if group:
+                        admin.write({"groups_id": [(3, group.id)]})
                 admin.partner_id.write({"email": self.admin_login})
 
             # A support login of our own, so suspending this client later does
@@ -244,11 +251,20 @@ class MizanTenantProvision(models.TransientModel):
             support = env["res.users"].with_context(active_test=False).search(
                 [("login", "=", support_login)], limit=1)
             if not support:
+                groups = [env.ref("base.group_system").id]
+                # Platform administration — installing modules, adding companies,
+                # managing users — is held by this login alone. The client's own
+                # administrator never gets it, so there is no account inside the
+                # client company that can reach those screens.
+                platform = env.ref("mizan_core.group_platform_admin",
+                                   raise_if_not_found=False)
+                if platform:
+                    groups.append(platform.id)
                 support = env["res.users"].create({
                     "name": "ProAccount Support",
                     "login": support_login,
                     "password": secrets.token_urlsafe(18),
-                    "groups_id": [(6, 0, [env.ref("base.group_system").id])],
+                    "groups_id": [(6, 0, groups)],
                 })
             env["ir.config_parameter"].set_param(
                 "mizan_saas.support_uid", str(support.id))

@@ -95,9 +95,12 @@ PEOPLE = [
         # is the person who closes the books, answers the auditor and owns the
         # configuration, so anything hidden from them is an obstacle rather
         # than a control. System settings included.
+        # Everything the business runs on, but not base.group_system. System
+        # rights are what let an account install modules, add companies and
+        # create users, and those belong to the operator. Hiding the menus
+        # while leaving the rights would only move the door.
         "groups": (
             "base.group_user",
-            "base.group_system",
             "account.group_account_manager",
             "account.group_account_user",
             "account.group_account_readonly",
@@ -121,15 +124,24 @@ PEOPLE = [
         "password": "Amana#Acc2026",
         "job": "محاسب",
         "dept": d_fin,
+        # The same reach as the finance manager. In a company this size the
+        # accountant is the person actually in the ledger every day, and a
+        # report they cannot open is a call to the finance manager, not a
+        # control.
         "groups": (
             "base.group_user",
-            "account.group_account_user",                # posts entries
+            "account.group_account_manager",
+            "account.group_account_user",
             "account.group_account_invoice",
-            "account.group_account_readonly",            # all financial reports
-            "purchase.group_purchase_user",
-            "purchase_request.group_purchase_request_user",
-            "sales_team.group_sale_salesman_all_leads",
+            "account.group_account_readonly",
+            "account.group_account_secured",
+            "purchase.group_purchase_manager",
+            "purchase_request.group_purchase_request_manager",
+            "sales_team.group_sale_manager",
+            "project.group_project_user",
             "hr_expense.group_hr_expense_team_approver",
+            "hr.group_hr_user",
+            "hr_timesheet.group_timesheet_manager",
             "analytic.group_analytic_accounting",
             "base.group_multi_currency",
         ),
@@ -141,11 +153,14 @@ PEOPLE = [
         "password": "Amana#Eng1-2026",
         "job": "مهندس موقع أول",
         "dept": d_eng,
+        # Projects and petty cash only. An engineer books time to a job and
+        # claims what they spend on site; they have no reason to see a supplier
+        # bill, a customer's balance or the ledger, and every screen they can
+        # reach but should not is a question somebody has to answer later.
         "groups": (
             "base.group_user",
             "project.group_project_user",
             "hr_timesheet.group_hr_timesheet_user",
-            "purchase_request.group_purchase_request_user",
             "analytic.group_analytic_accounting",
         ),
     },
@@ -156,11 +171,14 @@ PEOPLE = [
         "password": "Amana#Eng2-2026",
         "job": "مهندس مدني",
         "dept": d_eng,
+        # Projects and petty cash only. An engineer books time to a job and
+        # claims what they spend on site; they have no reason to see a supplier
+        # bill, a customer's balance or the ledger, and every screen they can
+        # reach but should not is a question somebody has to answer later.
         "groups": (
             "base.group_user",
             "project.group_project_user",
             "hr_timesheet.group_hr_timesheet_user",
-            "purchase_request.group_purchase_request_user",
             "analytic.group_analytic_accounting",
         ),
     },
@@ -171,11 +189,14 @@ PEOPLE = [
         "password": "Amana#Eng3-2026",
         "job": "مهندس كهروميكانيك",
         "dept": d_eng,
+        # Projects and petty cash only. An engineer books time to a job and
+        # claims what they spend on site; they have no reason to see a supplier
+        # bill, a customer's balance or the ledger, and every screen they can
+        # reach but should not is a question somebody has to answer later.
         "groups": (
             "base.group_user",
             "project.group_project_user",
             "hr_timesheet.group_hr_timesheet_user",
-            "purchase_request.group_purchase_request_user",
             "analytic.group_analytic_accounting",
         ),
     },
