@@ -76,6 +76,21 @@ for script in arabize_coa build_account_groups add_contracting_accounts setup_ua
     odoo_shell < "$root/scripts/$script.py" >/dev/null
 done
 
+# The product is Arabic-facing, so the template works in Arabic: every client
+# copied from it opens right-to-left in Arabic rather than leaving each new
+# client to discover the language setting for themselves.
+echo "setting Arabic as the interface language"
+odoo_shell <<'PY'
+lang = env['res.lang'].with_context(active_test=False).search(
+    [('code', '=', 'ar_001')], limit=1)
+if lang and not lang.active:
+    env['base.language.install'].create({'lang_ids': [(6, 0, lang.ids)]}).lang_install()
+env.ref('base.user_admin').lang = 'ar_001'
+env['ir.default'].set('res.partner', 'lang', 'ar_001')
+env.cr.commit()
+print('interface language: %s' % env.ref('base.user_admin').lang)
+PY
+
 # A template must carry no identity of its own: every client is copied from it,
 # and anything left here — a tax number, a bank account, an address — is
 # inherited by all of them.

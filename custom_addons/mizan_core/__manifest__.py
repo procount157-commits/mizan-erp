@@ -5,7 +5,10 @@
     "summary": "Mizan ERP core — branded invoicing and quick access to daily accounting",
     "depends": [
         "base", "account", "account_financial_report",
-        "sale", "purchase", "hr_expense",
+        # sale_management, not just sale: the Sales app menu ships inactive in
+        # `sale`, so a client built from `sale` alone has quotations in the
+        # database and no way to reach them.
+        "sale", "sale_management", "purchase", "hr_expense",
         "purchase_request", "account_asset_management", "account_reconcile_oca",
         "web_responsive", "project", "hr_timesheet", "maintenance",
         "account_budget_oca", "analytic", "mizan_contracting", "mizan_cheque", "payroll", "payroll_account", "hr_contract", "mizan_documents", "mizan_wps", "contract",

@@ -7,15 +7,21 @@
     <menuitem id="menu_mizan_root" name="ProAccount" sequence="1"/>
 
     <!-- ===== Home ===== -->
+    <!-- Home is the accounting dashboard, so it is restricted to people with
+         accounting rights. Without this an engineer signs in and is met by an
+         access error instead of a home screen. Everyone else lands on the
+         first section they can use, which is Projects. -->
     <menuitem id="menu_mizan_home" name="Home" parent="menu_mizan_root" sequence="10"
-              action="account.open_account_journal_dashboard_kanban"/>
+              action="account.open_account_journal_dashboard_kanban"
+              groups="account.group_account_readonly"/>
 
     <!-- ===== Projects ===== -->
     <menuitem id="menu_mizan_projects_top" name="Projects" parent="menu_mizan_root" sequence="20"
               action="project.open_view_project_all"/>
 
     <!-- ===== Banking ===== -->
-    <menuitem id="menu_mizan_banking" name="Banking" parent="menu_mizan_root" sequence="30"/>
+    <menuitem id="menu_mizan_banking" name="Banking" parent="menu_mizan_root" sequence="30"
+              groups="account.group_account_invoice"/>
     <menuitem id="menu_mizan_bank_accounts" name="Bank &amp; Cash Accounts" parent="menu_mizan_banking"
               action="account.action_account_journal_form" sequence="10"/>
     <menuitem id="menu_mizan_reconcile" name="Reconciliation" parent="menu_mizan_banking"
@@ -26,7 +32,8 @@
               action="mizan_cheque.action_mizan_cheque_issued" sequence="40"/>
 
     <!-- ===== Sales ===== -->
-    <menuitem id="menu_mizan_sales" name="Sales" parent="menu_mizan_root" sequence="40"/>
+    <menuitem id="menu_mizan_sales" name="Sales" parent="menu_mizan_root" sequence="40"
+              groups="sales_team.group_sale_salesman,account.group_account_invoice"/>
     <menuitem id="menu_mizan_customers" name="Customers" parent="menu_mizan_sales"
               action="account.res_partner_action_customer" sequence="10"/>
     <menuitem id="menu_mizan_quotes" name="Quotes" parent="menu_mizan_sales"
@@ -43,15 +50,19 @@
     <!-- ===== Purchases ===== -->
     <menuitem id="menu_mizan_purchases" name="Purchases" parent="menu_mizan_root" sequence="50"/>
     <menuitem id="menu_mizan_vendors" name="Vendors" parent="menu_mizan_purchases"
-              action="account.res_partner_action_supplier" sequence="10"/>
+              action="account.res_partner_action_supplier" sequence="10"
+              groups="purchase.group_purchase_user,account.group_account_invoice"/>
     <menuitem id="menu_mizan_purchase_requests" name="Purchase Requests" parent="menu_mizan_purchases"
               action="purchase_request.purchase_request_form_action" sequence="20"/>
     <menuitem id="menu_mizan_purchase_orders" name="Purchase Orders" parent="menu_mizan_purchases"
-              action="purchase.purchase_form_action" sequence="30"/>
+              action="purchase.purchase_form_action" sequence="30"
+              groups="purchase.group_purchase_user"/>
     <menuitem id="menu_mizan_vendor_bills" name="Bills" parent="menu_mizan_purchases"
-              action="account.action_move_in_invoice_type" sequence="40"/>
+              action="account.action_move_in_invoice_type" sequence="40"
+              groups="account.group_account_invoice"/>
     <menuitem id="menu_mizan_payments_made" name="Payment Vouchers" parent="menu_mizan_purchases"
-              action="account.action_account_payments_payable" sequence="50"/>
+              action="account.action_account_payments_payable" sequence="50"
+              groups="account.group_account_invoice"/>
     <menuitem id="menu_mizan_expenses" name="Expenses" parent="menu_mizan_purchases"
               action="hr_expense.action_hr_expense_sheet_all_all" sequence="60"/>
 
@@ -109,7 +120,8 @@
          Every printable document a UAE contractor issues, in one place, because
          staff look for "the quotation" by document name and not by the app that
          happens to produce it. -->
-    <menuitem id="menu_mizan_documents" name="Documents" parent="menu_mizan_root" sequence="58"/>
+    <menuitem id="menu_mizan_documents" name="Documents" parent="menu_mizan_root" sequence="58"
+              groups="account.group_account_invoice"/>
     <menuitem id="menu_mizan_doc_quotes" name="Quotations" parent="menu_mizan_documents"
               action="sale.action_quotations_with_onboarding" sequence="10"/>
     <menuitem id="menu_mizan_doc_invoices" name="Tax Invoices" parent="menu_mizan_documents"

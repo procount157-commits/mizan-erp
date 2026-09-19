@@ -12,6 +12,18 @@ template has been loaded:
 Accounts are matched by code, so renaming one in the UI does not break a re-run.
 """
 
+# An Arabic name cannot be written before Arabic exists. A fresh database ships
+# with English only, so this used to work solely because the development
+# database had Arabic installed by hand long ago — and it failed the first time
+# the script met a database built from scratch.
+lang = env['res.lang'].with_context(active_test=False).search(
+    [('code', '=', 'ar_001')], limit=1)
+if lang and not lang.active:
+    print('installing Arabic')
+    env['base.language.install'].create(
+        {'lang_ids': [(6, 0, lang.ids)]}).lang_install()
+    env.cr.commit()
+
 TRANSLATIONS = {
     '100101': 'أصل حق الاستخدام (IFRS 16)',
     '100102': 'مجمع إهلاك أصل حق الاستخدام (IFRS 16)',
