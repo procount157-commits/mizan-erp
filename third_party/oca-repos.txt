@@ -13,6 +13,9 @@
 18.0 https://github.com/OCA/contract.git
 18.0 https://github.com/OCA/crm.git
 18.0 https://github.com/OCA/knowledge.git
+# Balance sheet and profit & loss: Odoo Community ships neither, and
+# account-financial-reporting covers ledgers and trial balance only.
+18.0 https://github.com/OCA/mis-builder.git
 18.0 https://github.com/OCA/partner-contact.git
 18.0 https://github.com/OCA/project.git
 18.0 https://github.com/OCA/purchase-workflow.git

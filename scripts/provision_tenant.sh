@@ -29,7 +29,7 @@ if [ -z "$db_password" ] && [ -f "$compose_dir/.env" ]; then
     db_password="${POSTGRES_PASSWORD:-}"
 fi
 
-modules="mizan_core,mizan_contracting,mizan_cheque,mizan_documents,mizan_wps"
+modules="mizan_core,mizan_contracting,mizan_cheque,mizan_documents,mizan_wps,mis_builder"
 
 odoo_shell() {
     docker compose -f "$compose_dir/docker-compose.yml" exec -T odoo \
@@ -71,7 +71,12 @@ env['account.chart.template'].try_loading('ae', company, install_demo=False)
 env.cr.commit()
 PY
 
-for script in arabize_coa build_account_groups add_contracting_accounts setup_uae_payroll; do
+# Order matters: the chart is loaded and Arabised first, then grouped, then
+# extended for contracting, and only then can the financial statements be built
+# on top of the account types those steps establish.
+for script in arabize_coa build_account_groups add_contracting_accounts \
+              complete_coa setup_uae_payroll fix_report_translations \
+              build_financial_statements; do
     echo "running $script"
     odoo_shell < "$root/scripts/$script.py" >/dev/null
 done

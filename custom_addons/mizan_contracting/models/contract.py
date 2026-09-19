@@ -183,12 +183,28 @@ class MizanContractRecognition(models.Model):
         "account.journal", string="Journal", domain="[('type', '=', 'general')]",
         default=lambda self: self.env["account.journal"].search(
             [("type", "=", "general")], limit=1))
+    def _default_revenue_account(self):
+        """The contract revenue account from the chart we ship.
+
+        Defaulted rather than left blank because an accountant who has to pick
+        the account on every recognition will eventually pick a different one,
+        and then revenue for the same contract lands in two places.
+        """
+        return self.env["account.account"].search(
+            [("code", "=", "501001")], limit=1)
+
+    def _default_wip_account(self):
+        return self.env["account.account"].search(
+            [("code", "=", "107002")], limit=1)
+
     revenue_account_id = fields.Many2one(
         "account.account", string="Revenue Account",
-        domain="[('account_type', '=', 'income')]")
+        domain="[('account_type', '=', 'income')]",
+        default=lambda self: self._default_revenue_account())
     wip_account_id = fields.Many2one(
         "account.account", string="Accrued Revenue Account",
         domain="[('account_type', 'in', ('asset_current', 'asset_receivable'))]",
+        default=lambda self: self._default_wip_account(),
         help="Work in progress: revenue earned that has not been invoiced yet.")
 
     @api.depends("amount", "contract_id.retention_percent")

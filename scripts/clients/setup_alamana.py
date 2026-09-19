@@ -65,17 +65,23 @@ PEOPLE = [
         "password": "Amana#Mgr2026",
         "job": "المدير العام",
         "dept": d_exec,
+        # Full sight of the numbers and every approval, without the system
+        # settings — those stay with the finance manager and the administrator.
         "groups": (
             "base.group_user",
             "hr_expense.group_hr_expense_user",          # approves any expense
             "project.group_project_manager",
-            "hr_timesheet.group_hr_timesheet_approver",
+            "hr_timesheet.group_timesheet_manager",
             "purchase.group_purchase_manager",
             "purchase_request.group_purchase_request_manager",
             "sales_team.group_sale_manager",
-            "hr.group_hr_user",
-            "account.group_account_readonly",            # sees figures, posts nothing
+            "hr.group_hr_manager",
+            "account.group_account_manager",             # sees and signs off everything
+            "account.group_account_user",
+            "account.group_account_readonly",
+            "account.group_account_invoice",
             "analytic.group_analytic_accounting",
+            "base.group_multi_currency",
         ),
     },
     {
@@ -85,17 +91,27 @@ PEOPLE = [
         "password": "Amana#Fin2026",
         "job": "المدير المالي",
         "dept": d_fin,
+        # Everything, deliberately. In a company this size the finance manager
+        # is the person who closes the books, answers the auditor and owns the
+        # configuration, so anything hidden from them is an obstacle rather
+        # than a control. System settings included.
         "groups": (
             "base.group_user",
+            "base.group_system",
             "account.group_account_manager",
+            "account.group_account_user",
+            "account.group_account_readonly",
+            "account.group_account_invoice",
             "account.group_account_secured",
             "hr_expense.group_hr_expense_manager",
             "purchase.group_purchase_manager",
             "purchase_request.group_purchase_request_manager",
             "project.group_project_manager",
+            "hr_timesheet.group_timesheet_manager",
             "sales_team.group_sale_manager",
-            "hr.group_hr_user",
+            "hr.group_hr_manager",
             "analytic.group_analytic_accounting",
+            "base.group_multi_currency",
         ),
     },
     {
@@ -109,10 +125,13 @@ PEOPLE = [
             "base.group_user",
             "account.group_account_user",                # posts entries
             "account.group_account_invoice",
+            "account.group_account_readonly",            # all financial reports
             "purchase.group_purchase_user",
             "purchase_request.group_purchase_request_user",
-            "sales_team.group_sale_salesman",
+            "sales_team.group_sale_salesman_all_leads",
+            "hr_expense.group_hr_expense_team_approver",
             "analytic.group_analytic_accounting",
+            "base.group_multi_currency",
         ),
     },
     {

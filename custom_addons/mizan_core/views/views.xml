@@ -172,6 +172,18 @@
     <!-- ===== Reports ===== -->
     <menuitem id="menu_mizan_reports" name="Reports" parent="menu_mizan_root" sequence="80"
               groups="account.group_account_readonly"/>
+    <!-- Odoo Community ships no balance sheet and no profit & loss. These are
+         built on mis_builder, whose instances the finance team can edit without
+         touching code. -->
+    <menuitem id="menu_mizan_financial_statements" name="Financial Statements"
+              parent="menu_mizan_reports" sequence="5"
+              action="mis_builder.mis_report_instance_view_action"
+              groups="account.group_account_readonly"/>
+    <menuitem id="menu_mizan_statement_templates" name="Statement Templates"
+              parent="menu_mizan_reports" sequence="7"
+              action="mis_builder.mis_report_view_action"
+              groups="account.group_account_manager"/>
+
     <menuitem id="menu_mizan_trial_balance" name="Trial Balance" parent="menu_mizan_reports"
               action="account_financial_report.action_trial_balance_wizard" sequence="10"/>
     <menuitem id="menu_mizan_general_ledger" name="General Ledger" parent="menu_mizan_reports"

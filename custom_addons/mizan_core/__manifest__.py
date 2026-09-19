@@ -5,6 +5,8 @@
     "summary": "Mizan ERP core — branded invoicing and quick access to daily accounting",
     "depends": [
         "base", "account", "account_financial_report",
+        # Balance sheet and profit & loss; Community ships neither.
+        "mis_builder",
         # sale_management, not just sale: the Sales app menu ships inactive in
         # `sale`, so a client built from `sale` alone has quotations in the
         # database and no way to reach them.

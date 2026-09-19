@@ -15,6 +15,7 @@ quotations as well as invoices.
     # which only ever worked here because the development database happened to
     # have it installed already.
     "depends": ["account", "sale", "portal", "l10n_ae", "l10n_gcc_invoice"],
+    "post_init_hook": "post_init_hook",
     "installable": True,
     "application": False,
     "license": "LGPL-3",

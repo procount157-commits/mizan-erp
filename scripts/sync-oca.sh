@@ -22,6 +22,10 @@ modules=(
     reporting-engine/report_xlsx
     reporting-engine/report_xlsx_helper
     account-financial-reporting/account_financial_report
+    # Balance sheet and profit & loss. Community ships neither, and
+    # account_financial_report stops at ledgers and the trial balance.
+    mis-builder/mis_builder
+    mis-builder/mis_builder_budget
     account-financial-reporting/account_tax_balance
     account-financial-reporting/partner_statement
     account-financial-tools/account_asset_management
