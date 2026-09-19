@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mizan_tenant_provision_form" model="ir.ui.view">
+        <field name="name">mizan.tenant.provision.form</field>
+        <field name="model">mizan.tenant.provision</field>
+        <field name="arch" type="xml">
+            <form string="Provision a Client">
+                <div class="alert alert-info" role="status">
+                    A new database is copied from the template, then stripped of
+                    the template's company name, tax number and bank accounts so
+                    the client starts with a clean identity. This takes a few
+                    seconds and the system pauses while it runs.
+                </div>
+                <group>
+                    <group string="Client">
+                        <field name="name" placeholder="مقاولات الخليج"/>
+                        <field name="database" placeholder="gulf_contracting"/>
+                        <field name="url" widget="url"
+                               placeholder="https://gulf.proaccount.ae"/>
+                        <field name="sector"/>
+                    </group>
+                    <group string="Access and Plan">
+                        <field name="admin_login" placeholder="owner@client.ae"/>
+                        <field name="plan"/>
+                        <field name="template_db"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_provision" type="object"
+                            string="Provision" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mizan_tenant_provision" model="ir.actions.act_window">
+        <field name="name">Provision Client</field>
+        <field name="res_model">mizan.tenant.provision</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

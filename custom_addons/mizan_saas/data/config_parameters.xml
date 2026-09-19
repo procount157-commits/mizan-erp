@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="param_backup_dir" model="ir.config_parameter">
+            <field name="key">mizan_saas.backup_dir</field>
+            <field name="value">/var/lib/odoo/backups</field>
+        </record>
+        <record id="param_backup_retention" model="ir.config_parameter">
+            <field name="key">mizan_saas.backup_retention_days</field>
+            <field name="value">14</field>
+        </record>
+        <record id="param_support_login" model="ir.config_parameter">
+            <field name="key">mizan_saas.support_login</field>
+            <field name="value">support@proaccount.ae</field>
+        </record>
+        <record id="param_template_db" model="ir.config_parameter">
+            <field name="key">mizan_saas.template_db</field>
+            <field name="value">mizan_template</field>
+        </record>
+    </data>
+</odoo>

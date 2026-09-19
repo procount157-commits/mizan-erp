@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mizan_tenant_metric_graph" model="ir.ui.view">
+        <field name="name">mizan.tenant.metric.graph</field>
+        <field name="model">mizan.tenant.metric</field>
+        <field name="arch" type="xml">
+            <graph type="line" sample="1">
+                <field name="date" interval="day"/>
+                <field name="db_size_mb" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_mizan_tenant_metric_list" model="ir.ui.view">
+        <field name="name">mizan.tenant.metric.list</field>
+        <field name="model">mizan.tenant.metric</field>
+        <field name="arch" type="xml">
+            <list create="0">
+                <field name="date"/>
+                <field name="tenant_id"/>
+                <field name="db_size_mb" sum="Total MB"/>
+                <field name="user_count" sum="Users"/>
+                <field name="invoice_count" sum="Invoices"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_mizan_tenant_metric" model="ir.actions.act_window">
+        <field name="name">Usage History</field>
+        <field name="res_model">mizan.tenant.metric</field>
+        <field name="view_mode">graph,list</field>
+        <field name="context">{'group_by': ['tenant_id']}</field>
+    </record>
+
+</odoo>

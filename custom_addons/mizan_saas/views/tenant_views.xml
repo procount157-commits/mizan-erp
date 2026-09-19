@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mizan_tenant_list" model="ir.ui.view">
+        <field name="name">mizan.tenant.list</field>
+        <field name="model">mizan.tenant</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="health == 'down'"
+                  decoration-warning="health == 'attention'"
+                  decoration-muted="state in ('closed', 'suspended')">
+                <field name="name"/>
+                <field name="database"/>
+                <field name="sector" optional="show"/>
+                <field name="plan" optional="show"/>
+                <field name="user_count" string="Users"/>
+                <field name="db_size_mb" string="Size (MB)" sum="Total"/>
+                <field name="invoice_count" string="Invoices" optional="hide"/>
+                <field name="last_activity" optional="hide"/>
+                <field name="backup_state" widget="badge"
+                       decoration-success="backup_state == 'fresh'"
+                       decoration-warning="backup_state == 'stale'"
+                       decoration-danger="backup_state == 'missing'"/>
+                <field name="last_backup" optional="hide"/>
+                <field name="renewal_date" optional="show"/>
+                <field name="monthly_fee" sum="Monthly" optional="show"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'live'"
+                       decoration-info="state == 'onboarding'"
+                       decoration-warning="state == 'suspended'"/>
+                <field name="health" column_invisible="1"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mizan_tenant_kanban" model="ir.ui.view">
+        <field name="name">mizan.tenant.kanban</field>
+        <field name="model">mizan.tenant</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_kanban_small_column">
+                <field name="health"/>
+                <field name="health_reason"/>
+                <field name="db_exists"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="row mb-1">
+                            <div class="col-9">
+                                <strong><field name="name"/></strong>
+                                <div class="text-muted small">
+                                    <field name="database"/>
+                                </div>
+                            </div>
+                            <div class="col-3 text-end">
+                                <!-- An icon, not a word: the kanban column is
+                                     narrow enough to truncate "DOWN" to "D...". -->
+                                <i t-if="record.health.raw_value == 'ok'"
+                                   class="fa fa-check-circle fa-lg text-success"
+                                   title="Healthy"/>
+                                <i t-elif="record.health.raw_value == 'attention'"
+                                   class="fa fa-exclamation-triangle fa-lg text-warning"
+                                   title="Needs attention"/>
+                                <i t-else="" class="fa fa-times-circle fa-lg text-danger"
+                                   title="Unreachable"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <i class="fa fa-users me-1" title="Users"/>
+                                <field name="user_count"/>
+                            </div>
+                            <div class="col-6 text-end">
+                                <i class="fa fa-database me-1" title="Size"/>
+                                <field name="db_size_mb"/> MB
+                            </div>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-12">
+                                <i class="fa fa-shield me-1" title="Backup"/>
+                                <field name="backup_state"/>
+                            </div>
+                        </div>
+                        <div t-if="record.health_reason.raw_value"
+                             class="mt-1 text-warning small">
+                            <field name="health_reason"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_mizan_tenant_form" model="ir.ui.view">
+        <field name="name">mizan.tenant.form</field>
+        <field name="model">mizan.tenant</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_go_live" type="object" string="Go Live"
+                            class="btn-primary" invisible="state != 'onboarding'"
+                            groups="mizan_saas.group_saas_manager"/>
+                    <button name="action_backup_now" type="object"
+                            string="Back Up Now" class="btn-primary"
+                            invisible="state == 'closed'"/>
+                    <button name="action_open_tenant" type="object"
+                            string="Open Client System" icon="fa-external-link"/>
+                    <button name="action_suspend" type="object" string="Suspend"
+                            invisible="state != 'live'"
+                            confirm="This disables every login inside the client's own database. Continue?"
+                            groups="mizan_saas.group_saas_manager"/>
+                    <button name="action_reactivate" type="object" string="Reactivate"
+                            class="btn-primary" invisible="state != 'suspended'"
+                            groups="mizan_saas.group_saas_manager"/>
+                    <button name="action_close" type="object" string="Close Account"
+                            invisible="state in ('closed', 'onboarding')"
+                            confirm="Closing disables all logins. The database and its backups are kept. Continue?"
+                            groups="mizan_saas.group_saas_manager"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="onboarding,live"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Unreachable" bg_color="text-bg-danger"
+                            invisible="db_exists or state == 'onboarding'"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_metrics" type="object"
+                                class="oe_stat_button" icon="fa-line-chart">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Usage</span>
+                                <span class="o_stat_text">History</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Client name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Deployment">
+                            <field name="database" placeholder="alrayan"/>
+                            <field name="url" widget="url"
+                                   placeholder="https://alrayan.proaccount.ae"/>
+                            <field name="sector"/>
+                            <field name="db_exists"/>
+                            <field name="health"/>
+                            <field name="health_reason"
+                                   invisible="not health_reason"/>
+                        </group>
+                        <group string="Subscription">
+                            <field name="partner_id"/>
+                            <field name="plan"/>
+                            <field name="monthly_fee"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="go_live_date"/>
+                            <field name="renewal_date"/>
+                            <field name="days_to_renewal"
+                                   invisible="not renewal_date"/>
+                            <field name="renewal_warning" invisible="1"/>
+                        </group>
+                        <group string="Usage">
+                            <field name="user_count"/>
+                            <field name="db_size_mb"/>
+                            <field name="invoice_count"/>
+                            <field name="last_activity"/>
+                        </group>
+                        <group string="Contracted Limits">
+                            <field name="user_limit"/>
+                            <field name="storage_limit_mb"/>
+                            <field name="over_user_limit" invisible="1"/>
+                            <field name="over_storage_limit" invisible="1"/>
+                        </group>
+                        <group string="Backups">
+                            <field name="backup_state"/>
+                            <field name="last_backup"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="notes">
+                            <field name="note" placeholder="Anything the next person on support needs to know."/>
+                        </page>
+                        <page string="Backups" name="backups">
+                            <field name="suspended_user_ids" invisible="1"/>
+                            <field name="backup_ids" readonly="1">
+                                <list decoration-danger="state == 'failed'">
+                                    <field name="create_date" string="Taken"/>
+                                    <field name="filename"/>
+                                    <field name="size_mb"/>
+                                    <field name="duration"/>
+                                    <field name="origin"/>
+                                    <field name="state" widget="badge"
+                                           decoration-success="state == 'done'"
+                                           decoration-danger="state == 'failed'"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mizan_tenant_search" model="ir.ui.view">
+        <field name="name">mizan.tenant.search</field>
+        <field name="model">mizan.tenant</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="database"/>
+                <field name="partner_id"/>
+                <filter name="live" string="Live" domain="[('state', '=', 'live')]"/>
+                <filter name="onboarding" string="Onboarding"
+                        domain="[('state', '=', 'onboarding')]"/>
+                <filter name="suspended" string="Suspended"
+                        domain="[('state', '=', 'suspended')]"/>
+                <separator/>
+                <filter name="needs_attention" string="Needs Attention"
+                        domain="[('health', 'in', ('attention', 'down'))]"/>
+                <filter name="renewing" string="Renewing in 30 Days"
+                        domain="[('renewal_date', '&lt;=', (context_today() + datetime.timedelta(days=30)).strftime('%Y-%m-%d')), ('renewal_date', '!=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_sector" string="Sector" context="{'group_by': 'sector'}"/>
+                    <filter name="group_plan" string="Plan" context="{'group_by': 'plan'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mizan_tenant" model="ir.actions.act_window">
+        <field name="name">Clients</field>
+        <field name="res_model">mizan.tenant</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="view_mizan_tenant_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register your first client</p>
+            <p>
+                Each client runs in its own database. Use <b>Provision Client</b>
+                to create one from the template, or add a record here for a
+                database that already exists.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_mizan_tenant_attention" model="ir.actions.act_window">
+        <field name="name">Needs Attention</field>
+        <field name="res_model">mizan.tenant</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="domain">[('health', 'in', ('attention', 'down'))]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing needs attention</p>
+            <p>Every live client is reachable, backed up and inside its plan.</p>
+        </field>
+    </record>
+
+</odoo>

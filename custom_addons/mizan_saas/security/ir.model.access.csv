@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mizan_tenant_operator,mizan.tenant.operator,model_mizan_tenant,group_saas_operator,1,0,0,0
+access_mizan_tenant_manager,mizan.tenant.manager,model_mizan_tenant,group_saas_manager,1,1,1,1
+access_mizan_tenant_backup_operator,mizan.tenant.backup.operator,model_mizan_tenant_backup,group_saas_operator,1,0,1,0
+access_mizan_tenant_backup_manager,mizan.tenant.backup.manager,model_mizan_tenant_backup,group_saas_manager,1,1,1,1
+access_mizan_tenant_metric_operator,mizan.tenant.metric.operator,model_mizan_tenant_metric,group_saas_operator,1,0,0,0
+access_mizan_tenant_metric_manager,mizan.tenant.metric.manager,model_mizan_tenant_metric,group_saas_manager,1,1,1,1
+access_mizan_tenant_provision,mizan.tenant.provision,model_mizan_tenant_provision,group_saas_manager,1,1,1,1

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_saas_root" name="Operations" web_icon="mizan_saas,static/description/icon.png"
+              sequence="5" groups="mizan_saas.group_saas_operator"/>
+
+    <menuitem id="menu_saas_clients" name="Clients" parent="menu_saas_root" sequence="10"/>
+    <menuitem id="menu_saas_client_all" name="All Clients" parent="menu_saas_clients"
+              action="action_mizan_tenant" sequence="10"/>
+    <menuitem id="menu_saas_client_attention" name="Needs Attention" parent="menu_saas_clients"
+              action="action_mizan_tenant_attention" sequence="20"/>
+    <menuitem id="menu_saas_client_provision" name="Provision Client" parent="menu_saas_clients"
+              action="action_mizan_tenant_provision" sequence="30"
+              groups="mizan_saas.group_saas_manager"/>
+
+    <menuitem id="menu_saas_ops" name="Operations" parent="menu_saas_root" sequence="20"/>
+    <menuitem id="menu_saas_backups" name="Backups" parent="menu_saas_ops"
+              action="action_mizan_tenant_backup" sequence="10"/>
+    <menuitem id="menu_saas_metrics" name="Usage History" parent="menu_saas_ops"
+              action="action_mizan_tenant_metric" sequence="20"/>
+
+</odoo>

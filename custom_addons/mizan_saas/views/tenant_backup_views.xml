@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mizan_tenant_backup_list" model="ir.ui.view">
+        <field name="name">mizan.tenant.backup.list</field>
+        <field name="model">mizan.tenant.backup</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="state == 'failed'" create="0">
+                <field name="create_date" string="Taken"/>
+                <field name="tenant_id"/>
+                <field name="database" optional="hide"/>
+                <field name="filename"/>
+                <field name="size_mb" sum="Total MB"/>
+                <field name="duration" string="Seconds"/>
+                <field name="origin"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'done'"
+                       decoration-danger="state == 'failed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mizan_tenant_backup_form" model="ir.ui.view">
+        <field name="name">mizan.tenant.backup.form</field>
+        <field name="model">mizan.tenant.backup</field>
+        <field name="arch" type="xml">
+            <form create="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="tenant_id"/>
+                            <field name="database"/>
+                            <field name="origin"/>
+                            <field name="state"/>
+                        </group>
+                        <group>
+                            <field name="filename"/>
+                            <field name="path"/>
+                            <field name="size_mb"/>
+                            <field name="duration"/>
+                        </group>
+                    </group>
+                    <group string="Error" invisible="state != 'failed'">
+                        <field name="error" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mizan_tenant_backup" model="ir.actions.act_window">
+        <field name="name">Backups</field>
+        <field name="res_model">mizan.tenant.backup</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_group_tenant': 1}</field>
+    </record>
+
+    <record id="view_mizan_tenant_backup_search" model="ir.ui.view">
+        <field name="name">mizan.tenant.backup.search</field>
+        <field name="model">mizan.tenant.backup</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="tenant_id"/>
+                <filter name="failed" string="Failed" domain="[('state', '=', 'failed')]"/>
+                <filter name="scheduled" string="Scheduled"
+                        domain="[('origin', '=', 'scheduled')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_tenant" string="Client"
+                            context="{'group_by': 'tenant_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>
