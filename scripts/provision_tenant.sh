@@ -76,6 +76,7 @@ PY
 # on top of the account types those steps establish.
 for script in arabize_coa build_account_groups add_contracting_accounts \
               complete_coa setup_uae_payroll fix_report_translations \
+              setup_cost_codes \
               build_financial_statements; do
     echo "running $script"
     odoo_shell < "$root/scripts/$script.py" >/dev/null

@@ -18,5 +18,6 @@ tracks the retention withheld on each progress claim.
         "views/contract_views.xml",
         "views/retention_views.xml",
         "views/forecast_views.xml",
+        "views/cost_code_views.xml",
     ],
 }
