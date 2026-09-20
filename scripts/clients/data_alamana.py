@@ -12,6 +12,8 @@ figure. A cost posted without it silently understates completion.
 """
 from datetime import date
 
+from odoo.exceptions import UserError
+
 company = env.company
 Move = env["account.move"]
 Account = env["account.account"]
@@ -21,9 +23,17 @@ Journal = env["account.journal"]
 MARKER = "ALAMANA-YTD-2026"
 existing = Move.search([("ref", "=like", MARKER + "%")])
 if existing:
-    existing.filtered(lambda m: m.state == "posted").button_draft()
-    existing.filtered(lambda m: m.state != "cancel").button_cancel()
-    print("cleared %d entries from a previous run" % len(existing))
+    # Seeding runs once, on a fresh database. Cancelling and re-posting looks
+    # tidy but is not: a numbered invoice cannot be deleted, reconciliation
+    # against a cancelled entry is refused, and what survives is a ledger that
+    # is neither the old state nor the new one. Refuse, and say how to redo it.
+    raise UserError(
+        "This database already carries %d seeded entries.\n\n"
+        "Re-seeding is not safe: posted invoices keep their numbers and cannot\n"
+        "be removed. To start over, drop the database and provision it again:\n\n"
+        "    scripts/provision_tenant.sh --build-template   # if the template changed\n"
+        "    then re-provision the client from the operations console"
+        % len(existing))
 
 
 def acc(code):
@@ -153,18 +163,16 @@ def progress_invoice(ref, when, partner, label, amount, tax, analytic):
 
 
 def withhold_retention(ref, when, invoice, percent=5.0):
-    """Move the client's retention out of receivables into a retention asset.
+    """Withhold the client's retention using the product's own feature.
 
-    Retention is not an ordinary receivable: it is not due until the defects
-    period ends, and leaving it in trade debtors makes the ageing report claim
-    money is overdue when it is not yet payable at all.
+    Not a hand-written journal entry: the entry alone moves the money but
+    leaves the invoice still asking for it, so the ledger and every customer
+    statement disagree by exactly the retention. The feature reconciles the
+    movement against the document, which is the part that keeps them together.
     """
-    amount = round(invoice.amount_untaxed * percent / 100.0, 2)
-    entry(ref, when, [
-        ("107003", amount, 0.0, "محتجزات %s" % invoice.name, False),
-        ("102011", 0.0, amount, "محتجزات %s" % invoice.name, False),
-    ])
-    return amount
+    invoice.mizan_retention_percent = percent
+    invoice.action_withhold_retention()
+    return invoice.mizan_retention_amount
 
 
 # ============================================================ opening balances
@@ -210,13 +218,9 @@ bill("BILL-012", date(2026, 8, 6), v_materials,
 # The company holds 5% back from its own subcontractors, exactly as its clients
 # hold it back from the company. Netting it out of payables keeps the payment
 # run from paying money that is not yet due.
-for tag, b in (("SUBRET-1", b_sub1), ("SUBRET-2", b_sub2),
-               ("SUBRET-3", b_sub3), ("SUBRET-4", b_sub4)):
-    held = round(b.amount_untaxed * 0.05, 2)
-    entry(tag, b.invoice_date, [
-        ("201002", held, 0.0, "محتجزات مقاول باطن %s" % b.name, False),
-        ("204001", 0.0, held, "محتجزات مقاول باطن %s" % b.name, False),
-    ])
+for b in (b_sub1, b_sub2, b_sub3, b_sub4):
+    b.mizan_retention_percent = 5.0
+    b.action_withhold_retention()
 
 # ==================================================== site payroll, by project
 # Direct site labour belongs to the job, not to overhead. Without the analytic
@@ -370,3 +374,53 @@ for contract in env["mizan.contract"].search([]):
         contract.cost_incurred))
 
 env.cr.commit()
+
+
+# ===================================================== petty cash in practice
+# One claim carried all the way through, and two left waiting, so the approval
+# screen is not empty the first time the manager opens it on a phone.
+def claim(login, category, label, amount, project, submit=True):
+    user = env["res.users"].search([("login", "=", login)], limit=1)
+    employee = env["hr.employee"].search([("user_id", "=", user.id)], limit=1)
+    product = env["product.product"].search(
+        [("default_code", "=", category)], limit=1)
+    expense = env["hr.expense"].with_user(user).create({
+        "name": label,
+        "employee_id": employee.id,
+        "product_id": product.id,
+        "total_amount_currency": amount,
+        "payment_mode": "own_account",
+        "analytic_distribution": {str(project.account_id.id): 100},
+    })
+    sheet = env["hr.expense.sheet"].with_user(user).create({
+        "name": label,
+        "employee_id": employee.id,
+        "expense_line_ids": [(6, 0, expense.ids)],
+    })
+    if submit:
+        sheet.with_user(user).action_submit_sheet()
+    return sheet
+
+
+gm_user = env["res.users"].search([("login", "=", "manager@alamana.ae")], limit=1)
+acc_user = env["res.users"].search([("login", "=", "accountant@alamana.ae")], limit=1)
+petty_journal = Journal.search([("code", "=", "PTY")], limit=1)
+
+done = claim("eng.omar@alamana.ae", "PC-FUEL",
+             "وقود مركبة الموقع — فيلا ند الشبا", 350.0, villa)
+done.with_user(gm_user).action_approve_expense_sheets()
+done.with_user(acc_user).action_sheet_move_post()
+wizard = env["account.payment.register"].with_user(acc_user).with_context(
+    active_model="account.move", active_ids=done.sudo().account_move_ids.ids
+).create({"journal_id": petty_journal.id, "amount": 350.0})
+wizard.action_create_payments()
+
+claim("eng.laila@alamana.ae", "PC-SITE",
+      "أدوات ومواد موقع — توسعة المدرسة", 780.0, school)
+claim("accountant@alamana.ae", "PC-GOV",
+      "رسوم تصريح بلدية — فيلا ند الشبا", 1200.0, villa)
+
+env.cr.commit()
+waiting = env["hr.expense.sheet"].search([("state", "=", "submit")])
+print("petty cash: 1 settled, %d awaiting the manager (%.2f AED)" % (
+    len(waiting), sum(waiting.mapped("total_amount"))))

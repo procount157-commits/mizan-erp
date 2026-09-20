@@ -434,7 +434,32 @@ proj_villa, an_villa = project_with_analytic(
     "فيلا سكنية — ند الشبا", client_a, users["eng1"])
 proj_school, an_school = project_with_analytic(
     "توسعة مدرسة — الشارقة", client_b, users["eng3"])
-print("projects: %s | %s" % (proj_villa.name, proj_school.name))
+
+# ------------------------------------------- who sees which job
+# Odoo ships projects visible to every internal user. On a contracting site
+# that means the engineer on the villa reads the school's costs, margins and
+# client correspondence — and every engineer hired next year reads both.
+# "Invited internal users" restricts each project to the people put on it.
+TEAM = {
+    proj_villa: ("eng1", "eng2"),
+    proj_school: ("eng3", "eng2"),
+}
+# The people who run the company see every job.
+OVERSIGHT = ("gm", "cfo", "acc")
+
+for project, crew in TEAM.items():
+    project.privacy_visibility = "followers"
+    partners = [users[key].partner_id.id for key in crew + OVERSIGHT]
+    project.message_subscribe(partner_ids=partners)
+
+# Odoo's own starter project is visible to everyone and belongs to nobody.
+for stray in env["project.project"].search([("name", "in", ("Internal", "داخلي"))]):
+    stray.privacy_visibility = "followers"
+    stray.active = False
+
+print("projects: %s (%s) | %s (%s)" % (
+    proj_villa.name, "، ".join(users[k].name for k in TEAM[proj_villa]),
+    proj_school.name, "، ".join(users[k].name for k in TEAM[proj_school])))
 
 # ----------------------------------------------------------------- contracts
 Contract = env["mizan.contract"]
