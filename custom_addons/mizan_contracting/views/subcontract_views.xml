@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_subcontract_list" model="ir.ui.view">
+        <field name="name">mizan.subcontract.list</field>
+        <field name="model">mizan.subcontract</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="state in ('closed', 'cancel')"
+                  decoration-warning="insurance_expiring">
+                <field name="code"/>
+                <field name="partner_id"/>
+                <field name="contract_id"/>
+                <field name="cost_code_id" optional="show"/>
+                <field name="name" string="Scope" optional="hide"/>
+                <field name="revised_value" sum="Agreed"/>
+                <field name="certified_total" sum="Certified"/>
+                <field name="percent_certified" string="% Certified"/>
+                <field name="committed_remaining" sum="Still Committed"/>
+                <field name="retention_held" sum="Retention"/>
+                <field name="backcharge_total" sum="Back-charges" optional="show"/>
+                <field name="outstanding" sum="Unpaid"/>
+                <field name="insurance_expiry" optional="show"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'active'"/>
+                <field name="insurance_expiring" column_invisible="1"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_subcontract_form" model="ir.ui.view">
+        <field name="name">mizan.subcontract.form</field>
+        <field name="model">mizan.subcontract</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_activate" type="object" string="Activate"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_close" type="object" string="Close"
+                            invisible="state != 'active'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,active,closed"/>
+                </header>
+                <sheet>
+                    <div class="alert alert-warning" role="alert"
+                         invisible="not insurance_expiring">
+                        This subcontractor's insurance expires on
+                        <field name="insurance_expiry" readonly="1" nolabel="1"
+                               class="oe_inline"/>.
+                        Lapsed cover on site becomes the main contractor's problem.
+                    </div>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_bills" type="object"
+                                class="oe_stat_button" icon="fa-file-text-o">
+                            <field name="bill_count" widget="statinfo"
+                                   string="Bills"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="code"/>
+                        <h1><field name="code" placeholder="SC-2026-001"/></h1>
+                        <field name="name" placeholder="Scope of works"/>
+                    </div>
+                    <group>
+                        <group string="Agreement">
+                            <field name="partner_id"/>
+                            <field name="contract_id"/>
+                            <field name="cost_code_id" options="{'no_create': True}"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="insurance_expiry"/>
+                            <field name="insurance_expiring" invisible="1"/>
+                        </group>
+                        <group string="Value">
+                            <field name="order_value"/>
+                            <field name="variation_total" readonly="1"/>
+                            <field name="revised_value" readonly="1"/>
+                            <field name="retention_percent"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Progress">
+                            <field name="certified_total" readonly="1"/>
+                            <field name="percent_certified" readonly="1"/>
+                            <field name="committed_remaining" readonly="1"/>
+                        </group>
+                        <group string="Money Held">
+                            <field name="retention_held" readonly="1"/>
+                            <field name="backcharge_total" readonly="1"/>
+                            <field name="paid_total" readonly="1"/>
+                            <field name="outstanding" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Variations" name="variations">
+                            <field name="variation_ids"
+                                   context="{'default_subcontract_id': id}">
+                                <list editable="bottom"
+                                      decoration-success="state == 'approved'">
+                                    <field name="reference"/>
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="amount" sum="Total"/>
+                                    <field name="state" widget="badge"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <button name="action_approve" type="object"
+                                            string="Approve" icon="fa-check"
+                                            invisible="state != 'draft'"/>
+                                    <button name="action_reject" type="object"
+                                            string="Reject" icon="fa-times"
+                                            invisible="state != 'draft'"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Back-charges" name="backcharges">
+                            <field name="backcharge_ids"
+                                   context="{'default_subcontract_id': id}">
+                                <list editable="bottom"
+                                      decoration-danger="state == 'applied'">
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="amount" sum="Total"/>
+                                    <field name="state" widget="badge"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <button name="action_apply" type="object"
+                                            string="Apply" icon="fa-check"
+                                            invisible="state != 'draft'"/>
+                                    <button name="action_waive" type="object"
+                                            string="Waive" icon="fa-times"
+                                            invisible="state not in ('draft', 'applied')"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_subcontract" model="ir.actions.act_window">
+        <field name="name">Subcontracts</field>
+        <field name="res_model">mizan.subcontract</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record your first subcontract</p>
+            <p>
+                A subcontractor treated as an ordinary vendor leaves no answer to
+                what was agreed, what has been certified, what was varied and
+                what his retention is. This is the agreement itself.
+            </p>
+        </field>
+    </record>
+
+    <record id="view_move_form_subcontract" model="ir.ui.view">
+        <field name="name">account.move.form.subcontract</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="mizan_contracting.view_move_form_retention"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='mizan_contract_id']" position="before">
+                <field name="mizan_subcontract_id"
+                       invisible="move_type != 'in_invoice'"
+                       options="{'no_create': True}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

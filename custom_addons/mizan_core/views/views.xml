@@ -214,6 +214,13 @@
     <menuitem id="menu_mizan_wip" name="Work in Progress" parent="menu_mizan_contracting"
               action="mizan_contracting.action_mizan_wip" sequence="6"
               groups="account.group_account_readonly"/>
+    <menuitem id="menu_mizan_subcontracts" name="Subcontracts" parent="menu_mizan_contracting"
+              action="mizan_contracting.action_subcontract" sequence="8"/>
+    <menuitem id="menu_mizan_bonds" name="Guarantees &amp; Bonds" parent="menu_mizan_contracting"
+              action="mizan_contracting.action_bond_register" sequence="9"
+              groups="account.group_account_invoice"/>
+    <menuitem id="menu_mizan_cost_codes" name="Cost Codes" parent="menu_mizan_contracting"
+              action="mizan_contracting.action_cost_code" sequence="12"/>
     <menuitem id="menu_mizan_revenue_recognition" name="Revenue Recognition" parent="menu_mizan_contracting"
               action="mizan_contracting.action_mizan_recognition" sequence="7"
               groups="account.group_account_readonly"/>
