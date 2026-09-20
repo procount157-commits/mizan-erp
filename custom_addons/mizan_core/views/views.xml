@@ -221,6 +221,8 @@
               groups="account.group_account_invoice"/>
     <menuitem id="menu_mizan_cost_codes" name="Cost Codes" parent="menu_mizan_contracting"
               action="mizan_contracting.action_cost_code" sequence="12"/>
+    <menuitem id="menu_mizan_owned_plant" name="Owned Plant" parent="menu_mizan_contracting"
+              action="mizan_contracting.action_plant" sequence="14"/>
     <menuitem id="menu_mizan_revenue_recognition" name="Revenue Recognition" parent="menu_mizan_contracting"
               action="mizan_contracting.action_mizan_recognition" sequence="7"
               groups="account.group_account_readonly"/>

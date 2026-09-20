@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_plant_list" model="ir.ui.view">
+        <field name="name">mizan.plant.list</field>
+        <field name="model">mizan.plant</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="recovery_balance &lt; 0">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="rate_basis"/>
+                <field name="internal_rate"/>
+                <field name="recovered_total" sum="Recovered"/>
+                <field name="cost_total" sum="Actual Cost"/>
+                <field name="recovery_balance" sum="Over / Under Recovered"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_plant_form" model="ir.ui.view">
+        <field name="name">mizan.plant.form</field>
+        <field name="model">mizan.plant</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="code"/>
+                        <h1><field name="code" placeholder="EXC-01"/></h1>
+                        <field name="name" placeholder="Excavator 20 tonne"/>
+                    </div>
+                    <group>
+                        <group string="Machine">
+                            <field name="equipment_id"/>
+                            <field name="asset_account_id"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Internal Hire">
+                            <field name="rate_basis"/>
+                            <field name="internal_rate"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Recovery">
+                            <field name="recovered_total" readonly="1"/>
+                            <field name="cost_total" readonly="1"/>
+                            <field name="recovery_balance" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Charges to Jobs" name="charges">
+                            <field name="charge_ids"
+                                   context="{'default_plant_id': id}">
+                                <list editable="bottom"
+                                      decoration-muted="state == 'posted'">
+                                    <field name="date"/>
+                                    <field name="contract_id"/>
+                                    <field name="cost_code_id"
+                                           options="{'no_create': True}"/>
+                                    <field name="quantity"/>
+                                    <field name="rate"/>
+                                    <field name="amount" sum="Total"/>
+                                    <field name="note" optional="hide"/>
+                                    <field name="state" widget="badge"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <button name="action_post" type="object"
+                                            string="Charge" icon="fa-check"
+                                            invisible="state != 'draft'"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_plant" model="ir.actions.act_window">
+        <field name="name">Owned Plant</field>
+        <field name="res_model">mizan.plant</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register your machines</p>
+            <p>
+                A machine the company owns costs the job that uses it. Charge it
+                out at an internal rate and what it recovers can be set against
+                what it actually costs.
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -24,3 +24,9 @@ access_mizan_sc_variation_project,mizan.subcontract.variation.project,model_miza
 access_mizan_backcharge_user,mizan.subcontract.backcharge.user,model_mizan_subcontract_backcharge,account.group_account_invoice,1,0,0,0
 access_mizan_backcharge_manager,mizan.subcontract.backcharge.manager,model_mizan_subcontract_backcharge,account.group_account_manager,1,1,1,1
 access_mizan_backcharge_project,mizan.subcontract.backcharge.project,model_mizan_subcontract_backcharge,project.group_project_manager,1,1,1,1
+access_mizan_plant_user,mizan.plant.user,model_mizan_plant,base.group_user,1,0,0,0
+access_mizan_plant_manager,mizan.plant.manager,model_mizan_plant,account.group_account_manager,1,1,1,1
+access_mizan_plant_project,mizan.plant.project,model_mizan_plant,project.group_project_manager,1,1,1,0
+access_mizan_plant_charge_user,mizan.plant.charge.user,model_mizan_plant_charge,account.group_account_invoice,1,0,0,0
+access_mizan_plant_charge_manager,mizan.plant.charge.manager,model_mizan_plant_charge,account.group_account_manager,1,1,1,1
+access_mizan_plant_charge_project,mizan.plant.charge.project,model_mizan_plant_charge,project.group_project_manager,1,1,1,1

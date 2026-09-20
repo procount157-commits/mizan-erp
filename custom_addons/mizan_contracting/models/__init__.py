@@ -5,3 +5,4 @@ from . import forecast
 from . import cost_code
 from . import advance_bond
 from . import subcontract
+from . import plant

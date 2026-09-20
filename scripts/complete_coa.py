@@ -122,6 +122,9 @@ CONTRACTING = [
     # one for construction plant, because the standard UAE chart is not written
     # for contractors.
     ("401013", "Depreciation - Construction Plant", "إهلاك الآلات والمعدات الإنشائية", "expense_direct_cost"),
+    # Owned plant charged out to jobs credits here, so what the machine cost
+    # sits against what it recovered and the two can be compared.
+    ("401014", "Plant Recovery - Charged to Jobs", "استرداد تكلفة الآليات — محمّل على المشاريع", "expense_direct_cost"),
     ("501001", "Long-term Contract Revenue", "إيرادات عقود طويلة الأجل", "income"),
     ("501002", "Variation Order Revenue", "إيرادات أوامر تغييرية", "income"),
     ("501003", "Claims Revenue", "إيرادات مطالبات", "income"),
