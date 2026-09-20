@@ -17,5 +17,6 @@ tracks the retention withheld on each progress claim.
         "security/ir.model.access.csv",
         "views/contract_views.xml",
         "views/retention_views.xml",
+        "views/forecast_views.xml",
     ],
 }

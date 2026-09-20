@@ -72,24 +72,41 @@ class MizanContract(models.Model):
             if not contract.analytic_account_id:
                 contract.cost_incurred = 0.0
                 continue
+            # Selected by what the line hits, not by its sign. Filtering on
+            # "amount < 0" happens to exclude revenue, but it also excludes a
+            # credit note that reduces a cost — so returning material to a
+            # supplier would leave the job carrying it for ever.
             lines = Line.search([
                 ("account_id", "=", contract.analytic_account_id.id),
-                ("amount", "<", 0),
+                ("general_account_id.account_type", "in",
+                 ("expense_direct_cost", "expense", "expense_depreciation")),
             ])
             # Analytic costs are stored negative; report them as a positive cost.
             contract.cost_incurred = -sum(lines.mapped("amount"))
 
-    @api.depends("cost_incurred", "budget_cost", "contract_value")
+    @api.depends("cost_incurred", "budget_cost", "contract_value",
+                 "cost_at_completion", "revised_contract_value")
     def _compute_completion(self):
+        """Progress measured against what the job is now expected to cost.
+
+        Against the ORIGINAL budget instead, a contract running over costs
+        appears to race towards completion precisely when it is going worst,
+        and the old cap at 100% then hid the overrun entirely. Dividing by the
+        estimate at completion is what IFRS 15 asks for and what every
+        contracting system of any weight does.
+        """
         for contract in self:
-            if contract.budget_cost <= 0:
+            # Falls back to the budget until someone estimates the rest.
+            eac = contract.cost_at_completion or contract.budget_cost
+            if eac <= 0:
                 contract.completion_percent = 0.0
             else:
-                # Cost overruns must not claim more than the contract is worth.
-                ratio = contract.cost_incurred / contract.budget_cost
+                ratio = contract.cost_incurred / eac
+                # Still capped, because a job cannot be more than finished —
+                # but the overrun now shows in the margin instead of vanishing.
                 contract.completion_percent = min(ratio, 1.0) * 100
-            contract.revenue_earned = (
-                contract.contract_value * contract.completion_percent / 100)
+            value = contract.revised_contract_value or contract.contract_value
+            contract.revenue_earned = value * contract.completion_percent / 100
 
     @api.depends("recognition_ids.amount", "recognition_ids.state", "revenue_earned")
     def _compute_recognised(self):

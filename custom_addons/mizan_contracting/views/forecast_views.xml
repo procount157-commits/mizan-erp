@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ===================== Variation orders ===================== -->
+    <record id="view_variation_list" model="ir.ui.view">
+        <field name="name">mizan.contract.variation.list</field>
+        <field name="model">mizan.contract.variation</field>
+        <field name="arch" type="xml">
+            <list editable="bottom" decoration-muted="state == 'rejected'"
+                  decoration-success="state == 'approved'">
+                <field name="reference"/>
+                <field name="date"/>
+                <field name="name"/>
+                <field name="amount" sum="Value"/>
+                <field name="cost_impact" sum="Cost"/>
+                <field name="margin" sum="Margin"/>
+                <field name="approved_by" optional="show"/>
+                <field name="state" widget="badge"
+                       decoration-warning="state == 'submitted'"
+                       decoration-success="state == 'approved'"
+                       decoration-danger="state == 'rejected'"/>
+                <field name="currency_id" column_invisible="1"/>
+                <button name="action_submit" type="object" string="Submit"
+                        icon="fa-paper-plane" invisible="state != 'draft'"/>
+                <button name="action_approve" type="object" string="Approve"
+                        icon="fa-check" class="text-success"
+                        invisible="state != 'submitted'"/>
+                <button name="action_reject" type="object" string="Reject"
+                        icon="fa-times" class="text-danger"
+                        invisible="state != 'submitted'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ===================== Contract form additions ===================== -->
+    <record id="view_contract_form_forecast" model="ir.ui.view">
+        <field name="name">mizan.contract.form.forecast</field>
+        <field name="model">mizan.contract</field>
+        <field name="inherit_id" ref="mizan_contracting.view_mizan_contract_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_book_loss_provision" type="object"
+                        string="Book Loss Provision" class="btn-danger"
+                        invisible="not is_loss_making or loss_provision_booked >= loss_provision_required"
+                        confirm="A foreseeable loss is recognised in full now, not spread over the remaining work. Continue?"/>
+            </xpath>
+            <xpath expr="//field[@name='budget_cost']" position="after">
+                <field name="cost_to_complete"/>
+                <field name="cost_at_completion" readonly="1"/>
+                <field name="revised_contract_value" readonly="1"/>
+                <field name="variation_approved" readonly="1"/>
+                <field name="variation_pending" readonly="1"/>
+                <field name="forecast_margin" readonly="1"
+                       decoration-danger="forecast_margin &lt; 0"/>
+                <field name="forecast_margin_percent" widget="percentage"
+                       readonly="1"/>
+                <field name="is_loss_making" invisible="1"/>
+                <field name="loss_provision_required" readonly="1"
+                       invisible="not is_loss_making"/>
+                <field name="loss_provision_booked" readonly="1"
+                       invisible="not loss_provision_booked"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Variation Orders" name="variations">
+                    <field name="variation_ids" context="{'default_contract_id': id}"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- ===================== Work in progress =====================
+         A list of the contracts themselves rather than a separate report
+         model: the figures are computed from analytic lines and payments, so
+         they are always current rather than as fresh as the last refresh. -->
+    <record id="view_contract_wip_list" model="ir.ui.view">
+        <field name="name">mizan.contract.wip.list</field>
+        <field name="model">mizan.contract</field>
+        <field name="arch" type="xml">
+            <list create="0" delete="0"
+                  decoration-danger="is_loss_making"
+                  decoration-muted="state in ('done', 'cancel')">
+                <field name="code"/>
+                <field name="name" optional="show"/>
+                <field name="partner_id" optional="show"/>
+                <field name="revised_contract_value" sum="Contract Value"/>
+                <field name="cost_incurred" sum="Cost to Date"/>
+                <field name="cost_at_completion" sum="Estimate at Completion"/>
+                <field name="completion_percent" optional="show"/>
+                <field name="revenue_earned" sum="Earned"/>
+                <field name="billed_to_date" sum="Billed"/>
+                <field name="over_billing" sum="Billings in Excess"/>
+                <field name="under_billing" sum="Work in Excess"/>
+                <field name="retention_held" sum="Retention" optional="show"/>
+                <field name="forecast_margin" sum="Forecast Margin"/>
+                <field name="forecast_margin_percent"/>
+                <field name="is_loss_making" column_invisible="1"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="state" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_mizan_wip" model="ir.actions.act_window">
+        <field name="name">Work in Progress</field>
+        <field name="res_model">mizan.contract</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_contract_wip_list"/>
+        <field name="domain">[('state', 'in', ('running', 'done'))]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No contracts in progress</p>
+            <p>
+                This schedule sets what each client has been billed against what
+                the work has actually earned. The difference is either a
+                liability to the client or money you have not yet asked for.
+            </p>
+        </field>
+    </record>
+
+</odoo>

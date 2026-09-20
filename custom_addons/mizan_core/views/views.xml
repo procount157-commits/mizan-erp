@@ -209,6 +209,11 @@
               groups="account.group_account_readonly,project.group_project_manager"/>
     <menuitem id="menu_mizan_contracts" name="Contracts" parent="menu_mizan_contracting"
               action="mizan_contracting.action_mizan_contract" sequence="5"/>
+    <!-- The schedule a contractor's auditor and banker both ask for: billed
+         against earned, job by job. -->
+    <menuitem id="menu_mizan_wip" name="Work in Progress" parent="menu_mizan_contracting"
+              action="mizan_contracting.action_mizan_wip" sequence="6"
+              groups="account.group_account_readonly"/>
     <menuitem id="menu_mizan_revenue_recognition" name="Revenue Recognition" parent="menu_mizan_contracting"
               action="mizan_contracting.action_mizan_recognition" sequence="7"
               groups="account.group_account_readonly"/>

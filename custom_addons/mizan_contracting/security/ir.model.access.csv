@@ -3,3 +3,6 @@ access_mizan_contract_user,mizan.contract.user,model_mizan_contract,account.grou
 access_mizan_contract_manager,mizan.contract.manager,model_mizan_contract,account.group_account_manager,1,1,1,1
 access_mizan_recognition_user,mizan.contract.recognition.user,model_mizan_contract_recognition,account.group_account_invoice,1,0,0,0
 access_mizan_recognition_manager,mizan.contract.recognition.manager,model_mizan_contract_recognition,account.group_account_manager,1,1,1,1
+access_mizan_variation_user,mizan.contract.variation.user,model_mizan_contract_variation,account.group_account_invoice,1,0,0,0
+access_mizan_variation_manager,mizan.contract.variation.manager,model_mizan_contract_variation,account.group_account_manager,1,1,1,1
+access_mizan_variation_project,mizan.contract.variation.project,model_mizan_contract_variation,project.group_project_manager,1,1,1,0
