@@ -1,0 +1,225 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_contracting
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_bank_statement_line__mizan_contract_id
+msgid "Contract"
+msgstr "العقد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_bank_statement_line__mizan_retention_amount
+msgid "Retention Withheld"
+msgstr "المبلغ المحتجز"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_bank_statement_line__mizan_retention_percent
+msgid "Retention %"
+msgstr "نسبة المحتجز"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_move__mizan_contract_id
+msgid "Contract"
+msgstr "العقد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_move__mizan_retention_amount
+msgid "Retention Withheld"
+msgstr "المبلغ المحتجز"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_move__mizan_retention_percent
+msgid "Retention %"
+msgstr "نسبة المحتجز"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_hr_payslip__analytic_account_id
+msgid "Cost Center"
+msgstr "مركز التكلفة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__analytic_account_id
+msgid "Cost Center"
+msgstr "مركز التكلفة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__budget_cost
+msgid "Budgeted Cost"
+msgstr "التكلفة المقدّرة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__code
+msgid "Contract No."
+msgstr "رقم العقد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__completion_percent
+msgid "% Complete"
+msgstr "نسبة الإنجاز"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__contract_value
+msgid "Contract Value"
+msgstr "قيمة العقد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__cost_incurred
+msgid "Cost to Date"
+msgstr "التكلفة حتى تاريخه"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__date_end
+msgid "Completion Date"
+msgstr "تاريخ الإنجاز"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__date_start
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__partner_id
+msgid "Client"
+msgstr "العميل"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__project_id
+msgid "Project"
+msgstr "المشروع"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__recognition_count
+msgid "Recognition Count"
+msgstr "عدد قيود الاعتراف"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__recognition_ids
+msgid "Recognitions"
+msgstr "قيود الاعتراف"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__retention_percent
+msgid "Retention %"
+msgstr "نسبة المحتجز"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__revenue_earned
+msgid "Revenue Earned"
+msgstr "الإيراد المستحق"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__revenue_recognised
+msgid "Already Recognised"
+msgstr "المعترف به سابقاً"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__revenue_to_recognise
+msgid "To Recognise"
+msgstr "المتبقّي للاعتراف"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__amount
+msgid "Revenue Recognised"
+msgstr "الإيراد المعترف به"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__completion_percent
+msgid "% Complete at Date"
+msgstr "نسبة الإنجاز بتاريخه"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__contract_id
+msgid "Contract"
+msgstr "العقد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__cost_incurred
+msgid "Cost to Date"
+msgstr "التكلفة حتى تاريخه"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__journal_id
+msgid "Journal"
+msgstr "اليومية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__move_id
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__net_amount
+msgid "Net Claim"
+msgstr "صافي المطالبة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__retention_amount
+msgid "Retention Withheld"
+msgstr "المبلغ المحتجز"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__revenue_account_id
+msgid "Revenue Account"
+msgstr "حساب الإيراد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__wip_account_id
+msgid "Accrued Revenue Account"
+msgstr "حساب الإيراد المستحق"

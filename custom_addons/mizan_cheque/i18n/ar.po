@@ -1,0 +1,120 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_cheque
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__bank_id
+msgid "Drawee Bank"
+msgstr "البنك المسحوب عليه"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__cheque_account_id
+msgid "Cheques Under Collection"
+msgstr "شيكات تحت التحصيل"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__cheque_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__counterpart_account_id
+msgid "Counterpart Account"
+msgstr "الحساب المقابل"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__due_date
+msgid "Due Date"
+msgstr "تاريخ الاستحقاق"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__invoice_ids
+msgid "Settles Invoices"
+msgstr "يسدّد الفواتير"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__invoice_total
+msgid "Invoiced Total"
+msgstr "إجمالي المفوتر"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__is_overdue
+msgid "Overdue"
+msgstr "متأخر"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__issue_date
+msgid "Cheque Date"
+msgstr "تاريخ الشيك"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__journal_id
+msgid "Bank Journal"
+msgstr "يومية البنك"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__move_register_id
+msgid "Registration Entry"
+msgstr "قيد التسجيل"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__move_settle_id
+msgid "Settlement Entry"
+msgstr "قيد التسوية"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__name
+msgid "Cheque No."
+msgstr "رقم الشيك"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__note
+msgid "Note"
+msgstr "ملاحظات"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__partner_id
+msgid "Drawer / Beneficiary"
+msgstr "الساحب أو المستفيد"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__settle_date
+msgid "Cleared / Bounced On"
+msgstr "تاريخ التحصيل أو الارتداد"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__state
+msgid "State"
+msgstr "الحالة"

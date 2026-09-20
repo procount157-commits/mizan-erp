@@ -272,9 +272,11 @@ def account_by_code(code):
 
 petty_account = account_by_code("101020")
 if not petty_account:
+    # English source, Arabic translation — the same convention as the rest of
+    # the chart, so the account reads English for a user who picked English.
     values = {
         "code": "101020",
-        "name": "الصندوق النثري",
+        "name": "Petty Cash Box",
         "account_type": "asset_current",
     }
     # Odoo 18 made account.account multi-company; older field name kept as a
@@ -284,17 +286,23 @@ if not petty_account:
     else:
         values["company_id"] = company.id
     petty_account = Account.create(values)
+petty_account.with_context(lang="en_US").write({"name": "Petty Cash Box"})
+petty_account.with_context(lang="ar_001").write({"name": "الصندوق النثري"})
 
 Journal = env["account.journal"]
 petty_journal = Journal.search([("code", "=", "PTY")], limit=1)
 if not petty_journal:
     petty_journal = Journal.create({
-        "name": "الصندوق النثري",
+        "name": "Petty Cash",
         "code": "PTY",
         "type": "cash",
         "company_id": company.id,
         "default_account_id": petty_account.id,
     })
+
+petty_journal.with_context(lang="en_US").write({"name": "Petty Cash"})
+petty_journal.with_context(lang="ar_001").write({"name": "الصندوق النثري"})
+
 # Send payments straight to the cash account instead of an outstanding one.
 # Outstanding accounts model money that has left the company but not yet the
 # bank — a cheque in the post. Physical cash has no such gap: it leaves the box
@@ -347,24 +355,26 @@ Product = env["product.product"]
 # receipts pile up in a trading account and the project cost is wrong — which
 # is worse than useless on a percentage-of-completion contract.
 CATEGORIES = [
-    ("مصروف نثري عام", "PC-GEN", "400050"),
-    ("وقود ومواصلات", "PC-FUEL", "401005"),
-    ("مواد وأدوات موقع", "PC-SITE", "401001"),
-    ("ضيافة واستقبال", "PC-HOSP", "400047"),
-    ("رسوم حكومية وتصاريح", "PC-GOV", "401009"),
+    ("General Petty Cash", "مصروف نثري عام", "PC-GEN", "400050"),
+    ("Fuel & Transport", "وقود ومواصلات", "PC-FUEL", "401005"),
+    ("Site Materials & Tools", "مواد وأدوات موقع", "PC-SITE", "401001"),
+    ("Hospitality", "ضيافة واستقبال", "PC-HOSP", "400047"),
+    ("Government Fees & Permits", "رسوم حكومية وتصاريح", "PC-GOV", "401009"),
 ]
 expense_products = {}
-for name, code, account_code in CATEGORIES:
+for english, arabic, code, account_code in CATEGORIES:
     product = Product.search([("default_code", "=", code)], limit=1)
     if not product:
         product = Product.create({
-            "name": name,
+            "name": english,
             "default_code": code,
             "type": "service",
             "can_be_expensed": True,
             "list_price": 0.0,
             "standard_price": 0.0,
         })
+    product.with_context(lang="en_US").write({"name": english})
+    product.with_context(lang="ar_001").write({"name": arabic})
     account = account_by_code(account_code)
     if account and "property_account_expense_id" in product._fields:
         product.property_account_expense_id = account.id

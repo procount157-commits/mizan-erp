@@ -1,0 +1,140 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_wps
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__date_from
+msgid "Period From"
+msgstr "من تاريخ"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__date_to
+msgid "Period To"
+msgstr "إلى تاريخ"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__employee_count
+msgid "Employee Count"
+msgstr "عدد الموظفين"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__employer_bank_code
+msgid "Employer Bank Code"
+msgstr "رمز بنك صاحب العمل"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__employer_eid
+msgid "Employer MOL ID"
+msgstr "رقم المنشأة لدى وزارة العمل"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__line_ids
+msgid "Employee Records"
+msgstr "سجلات الموظفين"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__payslip_ids
+msgid "Payslips"
+msgstr "مسيّرات الرواتب"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__salary_month
+msgid "Salary Month"
+msgstr "شهر الراتب"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__sif_file
+msgid "SIF File"
+msgstr "ملف الأجور SIF"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__sif_filename
+msgid "Sif Filename"
+msgstr "اسم ملف الأجور"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_file__total_salary
+msgid "Total Salary"
+msgstr "إجمالي الرواتب"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_line__bank_code
+msgid "Bank Code"
+msgstr "رمز البنك"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_line__basic_salary
+msgid "Basic"
+msgstr "الأساسي"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_line__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_line__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_line__employee_eid
+msgid "Emirates ID / Labour Card"
+msgstr "الهوية الإماراتية أو بطاقة العمل"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_line__employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_line__file_id
+msgid "File"
+msgstr "الملف"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_line__iban
+msgid "IBAN"
+msgstr "رقم الآيبان"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_line__net_salary
+msgid "Net Paid"
+msgstr "صافي المدفوع"
+
+#. module: mizan_wps
+#: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_line__payslip_id
+msgid "Payslip"
+msgstr "مسيّر الراتب"
