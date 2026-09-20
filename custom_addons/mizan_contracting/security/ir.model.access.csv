@@ -12,3 +12,6 @@ access_mizan_cost_code_project,mizan.cost.code.project,model_mizan_cost_code,pro
 access_mizan_budget_line_user,mizan.contract.budget.line.user,model_mizan_contract_budget_line,account.group_account_invoice,1,0,0,0
 access_mizan_budget_line_manager,mizan.contract.budget.line.manager,model_mizan_contract_budget_line,account.group_account_manager,1,1,1,1
 access_mizan_budget_line_project,mizan.contract.budget.line.project,model_mizan_contract_budget_line,project.group_project_manager,1,1,1,1
+access_mizan_bond_user,mizan.contract.bond.user,model_mizan_contract_bond,account.group_account_invoice,1,0,0,0
+access_mizan_bond_manager,mizan.contract.bond.manager,model_mizan_contract_bond,account.group_account_manager,1,1,1,1
+access_mizan_bond_project,mizan.contract.bond.project,model_mizan_contract_bond,project.group_project_manager,1,1,1,0

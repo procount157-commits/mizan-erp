@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_bond_list" model="ir.ui.view">
+        <field name="name">mizan.contract.bond.list</field>
+        <field name="model">mizan.contract.bond</field>
+        <field name="arch" type="xml">
+            <list editable="bottom"
+                  decoration-danger="state == 'expired' or (state == 'active' and days_to_expiry &lt; 0)"
+                  decoration-warning="state == 'active' and days_to_expiry &gt;= 0 and days_to_expiry &lt;= 30"
+                  decoration-muted="state == 'released'">
+                <field name="name"/>
+                <field name="bond_type"/>
+                <field name="bank_id" optional="show"/>
+                <field name="amount" sum="Total"/>
+                <field name="issue_date"/>
+                <field name="expiry_date"/>
+                <field name="days_to_expiry" string="Days Left"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'active'"
+                       decoration-danger="state == 'expired'"/>
+                <field name="currency_id" column_invisible="1"/>
+                <button name="action_activate" type="object" string="Activate"
+                        icon="fa-check" invisible="state != 'draft'"/>
+                <button name="action_release" type="object" string="Release"
+                        icon="fa-unlock" invisible="state != 'active'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_contract_form_advance" model="ir.ui.view">
+        <field name="name">mizan.contract.form.advance</field>
+        <field name="model">mizan.contract</field>
+        <field name="inherit_id" ref="mizan_contracting.view_mizan_contract_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_record_advance" type="object"
+                        string="Record Advance" class="btn-secondary"
+                        invisible="advance_move_id or not advance_percent"/>
+            </xpath>
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-warning" role="alert"
+                     invisible="not bond_expiring">
+                    <field name="bond_alert" readonly="1" nolabel="1"/>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='retention_percent']" position="after">
+                <field name="advance_percent"/>
+                <field name="advance_recovery_percent"
+                       invisible="not advance_percent"/>
+                <field name="advance_amount" readonly="1"
+                       invisible="not advance_move_id"/>
+                <field name="advance_recovered" readonly="1"
+                       invisible="not advance_move_id"/>
+                <field name="advance_outstanding" readonly="1"
+                       invisible="not advance_move_id"/>
+                <field name="advance_move_id" invisible="1"/>
+                <field name="bond_expiring" invisible="1"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Guarantees" name="bonds">
+                    <field name="bond_ids" context="{'default_contract_id': id}"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_move_form_advance" model="ir.ui.view">
+        <field name="name">account.move.form.advance</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="mizan_contracting.view_move_form_retention"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_withhold_retention']" position="after">
+                <button name="action_recover_advance" type="object"
+                        string="Recover Advance" class="btn-secondary"
+                        invisible="state != 'posted' or mizan_advance_move_id or move_type != 'out_invoice' or not mizan_contract_id"
+                        help="Deduct this claim's share of the advance and settle it against the claim."/>
+            </xpath>
+            <xpath expr="//field[@name='mizan_retention_percent']" position="after">
+                <field name="mizan_advance_recovered" readonly="1"
+                       invisible="not mizan_advance_move_id"/>
+                <field name="mizan_advance_move_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_bond_register" model="ir.actions.act_window">
+        <field name="name">Guarantees &amp; Bonds</field>
+        <field name="res_model">mizan.contract.bond</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No guarantees recorded</p>
+            <p>
+                Performance bonds and advance-payment guarantees expire, and an
+                expired one holds up the claims until it is renewed.
+            </p>
+        </field>
+    </record>
+
+    <record id="cron_bond_expiry" model="ir.cron">
+        <field name="name">Contracting: flag expiring guarantees</field>
+        <field name="model_id" ref="model_mizan_contract_bond"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_flag_expiring()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active" eval="True"/>
+    </record>
+
+</odoo>
