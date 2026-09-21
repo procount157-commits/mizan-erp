@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- =================== Bill of quantities on the contract ============= -->
+    <record id="view_contract_form_boq" model="ir.ui.view">
+        <field name="name">mizan.contract.form.boq</field>
+        <field name="model">mizan.contract</field>
+        <field name="inherit_id" ref="mizan_contracting.view_mizan_contract_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_claims" type="object"
+                        class="oe_stat_button" icon="fa-file-text-o">
+                    <field name="claim_count" widget="statinfo" string="Claims"/>
+                </button>
+            </xpath>
+            <xpath expr="//group[@name='progress']" position="inside">
+                <field name="measured_completion_percent" widget="percentage"/>
+                <field name="certified_to_date"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Bill of Quantities" name="boq">
+                    <div class="alert alert-warning" role="alert"
+                         invisible="not boq_mismatch">
+                        The priced items below do not add up to the contract
+                        value. Claims are measured against the bill, so whichever
+                        of the two is wrong, the claims will follow the bill.
+                    </div>
+                    <div class="text-end mb-2">
+                        <button name="action_value_from_boq" type="object"
+                                string="Set Contract Value from Bill"
+                                class="btn btn-secondary btn-sm"
+                                invisible="state != 'draft'"/>
+                        <button name="action_new_claim" type="object"
+                                string="New Progress Claim"
+                                class="btn btn-primary btn-sm"
+                                invisible="state != 'running'"/>
+                    </div>
+                    <field name="boq_line_ids">
+                        <list editable="bottom" default_order="sequence, item_no">
+                            <field name="sequence" widget="handle"/>
+                            <field name="section" optional="show"/>
+                            <field name="item_no"/>
+                            <field name="name"/>
+                            <field name="unit"/>
+                            <field name="quantity"/>
+                            <field name="rate"/>
+                            <field name="amount" sum="Bill Total"/>
+                            <field name="cost_code_id" optional="show"
+                                   options="{'no_create': True}"/>
+                            <field name="variation_id" optional="hide"
+                                   domain="[('contract_id', '=', parent.id)]"
+                                   options="{'no_create': True}"/>
+                            <field name="qty_certified" optional="show"/>
+                            <field name="percent_certified" widget="percentage"
+                                   optional="show"/>
+                            <field name="amount_certified" optional="hide"
+                                   sum="Certified"/>
+                            <field name="note" optional="hide"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                    <group class="oe_subtotal_footer">
+                        <field name="boq_original_total"/>
+                        <field name="boq_variation_total"/>
+                        <field name="boq_total" class="fw-bolder"/>
+                    </group>
+                </page>
+                <page string="Progress Claims" name="claims">
+                    <field name="claim_ids" readonly="1">
+                        <list decoration-muted="state == 'cancel'"
+                              decoration-success="state == 'invoiced'">
+                            <field name="sequence_no"/>
+                            <field name="date"/>
+                            <field name="period_end" optional="hide"/>
+                            <field name="gross_to_date"/>
+                            <field name="previous_certified" optional="hide"/>
+                            <field name="amount_this_period" sum="Claimed"/>
+                            <field name="retention_amount" sum="Retention"/>
+                            <field name="advance_recovery" sum="Advance"/>
+                            <field name="net_payable" sum="Net Payable"/>
+                            <field name="percent_complete" widget="percentage"/>
+                            <field name="state" widget="badge"
+                                   decoration-info="state == 'submitted'"
+                                   decoration-warning="state == 'certified'"
+                                   decoration-success="state == 'invoiced'"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- ========================= The progress claim ======================= -->
+    <record id="view_progress_claim_list" model="ir.ui.view">
+        <field name="name">mizan.progress.claim.list</field>
+        <field name="model">mizan.progress.claim</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="state == 'cancel'"
+                  decoration-success="state == 'invoiced'">
+                <field name="name"/>
+                <field name="contract_id"/>
+                <field name="partner_id" optional="show"/>
+                <field name="date"/>
+                <field name="gross_to_date" optional="show"/>
+                <field name="previous_certified" optional="hide"/>
+                <field name="amount_this_period" sum="Claimed"/>
+                <field name="retention_amount" sum="Retention"/>
+                <field name="advance_recovery" sum="Advance" optional="show"/>
+                <field name="net_payable" sum="Net Payable"/>
+                <field name="percent_complete" widget="percentage"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'submitted'"
+                       decoration-warning="state == 'certified'"
+                       decoration-success="state == 'invoiced'"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_progress_claim_form" model="ir.ui.view">
+        <field name="name">mizan.progress.claim.form</field>
+        <field name="model">mizan.progress.claim</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_load_boq" type="object"
+                            string="Load Bill Items"
+                            invisible="state != 'draft'"/>
+                    <button name="action_submit" type="object"
+                            string="Submit to Consultant" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_certify" type="object"
+                            string="Mark Certified" class="btn-primary"
+                            invisible="state != 'submitted'"/>
+                    <button name="action_reject" type="object"
+                            string="Returned for Re-measurement"
+                            invisible="state != 'submitted'"/>
+                    <button name="action_create_invoice" type="object"
+                            string="Raise Tax Invoice" class="btn-primary"
+                            invisible="state != 'certified'"/>
+                    <button name="action_post_invoice_and_deduct" type="object"
+                            string="Post, Withhold Retention, Recover Advance"
+                            class="btn-primary"
+                            invisible="state != 'invoiced'"/>
+                    <button name="action_view_invoice" type="object"
+                            string="Tax Invoice" invisible="not invoice_id"/>
+                    <button name="action_draft" type="object" string="Reset to Draft"
+                            invisible="state in ('draft', 'cancel')"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            invisible="state in ('cancel', 'invoiced')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,submitted,certified,invoiced"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Claim">
+                            <field name="contract_id"
+                                   readonly="state != 'draft' or line_ids != []"/>
+                            <field name="sequence_no" readonly="state != 'draft'"/>
+                            <field name="partner_id"/>
+                            <field name="date" readonly="state in ('invoiced', 'cancel')"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Period Measured">
+                            <field name="period_start" readonly="state != 'draft'"/>
+                            <field name="period_end" readonly="state != 'draft'"/>
+                            <field name="retention_percent"
+                                   readonly="state not in ('draft', 'submitted')"/>
+                            <field name="percent_complete" widget="percentage"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Measured Items" name="items">
+                            <field name="line_ids"
+                                   readonly="state not in ('draft', 'submitted')">
+                                <list editable="bottom" default_order="sequence, item_no">
+                                    <field name="sequence" column_invisible="1"/>
+                                    <field name="section" optional="show" readonly="1"/>
+                                    <field name="item_no" readonly="1"/>
+                                    <field name="boq_line_id" column_invisible="1"/>
+                                    <field name="name" readonly="1"/>
+                                    <field name="unit" readonly="1" optional="show"/>
+                                    <field name="quantity" readonly="1"/>
+                                    <field name="rate" readonly="1"/>
+                                    <field name="item_value" readonly="1"
+                                           optional="hide" sum="Bill Value"/>
+                                    <field name="previous_qty" readonly="1"
+                                           optional="show"/>
+                                    <field name="previous_amount" readonly="1"
+                                           sum="Previous"/>
+                                    <field name="this_qty"/>
+                                    <field name="this_amount" readonly="1"
+                                           sum="This Period"/>
+                                    <field name="cumulative_qty" readonly="1"
+                                           optional="show"/>
+                                    <field name="cumulative_amount" readonly="1"
+                                           sum="Cumulative"/>
+                                    <field name="percent_complete"
+                                           widget="percentage" readonly="1"
+                                           decoration-danger="is_over_measured"/>
+                                    <field name="is_over_measured"
+                                           column_invisible="1"/>
+                                    <field name="cost_code_id" readonly="1"
+                                           optional="hide"/>
+                                    <field name="note" optional="hide"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Consultant" name="consultant">
+                            <group>
+                                <group string="Certification">
+                                    <field name="consultant_ref"/>
+                                    <field name="certified_by"/>
+                                    <field name="certified_date"/>
+                                    <field name="certified_amount"/>
+                                </group>
+                                <group string="Invoice">
+                                    <field name="invoice_id" readonly="1"/>
+                                </group>
+                            </group>
+                            <field name="note" placeholder="Notes, disputes, held items…"/>
+                        </page>
+                    </notebook>
+                    <group class="oe_subtotal_footer">
+                        <field name="work_done_to_date"/>
+                        <field name="materials_on_site"
+                               readonly="state not in ('draft', 'submitted')"/>
+                        <field name="gross_to_date" class="fw-bolder"/>
+                        <field name="previous_certified"/>
+                        <field name="amount_this_period" class="fw-bolder"/>
+                        <field name="retention_amount"/>
+                        <field name="advance_recovery"/>
+                        <field name="net_payable"
+                               class="fw-bolder text-primary border-top"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_progress_claim_search" model="ir.ui.view">
+        <field name="name">mizan.progress.claim.search</field>
+        <field name="model">mizan.progress.claim</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="contract_id"/>
+                <field name="partner_id"/>
+                <filter name="open" string="Awaiting Certification"
+                        domain="[('state', '=', 'submitted')]"/>
+                <filter name="certified" string="Certified, Not Invoiced"
+                        domain="[('state', '=', 'certified')]"/>
+                <separator/>
+                <filter name="this_year" string="This Year"
+                        domain="[('date', '&gt;=', context_today().strftime('%Y-01-01'))]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_contract" string="Contract"
+                            context="{'group_by': 'contract_id'}"/>
+                    <filter name="group_state" string="Status"
+                            context="{'group_by': 'state'}"/>
+                    <filter name="group_date" string="Claim Month"
+                            context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_progress_claim" model="ir.actions.act_window">
+        <field name="name">Progress Claims</field>
+        <field name="res_model">mizan.progress.claim</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Raise your first progress claim</p>
+            <p>
+                A progress claim is a measured document, not an amount: every
+                item of the bill of quantities with the quantity measured this
+                period, what was certified before, and the retention and advance
+                the contract deducts. The tax invoice is its last line.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_boq_line" model="ir.actions.act_window">
+        <field name="name">Bill of Quantities</field>
+        <field name="res_model">mizan.contract.boq.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_group_contract': 1}</field>
+    </record>
+
+    <record id="view_boq_line_list" model="ir.ui.view">
+        <field name="name">mizan.contract.boq.line.list</field>
+        <field name="model">mizan.contract.boq.line</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="contract_id"/>
+                <field name="section" optional="show"/>
+                <field name="item_no"/>
+                <field name="name"/>
+                <field name="unit"/>
+                <field name="quantity"/>
+                <field name="rate"/>
+                <field name="amount" sum="Bill Total"/>
+                <field name="qty_certified" optional="show"/>
+                <field name="percent_certified" widget="percentage" optional="show"/>
+                <field name="cost_code_id" optional="hide"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_boq_line_search" model="ir.ui.view">
+        <field name="name">mizan.contract.boq.line.search</field>
+        <field name="model">mizan.contract.boq.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="item_no"/>
+                <field name="name"/>
+                <field name="contract_id"/>
+                <field name="section"/>
+                <filter name="variations" string="Variation Items"
+                        domain="[('is_variation', '=', True)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_contract" string="Contract"
+                            context="{'group_by': 'contract_id'}"/>
+                    <filter name="group_section" string="Bill / Section"
+                            context="{'group_by': 'section'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

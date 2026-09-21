@@ -433,3 +433,13 @@ msgstr "إظهار وإخفاء القوائم"
 #: model:res.groups,name:mizan_core.group_platform_admin
 msgid "Platform Administration"
 msgstr "إدارة المنصة"
+
+#. module: mizan_core
+#: model:ir.ui.menu,name:mizan_core.menu_mizan_progress_claims
+msgid "Progress Claims"
+msgstr "المستخلصات"
+
+#. module: mizan_core
+#: model:ir.ui.menu,name:mizan_core.menu_mizan_boq
+msgid "Bill of Quantities"
+msgstr "جدول الكميات"

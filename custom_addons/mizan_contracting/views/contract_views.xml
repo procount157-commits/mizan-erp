@@ -74,7 +74,7 @@
                             <field name="contract_value"/>
                             <field name="budget_cost"/>
                         </group>
-                        <group string="Progress">
+                        <group string="Progress" name="progress">
                             <field name="cost_incurred"/>
                             <field name="completion_percent" widget="percentage"/>
                             <field name="revenue_earned"/>

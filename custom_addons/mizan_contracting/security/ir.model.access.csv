@@ -30,3 +30,12 @@ access_mizan_plant_project,mizan.plant.project,model_mizan_plant,project.group_p
 access_mizan_plant_charge_user,mizan.plant.charge.user,model_mizan_plant_charge,account.group_account_invoice,1,0,0,0
 access_mizan_plant_charge_manager,mizan.plant.charge.manager,model_mizan_plant_charge,account.group_account_manager,1,1,1,1
 access_mizan_plant_charge_project,mizan.plant.charge.project,model_mizan_plant_charge,project.group_project_manager,1,1,1,1
+access_mizan_boq_line_user,mizan.contract.boq.line.user,model_mizan_contract_boq_line,account.group_account_invoice,1,0,0,0
+access_mizan_boq_line_manager,mizan.contract.boq.line.manager,model_mizan_contract_boq_line,account.group_account_manager,1,1,1,1
+access_mizan_boq_line_project,mizan.contract.boq.line.project,model_mizan_contract_boq_line,project.group_project_manager,1,1,1,1
+access_mizan_claim_user,mizan.progress.claim.user,model_mizan_progress_claim,account.group_account_invoice,1,1,1,0
+access_mizan_claim_manager,mizan.progress.claim.manager,model_mizan_progress_claim,account.group_account_manager,1,1,1,1
+access_mizan_claim_project,mizan.progress.claim.project,model_mizan_progress_claim,project.group_project_manager,1,1,1,0
+access_mizan_claim_line_user,mizan.progress.claim.line.user,model_mizan_progress_claim_line,account.group_account_invoice,1,1,1,1
+access_mizan_claim_line_manager,mizan.progress.claim.line.manager,model_mizan_progress_claim_line,account.group_account_manager,1,1,1,1
+access_mizan_claim_line_project,mizan.progress.claim.line.project,model_mizan_progress_claim_line,project.group_project_manager,1,1,1,1

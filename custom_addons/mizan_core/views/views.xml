@@ -214,6 +214,12 @@
     <menuitem id="menu_mizan_wip" name="Work in Progress" parent="menu_mizan_contracting"
               action="mizan_contracting.action_mizan_wip" sequence="6"
               groups="account.group_account_readonly"/>
+    <!-- The measured document the consultant signs: every bill item with the
+         quantity claimed this period. The tax invoice is its last line. -->
+    <menuitem id="menu_mizan_progress_claims" name="Progress Claims" parent="menu_mizan_contracting"
+              action="mizan_contracting.action_progress_claim" sequence="4"/>
+    <menuitem id="menu_mizan_boq" name="Bill of Quantities" parent="menu_mizan_contracting"
+              action="mizan_contracting.action_boq_line" sequence="11"/>
     <menuitem id="menu_mizan_subcontracts" name="Subcontracts" parent="menu_mizan_contracting"
               action="mizan_contracting.action_subcontract" sequence="8"/>
     <menuitem id="menu_mizan_bonds" name="Guarantees &amp; Bonds" parent="menu_mizan_contracting"
