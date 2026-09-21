@@ -1,0 +1,371 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_einvoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-21 07:11+0000\n"
+"PO-Revision-Date: 2026-09-21 07:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_move.py:0
+msgid ""
+"%(name)s cannot be issued as an e-invoice yet:\n"
+"\n"
+"%(issues)s"
+msgstr "لا يمكن إصدار %(name)s كفاتورة إلكترونية بعد:\n\n%(issues)s"
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_move.py:0
+msgid "%s carries everything the UAE profile requires."
+msgstr "%s يحمل كل ما يتطلبه الملف الإماراتي."
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_edi_xml_pint_ae.py:0
+msgid ""
+"%s has no TRN. A tax invoice to a registered business must carry the buyer's"
+" TRN."
+msgstr "%s بدون رقم تسجيل ضريبي. الفاتورة الضريبية لمنشأة مسجلة يجب أن تحمل الرقم الضريبي للمشتري."
+
+#. module: mizan_einvoice
+#: model_terms:ir.ui.view,arch_db:mizan_einvoice.view_move_form_einvoice
+msgid "<strong>Not ready for e-invoicing.</strong>"
+msgstr "<strong>غير جاهزة للفوترة الإلكترونية.</strong>"
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_edi_xml_pint_ae.py:0
+msgid ""
+"A UAE tax invoice is issued in AED. %s is in %s; the AED equivalent has to "
+"be shown as well."
+msgstr "الفاتورة الضريبية الإماراتية تصدر بالدرهم. %s بعملة %s؛ ويجب إظهار ما يعادلها بالدرهم أيضاً."
+
+#. module: mizan_einvoice
+#: model:ir.model.fields,field_description:mizan_einvoice.field_res_company__mizan_einvoice_asp_reference
+#: model:ir.model.fields,field_description:mizan_einvoice.field_res_config_settings__mizan_einvoice_asp_reference
+msgid "ASP Account Reference"
+msgstr "مرجع الحساب لدى المزوّد"
+
+#. module: mizan_einvoice
+#: model:ir.model.fields,field_description:mizan_einvoice.field_res_company__mizan_einvoice_asp_name
+#: model:ir.model.fields,field_description:mizan_einvoice.field_res_config_settings__mizan_einvoice_asp_name
+msgid "Accredited Service Provider"
+msgstr "مزوّد الخدمة المعتمد"
+
+#. module: mizan_einvoice
+#: model_terms:ir.ui.view,arch_db:mizan_einvoice.view_move_form_einvoice
+msgid "Build e-Invoice"
+msgstr "إنشاء الفاتورة الإلكترونية"
+
+#. module: mizan_einvoice
+#: model_terms:ir.ui.view,arch_db:mizan_einvoice.view_move_search_einvoice
+msgid "Built or Sent"
+msgstr "مُنشأة أو مُرسلة"
+
+#. module: mizan_einvoice
+#: model_terms:ir.ui.view,arch_db:mizan_einvoice.view_move_form_einvoice
+msgid "Check e-Invoice"
+msgstr "فحص الفاتورة الإلكترونية"
+
+#. module: mizan_einvoice
+#: model:ir.model,name:mizan_einvoice.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: mizan_einvoice
+#: model:ir.model,name:mizan_einvoice.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات "
+
+#. module: mizan_einvoice
+#: model:ir.model,name:mizan_einvoice.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: mizan_einvoice
+#: model_terms:ir.ui.view,arch_db:mizan_einvoice.view_move_search_einvoice
+msgid "Customer"
+msgstr "العميل"
+
+#. module: mizan_einvoice
+#: model:ir.model.fields.selection,name:mizan_einvoice.selection__account_move__mizan_einvoice_state__generated
+msgid "Document Built"
+msgstr "تم إنشاء المستند"
+
+#. module: mizan_einvoice
+#: model_terms:ir.ui.view,arch_db:mizan_einvoice.view_move_form_einvoice
+msgid "Download XML"
+msgstr "تنزيل ملف XML"
+
+#. module: mizan_einvoice
+#: model_terms:ir.actions.act_window,help:mizan_einvoice.action_mizan_einvoice_readiness
+msgid ""
+"Every posted customer invoice, and whether it carries what the\n"
+"                UAE Peppol profile requires. The work before the mandate is not\n"
+"                the connection — it is the TRNs and addresses this list shows\n"
+"                as missing."
+msgstr "كل فاتورة عميل مُرحّلة، وهل تحمل ما يتطلبه الملف\n                الإماراتي في بيبول. والعمل قبل الإلزام ليس الاتصال —\n                بل الأرقام الضريبية والعناوين التي تظهر هنا\n                ناقصة."
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_edi_xml_pint_ae.py:0
+msgid ""
+"Every tax on the invoice needs a UAE tax category (S, Z, E, O, G, K or AE). "
+"%s is not one of them."
+msgstr "كل ضريبة على الفاتورة تحتاج تصنيفاً ضريبياً إماراتياً (S أو Z أو E أو O أو G أو K أو AE). و%s ليس منها."
+
+#. module: mizan_einvoice
+#: model_terms:ir.ui.view,arch_db:mizan_einvoice.view_move_search_einvoice
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: mizan_einvoice
+#: model:ir.model,name:mizan_einvoice.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: mizan_einvoice
+#: model:ir.model.fields.selection,name:mizan_einvoice.selection__account_move__mizan_einvoice_state__blocked
+#: model_terms:ir.ui.view,arch_db:mizan_einvoice.view_move_search_einvoice
+msgid "Missing Data"
+msgstr "بيانات ناقصة"
+
+#. module: mizan_einvoice
+#: model:ir.model.fields,field_description:mizan_einvoice.field_account_bank_statement_line__mizan_einvoice_sent_on
+#: model:ir.model.fields,field_description:mizan_einvoice.field_account_move__mizan_einvoice_sent_on
+msgid "Mizan Einvoice Sent On"
+msgstr "تاريخ الإرسال"
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_edi_xml_pint_ae.py:0
+msgid ""
+"No PINT AE profile identifier is set on the company. Your accredited service"
+" provider states the value they accept."
+msgstr "لم يُحدَّد معرّف الملف الإماراتي على الشركة. مزوّد الخدمة المعتمد لديك يحدد القيمة التي يقبلها."
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_move.py:0
+msgid "No provider is recorded on the company yet."
+msgstr "لم يُسجَّل أي مزوّد على الشركة بعد."
+
+#. module: mizan_einvoice
+#: model:ir.model.fields.selection,name:mizan_einvoice.selection__account_move__mizan_einvoice_state__na
+msgid "Not Applicable"
+msgstr "لا ينطبق"
+
+#. module: mizan_einvoice
+#: model_terms:ir.actions.act_window,help:mizan_einvoice.action_mizan_einvoice_readiness
+msgid "Nothing issued yet"
+msgstr "لم تصدر أي فاتورة بعد"
+
+#. module: mizan_einvoice
+#: model:ir.model.fields,field_description:mizan_einvoice.field_res_company__mizan_einvoice_customization_id
+#: model:ir.model.fields,field_description:mizan_einvoice.field_res_config_settings__mizan_einvoice_customization_id
+msgid "PINT AE Profile ID"
+msgstr "معرّف الملف الإماراتي PINT AE"
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_move.py:0
+msgid "Post %s before building its e-invoice."
+msgstr "رحّل %s قبل إنشاء فاتورتها الإلكترونية."
+
+#. module: mizan_einvoice
+#: model:ir.model.fields.selection,name:mizan_einvoice.selection__account_move__mizan_einvoice_state__ready
+#: model_terms:ir.ui.view,arch_db:mizan_einvoice.view_move_search_einvoice
+msgid "Ready"
+msgstr "جاهزة"
+
+#. module: mizan_einvoice
+#: model_terms:ir.ui.view,arch_db:mizan_einvoice.view_move_form_einvoice
+msgid "Send to Buyer & FTA"
+msgstr "الإرسال للمشتري والهيئة"
+
+#. module: mizan_einvoice
+#: model:ir.model.fields.selection,name:mizan_einvoice.selection__account_move__mizan_einvoice_state__sent
+msgid "Sent"
+msgstr "مُرسلة"
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_edi_xml_pint_ae.py:0
+msgid "The %(who)s address is incomplete: %(missing)s missing."
+msgstr "عنوان %(who)s غير مكتمل: %(missing)s ناقص."
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_move.py:0
+msgid ""
+"The UAE profile rejected %(name)s:\n"
+"\n"
+"%(errors)s"
+msgstr "رفض الملف الإماراتي %(name)s:\n\n%(errors)s"
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_edi_xml_pint_ae.py:0
+msgid ""
+"The company has no TRN. Every UAE tax invoice must carry the supplier's Tax "
+"Registration Number."
+msgstr "الشركة بدون رقم تسجيل ضريبي. كل فاتورة ضريبية إماراتية يجب أن تحمل الرقم الضريبي للمورّد."
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_edi_xml_pint_ae.py:0
+msgid ""
+"The company's Peppol scheme is %s. A UAE party is identified by its TRN "
+"under scheme %s."
+msgstr "نظام بيبول للشركة هو %s. والطرف الإماراتي يُعرَّف برقمه الضريبي تحت النظام %s."
+
+#. module: mizan_einvoice
+#: model:ir.model.fields,help:mizan_einvoice.field_res_company__mizan_einvoice_customization_id
+#: model:ir.model.fields,help:mizan_einvoice.field_res_config_settings__mizan_einvoice_customization_id
+msgid ""
+"The identifier naming the exact published version of the UAE Peppol profile."
+" It goes in the CustomizationID of every document and your accredited "
+"service provider states the value they accept. Kept as a setting rather than"
+" a constant in the code because the profile is versioned and you should not "
+"need a new release to follow it."
+msgstr "المعرّف الذي يسمّي الإصدار المنشور تحديداً من الملف الإماراتي في بيبول. يوضع في CustomizationID لكل مستند، ومزوّد الخدمة المعتمد لديك يحدد القيمة التي يقبلها. وهو إعداد لا ثابت في الكود لأن الملف له إصدارات، ولا ينبغي أن تحتاج نسخة جديدة من البرنامج لتتابعها."
+
+#. module: mizan_einvoice
+#: model:ir.model.fields,help:mizan_einvoice.field_res_company__mizan_einvoice_asp_reference
+#: model:ir.model.fields,help:mizan_einvoice.field_res_config_settings__mizan_einvoice_asp_reference
+msgid ""
+"The identifier the provider issues you, for the record. Credentials belong "
+"in the provider's own connector, not here."
+msgstr "المعرّف الذي يصدره لك المزوّد، للسجل فقط. أما بيانات الدخول فمكانها في موصل المزوّد نفسه لا هنا."
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_move.py:0
+msgid ""
+"Transmission needs an accredited service provider.\n"
+"\n"
+"The UAE sends e-invoices through an ASP: supplier → your ASP → the buyer's ASP → the buyer, with a copy to the FTA. There is no address to send to directly.\n"
+"\n"
+"%(status)s\n"
+"\n"
+"The document itself is built and attached, so it can be handed to a provider for testing today. What takes the time is the data, and the readiness list shows exactly where it stands."
+msgstr "الإرسال يحتاج مزوّد خدمة معتمداً.\n\nالإمارات ترسل الفواتير الإلكترونية عبر مزوّد معتمد: المورّد ← مزوّدك ← مزوّد المشتري ← المشتري، مع نسخة للهيئة. ولا يوجد عنوان تُرسل إليه مباشرة.\n\n%(status)s\n\nالمستند نفسه مُنشأ ومرفق، فيمكن تسليمه لمزوّد للاختبار اليوم. وما يستغرق الوقت هو البيانات، وقائمة الجاهزية تبيّن موقفها بالضبط."
+
+#. module: mizan_einvoice
+#: model:ir.model.fields.selection,name:mizan_einvoice.selection__res_partner__invoice_edi_format__pint_ae
+msgid "UAE (Peppol PINT AE)"
+msgstr "الإمارات (بيبول PINT AE)"
+
+#. module: mizan_einvoice
+#: model:ir.model,name:mizan_einvoice.model_account_edi_xml_pint_ae
+msgid "UAE implementation of Peppol International (PINT) for Billing"
+msgstr "التطبيق الإماراتي لمعيار بيبول الدولي للفوترة (PINT)"
+
+#. module: mizan_einvoice
+#: model:ir.model,name:mizan_einvoice.model_account_edi_xml_ubl_21
+msgid "UBL 2.1"
+msgstr "UBL 2.1"
+
+#. module: mizan_einvoice
+#: model:ir.model.fields,field_description:mizan_einvoice.field_account_bank_statement_line__mizan_einvoice_issues
+#: model:ir.model.fields,field_description:mizan_einvoice.field_account_move__mizan_einvoice_issues
+msgid "What Is Missing"
+msgstr "ما هو الناقص"
+
+#. module: mizan_einvoice
+#: model:ir.model.fields,help:mizan_einvoice.field_res_company__mizan_einvoice_asp_name
+#: model:ir.model.fields,help:mizan_einvoice.field_res_config_settings__mizan_einvoice_asp_name
+msgid ""
+"Who transmits your invoices to the buyer and to the FTA. Under the five-"
+"corner model nothing reaches either without one."
+msgstr "من ينقل فواتيرك إلى المشتري وإلى الهيئة. وفي نموذج الأركان الخمسة لا يصل شيء إلى أيٍّ منهما بدونه."
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_edi_xml_pint_ae.py:0
+msgid "city"
+msgstr "المدينة"
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_edi_xml_pint_ae.py:0
+msgid "company"
+msgstr "الشركة"
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_edi_xml_pint_ae.py:0
+msgid "country"
+msgstr "الدولة"
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_edi_xml_pint_ae.py:0
+msgid "customer"
+msgstr "العميل"
+
+#. module: mizan_einvoice
+#: model:ir.model.fields,field_description:mizan_einvoice.field_account_bank_statement_line__mizan_einvoice_state
+#: model:ir.model.fields,field_description:mizan_einvoice.field_account_move__mizan_einvoice_state
+msgid "e-Invoice"
+msgstr "الفاتورة الإلكترونية"
+
+#. module: mizan_einvoice
+#: model:ir.model.fields,field_description:mizan_einvoice.field_account_bank_statement_line__mizan_einvoice_attachment_id
+#: model:ir.model.fields,field_description:mizan_einvoice.field_account_move__mizan_einvoice_attachment_id
+msgid "e-Invoice File"
+msgstr "ملف الفاتورة الإلكترونية"
+
+#. module: mizan_einvoice
+#: model_terms:ir.ui.view,arch_db:mizan_einvoice.view_move_search_einvoice
+msgid "e-Invoice Status"
+msgstr "حالة الفاتورة الإلكترونية"
+
+#. module: mizan_einvoice
+#: model:ir.actions.act_window,name:mizan_einvoice.action_mizan_einvoice_readiness
+#: model:ir.ui.menu,name:mizan_einvoice.menu_mizan_einvoice
+msgid "e-Invoicing Readiness"
+msgstr "جاهزية الفوترة الإلكترونية"
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_move.py:0
+msgid "e-invoice document built to the UAE Peppol profile."
+msgstr "أُنشئ مستند الفاتورة الإلكترونية وفق الملف الإماراتي في بيبول."
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_move.py:0
+msgid ""
+"e-invoicing applies to customer invoices issued by a UAE company. %s is "
+"neither."
+msgstr "الفوترة الإلكترونية تنطبق على فواتير العملاء الصادرة من شركة إماراتية. و%s ليس كذلك."
+
+#. module: mizan_einvoice
+#: model:ir.model.fields,field_description:mizan_einvoice.field_res_partner__invoice_edi_format
+#: model:ir.model.fields,field_description:mizan_einvoice.field_res_users__invoice_edi_format
+msgid "eInvoice format"
+msgstr "تنسيق الفاتورة الإلكترونية "
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_edi_xml_pint_ae.py:0
+msgid "nothing"
+msgstr "لا شيء"
+
+#. module: mizan_einvoice
+#. odoo-python
+#: code:addons/mizan_einvoice/models/account_edi_xml_pint_ae.py:0
+msgid "street"
+msgstr "الشارع"

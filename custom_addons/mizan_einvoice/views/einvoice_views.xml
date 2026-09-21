@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_move_form_einvoice" model="ir.ui.view">
+        <field name="name">account.move.form.einvoice</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_mizan_check_einvoice" type="object"
+                        string="Check e-Invoice"
+                        invisible="mizan_einvoice_state == 'na' or state != 'posted'"/>
+                <button name="action_mizan_generate_einvoice" type="object"
+                        string="Build e-Invoice" class="btn-primary"
+                        invisible="mizan_einvoice_state != 'ready'"/>
+                <button name="action_mizan_view_einvoice_file" type="object"
+                        string="Download XML"
+                        invisible="not mizan_einvoice_attachment_id"/>
+                <button name="action_mizan_send_einvoice" type="object"
+                        string="Send to Buyer &amp; FTA"
+                        invisible="mizan_einvoice_state not in ('generated',)"/>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <div class="alert alert-warning" role="alert"
+                     invisible="mizan_einvoice_state != 'blocked'">
+                    <strong>Not ready for e-invoicing.</strong>
+                    <field name="mizan_einvoice_issues" readonly="1" nolabel="1"/>
+                </div>
+                <field name="mizan_einvoice_state" invisible="1"/>
+                <field name="mizan_einvoice_attachment_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_move_list_einvoice" model="ir.ui.view">
+        <field name="name">account.move.list.einvoice</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <list create="false" decoration-danger="mizan_einvoice_state == 'blocked'"
+                  decoration-success="mizan_einvoice_state in ('generated', 'sent')">
+                <field name="name"/>
+                <field name="invoice_date"/>
+                <field name="partner_id"/>
+                <field name="amount_total"/>
+                <field name="mizan_einvoice_state" widget="badge"
+                       decoration-danger="mizan_einvoice_state == 'blocked'"
+                       decoration-info="mizan_einvoice_state == 'ready'"
+                       decoration-success="mizan_einvoice_state in ('generated', 'sent')"/>
+                <field name="mizan_einvoice_issues"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_move_search_einvoice" model="ir.ui.view">
+        <field name="name">account.move.search.einvoice</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <filter name="blocked" string="Missing Data"
+                        domain="[('mizan_einvoice_state', '=', 'blocked')]"/>
+                <filter name="ready" string="Ready"
+                        domain="[('mizan_einvoice_state', '=', 'ready')]"/>
+                <filter name="done" string="Built or Sent"
+                        domain="[('mizan_einvoice_state', 'in', ('generated', 'sent'))]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_state" string="e-Invoice Status"
+                            context="{'group_by': 'mizan_einvoice_state'}"/>
+                    <filter name="group_partner" string="Customer"
+                            context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mizan_einvoice_readiness" model="ir.actions.act_window">
+        <field name="name">e-Invoicing Readiness</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('move_type', 'in', ('out_invoice', 'out_refund')), ('state', '=', 'posted')]</field>
+        <field name="context">{'search_default_group_state': 1}</field>
+        <field name="search_view_id" ref="view_move_search_einvoice"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing issued yet</p>
+            <p>
+                Every posted customer invoice, and whether it carries what the
+                UAE Peppol profile requires. The work before the mandate is not
+                the connection — it is the TRNs and addresses this list shows
+                as missing.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_mizan_einvoice_readiness_list" model="ir.actions.act_window.view">
+        <field name="sequence">1</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_move_list_einvoice"/>
+        <field name="act_window_id" ref="action_mizan_einvoice_readiness"/>
+    </record>
+
+    <menuitem id="menu_mizan_einvoice" name="e-Invoicing Readiness"
+              parent="mizan_core.menu_mizan_vat"
+              action="action_mizan_einvoice_readiness" sequence="30"
+              groups="account.group_account_invoice"/>
+
+    <record id="view_company_form_einvoice" model="ir.ui.view">
+        <field name="name">res.company.form.einvoice</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="mizan_einvoice_customization_id"/>
+                <field name="mizan_einvoice_asp_name"/>
+                <field name="mizan_einvoice_asp_reference"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
