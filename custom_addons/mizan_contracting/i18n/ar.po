@@ -4,60 +4,640 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-21 06:12+0000\n"
+"PO-Revision-Date: 2026-09-21 06:12+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_account_bank_statement_line__mizan_contract_id
-msgid "Contract"
-msgstr "العقد"
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__percent_certified
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_list
+msgid "% Certified"
+msgstr "% المعتمد"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_account_bank_statement_line__mizan_retention_amount
-msgid "Retention Withheld"
-msgstr "المبلغ المحتجز"
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__completion_percent
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__percent_complete
+msgid "% Complete"
+msgstr "نسبة الإنجاز"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_account_bank_statement_line__mizan_retention_percent
-msgid "Retention %"
-msgstr "نسبة المحتجز"
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__measured_completion_percent
+msgid "% Complete (Measured)"
+msgstr "% الإنجاز (بالقياس)"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_account_move__mizan_contract_id
-msgid "Contract"
-msgstr "العقد"
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__completion_percent
+msgid "% Complete at Date"
+msgstr "نسبة الإنجاز بتاريخه"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_account_move__mizan_retention_amount
-msgid "Retention Withheld"
-msgstr "المبلغ المحتجز"
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__percent_complete
+msgid "% of Contract Certified"
+msgstr "% المعتمد من العقد"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_account_move__mizan_retention_percent
-msgid "Retention %"
-msgstr "نسبة المحتجز"
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "%(claim)s — progress claim %(no)s"
+msgstr "%(claim)s — مستخلص رقم %(no)s"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_hr_payslip__analytic_account_id
-msgid "Cost Center"
-msgstr "مركز التكلفة"
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "%s claims nothing beyond what was already certified."
+msgstr "%s لا يطالب بأي شيء يزيد عمّا سبق اعتماده."
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_user_id
-msgid "Responsible User"
-msgstr "المستخدم المسؤول"
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "%s has no bill of quantities."
+msgstr "لا يوجد جدول كميات على %s."
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__analytic_account_id
-msgid "Cost Center"
-msgstr "مركز التكلفة"
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid ""
+"%s has no bill of quantities. Add the priced items to the contract first."
+msgstr "لا يوجد جدول كميات على %s. أضف البنود المُسعّرة إلى العقد أولاً."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/cost_code.py:0
+msgid "%s has no cost breakdown to estimate from."
+msgstr "لا يوجد تفصيل تكلفة على %s للتقدير منه."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "%s has no movement to invoice."
+msgstr "لا توجد حركة على %s لفوترتها."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/forecast.py:0
+msgid "%s has no unprovided loss."
+msgstr "لا توجد خسارة غير مخصصة على %s."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "%s has not been submitted to the consultant."
+msgstr "لم يُقدَّم %s للاستشاري."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "%s has nothing measured on it."
+msgstr "لا يوجد أي قياس على %s."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "%s is already invoiced on %s."
+msgstr "%s مفوتر بالفعل على %s."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "%s is invoiced on %s."
+msgstr "%s مفوتر على %s."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "%s is invoiced on %s. Credit the invoice before reopening the claim."
+msgstr "%s مفوتر على %s. أصدر إشعاراً دائناً للفاتورة قبل إعادة فتح المستخلص."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "%s is no longer a draft; its measured sheet is fixed."
+msgstr "%s لم يبق مسودة؛ كشف القياس الخاص به مُثبّت."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "%s is not a draft."
+msgstr "%s ليس مسودة."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "%s is not out with the consultant."
+msgstr "%s ليس عند الاستشاري."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/subcontract.py:0
+msgid "%s still holds %s of retention. Release it before closing."
+msgstr "%s لا يزال يحتجز %s من المحتجزات. أفرِج عنها قبل الإغلاق."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid ""
+".\n"
+"                        Lapsed cover on site becomes the main contractor's problem."
+msgstr ".\n                        التأمين المنتهي في الموقع يصبح مشكلة المقاول الرئيسي."
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_cost_code
+msgid ""
+"A cost code is the part of a job a cost belongs to — earthworks,\n"
+"                concrete, electrical. Budget and actual line up against these,\n"
+"                which is what turns \"we are over\" into \"we are over on concrete\"."
+msgstr "بند التكلفة هو الجزء من المشروع الذي تنتمي إليه التكلفة — أعمال ترابية،\n                خرسانة، كهرباء. الموازنة والفعلي يتقابلان عليه، وهذا ما يحوّل\n                «نحن متجاوزون» إلى «نحن متجاوزون في الخرسانة»."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "A cumulative quantity cannot be negative: %s"
+msgstr "لا يمكن أن تكون الكمية التراكمية سالبة: %s"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_forecast
+msgid ""
+"A foreseeable loss is recognised in full now, not spread over the remaining "
+"work. Continue?"
+msgstr "تُعترف الخسارة المتوقعة بالكامل الآن، ولا تُوزّع على الأعمال المتبقية. هل تريد المتابعة؟"
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_plant
+msgid ""
+"A machine the company owns costs the job that uses it. Charge it\n"
+"                out at an internal rate and what it recovers can be set against\n"
+"                what it actually costs."
+msgstr "الآلية التي تملكها الشركة تُكلّف المشروع الذي يستخدمها. حمّلها بسعر\n                داخلي، ويمكن حينها مقابلة ما تستردّه بما تكلّفه فعلاً."
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_progress_claim
+msgid ""
+"A progress claim is a measured document, not an amount: every\n"
+"                item of the bill of quantities with the quantity measured this\n"
+"                period, what was certified before, and the retention and advance\n"
+"                the contract deducts. The tax invoice is its last line."
+msgstr "المستخلص مستند مقيس لا مجرد مبلغ: كل بند من جدول الكميات بالكمية\n                المقيسة هذه الفترة، وما سبق اعتماده، والمحتجزات والدفعة المقدمة\n                التي يخصمها العقد. والفاتورة الضريبية هي سطره الأخير."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_hr_expense__mizan_cost_code_id
+msgid "A site claim belongs to a trade as much as a supplier bill does."
+msgstr "مطالبة الموقع تنتمي إلى بند تكلفة تماماً كفاتورة المورد."
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_subcontract
+msgid ""
+"A subcontractor treated as an ordinary vendor leaves no answer to\n"
+"                what was agreed, what has been certified, what was varied and\n"
+"                what his retention is. This is the agreement itself."
+msgstr "مقاول الباطن إذا عُومل كمورد عادي لا يترك جواباً لما تم الاتفاق عليه،\n                ولا لما اعتُمد، ولا لما تغيّر، ولا لمقدار محتجزاته.\n                هذه هي الاتفاقية نفسها."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/retention.py:0
+msgid ""
+"Account %s is missing. Run scripts/complete_coa.py against this database."
+msgstr "الحساب %s غير موجود. شغّل scripts/complete_coa.py على قاعدة البيانات هذه."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/advance_bond.py:0
+msgid "Account 204002 is missing. Run scripts/complete_coa.py."
+msgstr "الحساب 204002 غير موجود. شغّل scripts/complete_coa.py."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid ""
+"Account 204004 (Billings in Excess of Work Done) is missing. Run "
+"scripts/complete_coa.py against this database."
+msgstr "الحساب 204004 (الفوترة الزائدة عن الإنجاز) غير موجود. شغّل scripts/complete_coa.py على قاعدة البيانات هذه."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/plant.py:0
+msgid ""
+"Account 401014 (plant recovery) is missing. Run scripts/complete_coa.py "
+"against this database."
+msgstr "الحساب 401014 (استرداد تكلفة الآليات) غير موجود. شغّل scripts/complete_coa.py على قاعدة البيانات هذه."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_recognition_form
+msgid "Accounts"
+msgstr "الحسابات"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/forecast.py:0
+msgid ""
+"Accounts 401011 and 204005 are needed. Run scripts/complete_coa.py against "
+"this database."
+msgstr "الحسابان 401011 و204005 مطلوبان. شغّل scripts/complete_coa.py على قاعدة البيانات هذه."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__wip_account_id
+msgid "Accrued Revenue Account"
+msgstr "حساب الإيراد المستحق"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/contract.py:0
+msgid "Accrued revenue"
+msgstr "إيراد مستحق"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_needaction
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_needaction
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_needaction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_bond_list
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid "Activate"
+msgstr "تنشيط"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__active
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__active
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_bond__state__active
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_subcontract__state__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_exception_decoration
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_exception_decoration
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_state
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_state
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_type_icon
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_type_icon
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__actual_amount
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_costcodes
+msgid "Actual"
+msgstr "الفعلي"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__exposure_total
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__total_exposure
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_costcodes
+msgid "Actual + Committed"
+msgstr "الفعلي + الملتزم به"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_list
+msgid "Actual Cost"
+msgstr "التكلفة الفعلية"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "Add the priced bill of quantities to %s before claiming against it."
+msgstr "أضف جدول الكميات المُسعّر إلى %s قبل المطالبة بموجبه."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_list
+msgid "Advance"
+msgstr "الدفعة المقدمة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__advance_percent
+msgid "Advance %"
+msgstr "نسبة الدفعة المقدمة %"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__advance_amount
+msgid "Advance Certified"
+msgstr "الدفعة المقدمة المعتمدة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__advance_move_id
+msgid "Advance Entry"
+msgstr "قيد الدفعة المقدمة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__advance_outstanding
+msgid "Advance Outstanding"
+msgstr "المتبقي من الدفعة المقدمة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_bond__bond_type__advance
+msgid "Advance Payment Guarantee"
+msgstr "ضمان الدفعة المقدمة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_bank_statement_line__mizan_advance_recovered
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_move__mizan_advance_recovered
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__advance_recovered
+msgid "Advance Recovered"
+msgstr "المسترد من الدفعة المقدمة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_bank_statement_line__mizan_advance_move_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_move__mizan_advance_move_id
+msgid "Advance Recovery Entry"
+msgstr "قيد استرداد الدفعة المقدمة"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/advance_bond.py:0
+msgid "Advance already recovered on %s."
+msgstr "سبق استرداد الدفعة المقدمة على %s."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/advance_bond.py:0
+msgid "Advance payment — %s"
+msgstr "دفعة مقدمة — %s"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/advance_bond.py:0
+msgid "Advance recovery on %s"
+msgstr "استرداد دفعة مقدمة على %s"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_list
+msgid "Agreed"
+msgstr "المتعاقد عليه"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__committed_remaining
+msgid "Agreed and not yet certified: the exposure still to come."
+msgstr "متعاقد عليه ولم يُعتمد بعد: التعرض القادم."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid "Agreement"
+msgstr "الاتفاقية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__revenue_recognised
+msgid "Already Recognised"
+msgstr "المعترف به سابقاً"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/plant.py:0
+msgid "Already charged."
+msgstr "محمّل بالفعل."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__amount
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__amount
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__amount
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__certified_amount
+msgid "Amount Certified"
+msgstr "المبلغ المعتمد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_hr_payslip_line__analytic_distribution
+msgid "Analytic Distribution"
+msgstr "التوزيع التحليلي"
+
+#. module: mizan_contracting
+#: model:ir.model.constraint,message:mizan_contracting.constraint_mizan_contract_code_company_uniq
+msgid "Another contract already uses this number."
+msgstr "يستخدم عقد آخر هذا الرقم."
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_subcontract_backcharge__state__applied
+msgid "Applied"
+msgstr "مُطبّق"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid "Apply"
+msgstr "تطبيق"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_list
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_variation__state__approved
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_subcontract_variation__state__approved
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__approved_by
+msgid "Approved By (Client)"
+msgstr "اعتمده (العميل)"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__variation_approved
+msgid "Approved Variations"
+msgstr "أوامر التغيير المعتمدة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__asset_account_id
+msgid "Asset Account"
+msgstr "حساب الأصل"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_attachment_count
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_attachment_count
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_search
+msgid "Awaiting Certification"
+msgstr "بانتظار الاعتماد"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_subcontract_backcharge
+msgid "Back-charge"
+msgstr "خصم على مقاول الباطن"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__backcharge_total
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_list
+msgid "Back-charges"
+msgstr "الخصومات على مقاول الباطن"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__backcharge_ids
+msgid "Backcharge"
+msgstr "خصم على مقاول الباطن"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__bill_ids
+msgid "Bill"
+msgstr "الفاتورة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__section
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__section
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_boq_line_search
+msgid "Bill / Section"
+msgstr "البند / القسم"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__bill_count
+msgid "Bill Count"
+msgstr "عدد الفواتير"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__boq_line_id
+msgid "Bill Item"
+msgstr "بند جدول الكميات"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__quantity
+msgid "Bill Qty"
+msgstr "كمية الجدول"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_boq_line_list
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+msgid "Bill Total"
+msgstr "إجمالي الجدول"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Bill Value"
+msgstr "قيمة الجدول"
+
+#. module: mizan_contracting
+#: model:ir.actions.act_window,name:mizan_contracting.action_boq_line
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__boq_line_ids
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+msgid "Bill of Quantities"
+msgstr "جدول الكميات"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_contract_boq_line
+msgid "Bill of Quantities Item"
+msgstr "بند جدول الكميات"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__boq_total
+msgid "Bill of Quantities Total"
+msgstr "إجمالي جدول الكميات"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_wip_list
+msgid "Billed"
+msgstr "المفوتر"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__over_billing
+msgid ""
+"Billed beyond what the work has earned — owed back to the client in work, "
+"not profit."
+msgstr "فوترة تزيد عمّا كسبته الأعمال — مستحقة للعميل كأعمال لا كربح."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__billed_to_date
+msgid "Billed to Date"
+msgstr "المفوتر حتى الآن"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_wip_list
+msgid "Billings in Excess"
+msgstr "الفوترة الزائدة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__over_billing
+msgid "Billings in Excess of Work"
+msgstr "الفوترة الزائدة عن الإنجاز"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid "Bills"
+msgstr "الفواتير"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/subcontract.py:0
+msgid "Bills for %s"
+msgstr "فواتير %s"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__bond_ids
+msgid "Bond"
+msgstr "الضمان"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__bond_alert
+msgid "Bond Alert"
+msgstr "تنبيه الضمان"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__bond_expiring
+msgid "Bond Expiring"
+msgstr "ضمان قارب على الانتهاء"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__bond_type
+msgid "Bond Type"
+msgstr "نوع الضمان"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_forecast
+msgid "Book Loss Provision"
+msgstr "قيد مخصص الخسارة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__boq_mismatch
+msgid "Boq Mismatch"
+msgstr "عدم تطابق جدول الكميات"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__budget_amount
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_costcodes
+msgid "Budget"
+msgstr "الموازنة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__budget_line_mismatch
+msgid "Budget Line Mismatch"
+msgstr "عدم تطابق بنود الموازنة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__budget_line_total
+msgid "Budget by Cost Code"
+msgstr "الموازنة حسب بند التكلفة"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__budget_cost
@@ -65,34 +645,203 @@ msgid "Budgeted Cost"
 msgstr "التكلفة المقدّرة"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__code
-msgid "Contract No."
-msgstr "رقم العقد"
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract__state__cancel
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_progress_claim__state__cancel
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_subcontract__state__cancel
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_purchase_order_line__mizan_cost_code_id
+msgid "Carries the commitment to the right trade before any invoice arrives."
+msgstr "ينقل الالتزام إلى البند الصحيح قبل وصول أي فاتورة."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__category
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__category
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_cost_code_search
+msgid "Category"
+msgstr "التصنيف"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Certification"
+msgstr "الاعتماد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__amount_certified
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_progress_claim__state__certified
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_list
+msgid "Certified"
+msgstr "معتمد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__certified_by
+msgid "Certified By"
+msgstr "اعتمده"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__certified_date
+msgid "Certified On"
+msgstr "تاريخ الاعتماد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__certified_total
+msgid "Certified Total"
+msgstr "إجمالي المعتمد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__certified_to_date
+msgid "Certified to Date"
+msgstr "المعتمد حتى الآن"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_search
+msgid "Certified, Not Invoiced"
+msgstr "معتمد وغير مفوتر"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid ""
+"Certify %s before invoicing it. An uncertified claim is a request, not a "
+"debt."
+msgstr "اعتمد %s قبل فوترته. المستخلص غير المعتمد مطالبة لا دين."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__charge_ids
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_form
+msgid "Charge"
+msgstr "التحميل"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_plant_charge__state__posted
+msgid "Charged"
+msgstr "محمّل"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_hr_payslip__analytic_account_id
+msgid ""
+"Charges this payslip to a contract. Leave empty for office staff whose wages"
+" are overhead rather than job cost."
+msgstr "يحمّل مسيّر الرواتب هذا على عقد. اتركه فارغاً لموظفي المكتب الذين تُعد رواتبهم مصروفاً عاماً لا تكلفة مشروع."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_form
+msgid "Charges to Jobs"
+msgstr "التحميل على المشاريع"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__claim_id
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Claim"
+msgstr "المستخلص"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid ""
+"Claim %(this)s cannot go out while %(open)s is still open. Claims are "
+"cumulative: certifying them out of order bills the same work twice."
+msgstr "لا يمكن إخراج المستخلص %(this)s وما زال %(open)s مفتوحاً. المستخلصات تراكمية: اعتمادها بغير ترتيبها يفوتر العمل نفسه مرتين."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__claim_count
+msgid "Claim Count"
+msgstr "عدد المستخلصات"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__date
+msgid "Claim Date"
+msgstr "تاريخ المستخلص"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_search
+msgid "Claim Month"
+msgstr "شهر المستخلص"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__sequence_no
+msgid "Claim No."
+msgstr "رقم المستخلص"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_list
+msgid "Claimed"
+msgstr "المطالب به"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+msgid "Claims"
+msgstr "المستخلصات"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__billed_to_date
+msgid "Claims raised against this contract, net of tax."
+msgstr "المستخلصات المُقدَّمة على هذا العقد، بدون ضريبة."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__partner_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__partner_id
+msgid "Client"
+msgstr "العميل"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_subcontract__state__closed
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__code
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__code
+msgid "Code"
+msgstr "الرمز"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__committed_total
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__committed_amount
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_costcodes
+msgid "Committed"
+msgstr "الملتزم به"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__committed_remaining
+msgid "Committed Remaining"
+msgstr "المتبقي من الالتزام"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__company_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__company_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__company_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__company_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__company_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__company_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__company_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__company_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__company_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__company_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__company_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__company_id
 msgid "Company"
 msgstr "الشركة"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__completion_percent
-msgid "% Complete"
-msgstr "نسبة الإنجاز"
-
-#. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__contract_value
-msgid "Contract Value"
-msgstr "قيمة العقد"
-
-#. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__cost_incurred
-msgid "Cost to Date"
-msgstr "التكلفة حتى تاريخه"
-
-#. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__currency_id
-msgid "Currency"
-msgstr "العملة"
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract__state__done
+msgid "Completed"
+msgstr "مكتمل"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__date_end
@@ -100,24 +849,1307 @@ msgid "Completion Date"
 msgstr "تاريخ الإنجاز"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__date_start
-msgid "Start Date"
-msgstr "تاريخ البدء"
+#: model:ir.model,name:mizan_contracting.model_mizan_contract
+msgid "Construction Contract"
+msgstr "عقد إنشاءات"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Consultant"
+msgstr "الاستشاري"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__consultant_ref
+msgid "Consultant's Certificate No."
+msgstr "رقم شهادة الاستشاري"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_bank_statement_line__mizan_contract_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_move__mizan_contract_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__contract_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__contract_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__contract_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__contract_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__contract_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__contract_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__contract_id
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_boq_line_search
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_search
+msgid "Contract"
+msgstr "العقد"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_contract_budget_line
+msgid "Contract Budget Line"
+msgstr "بند موازنة العقد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__code
+msgid "Contract No."
+msgstr "رقم العقد"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_contract_recognition
+msgid "Contract Revenue Recognition"
+msgstr "الاعتراف بإيراد العقد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__contract_value
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_wip_list
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_list
+msgid "Contract Value"
+msgstr "قيمة العقد"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
+msgid "Contract name"
+msgstr "اسم العقد"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/contract.py:0
+msgid "Contract revenue"
+msgstr "إيراد العقد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__revenue_earned
+msgid ""
+"Contract value × % complete — the revenue IFRS 15 says belongs to work done "
+"so far."
+msgstr "قيمة العقد × نسبة الإنجاز — الإيراد الذي يقول المعيار الدولي ١٥ إنه يخصّ الأعمال المنفذة حتى الآن."
+
+#. module: mizan_contracting
+#: model:ir.actions.server,name:mizan_contracting.cron_bond_expiry_ir_actions_server
+msgid "Contracting: flag expiring guarantees"
+msgstr "المقاولات: تنبيه الضمانات المنتهية"
+
+#. module: mizan_contracting
+#: model:ir.actions.act_window,name:mizan_contracting.action_mizan_contract
+msgid "Contracts"
+msgstr "العقود"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_list
+msgid "Cost"
+msgstr "التكلفة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__budget_line_ids
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_costcodes
+msgid "Cost Breakdown"
+msgstr "تفصيل التكلفة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_hr_payslip__analytic_account_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__analytic_account_id
+msgid "Cost Center"
+msgstr "مركز التكلفة"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_cost_code
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_move_line__mizan_cost_code_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_hr_expense__mizan_cost_code_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__cost_code_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__cost_code_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__cost_code_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__cost_code_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__cost_code_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_purchase_order_line__mizan_cost_code_id
+msgid "Cost Code"
+msgstr "بند التكلفة"
+
+#. module: mizan_contracting
+#: model:ir.actions.act_window,name:mizan_contracting.action_cost_code
+msgid "Cost Codes"
+msgstr "بنود التكلفة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__cost_impact
+msgid "Cost Impact"
+msgstr "الأثر على التكلفة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__unbudgeted_cost
+msgid "Cost Outside the Breakdown"
+msgstr "تكلفة خارج التفصيل"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__cost_total
+msgid "Cost Total"
+msgstr "إجمالي التكلفة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__untagged_cost
+msgid "Cost With No Code"
+msgstr "تكلفة بدون بند"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__unbudgeted_cost
+msgid ""
+"Cost on this job sitting on a code nobody budgeted, or on no code at all. It"
+" is real money and it is invisible in the variance report until it is given "
+"a line."
+msgstr "تكلفة على هذا المشروع واقعة على بند لم يوازنه أحد، أو على غير بند أصلاً. مال حقيقي لا يظهر في تقرير الفروق حتى يُمنح سطراً."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__cost_to_complete
+msgid "Cost to Complete"
+msgstr "تكلفة الإكمال"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__cost_incurred
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__cost_incurred
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_wip_list
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_list
+msgid "Cost to Date"
+msgstr "التكلفة حتى تاريخه"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__cost_at_completion
+msgid ""
+"Cost to date plus cost to complete: the total this job is now expected to "
+"cost."
+msgstr "التكلفة حتى الآن زائد تكلفة الإكمال: إجمالي ما يُتوقع أن يكلفه هذا المشروع الآن."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__analytic_account_id
+msgid ""
+"Costs posted to this cost center are what drive the progress calculation, so"
+" every job cost must carry it."
+msgstr "التكاليف المُرحّلة على مركز التكلفة هذا هي ما يحرّك حساب الإنجاز، فلا بد أن تحمله كل تكلفة مشروع."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__create_uid
+msgid "Created by"
+msgstr "أنشأه"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__cumulative_amount
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Cumulative"
+msgstr "التراكمي"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__cumulative_qty
+msgid "Cumulative Qty"
+msgstr "الكمية التراكمية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__work_done_to_date
+msgid "Cumulative measured value across every item of the bill."
+msgstr "القيمة التراكمية المقيسة على كل بنود الجدول."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__materials_on_site
+msgid ""
+"Cumulative value of material delivered and not yet built in, where the "
+"contract allows it to be claimed."
+msgstr "القيمة التراكمية للمواد المورّدة ولم تُركّب بعد، حيث يسمح العقد بالمطالبة بها."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__date_end
+msgid "Date End"
+msgstr "تاريخ الانتهاء"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__date_start
+msgid "Date Start"
+msgstr "تاريخ البداية"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
+msgid "Dates"
+msgstr "التواريخ"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_bond_list
+msgid "Days Left"
+msgstr "الأيام المتبقية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__days_to_expiry
+msgid "Days To Expiry"
+msgstr "الأيام حتى الانتهاء"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_move_form_advance
+msgid ""
+"Deduct this claim's share of the advance and settle it against the claim."
+msgstr "خصم حصة هذا المستخلص من الدفعة المقدمة وتسويتها معه."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__advance_recovery_percent
+msgid ""
+"Deducted from each claim. Left empty, the advance percentage is used, which "
+"repays the advance exactly as the work is billed."
+msgstr "يُخصم من كل مستخلص. إذا تُرك فارغاً استُخدمت نسبة الدفعة المقدمة، وهو ما يسدّدها بنفس وتيرة فوترة الأعمال."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__account_id
+msgid "Default Cost Account"
+msgstr "حساب التكلفة الافتراضي"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_plant_charge__cost_code_id
+msgid ""
+"Defaults to the owned-plant code so the charge lands with the rest of the "
+"plant cost."
+msgstr "يُضبط افتراضياً على بند الآليات المملوكة ليستقر التحميل مع بقية تكلفة الآليات."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__name
+msgid "Description"
+msgstr "الوصف"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract__state__draft
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_bond__state__draft
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_recognition__state__draft
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_variation__state__draft
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_plant_charge__state__draft
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_progress_claim__state__draft
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_subcontract__state__draft
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_subcontract_backcharge__state__draft
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_subcontract_variation__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_form
+msgid "EXC-01"
+msgstr ""
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_wip_list
+msgid "Earned"
+msgstr "المُكتسب"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__under_billing
+msgid ""
+"Earned beyond what has been billed — work done that nobody has been invoiced"
+" for."
+msgstr "إنجاز يزيد عمّا فُوتر — أعمال منفذة لم يُفاتر عليها أحد."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__cost_at_completion
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_wip_list
+msgid "Estimate at Completion"
+msgstr "التقدير عند الإكمال"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_costcodes
+msgid "Estimate from commitments"
+msgstr "التقدير من الالتزامات"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "Every claimable item is already on %s."
+msgstr "كل البنود القابلة للمطالبة موجودة بالفعل على %s."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_form
+msgid "Excavator 20 tonne"
+msgstr "حفار ٢٠ طن"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_hr_expense
+msgid "Expense"
+msgstr "النفقة "
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_bond__state__expired
+msgid "Expired"
+msgstr "منتهي"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__expiry_date
+msgid "Expiry Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_follower_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_follower_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_partner_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_partner_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (جهات الاتصال)"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__activity_type_icon
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__activity_type_icon
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "أيقونة Font Awesome مثل fa-tasks"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__forecast_margin
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_wip_list
+msgid "Forecast Margin"
+msgstr "الهامش المتوقع"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__forecast_margin_percent
+msgid "Forecast Margin %"
+msgstr "نسبة الهامش المتوقع %"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/forecast.py:0
+msgid "Foreseeable loss on %s"
+msgstr "خسارة متوقعة على %s"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__gross_to_date
+msgid "Gross Value to Date"
+msgstr "القيمة الإجمالية حتى الآن"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_boq_line_search
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_cost_code_search
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_search
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_budget_line__category
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_cost_code__category
+msgid ""
+"Groups the variance report the way a contractor reads it: labour and plant "
+"move with time, materials with quantity, subcontract with the agreement."
+msgstr "يجمّع تقرير الفروق كما يقرؤه المقاول: العمالة والآليات تتحرك مع الزمن، والمواد مع الكمية، وعقود الباطن مع الاتفاقية."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/advance_bond.py:0
+msgid ""
+"Guarantee %(ref)s (%(kind)s) expired on %(date)s. Claims may be held until "
+"it is renewed."
+msgstr "الضمان %(ref)s (%(kind)s) انتهى في %(date)s. قد تُحجب المستخلصات حتى تجديده."
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_contract_bond
+msgid "Guarantee / Bond"
+msgstr "ضمان بنكي"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_advance
+msgid "Guarantees"
+msgstr "الضمانات"
+
+#. module: mizan_contracting
+#: model:ir.actions.act_window,name:mizan_contracting.action_bond_register
+msgid "Guarantees & Bonds"
+msgstr "الضمانات البنكية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__has_message
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__has_message
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__has_message
+msgid "Has Message"
+msgstr "يحتوي رسالة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__retention_percent
+msgid "Held back from every certificate until the defects period ends."
+msgstr "محتجز من كل شهادة حتى انتهاء فترة الصيانة."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_boq_line__unit
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim_line__unit
+msgid ""
+"How the item is measured — m2, m3, ton, No., lm, LS, month. A plain label "
+"rather than a unit of measure record: bill units are never converted into "
+"one another, and every client would otherwise have to configure a unit "
+"category per unit before pricing its first job."
+msgstr "كيف يُقاس البند — م٢، م٣، طن، عدد، م.ط، مقطوعية، شهر. نص حر لا سجل وحدة قياس: وحدات الجدول لا تُحوَّل بعضها إلى بعض، وإلا لاحتاج كل مشترك إلى إعداد فئة وحدة لكل وحدة قبل تسعير أول مشروع له."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_exception_icon
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_exception_icon
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_exception_icon
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__activity_exception_icon
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__activity_exception_icon
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "أيقونة للإشارة إلى نشاط استثنائي."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__message_needaction
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_needaction
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم تحديده، فهناك رسائل جديدة تتطلب انتباهك."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__message_has_error
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__message_has_sms_error
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_has_error
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_has_sms_error
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__message_has_error
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده، فهناك رسائل بها خطأ في التسليم."
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract__state__running
+msgid "In Progress"
+msgstr "قيد التنفيذ"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__insurance_expiring
+msgid "Insurance Expiring"
+msgstr "تأمين قارب على الانتهاء"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__insurance_expiry
+msgid "Insurance Expiry"
+msgstr "انتهاء التأمين"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_form
+msgid "Internal Hire"
+msgstr "التحميل الداخلي"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__internal_rate
+msgid "Internal Hire Rate"
+msgstr "سعر التحميل الداخلي"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_progress_claim__state__invoiced
+msgid "Invoiced"
+msgstr "مفوتر"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__invoiced_total
+msgid "Invoiced Total"
+msgstr "إجمالي المفوتر"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_is_follower
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_is_follower
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__is_loss_making
+msgid "Is Loss Making"
+msgstr "عقد خاسر"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__is_over
+msgid "Is Over"
+msgstr "متجاوز"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__is_over_measured
+msgid "Is Over Measured"
+msgstr "قياس زائد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__is_variation
+msgid "Is Variation"
+msgstr "بند أمر تغيير"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__issue_date
+msgid "Issue Date"
+msgstr "تاريخ الإصدار"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__bank_id
+msgid "Issuing Bank"
+msgstr "البنك المُصدر"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__item_no
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__item_no
+msgid "Item No."
+msgstr "رقم البند"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__amount
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__item_value
+msgid "Item Value"
+msgstr "قيمة البند"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__journal_id
+msgid "Journal"
+msgstr "اليومية"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_account_move
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__move_id
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_recognition_form
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_account_move_line
+msgid "Journal Item"
+msgstr "عنصر اليومية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_cost_code__category__labour
+msgid "Labour"
+msgstr "عمالة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__insurance_expiry
+msgid "Lapsed insurance on site is the contractor's problem, not his."
+msgstr "التأمين المنتهي في الموقع مشكلة المقاول الرئيسي لا مشكلته."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__advance_recovery
+msgid "Less Advance Recovery"
+msgstr "يُخصم استرداد الدفعة المقدمة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__previous_certified
+msgid "Less Previously Certified"
+msgstr "يُخصم ما سبق اعتماده"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__retention_amount
+msgid "Less Retention This Period"
+msgstr "يُخصم المحتجز لهذه الفترة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_plant__equipment_id
+msgid "Links to the servicing history already kept for this machine."
+msgstr "يرتبط بسجل الصيانة المحفوظ أصلاً لهذه الآلية."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Load Bill Items"
+msgstr "تحميل بنود الجدول"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__loss_provision_booked
+msgid "Loss Provision Booked"
+msgstr "مخصص الخسارة المُقيّد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__loss_provision_required
+msgid "Loss Provision Required"
+msgstr "مخصص الخسارة المطلوب"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_form
+msgid "Machine"
+msgstr "الآلية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__contract_id
+msgid "Main Contract"
+msgstr "العقد الرئيسي"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_bond__bond_type__maintenance
+msgid "Maintenance Bond"
+msgstr "ضمان الصيانة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__equipment_id
+msgid "Maintenance Record"
+msgstr "سجل الصيانة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__margin
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_list
+msgid "Margin"
+msgstr "الهامش"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Mark Certified"
+msgstr "تحديد كمعتمد"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
+msgid "Mark Completed"
+msgstr "تحديد كمكتمل"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_cost_code__category__material
+msgid "Materials"
+msgstr "مواد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__materials_on_site
+msgid "Materials on Site"
+msgstr "مواد بالموقع"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "Materials on site — movement this period"
+msgstr "مواد بالموقع — حركة هذه الفترة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__line_ids
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Measured Items"
+msgstr "البنود المقيسة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_has_error
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_has_error
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid "Money Held"
+msgstr "المبالغ المحتجزة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__move_id
+msgid "Move"
+msgstr "القيد"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_move_form_retention
+msgid ""
+"Move the retained percentage to the retention account and settle it against "
+"this document."
+msgstr "نقل النسبة المحتجزة إلى حساب المحتجزات وتسويتها مع هذا المستند."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__my_activity_date_deadline
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__my_activity_date_deadline
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "الموعد النهائي لنشاطي"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__name
 msgid "Name"
 msgstr "الاسم"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__partner_id
-msgid "Client"
-msgstr "العميل"
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_recognition_list
+msgid "Net"
+msgstr "الصافي"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__net_amount
+msgid "Net Claim"
+msgstr "صافي المطالبة"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_list
+msgid "Net Payable"
+msgstr "الصافي المستحق"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__net_payable
+msgid "Net Payable This Period"
+msgstr "الصافي المستحق لهذه الفترة"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+msgid "New Progress Claim"
+msgstr "مستخلص جديد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_calendar_event_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_calendar_event_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "حدث تقويم النشاط التالي"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_date_deadline
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_date_deadline
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_summary
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_summary
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_type_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_type_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_mizan_wip
+msgid "No contracts in progress"
+msgstr "لا توجد عقود قيد التنفيذ"
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_bond_register
+msgid "No guarantees recorded"
+msgstr "لا توجد ضمانات مسجلة"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/retention.py:0
+msgid "No receivable or payable line on %s."
+msgstr "لا يوجد سطر مدين أو دائن على %s."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "No sales journal in this company."
+msgstr "لا يوجد دفتر مبيعات في هذه الشركة."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__note
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__note
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__note
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__note
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__note
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__note
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__note
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__note
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__note
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Notes, disputes, held items…"
+msgstr "ملاحظات، خلافات، بنود محتجزة…"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/advance_bond.py:0
+msgid "Nothing left to recover on %s."
+msgstr "لم يبق ما يُسترد على %s."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/retention.py:0
+msgid "Nothing to withhold on %s."
+msgstr "لا يوجد ما يُحتجز على %s."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_needaction_counter
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_needaction_counter
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_has_error_counter
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_has_error_counter
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__message_needaction_counter
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_needaction_counter
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تتطلب إجراءً"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__message_has_error_counter
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_has_error_counter
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__sequence_no
+msgid "Numbered per contract, the way the consultant refers to it."
+msgstr "مرقّم لكل عقد، كما يشير إليه الاستشاري."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/contract.py:0
+msgid "Only a contract in progress can recognise revenue."
+msgstr "لا يمكن الاعتراف بالإيراد إلا لعقد قيد التنفيذ."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__order_value
+msgid "Order Value"
+msgstr "قيمة الأمر"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_budget_line__committed_amount
+msgid ""
+"Ordered and not yet invoiced: signed purchase orders whose supplier has not "
+"billed. Money already spent in every sense that matters except the ledger's."
+msgstr "مأمور به ولم يُفوتر: أوامر شراء موقّعة لم يُصدر مورّدها فاتورة. مال مُنفق بكل معنى يهم إلا معنى الدفتر."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__boq_original_total
+msgid "Original Bill"
+msgstr "الجدول الأصلي"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__revised_contract_value
+msgid ""
+"Original value plus approved variations. Pending variations are excluded: "
+"they are not yet money the client has agreed to pay."
+msgstr "القيمة الأصلية زائد أوامر التغيير المعتمدة. أوامر التغيير المعلقة مستثناة: فهي ليست بعد مالاً وافق العميل على دفعه."
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_cost_code__category__other
+msgid "Other"
+msgstr "أخرى"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__outstanding
+msgid "Outstanding"
+msgstr "المتبقي"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_list
+msgid "Over / Under Recovered"
+msgstr "زيادة / نقص الاسترداد"
+
+#. module: mizan_contracting
+#: model:ir.actions.act_window,name:mizan_contracting.action_plant
+msgid "Owned Plant"
+msgstr "الآليات المملوكة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__paid_total
+msgid "Paid Total"
+msgstr "إجمالي المدفوع"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_hr_payslip
+msgid "Payslip"
+msgstr "إيصال المرتب"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_hr_payslip_line
+msgid "Payslip Line"
+msgstr "بند المرتب"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__variation_pending
+msgid "Pending Variations"
+msgstr "أوامر التغيير المعلقة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_plant__rate_basis__day
+msgid "Per Day"
+msgstr "باليوم"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_plant__rate_basis__hour
+msgid "Per Hour"
+msgstr "بالساعة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_plant__rate_basis__month
+msgid "Per Month"
+msgstr "بالشهر"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__percent_certified
+msgid "Percent Certified"
+msgstr "نسبة المعتمد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__advance_percent
+msgid "Percentage of the contract paid up front."
+msgstr "نسبة العقد المدفوعة مقدماً."
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_bond__bond_type__performance
+msgid "Performance Bond"
+msgstr "ضمان حسن الأداء"
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_bond_register
+msgid ""
+"Performance bonds and advance-payment guarantees expire, and an\n"
+"                expired one holds up the claims until it is renewed."
+msgstr "ضمانات حسن الأداء وضمانات الدفعة المقدمة تنتهي، والمنتهي منها\n                يوقف المستخلصات حتى يُجدَّد."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__period_start
+msgid "Period From"
+msgstr "الفترة من"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Period Measured"
+msgstr "الفترة المقيسة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__period_end
+msgid "Period To"
+msgstr "الفترة إلى"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_move_line__mizan_plant_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__plant_id
+msgid "Plant"
+msgstr "الآلية"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/plant.py:0
+msgid "Plant %(plant)s on %(contract)s"
+msgstr "الآلية %(plant)s على %(contract)s"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_plant
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_cost_code__category__plant
+msgid "Plant & Equipment"
+msgstr "آليات ومعدات"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_plant_charge
+msgid "Plant Charge"
+msgstr "تحميل آلية"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_recognition_form
+msgid "Post Entry"
+msgstr "ترحيل القيد"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/retention.py:0
+msgid "Post the document before withholding retention."
+msgstr "رحّل المستند قبل احتجاز المحتجزات."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Post, Withhold Retention, Recover Advance"
+msgstr "ترحيل واحتجاز واسترداد الدفعة المقدمة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_recognition__state__posted
+msgid "Posted"
+msgstr "مُرحّل"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__previous_amount
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Previous"
+msgstr "السابق"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__previous_qty
+msgid "Previous Qty"
+msgstr "الكمية السابقة"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid "Progress"
+msgstr "الإنجاز"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_progress_claim
+msgid "Progress Claim"
+msgstr "مستخلص"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_progress_claim_line
+msgid "Progress Claim Item"
+msgstr "بند مستخلص"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+#: model:ir.actions.act_window,name:mizan_contracting.action_progress_claim
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__claim_ids
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+msgid "Progress Claims"
+msgstr "المستخلصات"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__measured_completion_percent
+msgid ""
+"Progress by measurement rather than by cost. The consultant certifies this "
+"one; the ledger recognises the other. A wide gap between them is the "
+"earliest sign a job is going wrong."
+msgstr "الإنجاز بالقياس لا بالتكلفة. الاستشاري يعتمد هذا، والدفتر يعترف بالآخر. والفجوة الواسعة بينهما أول علامة على أن المشروع يسير إلى الخطأ."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__project_id
 msgid "Project"
 msgstr "المشروع"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__loss_provision_move_id
+msgid "Provision Entry"
+msgstr "قيد المخصص"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "بند أمر الشراء"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__quantity
+msgid "Qty"
+msgstr "الكمية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__qty_certified
+msgid "Qty Certified"
+msgstr "الكمية المعتمدة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__qty_remaining
+msgid "Qty Remaining"
+msgstr "الكمية المتبقية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__this_qty
+msgid "Qty This Period"
+msgstr "كمية هذه الفترة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__quantity
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Raise Tax Invoice"
+msgstr "إصدار فاتورة ضريبية"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "Raise the invoice for %s first."
+msgstr "أصدر فاتورة %s أولاً."
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_progress_claim
+msgid "Raise your first progress claim"
+msgstr "أصدر أول مستخلص لك"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__advance_amount
+msgid ""
+"Raises a receivable against the client, the way an advance payment "
+"certificate does. The cash itself is recorded as an ordinary receipt against"
+" that receivable."
+msgstr "يُنشئ مديونية على العميل كما تفعل شهادة الدفعة المقدمة. والنقد نفسه يُسجّل كتحصيل عادي مقابل تلك المديونية."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__rate
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__rate
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__rate
+msgid "Rate"
+msgstr "السعر"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__rate_basis
+msgid "Rate Basis"
+msgstr "أساس السعر"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__rating_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__rating_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__rating_ids
+msgid "Ratings"
+msgstr "التقييمات"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__name
+msgid "Reason"
+msgstr "السبب"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
+msgid "Recognise Revenue"
+msgstr "الاعتراف بالإيراد"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_list
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_recognition_list
+msgid "Recognised"
+msgstr "المعترف به"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_recognition_form
+msgid "Recognition"
+msgstr "الاعتراف بالإيراد"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__recognition_count
@@ -126,88 +2158,190 @@ msgstr "عدد قيود الاعتراف"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__recognition_ids
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
 msgid "Recognitions"
 msgstr "قيود الاعتراف"
 
 #. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_advance
+msgid "Record Advance"
+msgstr "تسجيل الدفعة المقدمة"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "Record who certified %s before marking it certified."
+msgstr "سجّل من اعتمد %s قبل تحديده كمعتمد."
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_subcontract
+msgid "Record your first subcontract"
+msgstr "سجّل أول عقد باطن"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_move_form_advance
+msgid "Recover Advance"
+msgstr "استرداد الدفعة المقدمة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_subcontract_backcharge__state__recovered
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_list
+msgid "Recovered"
+msgstr "مسترد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__recovered_total
+msgid "Recovered Total"
+msgstr "إجمالي المسترد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_plant__recovery_balance
+msgid ""
+"Recovered from jobs less what the machine actually cost. Persistently "
+"negative means it is cheaper to hire one."
+msgstr "المسترد من المشاريع مطروحاً منه ما كلّفته الآلية فعلاً. واستمراره سالباً يعني أن استئجارها أرخص."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_form
+msgid "Recovery"
+msgstr "الاسترداد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__recovery_balance
+msgid "Recovery Balance"
+msgstr "رصيد الاسترداد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__advance_recovery_percent
+msgid "Recovery Rate %"
+msgstr "نسبة الاسترداد %"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__name
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_mizan_contract
+msgid "Register your first contract"
+msgstr "سجّل أول عقد لك"
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_plant
+msgid "Register your machines"
+msgstr "سجّل آلياتك"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_list
+msgid "Reject"
+msgstr "رفض"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_variation__state__rejected
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_subcontract_variation__state__rejected
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_bond_list
+msgid "Release"
+msgstr "الإفراج"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_bond__state__released
+msgid "Released"
+msgstr "مُفرج عنه"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Reset to Draft"
+msgstr "إرجاع إلى مسودة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_user_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_user_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_wip_list
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_recognition_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_recognition_list
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_move_form_retention
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_list
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_list
+msgid "Retention"
+msgstr "المحتجزات"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_bank_statement_line__mizan_retention_percent
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_move__mizan_retention_percent
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__retention_percent
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__retention_percent
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__retention_percent
 msgid "Retention %"
 msgstr "نسبة المحتجز"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__revenue_earned
-msgid "Revenue Earned"
-msgstr "الإيراد المستحق"
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_bond__bond_type__retention
+msgid "Retention Bond"
+msgstr "ضمان المحتجزات"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__revenue_recognised
-msgid "Already Recognised"
-msgstr "المعترف به سابقاً"
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_bank_statement_line__mizan_retention_move_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_move__mizan_retention_move_id
+msgid "Retention Entry"
+msgstr "قيد المحتجزات"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__revenue_to_recognise
-msgid "To Recognise"
-msgstr "المتبقّي للاعتراف"
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__retention_held
+msgid "Retention Held"
+msgstr "المحتجزات"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__state
-msgid "State"
-msgstr "الحالة"
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__retention_held
+msgid "Retention Held by Client"
+msgstr "محتجزات لدى العميل"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__amount
-msgid "Revenue Recognised"
-msgstr "الإيراد المعترف به"
-
-#. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__company_id
-msgid "Company"
-msgstr "الشركة"
-
-#. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__completion_percent
-msgid "% Complete at Date"
-msgstr "نسبة الإنجاز بتاريخه"
-
-#. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__contract_id
-msgid "Contract"
-msgstr "العقد"
-
-#. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__cost_incurred
-msgid "Cost to Date"
-msgstr "التكلفة حتى تاريخه"
-
-#. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__currency_id
-msgid "Currency"
-msgstr "العملة"
-
-#. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__date
-msgid "Date"
-msgstr "التاريخ"
-
-#. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__journal_id
-msgid "Journal"
-msgstr "اليومية"
-
-#. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__move_id
-msgid "Journal Entry"
-msgstr "قيد اليومية"
-
-#. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__net_amount
-msgid "Net Claim"
-msgstr "صافي المطالبة"
-
-#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_bank_statement_line__mizan_retention_amount
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_move__mizan_retention_amount
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__retention_amount
 msgid "Retention Withheld"
 msgstr "المبلغ المحتجز"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/retention.py:0
+msgid "Retention on %s"
+msgstr "محتجزات على %s"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__retention_to_date
+msgid "Retention to Date"
+msgstr "المحتجزات حتى الآن"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/retention.py:0
+msgid "Retention was already withheld on %s."
+msgstr "سبق احتجاز المحتجزات على %s."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid "Returned by the consultant for re-measurement."
+msgstr "أعاده الاستشاري لإعادة القياس."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Returned for Re-measurement"
+msgstr "مُعاد لإعادة القياس"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__revenue_account_id
@@ -215,11 +2349,729 @@ msgid "Revenue Account"
 msgstr "حساب الإيراد"
 
 #. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__revenue_earned
+msgid "Revenue Earned"
+msgstr "الإيراد المستحق"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__amount
+msgid "Revenue Recognised"
+msgstr "الإيراد المعترف به"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/contract.py:0
+#: model:ir.actions.act_window,name:mizan_contracting.action_mizan_recognition
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
+msgid "Revenue Recognitions"
+msgstr "الاعتراف بالإيرادات"
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_mizan_contract
+msgid ""
+"Revenue is recognised from progress on site, not from the invoice\n"
+"               date: enter the contract value and the budgeted cost, book job costs\n"
+"               against the cost center, and the system works out what revenue you\n"
+"               have earned."
+msgstr "يُعترف بالإيراد من الإنجاز في الموقع لا من تاريخ الفاتورة: أدخل قيمة\n               العقد والتكلفة المُوازَنة، وقيّد تكاليف المشروع على مركز التكلفة،\n               ويحسب النظام الإيراد الذي كسبته."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/contract.py:0
+msgid "Revenue recognition %(pct).1f%% — %(contract)s"
+msgstr "الاعتراف بالإيراد %(pct).1f%% — %(contract)s"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__revised_budget_cost
+msgid "Revised Budget"
+msgstr "الموازنة المعدّلة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__revised_contract_value
+msgid "Revised Contract Value"
+msgstr "قيمة العقد المعدّلة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__revised_value
+msgid "Revised Value"
+msgstr "القيمة المعدّلة"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid "SC-2026-001"
+msgstr ""
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_has_sms_error
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_has_sms_error
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسالة النصية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__name
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_list
+msgid "Scope"
+msgstr "نطاق الأعمال"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid "Scope of works"
+msgstr "نطاق الأعمال"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__sequence
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__sequence
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__sequence
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+msgid "Set Contract Value from Bill"
+msgstr "تحديد قيمة العقد من الجدول"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/advance_bond.py:0
+msgid "Set the advance percentage first."
+msgstr "حدّد نسبة الدفعة المقدمة أولاً."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/advance_bond.py:0
+msgid "Set the contract on %s first."
+msgstr "حدّد العقد على %s أولاً."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/contract.py:0
+msgid ""
+"Set the journal, revenue account and accrued revenue account before posting."
+msgstr "حدّد الدفتر وحساب الإيراد وحساب الإيراد المستحق قبل الترحيل."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/retention.py:0
+msgid "Set the retention percentage first."
+msgstr "حدّد نسبة المحتجزات أولاً."
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_cost_code
+msgid "Set up your cost codes"
+msgstr "أعدّ بنود التكلفة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_boq_line__variation_id
+msgid ""
+"Set when the item came from a variation order rather than the original bill."
+" Only approved variations add to the measurable quantity."
+msgstr "يُحدَّد عندما يأتي البند من أمر تغيير لا من الجدول الأصلي. وأوامر التغيير المعتمدة وحدها تضيف إلى الكمية القابلة للقياس."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_costcodes
+msgid ""
+"Sets cost to complete from what is already ordered plus the unspent budget."
+msgstr "يحدّد تكلفة الإكمال من المأمور به فعلاً زائد الموازنة غير المنفقة."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__retention_percent
+msgid "Share of each progress claim the client withholds until handover."
+msgstr "حصة من كل مستخلص يحتجزها العميل حتى التسليم."
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_cost_code__category__site
+msgid "Site Overheads"
+msgstr "مصاريف الموقع"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
+msgid "Start"
+msgstr "بدء"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__date_start
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__state
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__state
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__state
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__state
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__state
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__state
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__state
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__state
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__state
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__state
 msgid "State"
 msgstr "الحالة"
 
 #. module: mizan_contracting
-#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__wip_account_id
-msgid "Accrued Revenue Account"
-msgstr "حساب الإيراد المستحق"
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_search
+msgid "Status"
+msgstr "الحالة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__activity_state
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__activity_state
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr "الحالة بناءً على الأنشطة\nمتأخر: تاريخ الاستحقاق قد فات\nاليوم: تاريخ النشاط هو اليوم\nمخطط: أنشطة مستقبلية."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_list
+msgid "Still Committed"
+msgstr "الالتزام المتبقي"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_subcontract
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_bank_statement_line__mizan_subcontract_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_move__mizan_subcontract_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__subcontract_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__subcontract_id
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_cost_code__category__subcontract
+msgid "Subcontract"
+msgstr "عقد باطن"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__code
+msgid "Subcontract No."
+msgstr "رقم عقد الباطن"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_subcontract_variation
+msgid "Subcontract Variation"
+msgstr "أمر تغيير لعقد الباطن"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__partner_id
+msgid "Subcontractor"
+msgstr "مقاول الباطن"
+
+#. module: mizan_contracting
+#: model:ir.actions.act_window,name:mizan_contracting.action_subcontract
+msgid "Subcontracts"
+msgstr "عقود الباطن"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_list
+msgid "Submit"
+msgstr "تقديم"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Submit to Consultant"
+msgstr "تقديم للاستشاري"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_variation__state__submitted
+msgid "Submitted"
+msgstr "مُقدَّم"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_progress_claim__state__submitted
+msgid "Submitted to Consultant"
+msgstr "مُقدَّم للاستشاري"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid ""
+"Submitted to the consultant: %(amount)s for the period, %(pct).1f%% of the "
+"contract certified to date."
+msgstr "قُدّم للاستشاري: %(amount)s لهذه الفترة، و%(pct).1f%% من العقد معتمد حتى الآن."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__cost_incurred
+msgid "Sum of analytic costs booked against the cost center."
+msgstr "مجموع التكاليف التحليلية المقيّدة على مركز التكلفة."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__invoice_id
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "Tax Invoice"
+msgstr "الفاتورة الضريبية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_bond__bond_type__tender
+msgid "Tender Bond"
+msgstr "ضمان ابتدائي"
+
+#. module: mizan_contracting
+#: model:ir.model.constraint,message:mizan_contracting.constraint_mizan_progress_claim_line_item_claim_uniq
+msgid "That bill item is already measured on this claim."
+msgstr "بند الجدول هذا مقيس بالفعل على هذا المستخلص."
+
+#. module: mizan_contracting
+#: model:ir.model.constraint,message:mizan_contracting.constraint_mizan_progress_claim_claim_no_uniq
+msgid "That claim number already exists on this contract."
+msgstr "رقم المستخلص هذا موجود بالفعل على هذا العقد."
+
+#. module: mizan_contracting
+#: model:ir.model.constraint,message:mizan_contracting.constraint_mizan_cost_code_code_company_uniq
+msgid "That cost code already exists."
+msgstr "بند التكلفة هذا موجود بالفعل."
+
+#. module: mizan_contracting
+#: model:ir.model.constraint,message:mizan_contracting.constraint_mizan_contract_budget_line_code_contract_uniq
+msgid "That cost code is already budgeted on this contract."
+msgstr "بند التكلفة هذا موازَن بالفعل على هذا العقد."
+
+#. module: mizan_contracting
+#: model:ir.model.constraint,message:mizan_contracting.constraint_mizan_contract_boq_line_item_contract_uniq
+msgid "That item number is already in this contract's bill of quantities."
+msgstr "رقم البند هذا موجود بالفعل في جدول كميات هذا العقد."
+
+#. module: mizan_contracting
+#: model:ir.model.constraint,message:mizan_contracting.constraint_mizan_plant_code_uniq
+msgid "That plant number already exists."
+msgstr "رقم الآلية هذا موجود بالفعل."
+
+#. module: mizan_contracting
+#: model:ir.model.constraint,message:mizan_contracting.constraint_mizan_subcontract_code_uniq
+msgid "That subcontract number already exists."
+msgstr "رقم عقد الباطن هذا موجود بالفعل."
+
+#. module: mizan_contracting
+#: model:ir.model.constraint,message:mizan_contracting.constraint_mizan_contract_variation_reference_uniq
+msgid "That variation number already exists on this contract."
+msgstr "رقم أمر التغيير هذا موجود بالفعل على هذا العقد."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/advance_bond.py:0
+msgid "The advance on %s is already recorded."
+msgstr "الدفعة المقدمة على %s مسجلة بالفعل."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_account_bank_statement_line__mizan_contract_id
+#: model:ir.model.fields,help:mizan_contracting.field_account_move__mizan_contract_id
+msgid "The contract this claim is drawn against."
+msgstr "العقد الذي يُسحب عليه هذا المستخلص."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_costcodes
+msgid ""
+"The cost codes below do not add up to the contract\n"
+"                        budget. One of the two is out of date."
+msgstr "بنود التكلفة أدناه لا تساوي موازنة العقد.\n                        أحدهما غير محدَّث."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__budget_line_mismatch
+msgid "The cost codes do not add up to the contract budget."
+msgstr "بنود التكلفة لا تساوي موازنة العقد."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_boq_line__section
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim_line__section
+msgid ""
+"The heading this item sits under in the priced bill — the consultant "
+"certifies section by section."
+msgstr "العنوان الذي يقع تحته هذا البند في الجدول المُسعّر — الاستشاري يعتمد قسماً قسماً."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__certified_to_date
+msgid ""
+"The highest gross value any certified claim has reached — the measured "
+"position, as against the accounting one."
+msgstr "أعلى قيمة إجمالية بلغها أي مستخلص معتمد — الموقف بالقياس مقابل الموقف المحاسبي."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+msgid ""
+"The priced items below do not add up to the contract\n"
+"                        value. Claims are measured against the bill, so whichever\n"
+"                        of the two is wrong, the claims will follow the bill."
+msgstr "البنود المُسعّرة أدناه لا تساوي قيمة العقد. والمستخلصات\n                        تُقاس على الجدول، فأيّهما كان الخطأ ستتبع\n                        المستخلصات الجدول."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__boq_mismatch
+msgid ""
+"The priced items do not add up to the contract value. One of the two is "
+"wrong, and the claims will be measured against the bill."
+msgstr "البنود المُسعّرة لا تساوي قيمة العقد. أحدهما خطأ، والمستخلصات ستُقاس على الجدول."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__consultant_ref
+msgid "The reference on the certificate the consultant issues back."
+msgstr "المرجع على الشهادة التي يصدرها الاستشاري."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__cost_code_id
+msgid ""
+"The trade this agreement covers. Its value lands here as committed cost "
+"until the subcontractor bills."
+msgstr "البند الذي تغطيه هذه الاتفاقية. وقيمتها تستقر هنا كتكلفة ملتزم بها حتى يُفوتر مقاول الباطن."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__loss_provision_required
+msgid ""
+"The whole expected loss. A foreseeable loss is recognised as soon as it is "
+"foreseen, not spread over the remaining work."
+msgstr "كامل الخسارة المتوقعة. تُعترف الخسارة المتوقعة بمجرد توقّعها، ولا تُوزّع على الأعمال المتبقية."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/contract.py:0
+msgid ""
+"There is no new revenue to recognise: work done so far is already fully "
+"booked."
+msgstr "لا يوجد إيراد جديد للاعتراف به: الأعمال المنفذة حتى الآن مقيّدة بالكامل."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/boq_claim.py:0
+msgid ""
+"These items measure more than the bill of quantities allows. Either correct the quantity or raise a variation for the extra:\n"
+"\n"
+"%s"
+msgstr "هذه البنود مقيسة بأكثر مما يسمح به جدول الكميات. صحّح الكمية أو أصدر أمر تغيير للزيادة:\n\n%s"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__this_amount
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+msgid "This Period"
+msgstr "هذه الفترة"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_search
+msgid "This Year"
+msgstr "هذه السنة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__advance_recovery
+msgid ""
+"This claim's share of the advance, at the contract's recovery rate and never"
+" more than what is still outstanding."
+msgstr "حصة هذا المستخلص من الدفعة المقدمة، بنسبة الاسترداد المنصوص عليها في العقد وبما لا يزيد أبداً عن المتبقي منها."
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_mizan_wip
+msgid ""
+"This schedule sets what each client has been billed against what\n"
+"                the work has actually earned. The difference is either a\n"
+"                liability to the client or money you have not yet asked for."
+msgstr "هذا الكشف يقابل ما فُوتر على كل عميل بما كسبته الأعمال فعلاً.\n                والفرق إمّا التزام تجاه العميل أو مال لم تطالب\n                به بعد."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid "This subcontractor's insurance expires on"
+msgstr "تأمين مقاول الباطن هذا ينتهي في"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_boq_line__cost_code_id
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim_line__cost_code_id
+msgid ""
+"Ties the item's revenue to the trade that will spend against it, so a rate "
+"can be compared with what it actually costs."
+msgstr "يربط إيراد البند بالبند الذي سيُنفق عليه، فيمكن مقابلة السعر بما يكلّف فعلاً."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_account_bank_statement_line__mizan_subcontract_id
+#: model:ir.model.fields,help:mizan_contracting.field_account_move__mizan_subcontract_id
+msgid "Ties this bill to the agreement it is drawn against."
+msgstr "يربط هذه الفاتورة بالاتفاقية المسحوبة عليها."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__revenue_to_recognise
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_list
+msgid "To Recognise"
+msgstr "المتبقّي للاعتراف"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_bond_list
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__budget_cost
+msgid ""
+"Total cost expected to complete. Progress is measured against it, so "
+"revising it revises revenue for every later period."
+msgstr "إجمالي التكلفة المتوقعة للإكمال. الإنجاز يُقاس عليها، فتعديلها يعدّل الإيراد في كل فترة لاحقة."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__contract_value
+msgid "Total revenue expected over the life of the contract."
+msgstr "إجمالي الإيراد المتوقع على عمر العقد."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__activity_exception_decoration
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__activity_exception_decoration
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي المسجل."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__unit
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__unit
+msgid "Unit"
+msgstr "الوحدة"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_list
+msgid "Unpaid"
+msgstr "غير مدفوع"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__reference
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__reference
+msgid "VO No."
+msgstr "رقم أمر التغيير"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_list
+msgid "Value"
+msgstr "القيمة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__amount
+msgid "Value Change"
+msgstr "تغيير القيمة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__amount_this_period
+msgid "Value This Period"
+msgstr "قيمة هذه الفترة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__work_done_to_date
+msgid "Value of Work Done to Date"
+msgstr "قيمة الأعمال المنفذة حتى الآن"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
+msgid "Values"
+msgstr "القيم"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__variance
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_costcodes
+msgid "Variance"
+msgstr "الفرق"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__variance_percent
+msgid "Variance %"
+msgstr "نسبة الفرق %"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__variation_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__variation_ids
+msgid "Variation"
+msgstr "أمر تغيير"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__boq_variation_total
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_boq_line_search
+msgid "Variation Items"
+msgstr "بنود أوامر التغيير"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_contract_variation
+msgid "Variation Order"
+msgstr "أمر تغيير"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__variation_ids
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_forecast
+msgid "Variation Orders"
+msgstr "أوامر التغيير"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__variation_total
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid "Variations"
+msgstr "أوامر التغيير"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+msgid "Waive"
+msgstr "تنازل"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_subcontract_backcharge__state__waived
+msgid "Waived"
+msgstr "مُتنازل عنه"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__website_message_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__website_message_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__website_message_ids
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__website_message_ids
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__website_message_ids
+msgid "Website communication history"
+msgstr "سجل التواصل عبر الموقع"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_plant__internal_rate
+msgid ""
+"What a job is charged for using this machine. Set it from what the machine "
+"costs to own and run, not from the market hire rate — the point is to "
+"recover cost, not to make a margin on yourself."
+msgstr "ما يُحمّل على المشروع مقابل استخدام هذه الآلية. حدّده من تكلفة تملّكها وتشغيلها لا من سعر الإيجار في السوق — فالمقصود استرداد التكلفة لا تحقيق هامش على نفسك."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__cost_impact
+msgid "What it is expected to cost to build."
+msgstr "ما يُتوقع أن يكلف تنفيذه."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__amount
+msgid "What the client will pay for this change. Negative for omissions."
+msgstr "ما سيدفعه العميل مقابل هذا التغيير. سالب في حالة الحذف."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__certified_amount
+msgid ""
+"What the consultant actually certified, when it differs from what was "
+"claimed. The difference is what the next claim has to argue about, so it is "
+"recorded rather than overwritten."
+msgstr "ما اعتمده الاستشاري فعلاً حين يختلف عمّا طُولب به. والفرق هو ما سيُناقش في المستخلص التالي، فيُسجّل ولا يُطمس."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__cost_to_complete
+msgid ""
+"What the site team expects the rest of the job to cost. Leave empty and the "
+"original budget is assumed, which is only true while nothing has gone wrong."
+msgstr "ما يتوقع فريق الموقع أن يكلّفه باقي المشروع. إذا تُرك فارغاً افتُرضت الموازنة الأصلية، وهي لا تصحّ إلا ما لم يحدث خطأ."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim_line__this_qty
+msgid ""
+"What was measured on site during this period. Negative to correct an earlier"
+" over-measurement."
+msgstr "ما قيس في الموقع خلال هذه الفترة. وسالباً لتصحيح قياس زائد سابق."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__backcharge_total
+msgid "What we spent putting his work right, recovered from him."
+msgstr "ما أنفقناه لتصحيح أعماله، ويُسترد منه."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_cost_code__account_id
+msgid "Where costs on this code post unless the document says otherwise."
+msgstr "حيث تُرحّل تكاليف هذا البند ما لم يحدد المستند غير ذلك."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_account_move_line__mizan_plant_id
+msgid "Which machine this cost or recovery belongs to."
+msgstr "الآلية التي تنتمي إليها هذه التكلفة أو الاسترداد."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_account_move_line__mizan_cost_code_id
+msgid "Which part of the job this cost belongs to."
+msgstr "الجزء من المشروع الذي تنتمي إليه هذه التكلفة."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_move_form_retention
+msgid "Withhold Retention"
+msgstr "احتجاز المحتجزات"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_wip_list
+msgid "Work in Excess"
+msgstr "الإنجاز الزائد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__under_billing
+msgid "Work in Excess of Billings"
+msgstr "الإنجاز الزائد عن الفوترة"
+
+#. module: mizan_contracting
+#: model:ir.actions.act_window,name:mizan_contracting.action_mizan_wip
+msgid "Work in Progress"
+msgstr "الأعمال تحت التنفيذ"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_recognition__wip_account_id
+msgid "Work in progress: revenue earned that has not been invoiced yet."
+msgstr "أعمال تحت التنفيذ: إيراد مكتسب ولم يُفوتر بعد."
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_contract__activity_state__overdue
+msgid "Overdue"
+msgstr "متأخر"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_contract__activity_state__today
+msgid "Today"
+msgstr "اليوم"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_contract__activity_state__planned
+msgid "Planned"
+msgstr "المخطط له"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_contract__activity_exception_decoration__warning
+msgid "Alert"
+msgstr "التنبيه"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_contract__activity_exception_decoration__danger
+msgid "Error"
+msgstr "خطأ"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_progress_claim__activity_state__overdue
+msgid "Overdue"
+msgstr "متأخر"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_progress_claim__activity_state__today
+msgid "Today"
+msgstr "اليوم"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_progress_claim__activity_state__planned
+msgid "Planned"
+msgstr "المخطط له"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_progress_claim__activity_exception_decoration__warning
+msgid "Alert"
+msgstr "التنبيه"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_progress_claim__activity_exception_decoration__danger
+msgid "Error"
+msgstr "خطأ"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_subcontract__activity_state__overdue
+msgid "Overdue"
+msgstr "متأخر"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_subcontract__activity_state__today
+msgid "Today"
+msgstr "اليوم"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_subcontract__activity_state__planned
+msgid "Planned"
+msgstr "المخطط له"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_subcontract__activity_exception_decoration__warning
+msgid "Alert"
+msgstr "التنبيه"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mail.selection__mizan_subcontract__activity_exception_decoration__danger
+msgid "Error"
+msgstr "خطأ"

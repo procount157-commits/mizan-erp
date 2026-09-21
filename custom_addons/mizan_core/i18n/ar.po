@@ -443,3 +443,28 @@ msgstr "المستخلصات"
 #: model:ir.ui.menu,name:mizan_core.menu_mizan_boq
 msgid "Bill of Quantities"
 msgstr "جدول الكميات"
+
+#. module: mizan_core
+#: model:ir.ui.menu,name:mizan_core.menu_mizan_wip
+msgid "Work in Progress"
+msgstr "الأعمال تحت التنفيذ"
+
+#. module: mizan_core
+#: model:ir.ui.menu,name:mizan_core.menu_mizan_subcontracts
+msgid "Subcontracts"
+msgstr "عقود الباطن"
+
+#. module: mizan_core
+#: model:ir.ui.menu,name:mizan_core.menu_mizan_bonds
+msgid "Guarantees & Bonds"
+msgstr "الضمانات البنكية"
+
+#. module: mizan_core
+#: model:ir.ui.menu,name:mizan_core.menu_mizan_cost_codes
+msgid "Cost Codes"
+msgstr "بنود التكلفة"
+
+#. module: mizan_core
+#: model:ir.ui.menu,name:mizan_core.menu_mizan_owned_plant
+msgid "Owned Plant"
+msgstr "الآليات المملوكة"

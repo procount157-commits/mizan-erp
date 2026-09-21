@@ -118,3 +118,28 @@ msgstr "تاريخ التحصيل أو الارتداد"
 #: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__state
 msgid "State"
 msgstr "الحالة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mail.selection__mizan_cheque__activity_state__overdue
+msgid "Overdue"
+msgstr "متأخر"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mail.selection__mizan_cheque__activity_state__today
+msgid "Today"
+msgstr "اليوم"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mail.selection__mizan_cheque__activity_state__planned
+msgid "Planned"
+msgstr "المخطط له"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mail.selection__mizan_cheque__activity_exception_decoration__warning
+msgid "Alert"
+msgstr "التنبيه"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mail.selection__mizan_cheque__activity_exception_decoration__danger
+msgid "Error"
+msgstr "خطأ"
