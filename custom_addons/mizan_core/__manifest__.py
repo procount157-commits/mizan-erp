@@ -19,6 +19,7 @@
     "application": True,
     "license": "LGPL-3",
     "data": [
+        "views/banking.xml",
         "views/views.xml",
         "report/mizan_invoice_template.xml",
     ],

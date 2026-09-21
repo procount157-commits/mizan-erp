@@ -468,3 +468,54 @@ msgstr "بنود التكلفة"
 #: model:ir.ui.menu,name:mizan_core.menu_mizan_owned_plant
 msgid "Owned Plant"
 msgstr "الآليات المملوكة"
+
+#. module: mizan_core
+#: model:ir.ui.menu,name:mizan_core.menu_mizan_bank_statements
+#: model:ir.actions.act_window,name:mizan_core.action_mizan_bank_statements
+msgid "Bank Statements"
+msgstr "كشوف الحساب البنكي"
+
+#. module: mizan_core
+#: model:ir.actions.act_window,name:mizan_core.action_mizan_bank_reconcile
+msgid "Bank Reconciliation"
+msgstr "التسويات البنكية"
+
+#. module: mizan_core
+#: model:ir.ui.menu,name:mizan_core.menu_mizan_bank_transactions
+#: model:ir.actions.act_window,name:mizan_core.action_mizan_statement_lines
+msgid "Bank Transactions"
+msgstr "الحركات البنكية"
+
+#. module: mizan_core
+#: model:ir.actions.act_window,help:mizan_core.action_mizan_bank_reconcile
+msgid "Nothing left to reconcile"
+msgstr "لا يوجد ما يحتاج تسوية"
+
+#. module: mizan_core
+#: model:ir.actions.act_window,help:mizan_core.action_mizan_bank_reconcile
+msgid ""
+"Lines appear here once a bank statement is entered or imported.\n"
+"                Each one is matched against the invoice, bill or payment it\n"
+"                settles, and what the bank charged that nobody raised a\n"
+"                document for is posted from here."
+msgstr ""
+"تظهر الحركات هنا بمجرد إدخال كشف حساب بنكي أو استيراده.\n"
+"                وتُطابَق كل حركة مع الفاتورة أو السند الذي تسدّده،\n"
+"                وما خصمه البنك دون مستند من أحد يُرحّل من هنا."
+
+#. module: mizan_core
+#: model:ir.actions.act_window,help:mizan_core.action_mizan_bank_statements
+msgid "Enter your first statement"
+msgstr "أدخل أول كشف حساب"
+
+#. module: mizan_core
+#: model:ir.actions.act_window,help:mizan_core.action_mizan_bank_statements
+msgid ""
+"A statement is the bank's own record of the account: opening\n"
+"                balance, every movement, closing balance. Reconciling against it\n"
+"                is what proves the ledger and the bank agree — and it is the\n"
+"                first thing an auditor asks for."
+msgstr ""
+"كشف الحساب هو سجل البنك نفسه للحساب: الرصيد الافتتاحي،\n"
+"                وكل حركة، والرصيد الختامي. والتسوية عليه هي ما يثبت أن\n"
+"                الدفتر والبنك متفقان — وهو أول ما يطلبه المدقق."

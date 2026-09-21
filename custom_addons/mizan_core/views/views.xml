@@ -43,8 +43,14 @@
               groups="account.group_account_invoice"/>
     <menuitem id="menu_mizan_bank_accounts" name="Bank &amp; Cash Accounts" parent="menu_mizan_banking"
               action="account.action_account_journal_form" sequence="10"/>
+    <menuitem id="menu_mizan_bank_statements" name="Bank Statements" parent="menu_mizan_banking"
+              action="action_mizan_bank_statements" sequence="15"/>
+    <!-- Deliberately NOT the OCA action: it is scoped to a journal through
+         active_id and crashes when opened from a menu. -->
     <menuitem id="menu_mizan_reconcile" name="Reconciliation" parent="menu_mizan_banking"
-              action="account_reconcile_oca.action_bank_statement_line_reconcile" sequence="20"/>
+              action="action_mizan_bank_reconcile" sequence="20"/>
+    <menuitem id="menu_mizan_bank_transactions" name="Bank Transactions" parent="menu_mizan_banking"
+              action="action_mizan_statement_lines" sequence="25"/>
     <menuitem id="menu_mizan_cheques_received" name="Cheques Received" parent="menu_mizan_banking"
               action="mizan_cheque.action_mizan_cheque_received" sequence="30"/>
     <menuitem id="menu_mizan_cheques_issued" name="Cheques Issued" parent="menu_mizan_banking"

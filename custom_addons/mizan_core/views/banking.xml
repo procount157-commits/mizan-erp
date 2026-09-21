@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Bank reconciliation, reachable from a menu.
+
+        The OCA actions are all written to be opened FROM a journal: their
+        domain is [('journal_id','=',active_id)] and their context passes
+        active_id as the default journal. Put one on a menu and there is no
+        active_id, so the whole screen dies with "Name 'active_id' is not
+        defined" before it draws anything — which is exactly what happened
+        here. Same shape as the expense approval action that needed an
+        active_id it was never given.
+
+        These actions carry no active_id. They cover every bank and cash
+        journal at once, which is also how a finance manager wants to work:
+        one screen for everything outstanding, not one screen per account.
+    -->
+    <record id="action_mizan_bank_reconcile" model="ir.actions.act_window">
+        <field name="name">Bank Reconciliation</field>
+        <field name="res_model">account.bank.statement.line</field>
+        <field name="view_mode">kanban,list</field>
+        <field name="domain">[('journal_id.type', 'in', ('bank', 'cash'))]</field>
+        <field name="context">{
+            'search_default_not_reconciled': True,
+            'view_ref': 'account_reconcile_oca.bank_statement_line_form_reconcile_view',
+        }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing left to reconcile</p>
+            <p>
+                Lines appear here once a bank statement is entered or imported.
+                Each one is matched against the invoice, bill or payment it
+                settles, and what the bank charged that nobody raised a
+                document for is posted from here.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_mizan_bank_statements" model="ir.actions.act_window">
+        <field name="name">Bank Statements</field>
+        <field name="res_model">account.bank.statement</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Enter your first statement</p>
+            <p>
+                A statement is the bank's own record of the account: opening
+                balance, every movement, closing balance. Reconciling against it
+                is what proves the ledger and the bank agree — and it is the
+                first thing an auditor asks for.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_mizan_statement_lines" model="ir.actions.act_window">
+        <field name="name">Bank Transactions</field>
+        <field name="res_model">account.bank.statement.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('journal_id.type', 'in', ('bank', 'cash'))]</field>
+        <field name="context">{'account_bank_statement_line_main_view': True}</field>
+    </record>
+
+</odoo>
