@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- On the claim, beside the step buttons it replaces. -->
+    <record id="view_progress_claim_form_complete" model="ir.ui.view">
+        <field name="name">mizan.progress.claim.form.complete</field>
+        <field name="model">mizan.progress.claim</field>
+        <field name="inherit_id" ref="mizan_contracting.view_progress_claim_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_complete_all" type="object"
+                        string="Complete All" class="btn-primary"
+                        invisible="state == 'cancel'"
+                        help="Run every remaining step: submit, certify, raise
+                              the tax invoice, post it, withhold the retention
+                              and recover the advance."/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- On any invoice or bill. -->
+    <record id="view_move_form_complete_all" model="ir.ui.view">
+        <field name="name">account.move.form.complete.all</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_mizan_complete_all" type="object"
+                        string="Complete All" class="btn-primary"
+                        invisible="state == 'cancel'"
+                        help="Post the document, then withhold the retention and
+                              recover the advance that the contract calls for."/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- And from any list, on a whole selection — which is where it is needed
+         most: a month's claims at once, not one document at a time. -->
+    <record id="action_move_complete_all" model="ir.actions.server">
+        <field name="name">Complete All</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">action = records.action_mizan_complete_all()</field>
+    </record>
+
+    <record id="action_claim_complete_all" model="ir.actions.server">
+        <field name="name">Complete All</field>
+        <field name="model_id" ref="mizan_contracting.model_mizan_progress_claim"/>
+        <field name="binding_model_id" ref="mizan_contracting.model_mizan_progress_claim"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">
+for claim in records:
+    claim.action_complete_all()
+        </field>
+    </record>
+
+</odoo>

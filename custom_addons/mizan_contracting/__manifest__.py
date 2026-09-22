@@ -23,5 +23,6 @@ tracks the retention withheld on each progress claim.
         "views/subcontract_views.xml",
         "views/plant_views.xml",
         "views/boq_claim_views.xml",
+        "views/complete_all_views.xml",
     ],
 }

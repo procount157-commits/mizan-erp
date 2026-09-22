@@ -469,9 +469,16 @@ class MizanProgressClaim(models.Model):
         account = self._claim_revenue_account()
         analytic = ({str(contract.analytic_account_id.id): 100}
                     if contract.analytic_account_id else False)
-        taxes = self.env["account.tax"].search(
-            [("type_tax_use", "=", "sale"),
-             ("company_id", "=", contract.company_id.id)], limit=1)
+        # The company's default, not "whichever sale tax sorts first". There
+        # are fourteen 5% sale taxes in the UAE chart, one per emirate, and the
+        # VAT return reports sales by emirate — picking one arbitrarily files
+        # the revenue against the wrong one.
+        taxes = contract.company_id.account_sale_tax_id
+        if not taxes:
+            raise UserError(_(
+                "No default sales tax on %s. Set it before invoicing, or the "
+                "VAT lands on whichever emirate happens to sort first.",
+                contract.company_id.display_name))
 
         lines = []
         for line in self.line_ids.filtered(

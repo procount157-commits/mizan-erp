@@ -7,3 +7,4 @@ from . import advance_bond
 from . import subcontract
 from . import plant
 from . import boq_claim
+from . import complete_all
