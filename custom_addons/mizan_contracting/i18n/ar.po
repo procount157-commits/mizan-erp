@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0-20260908\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 12:36+0000\n"
-"PO-Revision-Date: 2026-09-22 12:36+0000\n"
+"POT-Creation-Date: 2026-09-26 06:22+0000\n"
+"PO-Revision-Date: 2026-09-26 06:22+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -170,7 +170,9 @@ msgid ""
 "%s is with the consultant. Record who certified it before finishing — the "
 "name on the certificate is the whole point of the step, and the system will "
 "not invent it."
-msgstr "%s عند الاستشاري. سجّل من اعتمده قبل الإنهاء — الاسم على الشهادة هو جوهر هذه الخطوة، والنظام لن يخترعه."
+msgstr ""
+"%s عند الاستشاري. سجّل من اعتمده قبل الإنهاء — الاسم على الشهادة هو جوهر هذه"
+" الخطوة، والنظام لن يخترعه."
 
 #. module: mizan_contracting
 #. odoo-python
@@ -910,10 +912,13 @@ msgid "Company"
 msgstr "الشركة"
 
 #. module: mizan_contracting
-#: model:ir.actions.server,name:mizan_contracting.action_claim_complete_all
-#: model:ir.actions.server,name:mizan_contracting.action_move_complete_all
+#. odoo-python
+#: code:addons/mizan_contracting/models/complete_all.py:0
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_move_form_complete_all
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_move_list_complete_all
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_move_list_complete_all_entries
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form_complete
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_list_complete_all
 msgid "Complete All"
 msgstr "إكمال الكل"
 
@@ -1863,7 +1868,9 @@ msgstr "لا توجد عقود قيد التنفيذ"
 msgid ""
 "No default sales tax on %s. Set it before invoicing, or the VAT lands on "
 "whichever emirate happens to sort first."
-msgstr "لا توجد ضريبة مبيعات افتراضية على %s. حدّدها قبل الفوترة، وإلا وقعت الضريبة على أول إمارة تأتي في الترتيب."
+msgstr ""
+"لا توجد ضريبة مبيعات افتراضية على %s. حدّدها قبل الفوترة، وإلا وقعت الضريبة "
+"على أول إمارة تأتي في الترتيب."
 
 #. module: mizan_contracting
 #: model_terms:ir.actions.act_window,help:mizan_contracting.action_bond_register
@@ -1917,6 +1924,12 @@ msgstr "لم يبق شيء ليُنفَّذ على ما اخترته."
 #: code:addons/mizan_contracting/models/advance_bond.py:0
 msgid "Nothing left to recover on %s."
 msgstr "لم يبق ما يُسترد على %s."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/complete_all.py:0
+msgid "Nothing to do."
+msgstr "لا يوجد ما يُنفَّذ."
 
 #. module: mizan_contracting
 #. odoo-python
@@ -2125,7 +2138,9 @@ msgid ""
 "Post the document, then withhold the retention and"
 "                               recover the advance that the contract calls "
 "for."
-msgstr "ترحيل المستند، ثم احتجاز المحتجزات واسترداد الدفعة المقدمة التي ينص عليها العقد."
+msgstr ""
+"ترحيل المستند، ثم احتجاز المحتجزات واسترداد الدفعة المقدمة التي ينص عليها "
+"العقد."
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
@@ -2546,7 +2561,9 @@ msgid ""
 "Run every remaining step: submit, certify, raise"
 "                               the tax invoice, post it, withhold the "
 "retention                               and recover the advance."
-msgstr "تنفيذ كل الخطوات المتبقية: التقديم، والاعتماد، وإصدار الفاتورة الضريبية، وترحيلها، واحتجاز المحتجزات، واسترداد الدفعة المقدمة."
+msgstr ""
+"تنفيذ كل الخطوات المتبقية: التقديم، والاعتماد، وإصدار الفاتورة الضريبية، "
+"وترحيلها، واحتجاز المحتجزات، واسترداد الدفعة المقدمة."
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
