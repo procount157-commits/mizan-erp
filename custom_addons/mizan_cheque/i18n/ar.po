@@ -4,20 +4,126 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-26 06:38+0000\n"
+"PO-Revision-Date: 2026-09-26 06:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__activity_user_id
-msgid "Responsible User"
-msgstr "المستخدم المسؤول"
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid ""
+"%(cheque)s is above the %(limit)s approval limit and needs a second person. "
+"You gave the first approval."
+msgstr "%(cheque)s يتجاوز حد الاعتماد %(limit)s ويحتاج شخصاً ثانياً. وأنت من أعطى الاعتماد الأول."
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "%s has not bounced."
+msgstr "%s لم يرتد."
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "%s is not a draft."
+msgstr "%s ليس مسودة."
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "%s is not under claim."
+msgstr "%s ليس تحت مطالبة."
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "%s is not waiting for approval."
+msgstr "%s ليس بانتظار الاعتماد."
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form
+msgid ""
+"<span class=\"o_stat_text\">Journal</span>\n"
+"                                <span class=\"o_stat_text\">Entries</span>"
+msgstr "<span class=\"o_stat_text\">قيود</span>\n                                <span class=\"o_stat_text\">اليومية</span>"
+
+#. module: mizan_cheque
+#: model_terms:ir.actions.act_window,help:mizan_cheque.action_mizan_cheque_received
+msgid ""
+"A post-dated cheque is neither cash nor an ordinary receivable.\n"
+"               Registering it moves the amount into a cheques-under-collection\n"
+"               account, and clearing it moves the money to the bank."
+msgstr "الشيك الآجل ليس نقداً ولا ذمة مدينة عادية.\n               وتسجيله ينقل المبلغ إلى حساب الشيكات برسم التحصيل،\n               وتحصيله ينقل المال إلى البنك."
+
+#. module: mizan_cheque
+#: model_terms:ir.actions.act_window,help:mizan_cheque.action_mizan_cheque_claims
+msgid ""
+"A returned cheque appears here until it is recovered or written\n"
+"                off, so the amount always belongs to someone rather than sitting\n"
+"                quietly in the ledger."
+msgstr "يظهر الشيك المرتد هنا حتى يُحصَّل أو يُشطب، فيبقى المبلغ\n                مملوكاً لأحد بدل أن يجلس صامتاً في الدفتر."
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form_workflow
+msgid "Accept Cheque"
+msgstr "قبول الشيك"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form_workflow
+msgid "Acceptance"
+msgstr "القبول"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__accepted_by_id
+msgid "Accepted By"
+msgstr "قَبِله"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__accepted_on
+msgid "Accepted On"
+msgstr "تاريخ القبول"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__bounce_reason__account
+msgid "Account Closed or Frozen"
+msgstr "حساب مغلق أو مجمّد"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form
+msgid "Accounting"
+msgstr "المحاسبة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__message_needaction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
 
 #. module: mizan_cheque
 #: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__amount
@@ -25,59 +131,61 @@ msgid "Amount"
 msgstr "المبلغ"
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__bank_id
-msgid "Drawee Bank"
-msgstr "البنك المسحوب عليه"
+#: model:ir.model.fields,help:mizan_cheque.field_res_company__mizan_cheque_approval_limit
+#: model:ir.model.fields,help:mizan_cheque.field_res_config_settings__mizan_cheque_approval_limit
+msgid ""
+"An issued cheque above this needs a second authorisation. Set it to match "
+"the mandate lodged with the bank; zero means every issued cheque needs one "
+"approval only."
+msgstr "الشيك الصادر الذي يتجاوز هذا المبلغ يحتاج اعتماداً ثانياً. اضبطه ليطابق التفويض المودع لدى البنك؛ والصفر يعني أن كل شيك صادر يكفيه اعتماد واحد."
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__cheque_account_id
-msgid "Cheques Under Collection"
-msgstr "شيكات تحت التحصيل"
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form_workflow
+msgid "Approve"
+msgstr "اعتماد"
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__cheque_type
-msgid "Type"
-msgstr "النوع"
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__approved_by_id
+msgid "Approved By"
+msgstr "اعتمده"
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__company_id
-msgid "Company"
-msgstr "الشركة"
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__approved_on
+msgid "Approved On"
+msgstr "تاريخ الاعتماد"
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__counterpart_account_id
-msgid "Counterpart Account"
-msgstr "الحساب المقابل"
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Approved by %s."
+msgstr "اعتمده %s."
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__currency_id
-msgid "Currency"
-msgstr "العملة"
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__due_date
-msgid "Due Date"
-msgstr "تاريخ الاستحقاق"
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form_workflow
+msgid "Authorisation"
+msgstr "التفويض"
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__invoice_ids
-msgid "Settles Invoices"
-msgstr "يسدّد الفواتير"
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Authorisation refused; back to draft."
+msgstr "رُفض التفويض؛ أُعيد إلى مسودة."
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__invoice_total
-msgid "Invoiced Total"
-msgstr "إجمالي المفوتر"
+#: model:ir.model.fields,field_description:mizan_cheque.field_res_company__mizan_cheque_writeoff_account_id
+#: model:ir.model.fields,field_description:mizan_cheque.field_res_config_settings__mizan_cheque_writeoff_account_id
+msgid "Bad Debt Account"
+msgstr "حساب الديون المعدومة"
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__is_overdue
-msgid "Overdue"
-msgstr "متأخر"
-
-#. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__issue_date
-msgid "Cheque Date"
-msgstr "تاريخ الشيك"
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__bounce_charge
+msgid "Bank Charge on Return"
+msgstr "رسوم البنك على الارتداد"
 
 #. module: mizan_cheque
 #: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__journal_id
@@ -85,14 +193,102 @@ msgid "Bank Journal"
 msgstr "يومية البنك"
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__move_register_id
-msgid "Registration Entry"
-msgstr "قيد التسجيل"
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__state__bounced
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_search
+msgid "Bounced"
+msgstr "مرتد"
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__move_settle_id
-msgid "Settlement Entry"
-msgstr "قيد التسوية"
+#: model:ir.actions.act_window,name:mizan_cheque.action_mizan_cheque_claims
+#: model:ir.ui.menu,name:mizan_cheque.menu_mizan_cheque_claims
+msgid "Bounced & Under Claim"
+msgstr "المرتدة وتحت المطالبة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_res_company__mizan_cheque_bounce_charge_account_id
+#: model:ir.model.fields,field_description:mizan_cheque.field_res_config_settings__mizan_cheque_bounce_charge_account_id
+msgid "Bounced Cheque Charges"
+msgstr "رسوم الشيكات المرتدة"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__state__cancel
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__bounce_charge_move_id
+msgid "Charge Entry"
+msgstr "قيد الرسوم"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form
+msgid "Cheque"
+msgstr "شيك"
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque.py:0
+msgid "Cheque %s already has journal entries. Reverse them before cancelling."
+msgstr "الشيك %s له قيود بالفعل. اعكسها قبل الإلغاء."
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque.py:0
+msgid "Cheque %s bounced"
+msgstr "ارتداد الشيك %s"
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque.py:0
+msgid "Cheque %s cleared"
+msgstr "تحصيل الشيك %s"
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque.py:0
+msgid "Cheque %s issued to %s"
+msgstr "شيك %s صادر لـ %s"
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque.py:0
+msgid "Cheque %s paid"
+msgstr "صرف الشيك %s"
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque.py:0
+msgid "Cheque %s received from %s"
+msgstr "شيك %s وارد من %s"
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Cheque %s recovered after claim"
+msgstr "تحصيل الشيك %s بعد المطالبة"
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Cheque %s written off"
+msgstr "شطب الشيك %s"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_res_company__mizan_cheque_approval_limit
+#: model:ir.model.fields,field_description:mizan_cheque.field_res_config_settings__mizan_cheque_approval_limit
+msgid "Cheque Approval Limit"
+msgstr "حد اعتماد الشيكات"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__issue_date
+msgid "Cheque Date"
+msgstr "تاريخ الشيك"
 
 #. module: mizan_cheque
 #: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__name
@@ -100,14 +296,62 @@ msgid "Cheque No."
 msgstr "رقم الشيك"
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__note
-msgid "Note"
-msgstr "ملاحظات"
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Cheque accepted from %s and taken into hand."
+msgstr "قُبل الشيك من %s ودخل في العهدة."
 
 #. module: mizan_cheque
-#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__partner_id
-msgid "Drawer / Beneficiary"
-msgstr "الساحب أو المستفيد"
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form
+msgid "Cheque number"
+msgstr "رقم الشيك"
+
+#. module: mizan_cheque
+#: model:ir.actions.act_window,name:mizan_cheque.action_mizan_cheque_issued
+msgid "Cheques Issued"
+msgstr "الشيكات الصادرة"
+
+#. module: mizan_cheque
+#: model:ir.actions.act_window,name:mizan_cheque.action_mizan_cheque_received
+msgid "Cheques Received"
+msgstr "الشيكات الواردة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__cheque_account_id
+msgid "Cheques Under Collection"
+msgstr "شيكات تحت التحصيل"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__claim_reference
+msgid "Claim / Case Reference"
+msgstr "مرجع المطالبة أو القضية"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__claim_note
+msgid "Claim Notes"
+msgstr "ملاحظات المطالبة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__claim_date
+msgid "Claim Raised On"
+msgstr "تاريخ رفع المطالبة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__move_claim_id
+msgid "Claim Settlement Entry"
+msgstr "قيد تسوية المطالبة"
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Claim raised against %(party)s for %(amount)s."
+msgstr "رُفعت مطالبة على %(party)s بمبلغ %(amount)s."
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__state__cleared
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form
+msgid "Cleared"
+msgstr "محصّل"
 
 #. module: mizan_cheque
 #: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__settle_date
@@ -115,31 +359,635 @@ msgid "Cleared / Bounced On"
 msgstr "تاريخ التحصيل أو الارتداد"
 
 #. module: mizan_cheque
+#: model:ir.model,name:mizan_cheque.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: mizan_cheque
+#: model:ir.model,name:mizan_cheque.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات "
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__counterpart_account_id
+msgid "Counterpart Account"
+msgstr "الحساب المقابل"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__create_uid
+msgid "Created by"
+msgstr "أنشأه"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__counterpart_account_id
+msgid ""
+"Customer receivable for a received cheque, vendor payable for an issued one."
+msgstr "ذمة العميل المدينة للشيك الوارد، وذمة المورّد الدائنة للشيك الصادر."
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__bounce_reason__technical
+msgid "Date or Amount Irregular"
+msgstr "خلل في التاريخ أو المبلغ"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form
+msgid "Dates"
+msgstr "التواريخ"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form
+msgid "Deposit"
+msgstr "إيداع"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__state__deposited
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_search
+msgid "Deposited"
+msgstr "مودع"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__bank_id
+msgid "Drawee Bank"
+msgstr "البنك المسحوب عليه"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__partner_id
+msgid "Drawer / Beneficiary"
+msgstr "الساحب أو المستفيد"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__due_date
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_search
+msgid "Due Date"
+msgstr "تاريخ الاستحقاق"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_search
+msgid "Due This Month"
+msgstr "المستحقة هذا الشهر"
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Enter the bank's charge first."
+msgstr "أدخل رسوم البنك أولاً."
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (جهات الاتصال)"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "أيقونة Font Awesome مثل fa-tasks"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_search
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__has_message
+msgid "Has Message"
+msgstr "يحتوي رسالة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__cheque_account_id
+msgid ""
+"Holding account for cheques received but not yet cleared. The UAE chart "
+"ships 102013 for exactly this."
+msgstr "حساب وسيط للشيكات الواردة التي لم تُحصّل بعد. والدليل الإماراتي يوفّر 102013 لهذا الغرض تحديداً."
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__activity_exception_icon
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "أيقونة للإشارة إلى نشاط استثنائي."
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم تحديده، فهناك رسائل جديدة تتطلب انتباهك."
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__message_has_error
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده، فهناك رسائل بها خطأ في التسليم."
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__state__registered
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_search
+msgid "In Hand"
+msgstr "في العهدة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__bounce_reason__funds
+msgid "Insufficient Funds"
+msgstr "رصيد غير كافٍ"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__invoice_total
+msgid "Invoiced Total"
+msgstr "إجمالي المفوتر"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__cheque_type__issued
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_search
+msgid "Issued"
+msgstr "صادر"
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque.py:0
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Journal %s has no default account."
+msgstr "الدفتر %s بلا حساب افتراضي."
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque.py:0
+msgid "Journal Entries"
+msgstr "قيود اليومية"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "الموعد النهائي لنشاطي"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__needs_second_approval
+msgid "Needs Second Approval"
+msgstr "يحتاج اعتماداً ثانياً"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "حدث تقويم النشاط التالي"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: mizan_cheque
+#: model_terms:ir.actions.act_window,help:mizan_cheque.action_mizan_cheque_claims
+msgid "No cheque has bounced"
+msgstr "لم يرتد أي شيك"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__note
+msgid "Note"
+msgstr "ملاحظات"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form
+msgid "Notes..."
+msgstr "ملاحظات..."
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form_workflow
+msgid "Notice sent, case number, who is chasing it…"
+msgstr "الإنذار المرسل، رقم القضية، ومن يتابعها…"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تتطلب إجراءً"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Only a bounced cheque can be claimed. %s is %s."
+msgstr "لا يُطالَب إلا بشيك مرتد. و%s حالته %s."
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque.py:0
+msgid "Only a cheque in hand can be deposited."
+msgstr "لا يُودع إلا شيك في العهدة."
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Only a cheque you received is accepted. An issued cheque is approved."
+msgstr "الشيك الوارد يُقبل، أما الصادر فيُعتمد."
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque.py:0
+msgid "Only a registered or deposited cheque can bounce."
+msgstr "لا يرتد إلا شيك مسجّل أو مودع."
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque.py:0
+msgid "Only a registered or deposited cheque can clear."
+msgstr "لا يُحصّل إلا شيك مسجّل أو مودع."
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid ""
+"Only an issued cheque goes for approval. A cheque you received is accepted, "
+"not approved."
+msgstr "الشيك الصادر وحده هو ما يُرفع للاعتماد. والشيك الوارد يُقبل ولا يُعتمد."
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__bounce_reason__other
+msgid "Other"
+msgstr "أخرى"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__is_overdue
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_search
+msgid "Overdue"
+msgstr "متأخر"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_search
+msgid "Party"
+msgstr "الطرف"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__bounce_reason__stopped
+msgid "Payment Stopped"
+msgstr "إيقاف صرف"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form_workflow
+msgid "Post Bank Charge"
+msgstr "ترحيل رسوم البنك"
+
+#. module: mizan_cheque
+#: model:ir.model,name:mizan_cheque.model_mizan_cheque
+msgid "Post-Dated Cheque"
+msgstr "شيك آجل"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form_workflow
+msgid "Raise Claim"
+msgstr "رفع مطالبة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__rating_ids
+msgid "Ratings"
+msgstr "التقييمات"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__bounce_reason
+msgid "Reason Returned"
+msgstr "سبب الارتداد"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__cheque_type__received
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_search
+msgid "Received"
+msgstr "وارد"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__state__recovered
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form_workflow
+msgid "Recovered"
+msgstr "محصّل بعد المطالبة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__recovered_on
+msgid "Recovered On"
+msgstr "تاريخ التحصيل"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form_workflow
+msgid "Refuse"
+msgstr "رفض"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form
+msgid "Register"
+msgstr "تسجيل"
+
+#. module: mizan_cheque
+#: model_terms:ir.actions.act_window,help:mizan_cheque.action_mizan_cheque_received
+msgid "Register a customer cheque"
+msgstr "سجّل شيك عميل"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__move_register_id
+msgid "Registration Entry"
+msgstr "قيد التسجيل"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form
+msgid "Reset to Draft"
+msgstr "إرجاع إلى مسودة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Return charge on cheque %s"
+msgstr "رسوم ارتداد الشيك %s"
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form_workflow
+msgid "Returned Cheque"
+msgstr "الشيك المرتد"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسالة النصية"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__second_approved_by_id
+msgid "Second Approval"
+msgstr "الاعتماد الثاني"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__second_approved_on
+msgid "Second Approved On"
+msgstr "تاريخ الاعتماد الثاني"
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Second approval by %s."
+msgstr "الاعتماد الثاني من %s."
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Set the bad debt account on the company first."
+msgstr "حدّد حساب الديون المعدومة على الشركة أولاً."
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque.py:0
+msgid ""
+"Set the bank journal, the cheques-under-collection account and the "
+"counterpart account on cheque %s first."
+msgstr "حدّد الدفتر البنكي وحساب الشيكات برسم التحصيل والحساب المقابل على الشيك %s أولاً."
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid ""
+"Set the bounced-cheque charge account on the company and a default account "
+"on journal %s."
+msgstr "حدّد حساب رسوم الشيكات المرتدة على الشركة وحساباً افتراضياً على الدفتر %s."
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form
+msgid "Settled Invoices"
+msgstr "الفواتير المسدّدة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__move_settle_id
+msgid "Settlement Entry"
+msgstr "قيد التسوية"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__invoice_ids
+msgid "Settles Invoices"
+msgstr "يسدّد الفواتير"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__bounce_reason__signature
+msgid "Signature Mismatch"
+msgstr "عدم تطابق التوقيع"
+
+#. module: mizan_cheque
 #: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__state
 msgid "State"
 msgstr "الحالة"
 
 #. module: mizan_cheque
-#: model:ir.model.fields.selection,name:mail.selection__mizan_cheque__activity_state__overdue
-msgid "Overdue"
-msgstr "متأخر"
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_search
+msgid "Status"
+msgstr "الحالة"
 
 #. module: mizan_cheque
-#: model:ir.model.fields.selection,name:mail.selection__mizan_cheque__activity_state__today
-msgid "Today"
-msgstr "اليوم"
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr "الحالة بناءً على الأنشطة\nمتأخر: تاريخ الاستحقاق قد فات\nاليوم: تاريخ النشاط هو اليوم\nمخطط: أنشطة مستقبلية."
 
 #. module: mizan_cheque
-#: model:ir.model.fields.selection,name:mail.selection__mizan_cheque__activity_state__planned
-msgid "Planned"
-msgstr "المخطط له"
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form_workflow
+msgid "Submit for Approval"
+msgstr "رفع للاعتماد"
 
 #. module: mizan_cheque
-#: model:ir.model.fields.selection,name:mail.selection__mizan_cheque__activity_exception_decoration__warning
-msgid "Alert"
-msgstr "التنبيه"
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Submitted for authorisation."
+msgstr "رُفع للتفويض."
 
 #. module: mizan_cheque
-#: model:ir.model.fields.selection,name:mail.selection__mizan_cheque__activity_exception_decoration__danger
-msgid "Error"
-msgstr "خطأ"
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "The charge on %s is already posted."
+msgstr "رسوم %s مُرحّلة بالفعل."
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__due_date
+msgid "The date written on the cheque — when it may be presented."
+msgstr "التاريخ المكتوب على الشيك — متى يجوز تقديمه."
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__invoice_ids
+msgid ""
+"The invoices this cheque pays. Recording them means the customer statement "
+"shows the debt as covered by a cheque in hand rather than still outstanding."
+msgstr "الفواتير التي يسدّدها هذا الشيك. وتسجيلها يجعل كشف حساب العميل يُظهر الدين مغطّى بشيك في العهدة بدل أن يبقى قائماً."
+
+#. module: mizan_cheque
+#: model:ir.model.constraint,message:mizan_cheque.constraint_mizan_cheque_name_partner_uniq
+msgid "This cheque number is already registered for that party."
+msgstr "رقم الشيك هذا مسجّل بالفعل لذلك الطرف."
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_list
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__cheque_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي المسجل."
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__state__claimed
+msgid "Under Claim"
+msgstr "تحت المطالبة"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__state__to_approve
+msgid "Waiting Approval"
+msgstr "بانتظار الاعتماد"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,field_description:mizan_cheque.field_mizan_cheque__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__website_message_ids
+msgid "Website communication history"
+msgstr "سجل التواصل عبر الموقع"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__bounce_charge
+msgid ""
+"What the bank took for the returned cheque. Real money, and it is charged to"
+" whoever caused it, not absorbed."
+msgstr "ما أخذه البنك مقابل ارتداد الشيك. مال حقيقي، ويُحمَّل على من تسبب فيه لا يُبتلع."
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_res_company__mizan_cheque_writeoff_account_id
+#: model:ir.model.fields,help:mizan_cheque.field_res_config_settings__mizan_cheque_writeoff_account_id
+msgid "Where a claim nobody could recover is written off to."
+msgstr "حيث تُشطب المطالبة التي عجز الجميع عن تحصيلها."
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_res_company__mizan_cheque_bounce_charge_account_id
+#: model:ir.model.fields,help:mizan_cheque.field_res_config_settings__mizan_cheque_bounce_charge_account_id
+msgid "Where the bank's fee for a returned cheque is posted."
+msgstr "حيث تُرحّل رسوم البنك على الشيك المرتد."
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__journal_id
+msgid "Where the money lands once the cheque clears."
+msgstr "حيث يستقر المال بمجرد تحصيل الشيك."
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form_workflow
+msgid "Write Off"
+msgstr "شطب"
+
+#. module: mizan_cheque
+#. odoo-python
+#: code:addons/mizan_cheque/models/cheque_workflow.py:0
+msgid "Write off a claim, not a cheque still in play. %s is %s."
+msgstr "الشطب يكون لمطالبة لا لشيك ما زال قائماً. و%s حالته %s."
+
+#. module: mizan_cheque
+#: model_terms:ir.ui.view,arch_db:mizan_cheque.view_mizan_cheque_form_workflow
+msgid ""
+"Writing off sends the amount to bad debts and closes the claim. Continue?"
+msgstr "الشطب يُرحّل المبلغ إلى الديون المعدومة ويغلق المطالبة. هل تريد المتابعة؟"
+
+#. module: mizan_cheque
+#: model:ir.model.fields.selection,name:mizan_cheque.selection__mizan_cheque__state__written_off
+msgid "Written Off"
+msgstr "مشطوب"
+
+#. module: mizan_cheque
+#: model:ir.model.fields,help:mizan_cheque.field_mizan_cheque__bank_id
+msgid ""
+"l10n_ae loads the 174 UAE banks and exchange houses, so this is a pick list "
+"rather than free text — which keeps cheque reports groupable by bank."
+msgstr "وحدة l10n_ae تحمّل ١٧٤ بنكاً وصرافة إماراتية، فهذه قائمة اختيار لا نصاً حراً — وهو ما يُبقي تقارير الشيكات قابلة للتجميع حسب البنك."

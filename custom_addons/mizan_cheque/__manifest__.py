@@ -15,5 +15,6 @@ deposit to clearing or bouncing, and posts the journal entries for each step.
     "data": [
         "security/ir.model.access.csv",
         "views/cheque_views.xml",
+        "views/cheque_workflow_views.xml",
     ],
 }

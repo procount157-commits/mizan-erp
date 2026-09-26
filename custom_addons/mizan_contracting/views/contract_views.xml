@@ -11,7 +11,7 @@
                 <field name="partner_id"/>
                 <field name="contract_value" sum="Contract Value"/>
                 <field name="cost_incurred" sum="Cost to Date"/>
-                <field name="completion_percent" widget="percentage" optional="show"/>
+                <field name="completion_percent" string="% Done" digits="[5,1]" optional="show"/>
                 <field name="revenue_recognised" sum="Recognised" optional="show"/>
                 <field name="revenue_to_recognise" sum="To Recognise"/>
                 <field name="state" widget="badge"
@@ -76,7 +76,7 @@
                         </group>
                         <group string="Progress" name="progress">
                             <field name="cost_incurred"/>
-                            <field name="completion_percent" widget="percentage"/>
+                            <field name="completion_percent"/>
                             <field name="revenue_earned"/>
                             <field name="revenue_recognised"/>
                             <field name="revenue_to_recognise"
@@ -88,7 +88,7 @@
                             <field name="recognition_ids" readonly="1">
                                 <list>
                                     <field name="date"/>
-                                    <field name="completion_percent" widget="percentage"/>
+                                    <field name="completion_percent"/>
                                     <field name="amount" sum="Recognised"/>
                                     <field name="retention_amount" sum="Retention"/>
                                     <field name="net_amount" sum="Net"/>
@@ -112,7 +112,7 @@
             <list>
                 <field name="date"/>
                 <field name="contract_id"/>
-                <field name="completion_percent" widget="percentage"/>
+                <field name="completion_percent"/>
                 <field name="amount" sum="Recognised"/>
                 <field name="retention_amount" sum="Retention"/>
                 <field name="net_amount" sum="Net"/>
@@ -140,7 +140,7 @@
                             <field name="contract_id" readonly="state == 'posted'"/>
                             <field name="date" readonly="state == 'posted'"/>
                             <field name="amount" readonly="state == 'posted'"/>
-                            <field name="completion_percent" widget="percentage"/>
+                            <field name="completion_percent"/>
                             <field name="cost_incurred"/>
                             <field name="currency_id" invisible="1"/>
                         </group>

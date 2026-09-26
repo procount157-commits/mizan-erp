@@ -52,7 +52,7 @@
                 <field name="variation_pending" readonly="1"/>
                 <field name="forecast_margin" readonly="1"
                        decoration-danger="forecast_margin &lt; 0"/>
-                <field name="forecast_margin_percent" widget="percentage"
+                <field name="forecast_margin_percent"
                        readonly="1"/>
                 <field name="is_loss_making" invisible="1"/>
                 <field name="loss_provision_required" readonly="1"

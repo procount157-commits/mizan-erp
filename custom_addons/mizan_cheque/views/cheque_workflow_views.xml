@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mizan_cheque_form_workflow" model="ir.ui.view">
+        <field name="name">mizan.cheque.form.workflow</field>
+        <field name="model">mizan.cheque</field>
+        <field name="inherit_id" ref="mizan_cheque.view_mizan_cheque_form"/>
+        <field name="arch" type="xml">
+
+            <!-- "Register" said nothing to the person holding the paper. An
+                 issued cheque is authorised; a received one is accepted. -->
+            <xpath expr="//button[@name='action_register']" position="replace">
+                <button name="action_accept" type="object" string="Accept Cheque"
+                        class="btn-primary"
+                        invisible="state != 'draft' or cheque_type != 'received'"/>
+                <button name="action_submit_approval" type="object"
+                        string="Submit for Approval" class="btn-primary"
+                        invisible="state != 'draft' or cheque_type != 'issued'"/>
+                <button name="action_approve" type="object" string="Approve"
+                        class="btn-primary" invisible="state != 'to_approve'"
+                        groups="account.group_account_manager"/>
+                <button name="action_refuse_approval" type="object" string="Refuse"
+                        invisible="state != 'to_approve'"
+                        groups="account.group_account_manager"/>
+            </xpath>
+
+            <xpath expr="//button[@name='action_bounce']" position="after">
+                <button name="action_post_bounce_charge" type="object"
+                        string="Post Bank Charge"
+                        invisible="state not in ('bounced', 'claimed') or bounce_charge_move_id"/>
+                <button name="action_raise_claim" type="object" string="Raise Claim"
+                        class="btn-primary" invisible="state != 'bounced'"/>
+                <button name="action_claim_recovered" type="object" string="Recovered"
+                        class="btn-primary" invisible="state != 'claimed'"/>
+                <button name="action_write_off" type="object" string="Write Off"
+                        invisible="state != 'claimed'"
+                        groups="account.group_account_manager"
+                        confirm="Writing off sends the amount to bad debts and closes the claim. Continue?"/>
+            </xpath>
+
+            <xpath expr="//field[@name='state'][@widget='statusbar']" position="attributes">
+                <attribute name="statusbar_visible">draft,to_approve,registered,deposited,cleared</attribute>
+            </xpath>
+
+            <xpath expr="//sheet" position="inside">
+                <group string="Authorisation"
+                       invisible="cheque_type != 'issued' or state == 'draft'">
+                    <group>
+                        <field name="approved_by_id"/>
+                        <field name="approved_on"/>
+                    </group>
+                    <group>
+                        <field name="needs_second_approval"/>
+                        <field name="second_approved_by_id"
+                               invisible="not needs_second_approval"/>
+                        <field name="second_approved_on"
+                               invisible="not needs_second_approval"/>
+                    </group>
+                </group>
+                <group string="Acceptance"
+                       invisible="cheque_type != 'received' or state == 'draft'">
+                    <field name="accepted_by_id"/>
+                    <field name="accepted_on"/>
+                </group>
+                <group string="Returned Cheque"
+                       invisible="state not in ('bounced', 'claimed', 'recovered', 'written_off')">
+                    <group>
+                        <field name="bounce_reason"/>
+                        <field name="bounce_charge"/>
+                        <field name="bounce_charge_move_id" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="claim_reference"/>
+                        <field name="claim_date"/>
+                        <field name="recovered_on" readonly="1"
+                               invisible="state != 'recovered'"/>
+                        <field name="move_claim_id" readonly="1"/>
+                    </group>
+                    <field name="claim_note" colspan="2"
+                           placeholder="Notice sent, case number, who is chasing it…"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mizan_cheque_list_workflow" model="ir.ui.view">
+        <field name="name">mizan.cheque.list.workflow</field>
+        <field name="model">mizan.cheque</field>
+        <field name="inherit_id" ref="mizan_cheque.view_mizan_cheque_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="before">
+                <field name="claim_reference" optional="hide"/>
+                <field name="bounce_reason" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- The list a credit controller lives in: money that bounced and has not
+         come back. Nothing else in the system answers "what are we chasing". -->
+    <record id="action_mizan_cheque_claims" model="ir.actions.act_window">
+        <field name="name">Bounced &amp; Under Claim</field>
+        <field name="res_model">mizan.cheque</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('state', 'in', ('bounced', 'claimed'))]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No cheque has bounced</p>
+            <p>
+                A returned cheque appears here until it is recovered or written
+                off, so the amount always belongs to someone rather than sitting
+                quietly in the ledger.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_mizan_cheque_claims" name="Bounced &amp; Under Claim"
+              parent="account.menu_finance_entries"
+              action="action_mizan_cheque_claims" sequence="33"
+              groups="account.group_account_invoice"/>
+
+</odoo>

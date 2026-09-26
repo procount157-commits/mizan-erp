@@ -14,7 +14,7 @@
                 </button>
             </xpath>
             <xpath expr="//group[@name='progress']" position="inside">
-                <field name="measured_completion_percent" widget="percentage"/>
+                <field name="measured_completion_percent"/>
                 <field name="certified_to_date"/>
             </xpath>
             <xpath expr="//notebook" position="inside">
@@ -51,7 +51,7 @@
                                    domain="[('contract_id', '=', parent.id)]"
                                    options="{'no_create': True}"/>
                             <field name="qty_certified" optional="show"/>
-                            <field name="percent_certified" widget="percentage"
+                            <field name="percent_certified"
                                    optional="show"/>
                             <field name="amount_certified" optional="hide"
                                    sum="Certified"/>
@@ -72,13 +72,13 @@
                             <field name="sequence_no"/>
                             <field name="date"/>
                             <field name="period_end" optional="hide"/>
-                            <field name="gross_to_date"/>
-                            <field name="previous_certified" optional="hide"/>
-                            <field name="amount_this_period" sum="Claimed"/>
-                            <field name="retention_amount" sum="Retention"/>
+                            <field name="gross_to_date" string="Gross to Date"/>
+                            <field name="previous_certified" string="Previously" optional="hide"/>
+                            <field name="amount_this_period" string="This Period" sum="Claimed"/>
+                            <field name="retention_amount" string="Retention" sum="Retention"/>
                             <field name="advance_recovery" sum="Advance"/>
-                            <field name="net_payable" sum="Net Payable"/>
-                            <field name="percent_complete" widget="percentage"/>
+                            <field name="net_payable" string="Net Payable" sum="Net Payable"/>
+                            <field name="percent_complete" string="% Done" widget="float" digits="[5,1]"/>
                             <field name="state" widget="badge"
                                    decoration-info="state == 'submitted'"
                                    decoration-warning="state == 'certified'"
@@ -102,13 +102,13 @@
                 <field name="contract_id"/>
                 <field name="partner_id" optional="show"/>
                 <field name="date"/>
-                <field name="gross_to_date" optional="show"/>
-                <field name="previous_certified" optional="hide"/>
-                <field name="amount_this_period" sum="Claimed"/>
-                <field name="retention_amount" sum="Retention"/>
-                <field name="advance_recovery" sum="Advance" optional="show"/>
-                <field name="net_payable" sum="Net Payable"/>
-                <field name="percent_complete" widget="percentage"/>
+                <field name="gross_to_date" string="Gross to Date" optional="show"/>
+                <field name="previous_certified" string="Previously" optional="hide"/>
+                <field name="amount_this_period" string="This Period" sum="Claimed"/>
+                <field name="retention_amount" string="Retention" sum="Retention"/>
+                <field name="advance_recovery" string="Advance" sum="Advance" optional="show"/>
+                <field name="net_payable" string="Net Payable" sum="Net Payable"/>
+                <field name="percent_complete" string="% Done" widget="float" digits="[5,1]"/>
                 <field name="state" widget="badge"
                        decoration-info="state == 'submitted'"
                        decoration-warning="state == 'certified'"
@@ -171,7 +171,7 @@
                             <field name="period_end" readonly="state != 'draft'"/>
                             <field name="retention_percent"
                                    readonly="state not in ('draft', 'submitted')"/>
-                            <field name="percent_complete" widget="percentage"/>
+                            <field name="percent_complete" string="% Done" widget="float" digits="[5,1]"/>
                         </group>
                     </group>
                     <notebook>
@@ -201,7 +201,7 @@
                                     <field name="cumulative_amount" readonly="1"
                                            sum="Cumulative"/>
                                     <field name="percent_complete"
-                                           widget="percentage" readonly="1"
+                                           readonly="1"
                                            decoration-danger="is_over_measured"/>
                                     <field name="is_over_measured"
                                            column_invisible="1"/>
@@ -308,7 +308,7 @@
                 <field name="rate"/>
                 <field name="amount" sum="Bill Total"/>
                 <field name="qty_certified" optional="show"/>
-                <field name="percent_certified" widget="percentage" optional="show"/>
+                <field name="percent_certified" optional="show"/>
                 <field name="cost_code_id" optional="hide"/>
                 <field name="currency_id" column_invisible="1"/>
             </list>
