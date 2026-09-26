@@ -374,3 +374,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mizan_core.report_mizan_invoice_document
 msgid "منظومة الميزان ERP"
 msgstr ""
+
+#. module: mizan_core
+#: model:ir.ui.menu,name:mizan_core.menu_mizan_coa
+msgid "Chart of Accounts"
+msgstr "دليل الحسابات"

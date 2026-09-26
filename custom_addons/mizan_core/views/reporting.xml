@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- =========================================================== REPORTING
+
+         Reporting had become the same mess the app menu had: my entries at the
+         top AND the vendor's own folders underneath listing the identical
+         reports. General Ledger appeared twice, Trial Balance twice, the VAT
+         report twice, and the balance sheet was two levels down inside a
+         folder called "MIS Reporting" — a library's name, meaningless to an
+         accountant looking for الميزانية العمومية.
+
+         Odoo Enterprise puts Balance Sheet, Profit and Loss, General Ledger
+         and the aged reports directly under Reporting, one click each. That is
+         what this does. The vendor folders are closed, not deleted: their
+         reports are all surfaced above, and their configuration screens move
+         to Configuration where configuration belongs.
+    -->
+
+    <record id="account_financial_report.menu_oca_reports" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="mis_builder.mis_report_finance_menu" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <!-- Chart of accounts belongs beside the journals an accountant works in,
+         not only buried in Configuration. Enterprise shows it in both. -->
+    <menuitem id="menu_mizan_coa" name="Chart of Accounts"
+              parent="account.menu_finance_entries"
+              action="account.action_account_form" sequence="5"
+              groups="account.group_account_readonly"/>
+
+    <!-- Both duplicate something already surfaced: the asset reports repeat
+         the Assets section the app already carries, and the contract report
+         lines are recurring-billing detail nobody opens from Reporting.
+         Closed rather than deleted — a client who wants them can switch them
+         back on from Show / Hide Menus. -->
+    <record id="account_asset_management.account_asset_report_menu" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="contract.menu_contract_reporting" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+</odoo>

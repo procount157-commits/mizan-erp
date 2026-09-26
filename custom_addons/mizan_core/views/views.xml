@@ -206,29 +206,25 @@
 
     <!-- Accounting > Reporting: Community ships no balance sheet or P&amp;L, so
          these are not extras — without them the app has no statements. -->
-    <menuitem id="menu_mizan_financial_statements" name="Balance Sheet &amp; P&amp;L"
-              parent="account.menu_finance_reports"
-              action="mis_builder.mis_report_instance_view_action" sequence="1"
-              groups="account.group_account_readonly"/>
     <menuitem id="menu_mizan_trial_balance" name="Trial Balance"
               parent="account.menu_finance_reports"
-              action="account_financial_report.action_trial_balance_wizard" sequence="2"
+              action="account_financial_report.action_trial_balance_wizard" sequence="5"
               groups="account.group_account_readonly"/>
     <menuitem id="menu_mizan_general_ledger" name="General Ledger"
               parent="account.menu_finance_reports"
-              action="account_financial_report.action_general_ledger_wizard" sequence="3"
+              action="account_financial_report.action_general_ledger_wizard" sequence="6"
               groups="account.group_account_readonly"/>
     <menuitem id="menu_mizan_aged_partner" name="Aged Receivables"
               parent="account.menu_finance_reports"
-              action="account_financial_report.action_aged_partner_balance_wizard" sequence="4"
+              action="account_financial_report.action_aged_partner_balance_wizard" sequence="7"
               groups="account.group_account_readonly"/>
     <menuitem id="menu_mizan_open_items" name="Open Items"
               parent="account.menu_finance_reports"
-              action="account_financial_report.action_open_items_wizard" sequence="5"
+              action="account_financial_report.action_open_items_wizard" sequence="8"
               groups="account.group_account_readonly"/>
     <menuitem id="menu_mizan_journal_ledger" name="Journal Ledger"
               parent="account.menu_finance_reports"
-              action="account_financial_report.action_journal_ledger_wizard" sequence="6"
+              action="account_financial_report.action_journal_ledger_wizard" sequence="9"
               groups="account.group_account_readonly"/>
     <menuitem id="menu_mizan_vat_report" name="VAT Return"
               parent="account.menu_finance_reports"

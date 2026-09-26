@@ -128,3 +128,76 @@ i_bs = instance(bs, "الميزانية العمومية — 2026")
 i_pl = instance(pl, "قائمة الدخل — 2026")
 env.cr.commit()
 print("instances ready: %s | %s" % (i_bs.name, i_pl.name))
+
+
+# ===================================================== one click, not three
+# The menu used to open a LIST of report definitions; you then picked one and
+# pressed Preview. Odoo Enterprise puts "Balance Sheet" under Reporting and
+# opens the balance sheet. mis_builder's own preview() shows how: an act_window
+# on the instance with its result view. The action cannot live in module XML
+# because res_id is the instance built here, per database — so it is built
+# here too, beside the instance it opens.
+
+Action = env["ir.actions.act_window"]
+Menu = env["ir.ui.menu"]
+Data = env["ir.model.data"]
+result_view = env.ref("mis_builder.mis_report_instance_result_view_form")
+parent = env.ref("account.menu_finance_reports")
+readonly = env.ref("account.group_account_readonly")
+
+
+def surface(instance, label_en, label_ar, key, sequence):
+    values = {
+        "name": label_en,
+        "res_model": "mis.report.instance",
+        "res_id": instance.id,
+        "view_mode": "form",
+        "view_id": result_view.id,
+        "target": "current",
+    }
+    action = Data.search([("module", "=", "mizan_core"),
+                          ("name", "=", "action_%s" % key)], limit=1)
+    action = Action.browse(action.res_id) if action and action.res_id else None
+    if action and action.exists():
+        action.with_context(lang="en_US").write(values)
+    else:
+        action = Action.with_context(lang="en_US").create(values)
+        Data.create({"module": "mizan_core", "name": "action_%s" % key,
+                     "model": "ir.actions.act_window", "res_id": action.id,
+                     "noupdate": True})
+    action.with_context(lang="ar_001").name = label_ar
+
+    menu_data = Data.search([("module", "=", "mizan_core"),
+                             ("name", "=", "menu_%s" % key)], limit=1)
+    menu = Menu.browse(menu_data.res_id) if menu_data and menu_data.res_id else None
+    menu_values = {
+        "name": label_en,
+        "parent_id": parent.id,
+        "action": "ir.actions.act_window,%d" % action.id,
+        "sequence": sequence,
+        "groups_id": [(6, 0, [readonly.id])],
+    }
+    if menu and menu.exists():
+        menu.with_context(lang="en_US").write(menu_values)
+    else:
+        menu = Menu.with_context(lang="en_US").create(menu_values)
+        Data.create({"module": "mizan_core", "name": "menu_%s" % key,
+                     "model": "ir.ui.menu", "res_id": menu.id,
+                     "noupdate": True})
+    menu.with_context(lang="ar_001").name = label_ar
+    return menu
+
+
+surface(i_bs, "Balance Sheet", "الميزانية العمومية", "balance_sheet", 1)
+surface(i_pl, "Profit and Loss", "قائمة الدخل", "profit_loss", 2)
+
+# The combined list is no longer the way in; it stays for anyone who wants to
+# see every instance, but out of the way.
+combined = env["ir.model.data"].search(
+    [("module", "=", "mizan_core"),
+     ("name", "=", "menu_mizan_financial_statements")], limit=1)
+if combined and combined.res_id:
+    Menu.browse(combined.res_id).write({"sequence": 90})
+
+env.cr.commit()
+print("one-click statements: الميزانية العمومية · قائمة الدخل")
