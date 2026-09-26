@@ -75,6 +75,27 @@ class MizanProgressClaim(models.Model):
         return self._mizan_notify(
             _("%s completed", self.name), "\n".join("• %s" % d for d in done))
 
+    def action_complete_all_selection(self):
+        """The same, over a selection: the month-end case."""
+        done, failed = 0, []
+        for claim in self:
+            try:
+                claim.action_complete_all()
+                done += 1
+            except UserError as exc:
+                failed.append("%s: %s" % (claim.name, exc.args[0]))
+        message = [_("%s completed", done)] if done else []
+        message.extend(failed)
+        return {
+            "type": "ir.actions.client",
+            "tag": "display_notification",
+            "params": {"title": _("Complete All"),
+                       "message": "\n".join("\u2022 %s" % m for m in message)
+                                  or _("Nothing to do."),
+                       "type": "warning" if failed else "success",
+                       "sticky": True},
+        }
+
     def _mizan_money(self, amount):
         return "%s %s" % ("{:,.2f}".format(amount), self.currency_id.name)
 

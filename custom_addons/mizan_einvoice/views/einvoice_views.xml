@@ -101,8 +101,8 @@
     </record>
 
     <menuitem id="menu_mizan_einvoice" name="e-Invoicing Readiness"
-              parent="mizan_core.menu_mizan_vat"
-              action="action_mizan_einvoice_readiness" sequence="30"
+              parent="account.menu_finance_reports"
+              action="action_mizan_einvoice_readiness" sequence="11"
               groups="account.group_account_invoice"/>
 
     <record id="view_company_form_einvoice" model="ir.ui.view">
