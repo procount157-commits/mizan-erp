@@ -45,4 +45,17 @@
         <field name="active" eval="False"/>
     </record>
 
+    <!-- Community calls the app "Invoicing" because without the accountant
+         module it really is only invoicing. With Show Full Accounting Features
+         on — which every accountant here has — it carries the journals, the
+         ledgers, the chart and the statements, and Enterprise renames it to
+         Accounting for exactly that reason. A finance manager looking for
+         المحاسبة should not have to know that Odoo's packaging split it.
+
+         One app, correctly named. Not a second one beside it. -->
+    <record id="account.menu_finance" model="ir.ui.menu">
+        <field name="name">Accounting</field>
+        <field name="sequence">15</field>
+    </record>
+
 </odoo>

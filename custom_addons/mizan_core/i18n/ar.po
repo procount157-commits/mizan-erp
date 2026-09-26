@@ -379,3 +379,8 @@ msgstr ""
 #: model:ir.ui.menu,name:mizan_core.menu_mizan_coa
 msgid "Chart of Accounts"
 msgstr "دليل الحسابات"
+
+#. module: mizan_core
+#: model:ir.ui.menu,name:account.menu_finance
+msgid "Accounting"
+msgstr "المحاسبة"
