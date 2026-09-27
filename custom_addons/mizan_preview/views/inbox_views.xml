@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_inbox_list" model="ir.ui.view">
+        <field name="name">mizan.inbox.item.list</field>
+        <field name="model">mizan.inbox.item</field>
+        <field name="arch" type="xml">
+            <list create="false" delete="false" edit="false"
+                  decoration-danger="urgency == '1'"
+                  decoration-muted="urgency == '3'">
+                <field name="urgency" widget="badge"
+                       decoration-danger="urgency == '1'"
+                       decoration-warning="urgency == '2'"/>
+                <field name="name"/>
+                <field name="source"/>
+                <field name="partner_name"/>
+                <field name="note"/>
+                <field name="amount" sum="Total"/>
+                <button name="action_open" type="object" string="Open"
+                        class="btn-link" icon="fa-arrow-left"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="res_model" column_invisible="1"/>
+                <field name="res_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_inbox_search" model="ir.ui.view">
+        <field name="name">mizan.inbox.item.search</field>
+        <field name="model">mizan.inbox.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_name"/>
+                <filter name="decide" string="Needs a decision"
+                        domain="[('urgency', '=', '1')]"/>
+                <filter name="check" string="Needs checking"
+                        domain="[('urgency', '=', '2')]"/>
+                <group expand="1" string="Group By">
+                    <filter name="group_urgency" string="Priority"
+                            context="{'group_by': 'urgency'}"/>
+                    <filter name="group_source" string="Source"
+                            context="{'group_by': 'source'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- A server action, not an act_window: the list has to be rebuilt before
+         it is shown, or the first visit of the day shows yesterday's work. -->
+    <record id="action_inbox" model="ir.actions.server">
+        <field name="name">Work Inbox (preview)</field>
+        <field name="model_id" ref="model_mizan_inbox_item"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh()</field>
+    </record>
+
+    <menuitem id="menu_inbox_root" name="Work Inbox" sequence="14"
+              web_icon="mizan_core,static/img/proaccount-icon-192x192.png"
+              groups="account.group_account_invoice,project.group_project_manager"/>
+    <menuitem id="menu_inbox" name="What Is Waiting For Me"
+              parent="menu_inbox_root" action="action_inbox" sequence="10"/>
+
+</odoo>

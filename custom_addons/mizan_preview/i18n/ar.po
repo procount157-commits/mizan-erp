@@ -1,0 +1,297 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_preview
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-27 18:45+0000\n"
+"PO-Revision-Date: 2026-09-27 18:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "%s is with the consultant"
+msgstr "%s عند الاستشاري"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Accounting"
+msgstr "المحاسبة"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Advance outstanding on %s"
+msgstr "دفعة مقدمة متبقية على %s"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "An expired guarantee holds up the claims"
+msgstr "الضمان المنتهي يوقف المستخلصات"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Approve %s"
+msgstr "اعتمد %s"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Approve cheque %s"
+msgstr "اعتمد الشيك %s"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Bank line not matched"
+msgstr "سطر بنكي غير مطابَق"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Banking"
+msgstr "البنوك"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Certified and not invoiced"
+msgstr "معتمد ولم يُفوتر"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Cheque %s bounced"
+msgstr "ارتد الشيك %s"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Contracting"
+msgstr "المقاولات"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__create_uid
+msgid "Created by"
+msgstr "أنشأه"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Draft, not posted"
+msgstr "مسودة غير مُرحّلة"
+
+#. module: mizan_preview
+#: model_terms:ir.ui.view,arch_db:mizan_preview.view_inbox_search
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Guarantee %s expires in %s days"
+msgstr "الضمان %s ينتهي خلال %s يوماً"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: mizan_preview
+#: model:ir.model.fields.selection,name:mizan_preview.selection__mizan_inbox_item__urgency__1
+#: model_terms:ir.ui.view,arch_db:mizan_preview.view_inbox_search
+msgid "Needs a decision"
+msgstr "يحتاج قراراً"
+
+#. module: mizan_preview
+#: model:ir.model.fields.selection,name:mizan_preview.selection__mizan_inbox_item__urgency__2
+#: model_terms:ir.ui.view,arch_db:mizan_preview.view_inbox_search
+msgid "Needs checking"
+msgstr "يحتاج مراجعة"
+
+#. module: mizan_preview
+#: model_terms:ir.ui.view,arch_db:mizan_preview.view_inbox_list
+msgid "Open"
+msgstr "فتح"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__partner_name
+msgid "Party"
+msgstr "الطرف"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Petty Cash"
+msgstr "العهدة النثرية"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Post %s"
+msgstr "رحّل %s"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Post a draft %(kind)s for %(party)s"
+msgstr "رحّل مسودة %(kind)s لـ %(party)s"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__urgency
+#: model_terms:ir.ui.view,arch_db:mizan_preview.view_inbox_search
+msgid "Priority"
+msgstr "الأولوية"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Raise a claim or write it off"
+msgstr "ارفع مطالبة أو اشطبه"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Raise the tax invoice for %s"
+msgstr "أصدر الفاتورة الضريبية لـ %s"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Reconcile: %s"
+msgstr "سوِّ: %s"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Recovered from each claim"
+msgstr "تُسترد من كل مستخلص"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__res_id
+msgid "Res"
+msgstr "المعرف المرجعي"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__res_model
+msgid "Res Model"
+msgstr "الموديل المرجعي"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Second signature required"
+msgstr "يحتاج توقيعاً ثانياً"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__source
+#: model_terms:ir.ui.view,arch_db:mizan_preview.view_inbox_search
+msgid "Source"
+msgstr "المصدر"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Submitted and waiting"
+msgstr "مُقدَّم وينتظر"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__name
+msgid "Task"
+msgstr "المهمة"
+
+#. module: mizan_preview
+#: model_terms:ir.ui.view,arch_db:mizan_preview.view_inbox_list
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Waiting for approval"
+msgstr "بانتظار الاعتماد"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "Waiting for certification"
+msgstr "بانتظار الاعتماد"
+
+#. module: mizan_preview
+#: model:ir.ui.menu,name:mizan_preview.menu_inbox
+msgid "What Is Waiting For Me"
+msgstr "ما الذي ينتظرني"
+
+#. module: mizan_preview
+#: model:ir.model.fields,field_description:mizan_preview.field_mizan_inbox_item__note
+msgid "Why"
+msgstr "السبب"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+#: model:ir.ui.menu,name:mizan_preview.menu_inbox_root
+msgid "Work Inbox"
+msgstr "صندوق المهام"
+
+#. module: mizan_preview
+#: model:ir.actions.server,name:mizan_preview.action_inbox
+msgid "Work Inbox (preview)"
+msgstr "صندوق المهام (تجريبي)"
+
+#. module: mizan_preview
+#: model:ir.model,name:mizan_preview.model_mizan_inbox_item
+msgid "Work Inbox Item"
+msgstr "مهمة"
+
+#. module: mizan_preview
+#: model:ir.model.fields.selection,name:mizan_preview.selection__mizan_inbox_item__urgency__3
+msgid "Worth knowing"
+msgstr "للعلم"
+
+#. module: mizan_preview
+#. odoo-python
+#: code:addons/mizan_preview/models/inbox.py:0
+msgid "no party"
+msgstr "بلا طرف"

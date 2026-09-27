@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mizan_inbox_user,mizan.inbox.item.user,model_mizan_inbox_item,account.group_account_invoice,1,1,1,1
+access_mizan_inbox_manager,mizan.inbox.item.manager,model_mizan_inbox_item,account.group_account_manager,1,1,1,1
+access_mizan_inbox_project,mizan.inbox.item.project,model_mizan_inbox_item,project.group_project_manager,1,1,1,1
