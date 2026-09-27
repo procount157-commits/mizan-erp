@@ -124,3 +124,46 @@ for journal in Journal.search([("type", "in", ("bank", "cash")),
             "payment_account_id.code") or ["-"])[0],
         (journal.outbound_payment_method_line_ids.mapped(
             "payment_account_id.code") or ["-"])[0]))
+
+
+# ==================================== importing the bank's own file
+# The sheet importer only engages when the journal carries a default mapping:
+# without one, uploading a CSV answers "this format is not supported", which
+# is true and unhelpful. Attaching it to the journal is what makes the upload
+# work with nothing selected — the person picks a file and presses import.
+Mapping = env["account.statement.import.sheet.mapping"]
+if "account.statement.import.sheet.mapping" in env:
+    name = "UAE Bank CSV / XLSX"
+    mapping = Mapping.search([("name", "=", name)], limit=1)
+    values = {
+        "name": name,
+        "float_thousands_sep": "comma",
+        "float_decimal_sep": "dot",
+        "file_encoding": "utf-8",
+        "delimiter": "comma",
+        "quotechar": '"',
+        "timestamp_format": "%Y-%m-%d",
+        "timestamp_column": "Date",
+        "description_column": "Description",
+        "amount_column": "Amount",
+        "reference_column": "Reference",
+        "partner_name_column": "Partner",
+        "header_lines_skip_count": 1,
+    }
+    values = {k: v for k, v in values.items() if k in Mapping._fields}
+    if mapping:
+        mapping.write(values)
+    else:
+        mapping = Mapping.create(values)
+    attached = []
+    for journal in Journal.search([("type", "=", "bank"),
+                                   ("company_id", "=", company.id)]):
+        if "default_sheet_mapping_id" in journal._fields \
+                and not journal.default_sheet_mapping_id:
+            journal.default_sheet_mapping_id = mapping.id
+            attached.append(journal.code)
+    env.cr.commit()
+    print()
+    print("statement import mapping : %s" % mapping.name)
+    print("expects columns          : Date | Description | Amount | Reference | Partner")
+    print("attached to journals     : %s" % (", ".join(attached) or "already set"))

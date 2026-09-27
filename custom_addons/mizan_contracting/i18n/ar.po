@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0-20260908\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-26 06:22+0000\n"
-"PO-Revision-Date: 2026-09-26 06:22+0000\n"
+"POT-Creation-Date: 2026-09-26 10:29+0000\n"
+"PO-Revision-Date: 2026-09-26 10:29+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -36,6 +36,14 @@ msgstr "% الإنجاز (بالقياس)"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__completion_percent
 msgid "% Complete at Date"
 msgstr "نسبة الإنجاز بتاريخه"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_list
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_list
+msgid "% Done"
+msgstr "% الإنجاز"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__percent_complete
@@ -1397,6 +1405,12 @@ msgid "Gross Value to Date"
 msgstr "القيمة الإجمالية حتى الآن"
 
 #. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_list
+msgid "Gross to Date"
+msgstr "الإجمالي حتى الآن"
+
+#. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_boq_line_search
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_cost_code_search
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_search
@@ -2162,6 +2176,12 @@ msgstr "السابق"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__previous_qty
 msgid "Previous Qty"
 msgstr "الكمية السابقة"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_list
+msgid "Previously"
+msgstr "سبق اعتماده"
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
@@ -2931,7 +2951,9 @@ msgstr ""
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__this_amount
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_list
 msgid "This Period"
 msgstr "هذه الفترة"
 

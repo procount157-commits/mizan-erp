@@ -10,6 +10,9 @@
 18.0 https://github.com/OCA/account-financial-tools.git
 18.0 https://github.com/OCA/account-reconcile.git
 18.0 https://github.com/OCA/bank-payment.git
+# Importing the bank's own file is what makes reconciliation automatic:
+# without it every line is typed by hand and nobody reconciles for long.
+18.0 https://github.com/OCA/bank-statement-import.git
 18.0 https://github.com/OCA/contract.git
 18.0 https://github.com/OCA/crm.git
 18.0 https://github.com/OCA/knowledge.git

@@ -31,6 +31,13 @@ modules=(
     account-financial-tools/account_asset_management
     account-closing/account_fiscal_year_closing
     account-reconcile/account_reconcile_oca
+    # Importing the bank's own file is what makes reconciliation automatic.
+    # Formats first, then the bridge that feeds them into the reconcile widget.
+    bank-statement-import/account_statement_import_base
+    bank-statement-import/account_statement_import_file
+    bank-statement-import/account_statement_import_camt
+    bank-statement-import/account_statement_import_sheet_file
+    bank-statement-import/account_statement_import_file_reconcile_oca
     account-reconcile/account_statement_base
     account-reconcile/account_reconcile_model_oca
     account-budgeting/account_budget_oca

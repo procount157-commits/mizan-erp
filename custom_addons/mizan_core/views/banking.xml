@@ -60,4 +60,22 @@
         <field name="context">{'account_bank_statement_line_main_view': True}</field>
     </record>
 
+    <!-- The button for lines already sitting in the screen. Import does this
+         on its own; this is for a statement entered before the feature, or
+         after somebody has filled in the missing partner. -->
+    <record id="view_bank_statement_line_list_auto" model="ir.ui.view">
+        <field name="name">account.bank.statement.line.list.auto</field>
+        <field name="model">account.bank.statement.line</field>
+        <field name="inherit_id" ref="account_statement_base.account_bank_statement_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <header>
+                    <button name="action_mizan_auto_reconcile" type="object"
+                            string="Reconcile Automatically" class="btn-primary"
+                            display="always"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
