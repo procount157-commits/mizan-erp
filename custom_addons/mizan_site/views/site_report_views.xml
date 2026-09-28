@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Kanban first, and the default on the phone: a card the size of a
+         thumb, one tap to the day. -->
+    <record id="view_site_report_kanban" model="ir.ui.view">
+        <field name="name">mizan.site.report.kanban</field>
+        <field name="model">mizan.site.report</field>
+        <field name="arch" type="xml">
+            <kanban class="o_mizan_site" default_order="date desc">
+                <field name="state"/>
+                <field name="work_stopped"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="o_mizan_site_card">
+                            <div class="d-flex justify-content-between">
+                                <strong><field name="date"/></strong>
+                                <field name="state" widget="badge"
+                                       decoration-success="state == 'acknowledged'"
+                                       decoration-warning="state == 'submitted'"/>
+                            </div>
+                            <div class="fw-bold"><field name="project_id"/></div>
+                            <div class="text-muted">
+                                <field name="headcount"/> men ·
+                                <field name="manhours" widget="float_time"/>
+                            </div>
+                            <div t-if="record.work_stopped.raw_value"
+                                 class="text-danger">
+                                <i class="fa fa-exclamation-triangle me-1" title="Work stopped"/>
+                                <field name="stop_reason"/>
+                            </div>
+                            <div class="text-truncate"><field name="work_done"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_site_report_form" model="ir.ui.view">
+        <field name="name">mizan.site.report.form</field>
+        <field name="model">mizan.site.report</field>
+        <field name="arch" type="xml">
+            <form string="Daily Site Report" class="o_mizan_site">
+                <header>
+                    <!-- One big button, because the next step is never in
+                         doubt and a phone has room for one. -->
+                    <button name="action_mizan_next" type="object"
+                            string="Next action" class="btn-primary btn-lg"
+                            invisible="not mizan_next_label"/>
+                    <button name="action_post_timesheets" type="object"
+                            string="Post the hours to the timesheet"
+                            invisible="state == 'draft' or timesheets_posted"
+                            groups="project.group_project_manager,account.group_account_manager"
+                            confirm="This writes the manpower hours onto the project's timesheet, where they become labour cost. It can only be done once."/>
+                    <button name="action_reopen" type="object" string="Reopen"
+                            invisible="state == 'draft'"
+                            groups="project.group_project_manager,account.group_account_manager"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <div class="alert alert-info" role="status"
+                         invisible="not mizan_next_hint">
+                        <field name="mizan_next_hint" readonly="1" nolabel="1"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date" readonly="state != 'draft'"/>
+                            <field name="project_id" readonly="state != 'draft'"/>
+                            <field name="contract_id" readonly="1"
+                                   invisible="not contract_id"/>
+                            <field name="author_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="weather" readonly="state != 'draft'"/>
+                            <field name="work_stopped" readonly="state != 'draft'"/>
+                            <field name="stop_reason"
+                                   invisible="not work_stopped"
+                                   required="work_stopped"
+                                   readonly="state != 'draft'"/>
+                            <field name="stop_hours" invisible="not work_stopped"
+                                   readonly="state != 'draft'"/>
+                            <field name="headcount" readonly="1"/>
+                            <field name="manhours" widget="float_time" readonly="1"/>
+                            <field name="timesheets_posted" readonly="1"
+                                   invisible="not timesheets_posted"/>
+                            <field name="mizan_next_label" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="What was built" name="work">
+                            <field name="work_done" readonly="state != 'draft'"
+                                   placeholder="In the words the bill of quantities uses. 'Block work continued' answers nothing two months later."/>
+                            <separator string="Problems"/>
+                            <field name="issues" readonly="state != 'draft'"
+                                   placeholder="Anything that will be argued about later."/>
+                            <separator string="Photograph"/>
+                            <field name="photo" widget="image"
+                                   readonly="state != 'draft'"/>
+                        </page>
+                        <page string="Manpower" name="manpower">
+                            <field name="manpower_ids"
+                                   readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="trade_id"/>
+                                    <field name="subcontractor_id" optional="show"/>
+                                    <field name="employee_id" optional="hide"/>
+                                    <field name="headcount" sum="Men"/>
+                                    <field name="hours"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Plant" name="plant">
+                            <field name="plant_ids" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="plant_id"/>
+                                    <field name="name"/>
+                                    <field name="hired"/>
+                                    <field name="hours" sum="Worked"/>
+                                    <field name="idle_hours" sum="Standing"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Hours posted" name="timesheets"
+                              invisible="not timesheets_posted">
+                            <field name="timesheet_ids" readonly="1">
+                                <list create="false">
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="employee_id"/>
+                                    <field name="unit_amount" sum="Hours"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_site_report_list" model="ir.ui.view">
+        <field name="name">mizan.site.report.list</field>
+        <field name="model">mizan.site.report</field>
+        <field name="arch" type="xml">
+            <list string="Daily Site Reports"
+                  decoration-danger="work_stopped"
+                  decoration-muted="state == 'acknowledged'">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="author_id" optional="show"/>
+                <field name="headcount" sum="Men"/>
+                <field name="manhours" widget="float_time" sum="Man-hours"/>
+                <field name="weather" optional="hide"/>
+                <field name="work_stopped" optional="show"/>
+                <field name="stop_reason" optional="show"/>
+                <field name="timesheets_posted" optional="hide"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'acknowledged'"
+                       decoration-warning="state == 'submitted'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_site_report_search" model="ir.ui.view">
+        <field name="name">mizan.site.report.search</field>
+        <field name="model">mizan.site.report</field>
+        <field name="arch" type="xml">
+            <search string="Daily Site Reports">
+                <field name="project_id"/>
+                <field name="author_id"/>
+                <field name="work_done"/>
+                <filter name="mine" string="Mine"
+                        domain="[('author_id', '=', uid)]"/>
+                <filter name="stopped" string="Work stopped"
+                        domain="[('work_stopped', '=', True)]"/>
+                <filter name="unread" string="Not acknowledged"
+                        domain="[('state', '=', 'submitted')]"/>
+                <separator/>
+                <filter name="this_month" string="This month"
+                        domain="[('date', '&gt;=', (context_today().replace(day=1)).strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_project" string="Project"
+                            context="{'group_by': 'project_id'}"/>
+                    <filter name="group_date" string="Date"
+                            context="{'group_by': 'date'}"/>
+                    <filter name="group_reason" string="Reason work stopped"
+                            context="{'group_by': 'stop_reason'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_site_report" model="ir.actions.act_window">
+        <field name="name">Daily Site Report</field>
+        <field name="res_model">mizan.site.report</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context">{'search_default_mine': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">File today's report.</p>
+            <p>Men, plant, what was built, what stopped and why — with a photograph. It is what a delay claim is argued from later.</p>
+        </field>
+    </record>
+
+    <record id="action_site_report_office" model="ir.actions.act_window">
+        <field name="name">Site Reports</field>
+        <field name="res_model">mizan.site.report</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="context">{'search_default_unread': 1}</field>
+    </record>
+
+</odoo>

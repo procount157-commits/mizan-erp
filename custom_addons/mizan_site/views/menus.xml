@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- A narrow app, and that is the whole design. An engineer opening the
+         phone should see five things, not the back office with five of them
+         hidden somewhere in it. -->
+    <menuitem id="menu_site_root" name="Site" sequence="3"
+              web_icon="mizan_site,static/description/icon.png"
+              groups="mizan_site.group_site_engineer,project.group_project_manager,account.group_account_manager"/>
+
+    <menuitem id="menu_site_today" name="Daily Report" parent="menu_site_root"
+              action="action_site_report" sequence="10"/>
+
+    <!-- His own projects. project.group_project_user with the standard
+         "follower" rule already restricts this to the jobs he is on, which
+         was verified when the engineer role was built. -->
+    <menuitem id="menu_site_projects" name="My Projects" parent="menu_site_root"
+              action="project.open_view_project_all" sequence="20"/>
+
+    <menuitem id="menu_site_timesheets" name="My Time" parent="menu_site_root"
+              action="hr_timesheet.act_hr_timesheet_line" sequence="30"/>
+
+    <!-- Raising, not approving. Every one of these ends up in front of
+         somebody else. -->
+    <menuitem id="menu_site_raise" name="Raise" parent="menu_site_root"
+              sequence="40"/>
+
+    <menuitem id="menu_site_material" name="Material Request"
+              parent="menu_site_raise"
+              action="purchase_request.purchase_request_form_action"
+              sequence="10"/>
+
+    <menuitem id="menu_site_expense" name="Expense Claim" parent="menu_site_raise"
+              action="hr_expense.hr_expense_actions_my_all"
+              sequence="20"/>
+
+    <menuitem id="menu_site_issue" name="Site Issue" parent="menu_site_raise"
+              action="project.action_view_all_task" sequence="30"/>
+
+    <!-- The office's view of the same reports, in the Contracting app where
+         the people who read them already work. -->
+    <menuitem id="menu_site_office" name="Site Reports"
+              parent="mizan_core.menu_mizan_contracting"
+              action="action_site_report_office" sequence="30"
+              groups="project.group_project_manager,account.group_account_manager,account.group_account_readonly"/>
+
+</odoo>

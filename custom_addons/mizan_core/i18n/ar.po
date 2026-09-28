@@ -18,13 +18,8 @@ msgstr ""
 #. module: mizan_core
 #. odoo-python
 #: code:addons/mizan_core/models/account_move_vat.py:0
-msgid ""
-"%(name)s has %(count)d line(s) with no tax at all:\n"
-"\n"
-"%(lines)s\n"
-"\n"
-"Every line on a UAE invoice needs a tax chosen — 5%%, zero-rated, exempt or reverse charge. An empty tax is not a choice, and the VAT return has no box to report it in."
-msgstr ""
+msgid "%(name)s has %(count)d line(s) with no tax at all:\n\n%(lines)s\n\nEvery line on a UAE invoice needs a tax chosen — 5%%, zero-rated, exempt or reverse charge. An empty tax is not a choice, and the VAT return has no box to report it in."
+msgstr "في %(name)s عدد %(count)d بند بلا ضريبة إطلاقاً:\n\n%(lines)s\n\nكل بند في فاتورة إماراتية يحتاج ضريبة مختارة — 5%% أو صفري أو معفى أو احتساب عكسي. والضريبة الفارغة ليست اختياراً، ولا خانة في الإقرار للإبلاغ عنها."
 
 #. module: mizan_core
 #. odoo-python
@@ -120,21 +115,13 @@ msgstr ""
 #. module: mizan_core
 #: model:ir.model.fields,help:mizan_core.field_res_company__mizan_auto_match_threshold
 #: model:ir.model.fields,help:mizan_core.field_res_config_settings__mizan_auto_match_threshold
-msgid ""
-"A bank line is reconciled without asking only at or above this confidence. "
-"Below it the proposal is kept and shown, and a person decides. How much "
-"inference a business will accept is a business decision, which is why it is "
-"a setting."
-msgstr ""
+msgid "A bank line is reconciled without asking only at or above this confidence. Below it the proposal is kept and shown, and a person decides. How much inference a business will accept is a business decision, which is why it is a setting."
+msgstr "لا يُطابَق السطر البنكي دون سؤال إلا عند هذه الثقة أو فوقها. ودونها يُحفظ الاقتراح ويُعرض، ويقرر شخص. ومقدار الاستنتاج الذي تقبله المنشأة قرار أعمال، ولهذا هو إعداد لا ثابت."
 
 #. module: mizan_core
 #: model_terms:ir.actions.act_window,help:mizan_core.action_mizan_bank_statements
-msgid ""
-"A statement is the bank's own record of the account: opening\n"
-"                balance, every movement, closing balance. Reconciling against it\n"
-"                is what proves the ledger and the bank agree — and it is the\n"
-"                first thing an auditor asks for."
-msgstr ""
+msgid "A statement is the bank's own record of the account: opening\n                balance, every movement, closing balance. Reconciling against it\n                is what proves the ledger and the bank agree — and it is the\n                first thing an auditor asks for."
+msgstr "كشف الحساب هو سجل البنك نفسه للحساب: الرصيد الافتتاحي، وكل حركة، والرصيد الختامي. والمطابقة عليه هي ما يُثبت اتفاق الدفاتر مع البنك — وهو أول ما يطلبه المدقّق."
 
 #. module: mizan_core
 #: model:ir.ui.menu,name:mizan_core.menu_mizan_aged_partner
@@ -313,12 +300,8 @@ msgstr "الضمانات البنكية"
 
 #. module: mizan_core
 #: model:ir.model.fields,help:mizan_core.field_account_bank_statement_line__mizan_match_confidence
-msgid ""
-"How much of the match rests on fact and how much on inference. The bank "
-"quoting the invoice number against the exact open balance scores near a "
-"hundred; the only open document of that amount for that customer scores in "
-"the nineties and waits for a person."
-msgstr ""
+msgid "How much of the match rests on fact and how much on inference. The bank quoting the invoice number against the exact open balance scores near a hundred; the only open document of that amount for that customer scores in the nineties and waits for a person."
+msgstr "كم من المطابقة يقوم على واقعة وكم على استنتاج. فذكر البنك لرقم الفاتورة مقابل الرصيد المفتوح تماماً ينال قرابة المئة؛ والمستند المفتوح الوحيد بذلك المبلغ لذلك العميل ينال في التسعينات وينتظر شخصاً."
 
 #. module: mizan_core
 #: model:ir.model,name:mizan_core.model_account_statement_import
@@ -327,10 +310,8 @@ msgstr "استيراد ملفات كشوف البنك"
 
 #. module: mizan_core
 #: model:res.groups,comment:mizan_core.group_platform_admin
-msgid ""
-"Install modules, manage companies and user\n"
-"                accounts. Held by the service operator, never by the client."
-msgstr ""
+msgid "Install modules, manage companies and user\n                accounts. Held by the service operator, never by the client."
+msgstr "تثبيت الوحدات، وإدارة الشركات وحسابات المستخدمين. بيد مشغّل الخدمة، لا بيد العميل أبداً."
 
 #. module: mizan_core
 #: model:ir.ui.menu,name:mizan_core.menu_mizan_job_costing
@@ -349,12 +330,8 @@ msgstr "أستاذ اليومية"
 
 #. module: mizan_core
 #: model_terms:ir.actions.act_window,help:mizan_core.action_mizan_bank_reconcile
-msgid ""
-"Lines appear here once a bank statement is entered or imported.\n"
-"                Each one is matched against the invoice, bill or payment it\n"
-"                settles, and what the bank charged that nobody raised a\n"
-"                document for is posted from here."
-msgstr ""
+msgid "Lines appear here once a bank statement is entered or imported.\n                Each one is matched against the invoice, bill or payment it\n                settles, and what the bank charged that nobody raised a\n                document for is posted from here."
+msgstr "تظهر الأسطر هنا بمجرد إدخال كشف بنكي أو استيراده. ويُطابَق كل سطر مع الفاتورة أو المستند أو الدفعة التي يسوّيها، وما اقتطعه البنك بلا مستند من أحد يُرحَّل من هنا."
 
 #. module: mizan_core
 #: model:ir.model.fields,field_description:mizan_core.field_account_bank_statement_line__mizan_match_confidence
@@ -499,17 +476,13 @@ msgstr "فاتورة ضريبية"
 
 #. module: mizan_core
 #: model:ir.model.fields,help:mizan_core.field_account_bank_statement_line__mizan_match_candidate_id
-msgid ""
-"The best candidate the importer found and did not post, because it scored "
-"below the threshold."
-msgstr ""
+msgid "The best candidate the importer found and did not post, because it scored below the threshold."
+msgstr "أفضل مرشّح وجده المستورِد ولم يرحّله، لأنه نال أقل من الحد."
 
 #. module: mizan_core
 #: model:ir.model.fields,help:mizan_core.field_account_bank_statement_line__mizan_match_reason
-msgid ""
-"The signals behind the score, so the proposal can be judged rather than "
-"trusted."
-msgstr ""
+msgid "The signals behind the score, so the proposal can be judged rather than trusted."
+msgstr "الدلائل وراء الدرجة، ليُحكم على الاقتراح بدل الثقة به."
 
 #. module: mizan_core
 #. odoo-python
@@ -539,10 +512,8 @@ msgstr "تشغيل أو إيقاف أي تطبيق"
 
 #. module: mizan_core
 #: model_terms:ir.actions.act_window,help:mizan_core.action_mizan_menu_control
-msgid ""
-"Untick <b>Active</b> to hide a menu, tick it to bring it back.\n"
-"               Change <b>Sequence</b> to reorder."
-msgstr ""
+msgid "Untick <b>Active</b> to hide a menu, tick it to bring it back.\n               Change <b>Sequence</b> to reorder."
+msgstr "أزل علامة <b>نشط</b> لإخفاء قائمة، وضعها لإعادتها.\n               وغيّر <b>الترتيب</b> لإعادة الترتيب."
 
 #. module: mizan_core
 #: model:ir.ui.menu,name:mizan_core.menu_mizan_users
@@ -671,8 +642,5 @@ msgstr ""
 
 #. module: mizan_core
 #: model_terms:ir.ui.view,arch_db:mizan_core.report_mizan_invoice_document
-msgid ""
-"هذه فاتورة ضريبية صادرة وفق المرسوم بقانون اتحادي رقم (٨) لسنة ٢٠١٧\n"
-"                    بشأن ضريبة القيمة المضافة.<br/>\n"
-"                    This is a tax invoice issued under UAE Federal Decree-Law No. 8 of 2017."
-msgstr ""
+msgid "هذه فاتورة ضريبية صادرة وفق المرسوم بقانون اتحادي رقم (٨) لسنة ٢٠١٧\n                    بشأن ضريبة القيمة المضافة.<br/>\n                    This is a tax invoice issued under UAE Federal Decree-Law No. 8 of 2017."
+msgstr "هذه فاتورة ضريبية صادرة وفق المرسوم بقانون اتحادي رقم (٨) لسنة ٢٠١٧\n                    بشأن ضريبة القيمة المضافة.<br/>\n                    This is a tax invoice issued under UAE Federal Decree-Law No. 8 of 2017."

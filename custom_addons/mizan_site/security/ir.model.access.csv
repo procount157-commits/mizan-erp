@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_site_report_engineer,mizan.site.report.engineer,model_mizan_site_report,mizan_site.group_site_engineer,1,1,1,0
+access_site_report_manager,mizan.site.report.manager,model_mizan_site_report,project.group_project_manager,1,1,1,1
+access_site_report_finance,mizan.site.report.finance,model_mizan_site_report,account.group_account_manager,1,1,1,1
+access_site_report_readonly,mizan.site.report.readonly,model_mizan_site_report,account.group_account_readonly,1,0,0,0
+access_site_manpower_engineer,mizan.site.manpower.engineer,model_mizan_site_manpower,mizan_site.group_site_engineer,1,1,1,1
+access_site_manpower_manager,mizan.site.manpower.manager,model_mizan_site_manpower,project.group_project_manager,1,1,1,1
+access_site_manpower_finance,mizan.site.manpower.finance,model_mizan_site_manpower,account.group_account_manager,1,1,1,1
+access_site_manpower_ro,mizan.site.manpower.readonly,model_mizan_site_manpower,account.group_account_readonly,1,0,0,0
+access_site_plant_engineer,mizan.site.plant.engineer,model_mizan_site_plant,mizan_site.group_site_engineer,1,1,1,1
+access_site_plant_manager,mizan.site.plant.manager,model_mizan_site_plant,project.group_project_manager,1,1,1,1
+access_site_plant_finance,mizan.site.plant.finance,model_mizan_site_plant,account.group_account_manager,1,1,1,1
+access_site_plant_ro,mizan.site.plant.readonly,model_mizan_site_plant,account.group_account_readonly,1,0,0,0

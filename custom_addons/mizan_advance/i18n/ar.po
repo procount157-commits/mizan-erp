@@ -24,10 +24,8 @@ msgstr "المبلغ %(amount)s يتجاوز سقف السلفة البالغ %(
 #. module: mizan_advance
 #. odoo-python
 #: code:addons/mizan_advance/models/advance.py:0
-msgid ""
-"%(name)s still has %(amount)s outstanding on %(ref)s. Settle that before "
-"advancing more, or ask someone with the override right."
-msgstr ""
+msgid "%(name)s still has %(amount)s outstanding on %(ref)s. Settle that before advancing more, or ask someone with the override right."
+msgstr "لدى %(name)s مبلغ %(amount)s ما زال قائماً على %(ref)s. سوِّه قبل صرف سلفة أخرى، أو اطلب من صاحب صلاحية التجاوز."
 
 #. module: mizan_advance
 #. odoo-python
@@ -144,10 +142,8 @@ msgstr "السلفة يجب أن تكون أكبر من صفر."
 
 #. module: mizan_advance
 #: model_terms:ir.actions.act_window,help:mizan_advance.action_employee_advance
-msgid ""
-"An advance stays here until it is spent against claims or the balance comes "
-"back."
-msgstr ""
+msgid "An advance stays here until it is spent against claims or the balance comes back."
+msgstr "تبقى السلفة هنا حتى تُصرف مقابل مطالبات أو يعود رصيدها."
 
 #. module: mizan_advance
 #. odoo-python
@@ -177,10 +173,8 @@ msgstr "اعتمدها"
 #. module: mizan_advance
 #. odoo-python
 #: code:addons/mizan_advance/models/advance.py:0
-msgid ""
-"Approves it. Refused if the employee already holds an advance that is not "
-"settled."
-msgstr ""
+msgid "Approves it. Refused if the employee already holds an advance that is not settled."
+msgstr "يعتمدها. ويُرفض إن كان لدى الموظف سلفة غير مسوّاة."
 
 #. module: mizan_advance
 #: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__message_attachment_count
@@ -359,9 +353,8 @@ msgstr ""
 
 #. module: mizan_advance
 #: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__amount_spent
-msgid ""
-"From the expense claims POSTED against this advance. Not typed by anybody."
-msgstr ""
+msgid "From the expense claims POSTED against this advance. Not typed by anybody."
+msgstr "من مطالبات المصروفات المُرحَّلة على هذه السلفة. ولا يكتبه أحد بيده."
 
 #. module: mizan_advance
 #: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_search
@@ -432,11 +425,8 @@ msgstr "جرى تجاوز السقف"
 
 #. module: mizan_advance
 #: model:res.groups,comment:mizan_advance.group_advance_override
-msgid ""
-"May approve a second advance while one is\n"
-"                outstanding, or one above the company ceiling. Every use is\n"
-"                recorded on the advance with the reason."
-msgstr ""
+msgid "May approve a second advance while one is\n                outstanding, or one above the company ceiling. Every use is\n                recorded on the advance with the reason."
+msgstr "يجوز له اعتماد سلفة ثانية مع بقاء الأولى قائمة، أو سلفة تتجاوز سقف الشركة. وكل استعمال يُسجَّل على السلفة مع سببه."
 
 #. module: mizan_advance
 #: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__message_has_error
@@ -591,9 +581,8 @@ msgstr "المسار"
 #. module: mizan_advance
 #. odoo-python
 #: code:addons/mizan_advance/models/advance.py:0
-msgid ""
-"Posts the payment and puts the amount in the employee advances account."
-msgstr ""
+msgid "Posts the payment and puts the amount in the employee advances account."
+msgstr "يرحّل الصرف ويضع المبلغ في حساب سلف الموظفين."
 
 #. module: mizan_advance
 #: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__project_id
@@ -619,11 +608,8 @@ msgstr "تسجيل إعادة الرصيد"
 
 #. module: mizan_advance
 #: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__override_by_id
-msgid ""
-"Recorded when somebody allowed a second advance, or one above the ceiling. "
-"The exception is part of the record, not a conversation nobody can find "
-"later."
-msgstr ""
+msgid "Recorded when somebody allowed a second advance, or one above the ceiling. The exception is part of the record, not a conversation nobody can find later."
+msgstr "يُسجَّل حين يسمح أحدهم بسلفة ثانية أو بسلفة فوق السقف. الاستثناء جزء من السجل، لا حديثاً لا يجده أحد لاحقاً."
 
 #. module: mizan_advance
 #: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__name
@@ -665,11 +651,8 @@ msgstr "يرسل الطلب للاعتماد."
 #. module: mizan_advance
 #. odoo-python
 #: code:addons/mizan_advance/models/advance.py:0
-msgid ""
-"Set the Employee Advances account on the company first. Without it the "
-"advance would have to be posted somewhere arbitrary, and an advance in the "
-"wrong account is an advance nobody chases."
-msgstr ""
+msgid "Set the Employee Advances account on the company first. Without it the advance would have to be posted somewhere arbitrary, and an advance in the wrong account is an advance nobody chases."
+msgstr "حدِّد حساب سلف الموظفين على الشركة أولاً. بدونه تُرحَّل السلفة إلى حساب اعتباطي، والسلفة في الحساب الخطأ سلفة لا يطاردها أحد."
 
 #. module: mizan_advance
 #. odoo-python
@@ -703,10 +686,8 @@ msgstr "تسوية السلفة %s"
 
 #. module: mizan_advance
 #: model:ir.model.fields,help:mizan_advance.field_hr_expense_sheet__mizan_advance_id
-msgid ""
-"Spend the claim against an advance the employee already holds, instead of "
-"the company paying twice."
-msgstr ""
+msgid "Spend the claim against an advance the employee already holds, instead of the company paying twice."
+msgstr "اصرف المطالبة من سلفة بحوزة الموظف أصلاً، بدل أن تدفع الشركة مرتين."
 
 #. module: mizan_advance
 #: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_list
@@ -759,10 +740,8 @@ msgstr "الحساب الذي تُصرف منه السلفة فعلياً."
 
 #. module: mizan_advance
 #: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__partner_id
-msgid ""
-"The advance is settled against what the company owes this person on their "
-"expense claims, so both sides must point at the same partner."
-msgstr ""
+msgid "The advance is settled against what the company owes this person on their expense claims, so both sides must point at the same partner."
+msgstr "تُسوّى السلفة مقابل ما تدين به الشركة لهذا الشخص على مطالبات مصروفاته، فيجب أن يشير الطرفان إلى الجهة نفسها."
 
 #. module: mizan_advance
 #. odoo-python
@@ -779,10 +758,8 @@ msgstr "لا يوجد رصيد متبقٍ لإعادته."
 #. module: mizan_advance
 #. odoo-python
 #: code:addons/mizan_advance/models/advance.py:0
-msgid ""
-"There is nothing new to settle. Post the employee's expense claims against "
-"this advance first."
-msgstr ""
+msgid "There is nothing new to settle. Post the employee's expense claims against this advance first."
+msgstr "لا جديد لتسويته. رحّل مطالبات مصروفات الموظف على هذه السلفة أولاً."
 
 #. module: mizan_advance
 #: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__activity_exception_decoration
@@ -821,16 +798,11 @@ msgstr "ما الذي سيفعله الزر، مقولاً قبل الضغط ع�
 
 #. module: mizan_advance
 #: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__purpose
-msgid ""
-"What the money is for. A blank purpose is how an advance becomes impossible "
-"to settle."
-msgstr ""
+msgid "What the money is for. A blank purpose is how an advance becomes impossible to settle."
+msgstr "الغرض من المبلغ. والغرض الفارغ هو ما يجعل تسوية السلفة مستحيلة."
 
 #. module: mizan_advance
 #: model:ir.model.fields,help:mizan_advance.field_res_company__mizan_advance_account_id
 #: model:ir.model.fields,help:mizan_advance.field_res_config_settings__mizan_advance_account_id
-msgid ""
-"Where an advance sits while the employee still holds it. It is an asset — "
-"the company is owed the money — and not an expense, which is the mistake "
-"that makes advances disappear."
-msgstr ""
+msgid "Where an advance sits while the employee still holds it. It is an asset — the company is owed the money — and not an expense, which is the mistake that makes advances disappear."
+msgstr "حيث تستقر السلفة ما دامت بحوزة الموظف. وهي أصل — فالمال مستحق للشركة — لا مصروف، وهذا هو الخطأ الذي يُخفي السلف."

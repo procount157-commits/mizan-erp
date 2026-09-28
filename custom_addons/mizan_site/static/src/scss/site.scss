@@ -1,0 +1,25 @@
+// The engineer is holding a phone in one hand while standing on a slab. The
+// two things that matter are that a target is big enough to hit without
+// looking, and that the day's identity is readable at arm's length.
+.o_mizan_site {
+    .o_mizan_site_card {
+        line-height: 1.35;
+    }
+
+    .btn-lg {
+        min-height: 3rem;
+    }
+
+    @media (max-width: 767px) {
+        .o_form_sheet {
+            padding: 0.75rem;
+        }
+
+        // Labels above their fields rather than beside them: a two-column
+        // form on a 375px screen leaves the field about eleven characters
+        // wide, which is not enough for a project name or a date.
+        .o_inner_group .o_wrap_label {
+            width: 100%;
+        }
+    }
+}

@@ -18,10 +18,8 @@ msgstr ""
 #. module: mizan_closing
 #. odoo-python
 #: code:addons/mizan_closing/models/month_close.py:0
-msgid ""
-"%s check(s) still block the close. They are not untidiness — each one is a "
-"figure that would be wrong in the month you are about to freeze."
-msgstr ""
+msgid "%s check(s) still block the close. They are not untidiness — each one is a figure that would be wrong in the month you are about to freeze."
+msgstr "ما زال %s فحصاً يمنع الإقفال. وهي ليست فوضى شكلية — كل واحد منها رقم سيكون خاطئاً في الشهر الذي توشك على تجميده."
 
 #. module: mizan_closing
 #. odoo-python
@@ -32,10 +30,8 @@ msgstr "أُقفل %s. أعد فتحه قبل تشغيل الفحوص مرة أ�
 #. module: mizan_closing
 #. odoo-python
 #: code:addons/mizan_closing/models/month_close.py:0
-msgid ""
-"A month closed over an unposted entry is closed over a figure somebody meant"
-" to include."
-msgstr ""
+msgid "A month closed over an unposted entry is closed over a figure somebody meant to include."
+msgstr "الشهر المُقفل فوق قيد غير مُرحَّل مُقفل فوق رقم قصد أحدهم إدراجه."
 
 #. module: mizan_closing
 #: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__message_needaction
@@ -239,9 +235,8 @@ msgstr "كل قيد يجب أن يتوازن وحده، لا في المجموع
 #. module: mizan_closing
 #. odoo-python
 #: code:addons/mizan_closing/models/month_close.py:0
-msgid ""
-"Either the bank has not told you, or it bounced and nobody recorded it."
-msgstr ""
+msgid "Either the bank has not told you, or it bounced and nobody recorded it."
+msgstr "إما أن البنك لم يخبرك، وإما أنه ارتدّ ولم يسجّله أحد."
 
 #. module: mizan_closing
 #: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__message_follower_ids
@@ -276,10 +271,8 @@ msgstr ""
 
 #. module: mizan_closing
 #: model:ir.model.fields,help:mizan_closing.field_mizan_month_close__closed_over_warnings
-msgid ""
-"How many warnings the manager knowingly closed over. Kept because 'we closed"
-" with eleven open' is a different month from 'we closed clean'."
-msgstr ""
+msgid "How many warnings the manager knowingly closed over. Kept because 'we closed with eleven open' is a different month from 'we closed clean'."
+msgstr "كم تنبيهاً أقفل المدير فوقه عن علم. يُحفظ لأن «أقفلنا وأحد عشر مفتوحاً» شهر مختلف عن «أقفلنا نظيفاً»."
 
 #. module: mizan_closing
 #: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__id
@@ -393,10 +386,8 @@ msgstr "إقفال جديد"
 #. module: mizan_closing
 #. odoo-python
 #: code:addons/mizan_closing/models/month_close.py:0
-msgid ""
-"Not in the ledger, not in the VAT return, and not in any report for the "
-"month you are closing."
-msgstr ""
+msgid "Not in the ledger, not in the VAT return, and not in any report for the month you are closing."
+msgstr "ليست في الدفاتر، ولا في الإقرار الضريبي، ولا في أي تقرير عن الشهر الذي تُقفله."
 
 #. module: mizan_closing
 #: model:ir.model.fields.selection,name:mizan_closing.selection__mizan_month_close__state__draft
@@ -431,9 +422,8 @@ msgstr ""
 #. module: mizan_closing
 #. odoo-python
 #: code:addons/mizan_closing/models/month_close.py:0
-msgid ""
-"Outside every project, so it understates progress and therefore revenue."
-msgstr ""
+msgid "Outside every project, so it understates progress and therefore revenue."
+msgstr "خارج كل مشروع، فيقلّل الإنجاز ومن ثمّ الإيراد."
 
 #. module: mizan_closing
 #: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__passed
@@ -460,10 +450,8 @@ msgstr ""
 #. module: mizan_closing
 #. odoo-python
 #: code:addons/mizan_closing/models/month_close.py:0
-msgid ""
-"Reaches the project total but no budget line, so the breakdown stops adding "
-"up."
-msgstr ""
+msgid "Reaches the project total but no budget line, so the breakdown stops adding up."
+msgstr "يصل إلى إجمالي المشروع دون أي بند موازنة، فيتوقف التفصيل عن المطابقة."
 
 #. module: mizan_closing
 #: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__ready
@@ -499,10 +487,8 @@ msgstr "تشغيل الفحوص"
 #. module: mizan_closing
 #. odoo-python
 #: code:addons/mizan_closing/models/month_close.py:0
-msgid ""
-"Run the checks before closing. Closing a month nobody checked is the thing "
-"this screen exists to stop."
-msgstr ""
+msgid "Run the checks before closing. Closing a month nobody checked is the thing this screen exists to stop."
+msgstr "شغّل الفحوص قبل الإقفال. إقفال شهر لم يفحصه أحد هو ما وُجدت هذه الشاشة لمنعه."
 
 #. module: mizan_closing
 #: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__message_has_sms_error
@@ -534,18 +520,14 @@ msgstr "لا يستطيع المشتري استرداد ضريبة المدخل�
 #. module: mizan_closing
 #. odoo-python
 #: code:addons/mizan_closing/models/month_close.py:0
-msgid ""
-"The lock date has moved since this close, so reopening here would undo "
-"somebody else's work. Change it on the company instead, deliberately."
-msgstr ""
+msgid "The lock date has moved since this close, so reopening here would undo somebody else's work. Change it on the company instead, deliberately."
+msgstr "تحرّك تاريخ القفل منذ هذا الإقفال، وإعادة الفتح من هنا ستُلغي عمل شخص آخر. غيّره على الشركة مباشرةً، وعن قصد."
 
 #. module: mizan_closing
 #. odoo-python
 #: code:addons/mizan_closing/models/month_close.py:0
-msgid ""
-"The whole expected loss belongs in this period, not spread over the periods "
-"left."
-msgstr ""
+msgid "The whole expected loss belongs in this period, not spread over the periods left."
+msgstr "الخسارة المتوقعة كلها تخص هذه الفترة، لا تُوزَّع على الفترات الباقية."
 
 #. module: mizan_closing
 #: model:ir.model.constraint,message:mizan_closing.constraint_mizan_month_close_period_company_uniq
@@ -571,10 +553,8 @@ msgstr "يعيد تاريخ القفل إلى ما كان عليه قبل هذا
 
 #. module: mizan_closing
 #: model_terms:ir.ui.view,arch_db:mizan_closing.view_close_form
-msgid ""
-"This writes the global lock date. Entries up to and including the end of the"
-" period will be pushed to a later date. It can be undone by reopening."
-msgstr ""
+msgid "This writes the global lock date. Entries up to and including the end of the period will be pushed to a later date. It can be undone by reopening."
+msgstr "يكتب هذا تاريخ القفل العام. وستُدفع القيود حتى نهاية الفترة إلى تاريخ لاحق. ويمكن التراجع عنه بإعادة الفتح."
 
 #. module: mizan_closing
 #: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__date_to
@@ -603,10 +583,8 @@ msgstr ""
 
 #. module: mizan_closing
 #: model:ir.model.fields,help:mizan_closing.field_mizan_month_close__lock_date_before
-msgid ""
-"What the lock date was before this close, so reopening puts it back rather "
-"than guessing."
-msgstr ""
+msgid "What the lock date was before this close, so reopening puts it back rather than guessing."
+msgstr "ما كان عليه تاريخ القفل قبل هذا الإقفال، لتعيده إعادة الفتح بدل أن تخمّنه."
 
 #. module: mizan_closing
 #: model_terms:ir.ui.view,arch_db:mizan_closing.view_close_form
@@ -621,15 +599,11 @@ msgstr "لماذا يهم"
 #. module: mizan_closing
 #. odoo-python
 #: code:addons/mizan_closing/models/month_close.py:0
-msgid ""
-"Work the client agreed to pay for, in a month that will not show the "
-"revenue."
-msgstr ""
+msgid "Work the client agreed to pay for, in a month that will not show the revenue."
+msgstr "أعمال وافق العميل على دفع ثمنها، في شهر لن يُظهر إيرادها."
 
 #. module: mizan_closing
 #. odoo-python
 #: code:addons/mizan_closing/models/month_close.py:0
-msgid ""
-"Zero-rated, exempt and reverse charge are each reported in their own box. A "
-"blank has no box."
-msgstr ""
+msgid "Zero-rated, exempt and reverse charge are each reported in their own box. A blank has no box."
+msgstr "الصفري والمعفى والاحتساب العكسي لكلٍّ منها خانته في الإقرار. والفراغ بلا خانة."
