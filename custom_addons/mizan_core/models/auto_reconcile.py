@@ -19,6 +19,20 @@ Anything it cannot settle beyond doubt it leaves alone, on purpose. A
 reconciliation that guesses is worse than one that stops: the wrong invoice
 marked paid sends a statement to a customer who has not paid, and nobody
 looks at it again for a month.
+
+WHY A SCORE AND NOT A YES. "Matched" and "not matched" treat two very
+different situations alike. The bank quoting the invoice number against the
+exact open balance is not a match in the same sense as the only open document
+for that customer happening to be the same amount — the first is a fact, the
+second is an inference that is usually right. Collapsing them into a boolean
+means either the inference posts silently, or the fact waits for a human.
+
+So each candidate carries a score built from named signals, and the line keeps
+the best candidate it did NOT take along with the reason. Below the threshold
+nothing is posted, but the person opening the line is handed the proposal and
+what it rests on, instead of an empty screen. The threshold is a company
+setting, because how much inference a business will accept is a business
+decision and not a constant in somebody's code.
 """
 
 import re
@@ -32,6 +46,21 @@ class AccountBankStatementLine(models.Model):
     mizan_auto_matched = fields.Boolean(
         string="Matched Automatically", readonly=True, copy=False,
         help="Settled by the importer rather than by hand.")
+    mizan_match_confidence = fields.Integer(
+        string="Match Confidence", readonly=True, copy=False,
+        help="How much of the match rests on fact and how much on inference. "
+             "The bank quoting the invoice number against the exact open "
+             "balance scores near a hundred; the only open document of that "
+             "amount for that customer scores in the nineties and waits for "
+             "a person.")
+    mizan_match_reason = fields.Char(
+        string="Why", readonly=True, copy=False,
+        help="The signals behind the score, so the proposal can be judged "
+             "rather than trusted.")
+    mizan_match_candidate_id = fields.Many2one(
+        "account.move", string="Proposed Document", readonly=True, copy=False,
+        help="The best candidate the importer found and did not post, because "
+             "it scored below the threshold.")
 
     # ------------------------------------------------------------ finding it
     def _mizan_candidate_documents(self):
@@ -81,49 +110,113 @@ class AccountBankStatementLine(models.Model):
         # precisely the case a person has to look at.
         return hits if len(hits) == 1 else self.env["account.move"]
 
+    # --------------------------------------------------------- scoring it
+    # Each signal is worth what it is worth as evidence, not as a feeling.
+    # The bank echoing the document number is the strongest thing available
+    # short of the customer telling you; an exact residual is nearly as good;
+    # the partner agreeing is corroboration rather than evidence on its own,
+    # because the bank fills that in from a name that is often wrong.
+    SIGNAL_REFERENCE = 60      # the document number appears in the narrative
+    SIGNAL_EXACT_AMOUNT = 35   # equals the open balance to the cent
+    SIGNAL_PARTNER = 5         # the bank's partner matches the document's
+    SIGNAL_PARTNER_ONLY = 40   # partner is all there is to go on
+    SIGNAL_SOLE_CANDIDATE = 17  # nothing else it could be
+    SIGNAL_RULE = 95           # a rule the accountant wrote, so a decision
+    #                            already taken by a person
+
+    def _mizan_score_candidates(self):
+        """Every document this line could be, with what the score rests on."""
+        self.ensure_one()
+        scored = []
+
+        named = self._mizan_candidate_documents()
+        for move in named:
+            open_line = self._mizan_open_line(move)
+            if not open_line:
+                continue
+            exact = self.currency_id.compare_amounts(
+                abs(sum(open_line.mapped("amount_residual"))),
+                abs(self.amount)) == 0
+            score = self.SIGNAL_REFERENCE
+            why = [_("its number is in the bank's narrative")]
+            if exact:
+                score += self.SIGNAL_EXACT_AMOUNT
+                why.append(_("the amount equals the open balance exactly"))
+            if self.partner_id and move.partner_id.commercial_partner_id == \
+                    self.partner_id.commercial_partner_id:
+                score += self.SIGNAL_PARTNER
+                why.append(_("the party agrees"))
+            scored.append((min(score, 100), move, why))
+
+        if not scored:
+            sole = self._mizan_exact_partner_match()[:1]
+            if sole:
+                scored.append((
+                    min(self.SIGNAL_PARTNER_ONLY + self.SIGNAL_EXACT_AMOUNT
+                        + self.SIGNAL_SOLE_CANDIDATE, 100),
+                    sole,
+                    [_("the only open document of exactly this amount for "
+                       "this party"), _("nothing names it")]))
+
+        scored.sort(key=lambda row: row[0], reverse=True)
+        # Two candidates scoring the same is the case a person has to look at,
+        # so neither is allowed to win on its own.
+        if len(scored) > 1 and scored[0][0] == scored[1][0]:
+            scored[0] = (min(scored[0][0], 60), scored[0][1],
+                         scored[0][2] + [_("another document scores the same")])
+        return scored
+
     # ------------------------------------------------------------ doing it
     def mizan_auto_reconcile(self):
-        """Settle what can be settled beyond doubt. Returns a summary."""
-        matched = by_rule = skipped = 0
+        """Settle what scores above the threshold. Returns a summary."""
+        matched = by_rule = held = skipped = 0
         reasons = {}
+        threshold = self.env.company.mizan_auto_match_threshold or 95
         for line in self:
             if line.is_reconciled:
                 continue
-            move = None
-            for candidate in line._mizan_candidate_documents():
-                open_line = line._mizan_open_line(candidate)
-                if open_line and line.currency_id.compare_amounts(
-                        abs(open_line.amount_residual), abs(line.amount)) == 0:
-                    move = candidate
-                    break
-            if not move:
-                move = line._mizan_exact_partner_match()[:1]
-
-            if move:
-                open_line = line._mizan_open_line(move)[:1]
-                if open_line:
-                    line.clean_reconcile()
-                    line._add_account_move_line(open_line)
-                    line.can_reconcile = line.reconcile_data_info.get(
-                        "can_reconcile", False)
-                    if line.can_reconcile:
-                        line.reconcile_bank_line()
-                        line.mizan_auto_matched = True
-                        matched += 1
-                        continue
+            scored = line._mizan_score_candidates()
+            if scored:
+                score, move, why = scored[0]
+                line.write({
+                    "mizan_match_confidence": score,
+                    "mizan_match_reason": " · ".join(why),
+                    "mizan_match_candidate_id": move.id,
+                })
+                if score >= threshold:
+                    open_line = line._mizan_open_line(move)[:1]
+                    if open_line:
+                        line.clean_reconcile()
+                        line._add_account_move_line(open_line)
+                        line.can_reconcile = line.reconcile_data_info.get(
+                            "can_reconcile", False)
+                        if line.can_reconcile:
+                            line.reconcile_bank_line()
+                            line.mizan_auto_matched = True
+                            matched += 1
+                            continue
+                else:
+                    # Deliberately not posted. The proposal and its reason stay
+                    # on the line so the person is handed the inference rather
+                    # than an empty screen.
+                    held += 1
+                    continue
 
             # Nothing named; fall back to the rules, which is what settles a
             # bank charge nobody raised a document for.
             line.clean_reconcile()
             if line.can_reconcile:
                 line.reconcile_bank_line()
-                line.mizan_auto_matched = True
+                line.write({"mizan_auto_matched": True,
+                            "mizan_match_confidence": self.SIGNAL_RULE,
+                            "mizan_match_reason": _("a reconciliation rule "
+                                                    "you configured")})
                 by_rule += 1
                 continue
 
             skipped += 1
             reasons[line.id] = line.payment_ref or line.ref or str(line.id)
-        return {"matched": matched, "by_rule": by_rule,
+        return {"matched": matched, "by_rule": by_rule, "held": held,
                 "skipped": skipped, "left": reasons}
 
     def action_mizan_auto_reconcile(self):
@@ -133,8 +226,11 @@ class AccountBankStatementLine(models.Model):
             parts.append(_("%s matched to their document", summary["matched"]))
         if summary["by_rule"]:
             parts.append(_("%s posted by rule", summary["by_rule"]))
+        if summary.get("held"):
+            parts.append(_("%s proposed but below the threshold — open them "
+                           "to accept or change", summary["held"]))
         if summary["skipped"]:
-            parts.append(_("%s left for you", summary["skipped"]))
+            parts.append(_("%s with nothing to propose", summary["skipped"]))
         return {
             "type": "ir.actions.client",
             "tag": "display_notification",
@@ -142,7 +238,9 @@ class AccountBankStatementLine(models.Model):
                 "title": _("Automatic reconciliation"),
                 "message": "\n".join("• %s" % p for p in parts)
                            or _("Nothing left to reconcile."),
-                "type": "success" if not summary["skipped"] else "warning",
+                "type": ("success" if not (summary["skipped"]
+                                          or summary.get("held"))
+                         else "warning"),
                 "sticky": True,
                 "next": {"type": "ir.actions.act_window_close"},
             },
@@ -166,3 +264,21 @@ class AccountStatementImport(models.TransientModel):
         if fresh:
             fresh.mizan_auto_reconcile()
         return result
+
+
+class ResCompany(models.Model):
+    _inherit = "res.company"
+
+    mizan_auto_match_threshold = fields.Integer(
+        string="Auto-Match Threshold", default=95,
+        help="A bank line is reconciled without asking only at or above this "
+             "confidence. Below it the proposal is kept and shown, and a "
+             "person decides. How much inference a business will accept is a "
+             "business decision, which is why it is a setting.")
+
+
+class ResConfigSettings(models.TransientModel):
+    _inherit = "res.config.settings"
+
+    mizan_auto_match_threshold = fields.Integer(
+        related="company_id.mizan_auto_match_threshold", readonly=False)

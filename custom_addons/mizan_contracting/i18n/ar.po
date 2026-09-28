@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0-20260908\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-26 10:29+0000\n"
-"PO-Revision-Date: 2026-09-26 10:29+0000\n"
+"POT-Creation-Date: 2026-09-28 18:09+0000\n"
+"PO-Revision-Date: 2026-09-28 18:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__percent_certified
@@ -58,6 +58,22 @@ msgstr "%(claim)s — مستخلص رقم %(no)s"
 
 #. module: mizan_contracting
 #. odoo-python
+#: code:addons/mizan_contracting/models/variation_order.py:0
+msgid ""
+"%(item)s has %(certified)s certified against the revised quantity, so it "
+"cannot go back to %(before)s."
+msgstr ""
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/variation_order.py:0
+msgid ""
+"%(item)s has %(certified)s certified already, so it cannot be revised down "
+"to %(new)s."
+msgstr ""
+
+#. module: mizan_contracting
+#. odoo-python
 #: code:addons/mizan_contracting/models/boq_claim.py:0
 msgid "%s claims nothing beyond what was already certified."
 msgstr "%s لا يطالب بأي شيء يزيد عمّا سبق اعتماده."
@@ -70,6 +86,14 @@ msgstr "اكتمل %s"
 
 #. module: mizan_contracting
 #. odoo-python
+#: code:addons/mizan_contracting/models/variation_order.py:0
+msgid ""
+"%s has already been certified on a claim, so the variation that created it "
+"cannot be withdrawn."
+msgstr ""
+
+#. module: mizan_contracting
+#. odoo-python
 #: code:addons/mizan_contracting/models/boq_claim.py:0
 msgid "%s has no bill of quantities."
 msgstr "لا يوجد جدول كميات على %s."
@@ -79,7 +103,7 @@ msgstr "لا يوجد جدول كميات على %s."
 #: code:addons/mizan_contracting/models/boq_claim.py:0
 msgid ""
 "%s has no bill of quantities. Add the priced items to the contract first."
-msgstr "لا يوجد جدول كميات على %s. أضف البنود المُسعّرة إلى العقد أولاً."
+msgstr ""
 
 #. module: mizan_contracting
 #. odoo-python
@@ -122,6 +146,12 @@ msgstr "لا يوجد أي قياس على %s."
 #: code:addons/mizan_contracting/models/complete_all.py:0
 msgid "%s is a journal entry"
 msgstr "%s قيد يومية"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/variation_order.py:0
+msgid "%s is already approved."
+msgstr "%s معتمد أصلاً."
 
 #. module: mizan_contracting
 #. odoo-python
@@ -179,8 +209,6 @@ msgid ""
 "name on the certificate is the whole point of the step, and the system will "
 "not invent it."
 msgstr ""
-"%s عند الاستشاري. سجّل من اعتمده قبل الإنهاء — الاسم على الشهادة هو جوهر هذه"
-" الخطوة، والنظام لن يخترعه."
 
 #. module: mizan_contracting
 #. odoo-python
@@ -195,13 +223,18 @@ msgid "%s still holds %s of retention. Release it before closing."
 msgstr "%s لا يزال يحتجز %s من المحتجزات. أفرِج عنها قبل الإغلاق."
 
 #. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid ""
+".\n"
+"                        It cannot be approved until they agree."
+msgstr ""
+
+#. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
 msgid ""
 ".\n"
 "                        Lapsed cover on site becomes the main contractor's problem."
 msgstr ""
-".\n"
-"                        التأمين المنتهي في الموقع يصبح مشكلة المقاول الرئيسي."
 
 #. module: mizan_contracting
 #: model_terms:ir.actions.act_window,help:mizan_contracting.action_cost_code
@@ -210,9 +243,6 @@ msgid ""
 "                concrete, electrical. Budget and actual line up against these,\n"
 "                which is what turns \"we are over\" into \"we are over on concrete\"."
 msgstr ""
-"بند التكلفة هو الجزء من المشروع الذي تنتمي إليه التكلفة — أعمال ترابية،\n"
-"                خرسانة، كهرباء. الموازنة والفعلي يتقابلان عليه، وهذا ما يحوّل\n"
-"                «نحن متجاوزون» إلى «نحن متجاوزون في الخرسانة»."
 
 #. module: mizan_contracting
 #. odoo-python
@@ -226,8 +256,6 @@ msgid ""
 "A foreseeable loss is recognised in full now, not spread over the remaining "
 "work. Continue?"
 msgstr ""
-"تُعترف الخسارة المتوقعة بالكامل الآن، ولا تُوزّع على الأعمال المتبقية. هل "
-"تريد المتابعة؟"
 
 #. module: mizan_contracting
 #: model_terms:ir.actions.act_window,help:mizan_contracting.action_plant
@@ -236,8 +264,13 @@ msgid ""
 "                out at an internal rate and what it recovers can be set against\n"
 "                what it actually costs."
 msgstr ""
-"الآلية التي تملكها الشركة تُكلّف المشروع الذي يستخدمها. حمّلها بسعر\n"
-"                داخلي، ويمكن حينها مقابلة ما تستردّه بما تكلّفه فعلاً."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/variation_order.py:0
+msgid ""
+"A new bill item needs an item number: the consultant certifies against it."
+msgstr ""
 
 #. module: mizan_contracting
 #: model_terms:ir.actions.act_window,help:mizan_contracting.action_progress_claim
@@ -247,9 +280,6 @@ msgid ""
 "                period, what was certified before, and the retention and advance\n"
 "                the contract deducts. The tax invoice is its last line."
 msgstr ""
-"المستخلص مستند مقيس لا مجرد مبلغ: كل بند من جدول الكميات بالكمية\n"
-"                المقيسة هذه الفترة، وما سبق اعتماده، والمحتجزات والدفعة المقدمة\n"
-"                التي يخصمها العقد. والفاتورة الضريبية هي سطره الأخير."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_hr_expense__mizan_cost_code_id
@@ -263,9 +293,14 @@ msgid ""
 "                what was agreed, what has been certified, what was varied and\n"
 "                what his retention is. This is the agreement itself."
 msgstr ""
-"مقاول الباطن إذا عُومل كمورد عادي لا يترك جواباً لما تم الاتفاق عليه،\n"
-"                ولا لما اعتُمد، ولا لما تغيّر، ولا لمقدار محتجزاته.\n"
-"                هذه هي الاتفاقية نفسها."
+
+#. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_variation
+msgid ""
+"A variation records what the client instructed, what it is worth, what it "
+"will cost, and how much time it adds — and on approval it changes the bill "
+"of quantities."
+msgstr ""
 
 #. module: mizan_contracting
 #. odoo-python
@@ -273,7 +308,6 @@ msgstr ""
 msgid ""
 "Account %s is missing. Run scripts/complete_coa.py against this database."
 msgstr ""
-"الحساب %s غير موجود. شغّل scripts/complete_coa.py على قاعدة البيانات هذه."
 
 #. module: mizan_contracting
 #. odoo-python
@@ -288,8 +322,6 @@ msgid ""
 "Account 204004 (Billings in Excess of Work Done) is missing. Run "
 "scripts/complete_coa.py against this database."
 msgstr ""
-"الحساب 204004 (الفوترة الزائدة عن الإنجاز) غير موجود. شغّل "
-"scripts/complete_coa.py على قاعدة البيانات هذه."
 
 #. module: mizan_contracting
 #. odoo-python
@@ -298,8 +330,6 @@ msgid ""
 "Account 401014 (plant recovery) is missing. Run scripts/complete_coa.py "
 "against this database."
 msgstr ""
-"الحساب 401014 (استرداد تكلفة الآليات) غير موجود. شغّل "
-"scripts/complete_coa.py على قاعدة البيانات هذه."
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_recognition_form
@@ -313,8 +343,6 @@ msgid ""
 "Accounts 401011 and 204005 are needed. Run scripts/complete_coa.py against "
 "this database."
 msgstr ""
-"الحسابان 401011 و204005 مطلوبان. شغّل scripts/complete_coa.py على قاعدة "
-"البيانات هذه."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__wip_account_id
@@ -329,6 +357,7 @@ msgstr "إيراد مستحق"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_needaction
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_needaction
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_needaction
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_needaction
 msgid "Action Needed"
@@ -350,6 +379,7 @@ msgstr "نشط"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__activity_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_ids
 msgid "Activities"
@@ -357,6 +387,7 @@ msgstr "الأنشطة"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_exception_decoration
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__activity_exception_decoration
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_exception_decoration
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_exception_decoration
 msgid "Activity Exception Decoration"
@@ -364,6 +395,7 @@ msgstr "زخرفة استثناء النشاط"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_state
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__activity_state
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_state
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_state
 msgid "Activity State"
@@ -371,6 +403,7 @@ msgstr "حالة النشاط"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_type_icon
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__activity_type_icon
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_type_icon
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_type_icon
 msgid "Activity Type Icon"
@@ -490,6 +523,7 @@ msgstr "محمّل بالفعل."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__amount
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__amount
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__amount
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__amount
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__amount
@@ -517,6 +551,11 @@ msgid "Applied"
 msgstr "مُطبّق"
 
 #. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__applied
+msgid "Applied to the BOQ"
+msgstr "طُبِّق على جدول الكميات"
+
+#. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
 msgid "Apply"
 msgstr "تطبيق"
@@ -539,9 +578,28 @@ msgid "Approved By (Client)"
 msgstr "اعتمده (العميل)"
 
 #. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__date_approved
+msgid "Approved On"
+msgstr "تاريخ الاعتماد"
+
+#. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__variation_approved
 msgid "Approved Variations"
 msgstr "أوامر التغيير المعتمدة"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/variation_order.py:0
+msgid "Approved. Contract value %(before)s → %(after)s."
+msgstr "اعتُمد. قيمة العقد %(before)s ← %(after)s."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid ""
+"Approving changes the contract: the items are written into the bill of "
+"quantities, the contract value and expected cost move, and the completion "
+"date shifts by the days stated."
+msgstr ""
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__asset_account_id
@@ -550,6 +608,7 @@ msgstr "حساب الأصل"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_attachment_count
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_attachment_count
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_attachment_count
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_attachment_count
 msgid "Attachment Count"
@@ -559,6 +618,11 @@ msgstr "عدد المرفقات"
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_search
 msgid "Awaiting Certification"
 msgstr "بانتظار الاعتماد"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid "Back to draft"
+msgstr "إعادة إلى مسودة"
 
 #. module: mizan_contracting
 #: model:ir.model,name:mizan_contracting.model_mizan_subcontract_backcharge
@@ -584,6 +648,7 @@ msgstr "الفاتورة"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__section
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__section
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__section
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_boq_line_search
 msgid "Bill / Section"
@@ -595,6 +660,7 @@ msgid "Bill Count"
 msgstr "عدد الفواتير"
 
 #. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__boq_line_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__boq_line_id
 msgid "Bill Item"
 msgstr "بند جدول الكميات"
@@ -642,7 +708,7 @@ msgstr "المفوتر"
 msgid ""
 "Billed beyond what the work has earned — owed back to the client in work, "
 "not profit."
-msgstr "فوترة تزيد عمّا كسبته الأعمال — مستحقة للعميل كأعمال لا كربح."
+msgstr ""
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__billed_to_date
@@ -790,7 +856,12 @@ msgstr "معتمد وغير مفوتر"
 msgid ""
 "Certify %s before invoicing it. An uncertified claim is a request, not a "
 "debt."
-msgstr "اعتمد %s قبل فوترته. المستخلص غير المعتمد مطالبة لا دين."
+msgstr ""
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__change_type
+msgid "Change"
+msgstr "نوع التغيير"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__charge_ids
@@ -809,13 +880,17 @@ msgid ""
 "Charges this payslip to a contract. Leave empty for office staff whose wages"
 " are overhead rather than job cost."
 msgstr ""
-"يحمّل مسيّر الرواتب هذا على عقد. اتركه فارغاً لموظفي المكتب الذين تُعد "
-"رواتبهم مصروفاً عاماً لا تكلفة مشروع."
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_form
 msgid "Charges to Jobs"
 msgstr "التحميل على المشاريع"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/variation_order.py:0
+msgid "Choose the bill item being revised on %s."
+msgstr "اختر بند الجدول الذي يُعدَّل في %s."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__claim_id
@@ -830,8 +905,6 @@ msgid ""
 "Claim %(this)s cannot go out while %(open)s is still open. Claims are "
 "cumulative: certifying them out of order bills the same work twice."
 msgstr ""
-"لا يمكن إخراج المستخلص %(this)s وما زال %(open)s مفتوحاً. المستخلصات "
-"تراكمية: اعتمادها بغير ترتيبها يفوتر العمل نفسه مرتين."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__claim_count
@@ -876,6 +949,11 @@ msgid "Client"
 msgstr "العميل"
 
 #. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__client_reference
+msgid "Client's Instruction No."
+msgstr "رقم تعليمات العميل"
+
+#. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
 msgid "Close"
 msgstr "إغلاق"
@@ -910,6 +988,7 @@ msgstr "المتبقي من الالتزام"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__company_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__company_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__company_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__company_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__company_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__company_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__company_id
@@ -971,6 +1050,7 @@ msgstr "رقم شهادة الاستشاري"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__contract_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__contract_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__contract_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__contract_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__contract_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__contract_id
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_boq_line_search
@@ -1018,8 +1098,6 @@ msgid ""
 "Contract value × % complete — the revenue IFRS 15 says belongs to work done "
 "so far."
 msgstr ""
-"قيمة العقد × نسبة الإنجاز — الإيراد الذي يقول المعيار الدولي ١٥ إنه يخصّ "
-"الأعمال المنفذة حتى الآن."
 
 #. module: mizan_contracting
 #: model:ir.actions.server,name:mizan_contracting.cron_bond_expiry_ir_actions_server
@@ -1032,6 +1110,7 @@ msgid "Contracts"
 msgstr "العقود"
 
 #. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_list
 msgid "Cost"
 msgstr "التكلفة"
@@ -1054,6 +1133,7 @@ msgstr "مركز التكلفة"
 #: model:ir.model.fields,field_description:mizan_contracting.field_hr_expense__mizan_cost_code_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__cost_code_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__cost_code_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__cost_code_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__cost_code_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__cost_code_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__cost_code_id
@@ -1093,8 +1173,6 @@ msgid ""
 " is real money and it is invisible in the variance report until it is given "
 "a line."
 msgstr ""
-"تكلفة على هذا المشروع واقعة على بند لم يوازنه أحد، أو على غير بند أصلاً. مال"
-" حقيقي لا يظهر في تقرير الفروق حتى يُمنح سطراً."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__cost_to_complete
@@ -1115,8 +1193,6 @@ msgid ""
 "Cost to date plus cost to complete: the total this job is now expected to "
 "cost."
 msgstr ""
-"التكلفة حتى الآن زائد تكلفة الإكمال: إجمالي ما يُتوقع أن يكلفه هذا المشروع "
-"الآن."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__analytic_account_id
@@ -1124,8 +1200,6 @@ msgid ""
 "Costs posted to this cost center are what drive the progress calculation, so"
 " every job cost must carry it."
 msgstr ""
-"التكاليف المُرحّلة على مركز التكلفة هذا هي ما يحرّك حساب الإنجاز، فلا بد أن "
-"تحمله كل تكلفة مشروع."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__create_uid
@@ -1134,6 +1208,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__create_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__create_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__create_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__create_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__create_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__create_uid
@@ -1152,6 +1227,7 @@ msgstr "أنشأه"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__create_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__create_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__create_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__create_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__create_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__create_date
@@ -1185,8 +1261,6 @@ msgid ""
 "Cumulative value of material delivered and not yet built in, where the "
 "contract allows it to be claimed."
 msgstr ""
-"القيمة التراكمية للمواد المورّدة ولم تُركّب بعد، حيث يسمح العقد بالمطالبة "
-"بها."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__currency_id
@@ -1195,6 +1269,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__currency_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__currency_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__currency_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__currency_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__currency_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__currency_id
@@ -1204,6 +1279,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__currency_id
 msgid "Currency"
 msgstr "العملة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__quantity_original
+msgid "Current Quantity"
+msgstr "الكمية الحالية"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__date
@@ -1218,6 +1298,11 @@ msgstr "التاريخ"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__date_end
 msgid "Date End"
 msgstr "تاريخ الانتهاء"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__date_end_before
+msgid "Date End Before"
+msgstr "تاريخ الانتهاء السابق"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__date_start
@@ -1240,10 +1325,17 @@ msgid "Days To Expiry"
 msgstr "الأيام حتى الانتهاء"
 
 #. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__days_impact
+msgid ""
+"Days the completion date moves by. Zero is a decision too — a variation "
+"accepted with no extension is one the contractor absorbs."
+msgstr ""
+
+#. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_move_form_advance
 msgid ""
 "Deduct this claim's share of the advance and settle it against the claim."
-msgstr "خصم حصة هذا المستخلص من الدفعة المقدمة وتسويتها معه."
+msgstr ""
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__advance_recovery_percent
@@ -1251,8 +1343,6 @@ msgid ""
 "Deducted from each claim. Left empty, the advance percentage is used, which "
 "repays the advance exactly as the work is billed."
 msgstr ""
-"يُخصم من كل مستخلص. إذا تُرك فارغاً استُخدمت نسبة الدفعة المقدمة، وهو ما "
-"يسدّدها بنفس وتيرة فوترة الأعمال."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__account_id
@@ -1265,12 +1355,11 @@ msgid ""
 "Defaults to the owned-plant code so the charge lands with the rest of the "
 "plant cost."
 msgstr ""
-"يُضبط افتراضياً على بند الآليات المملوكة ليستقر التحميل مع بقية تكلفة "
-"الآليات."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__name
 msgid "Description"
@@ -1283,6 +1372,7 @@ msgstr "الوصف"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__display_name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__display_name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__display_name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__display_name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__display_name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__display_name
@@ -1322,7 +1412,7 @@ msgstr "المُكتسب"
 msgid ""
 "Earned beyond what has been billed — work done that nobody has been invoiced"
 " for."
-msgstr "إنجاز يزيد عمّا فُوتر — أعمال منفذة لم يُفاتر عليها أحد."
+msgstr ""
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__cost_at_completion
@@ -1347,6 +1437,11 @@ msgid "Excavator 20 tonne"
 msgstr "حفار ٢٠ طن"
 
 #. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__cost_estimate
+msgid "Expected Cost"
+msgstr "التكلفة المتوقعة"
+
+#. module: mizan_contracting
 #: model:ir.model,name:mizan_contracting.model_hr_expense
 msgid "Expense"
 msgstr "النفقة "
@@ -1362,7 +1457,13 @@ msgid "Expiry Date"
 msgstr "تاريخ الانتهاء"
 
 #. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__days_impact
+msgid "Extension of Time (days)"
+msgstr "تمديد المدة (أيام)"
+
+#. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_follower_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_follower_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_follower_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_follower_ids
 msgid "Followers"
@@ -1370,6 +1471,7 @@ msgstr "المتابعون"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_partner_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_partner_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_partner_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_partner_ids
 msgid "Followers (Partners)"
@@ -1377,10 +1479,18 @@ msgstr "المتابعون (جهات الاتصال)"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__activity_type_icon
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__activity_type_icon
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__activity_type_icon
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
 msgstr "أيقونة Font Awesome مثل fa-tasks"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation_line__boq_line_id
+msgid ""
+"For a revision, the item being changed. For a new item this is filled in "
+"once the variation is approved and the item exists."
+msgstr ""
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__forecast_margin
@@ -1424,8 +1534,6 @@ msgid ""
 "Groups the variance report the way a contractor reads it: labour and plant "
 "move with time, materials with quantity, subcontract with the agreement."
 msgstr ""
-"يجمّع تقرير الفروق كما يقرؤه المقاول: العمالة والآليات تتحرك مع الزمن، "
-"والمواد مع الكمية، وعقود الباطن مع الاتفاقية."
 
 #. module: mizan_contracting
 #. odoo-python
@@ -1434,7 +1542,6 @@ msgid ""
 "Guarantee %(ref)s (%(kind)s) expired on %(date)s. Claims may be held until "
 "it is renewed."
 msgstr ""
-"الضمان %(ref)s (%(kind)s) انتهى في %(date)s. قد تُحجب المستخلصات حتى تجديده."
 
 #. module: mizan_contracting
 #: model:ir.model,name:mizan_contracting.model_mizan_contract_bond
@@ -1453,6 +1560,7 @@ msgstr "الضمانات البنكية"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__has_message
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__has_message
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__has_message
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__has_message
 msgid "Has Message"
@@ -1472,9 +1580,6 @@ msgid ""
 "one another, and every client would otherwise have to configure a unit "
 "category per unit before pricing its first job."
 msgstr ""
-"كيف يُقاس البند — م٢، م٣، طن، عدد، م.ط، مقطوعية، شهر. نص حر لا سجل وحدة "
-"قياس: وحدات الجدول لا تُحوَّل بعضها إلى بعض، وإلا لاحتاج كل مشترك إلى إعداد "
-"فئة وحدة لكل وحدة قبل تسعير أول مشروع له."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__id
@@ -1483,6 +1588,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__id
@@ -1496,6 +1602,7 @@ msgstr "المعرف"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_exception_icon
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__activity_exception_icon
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_exception_icon
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_exception_icon
 msgid "Icon"
@@ -1503,6 +1610,7 @@ msgstr "الأيقونة"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__activity_exception_icon
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__activity_exception_icon
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__activity_exception_icon
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__activity_exception_icon
 msgid "Icon to indicate an exception activity."
@@ -1510,6 +1618,7 @@ msgstr "أيقونة للإشارة إلى نشاط استثنائي."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__message_needaction
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__message_needaction
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_needaction
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__message_needaction
 msgid "If checked, new messages require your attention."
@@ -1518,6 +1627,8 @@ msgstr "إذا تم تحديده، فهناك رسائل جديدة تتطلب �
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__message_has_error
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__message_has_sms_error
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__message_has_error
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__message_has_sms_error
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_has_error
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_has_sms_error
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__message_has_error
@@ -1529,6 +1640,16 @@ msgstr "إذا تم تحديده، فهناك رسائل بها خطأ في ال
 #: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract__state__running
 msgid "In Progress"
 msgstr "قيد التنفيذ"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__requested_by
+msgid "Instructed By"
+msgstr "طلبها"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__date_requested
+msgid "Instructed On"
+msgstr "تاريخ التعليمات"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__insurance_expiring
@@ -1567,6 +1688,7 @@ msgstr "إجمالي المفوتر"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_is_follower
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_is_follower
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_is_follower
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_is_follower
 msgid "Is Follower"
@@ -1604,6 +1726,7 @@ msgstr "البنك المُصدر"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__item_no
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__item_no
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__item_no
 msgid "Item No."
 msgstr "رقم البند"
@@ -1613,6 +1736,22 @@ msgstr "رقم البند"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__item_value
 msgid "Item Value"
 msgstr "قيمة البند"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__line_ids
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid "Items"
+msgstr "البنود"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__cost_from_lines
+msgid "Items Cost"
+msgstr "تكلفة البنود"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__amount_from_lines
+msgid "Items Total"
+msgstr "إجمالي البنود"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__journal_id
@@ -1648,6 +1787,7 @@ msgstr "التأمين المنتهي في الموقع مشكلة المقاو�
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__write_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__write_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__write_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__write_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__write_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__write_uid
@@ -1666,6 +1806,7 @@ msgstr "آخر تحديث بواسطة"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__write_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__write_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__write_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__write_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__write_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__write_date
@@ -1691,6 +1832,11 @@ msgstr "يُخصم ما سبق اعتماده"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__retention_amount
 msgid "Less Retention This Period"
 msgstr "يُخصم المحتجز لهذه الفترة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__lines_disagree
+msgid "Lines Disagree"
+msgstr "البنود لا تطابق"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_plant__equipment_id
@@ -1772,6 +1918,7 @@ msgstr "البنود المقيسة"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_has_error
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_has_error
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_has_error
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_has_error
 msgid "Message Delivery error"
@@ -1779,6 +1926,7 @@ msgstr "خطأ في تسليم الرسالة"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_ids
 msgid "Messages"
@@ -1799,10 +1947,11 @@ msgstr "القيد"
 msgid ""
 "Move the retained percentage to the retention account and settle it against "
 "this document."
-msgstr "نقل النسبة المحتجزة إلى حساب المحتجزات وتسويتها مع هذا المستند."
+msgstr ""
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__my_activity_date_deadline
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__my_activity_date_deadline
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__my_activity_date_deadline
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__my_activity_date_deadline
 msgid "My Activity Deadline"
@@ -1815,6 +1964,11 @@ msgstr "الموعد النهائي لنشاطي"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__name
 msgid "Name"
 msgstr "الاسم"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid "Name on the client's side"
+msgstr "الاسم لدى العميل"
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
@@ -1844,7 +1998,13 @@ msgid "New Progress Claim"
 msgstr "مستخلص جديد"
 
 #. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_variation_line__change_type__new
+msgid "New item"
+msgstr "بند جديد"
+
+#. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_calendar_event_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__activity_calendar_event_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_calendar_event_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_calendar_event_id
 msgid "Next Activity Calendar Event"
@@ -1852,6 +2012,7 @@ msgstr "حدث تقويم النشاط التالي"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_date_deadline
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__activity_date_deadline
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_date_deadline
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_date_deadline
 msgid "Next Activity Deadline"
@@ -1859,6 +2020,7 @@ msgstr "الموعد النهائي للنشاط التالي"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_summary
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__activity_summary
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_summary
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_summary
 msgid "Next Activity Summary"
@@ -1866,6 +2028,7 @@ msgstr "ملخص النشاط التالي"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_type_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__activity_type_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_type_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_type_id
 msgid "Next Activity Type"
@@ -1883,8 +2046,6 @@ msgid ""
 "No default sales tax on %s. Set it before invoicing, or the VAT lands on "
 "whichever emirate happens to sort first."
 msgstr ""
-"لا توجد ضريبة مبيعات افتراضية على %s. حدّدها قبل الفوترة، وإلا وقعت الضريبة "
-"على أول إمارة تأتي في الترتيب."
 
 #. module: mizan_contracting
 #: model_terms:ir.actions.act_window,help:mizan_contracting.action_bond_register
@@ -1904,16 +2065,23 @@ msgid "No sales journal in this company."
 msgstr "لا يوجد دفتر مبيعات في هذه الشركة."
 
 #. module: mizan_contracting
+#: model_terms:ir.actions.act_window,help:mizan_contracting.action_variation
+msgid "No variation yet."
+msgstr "لا يوجد أمر تغيير بعد."
+
+#. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__note
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__note
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
 msgid "Note"
 msgstr "ملاحظة"
 
@@ -1953,6 +2121,7 @@ msgstr "لا يوجد ما يُحتجز على %s."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_needaction_counter
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_needaction_counter
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_needaction_counter
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_needaction_counter
 msgid "Number of Actions"
@@ -1960,6 +2129,7 @@ msgstr "عدد الإجراءات"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_has_error_counter
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_has_error_counter
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_has_error_counter
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_has_error_counter
 msgid "Number of errors"
@@ -1967,6 +2137,7 @@ msgstr "عدد الأخطاء"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__message_needaction_counter
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__message_needaction_counter
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_needaction_counter
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__message_needaction_counter
 msgid "Number of messages requiring action"
@@ -1974,6 +2145,7 @@ msgstr "عدد الرسائل التي تتطلب إجراءً"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__message_has_error_counter
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__message_has_error_counter
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_has_error_counter
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__message_has_error_counter
 msgid "Number of messages with delivery error"
@@ -2001,8 +2173,6 @@ msgid ""
 "Ordered and not yet invoiced: signed purchase orders whose supplier has not "
 "billed. Money already spent in every sense that matters except the ledger's."
 msgstr ""
-"مأمور به ولم يُفوتر: أوامر شراء موقّعة لم يُصدر مورّدها فاتورة. مال مُنفق "
-"بكل معنى يهم إلا معنى الدفتر."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__boq_original_total
@@ -2015,8 +2185,6 @@ msgid ""
 "Original value plus approved variations. Pending variations are excluded: "
 "they are not yet money the client has agreed to pay."
 msgstr ""
-"القيمة الأصلية زائد أوامر التغيير المعتمدة. أوامر التغيير المعلقة مستثناة: "
-"فهي ليست بعد مالاً وافق العميل على دفعه."
 
 #. module: mizan_contracting
 #: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_cost_code__category__other
@@ -2094,8 +2262,6 @@ msgid ""
 "Performance bonds and advance-payment guarantees expire, and an\n"
 "                expired one holds up the claims until it is renewed."
 msgstr ""
-"ضمانات حسن الأداء وضمانات الدفعة المقدمة تنتهي، والمنتهي منها\n"
-"                يوقف المستخلصات حتى يُجدَّد."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__period_start
@@ -2153,8 +2319,6 @@ msgid ""
 "                               recover the advance that the contract calls "
 "for."
 msgstr ""
-"ترحيل المستند، ثم احتجاز المحتجزات واسترداد الدفعة المقدمة التي ينص عليها "
-"العقد."
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
@@ -2215,8 +2379,6 @@ msgid ""
 "one; the ledger recognises the other. A wide gap between them is the "
 "earliest sign a job is going wrong."
 msgstr ""
-"الإنجاز بالقياس لا بالتكلفة. الاستشاري يعتمد هذا، والدفتر يعترف بالآخر. "
-"والفجوة الواسعة بينهما أول علامة على أن المشروع يسير إلى الخطأ."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__project_id
@@ -2254,9 +2416,15 @@ msgid "Qty This Period"
 msgstr "كمية هذه الفترة"
 
 #. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__quantity
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__quantity
 msgid "Quantity"
 msgstr "الكمية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__quantity_before
+msgid "Quantity Before"
+msgstr "الكمية السابقة"
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
@@ -2281,11 +2449,10 @@ msgid ""
 "certificate does. The cash itself is recorded as an ordinary receipt against"
 " that receivable."
 msgstr ""
-"يُنشئ مديونية على العميل كما تفعل شهادة الدفعة المقدمة. والنقد نفسه يُسجّل "
-"كتحصيل عادي مقابل تلك المديونية."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__rate
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__rate
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__rate
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__rate
 msgid "Rate"
@@ -2298,6 +2465,7 @@ msgstr "أساس السعر"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__rating_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__rating_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__rating_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__rating_ids
 msgid "Ratings"
@@ -2342,6 +2510,11 @@ msgid "Record Advance"
 msgstr "تسجيل الدفعة المقدمة"
 
 #. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid "Record the client's approval"
+msgstr "تسجيل اعتماد العميل"
+
+#. module: mizan_contracting
 #. odoo-python
 #: code:addons/mizan_contracting/models/boq_claim.py:0
 msgid "Record who certified %s before marking it certified."
@@ -2351,6 +2524,11 @@ msgstr "سجّل من اعتمد %s قبل تحديده كمعتمد."
 #: model_terms:ir.actions.act_window,help:mizan_contracting.action_subcontract
 msgid "Record your first subcontract"
 msgstr "سجّل أول عقد باطن"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__approved_by_user_id
+msgid "Recorded By"
+msgstr "سجّله"
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_move_form_advance
@@ -2374,8 +2552,6 @@ msgid ""
 "Recovered from jobs less what the machine actually cost. Persistently "
 "negative means it is cheaper to hire one."
 msgstr ""
-"المسترد من المشاريع مطروحاً منه ما كلّفته الآلية فعلاً. واستمراره سالباً "
-"يعني أن استئجارها أرخص."
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_form
@@ -2420,6 +2596,11 @@ msgid "Rejected"
 msgstr "مرفوض"
 
 #. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid "Rejected by the client"
+msgstr "رفضه العميل"
+
+#. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_bond_list
 msgid "Release"
 msgstr "الإفراج"
@@ -2437,6 +2618,7 @@ msgstr "إرجاع إلى مسودة"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_user_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__activity_user_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__activity_user_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__activity_user_id
 msgid "Responsible User"
@@ -2550,9 +2732,6 @@ msgid ""
 "               against the cost center, and the system works out what revenue you\n"
 "               have earned."
 msgstr ""
-"يُعترف بالإيراد من الإنجاز في الموقع لا من تاريخ الفاتورة: أدخل قيمة\n"
-"               العقد والتكلفة المُوازَنة، وقيّد تكاليف المشروع على مركز التكلفة،\n"
-"               ويحسب النظام الإيراد الذي كسبته."
 
 #. module: mizan_contracting
 #. odoo-python
@@ -2561,14 +2740,29 @@ msgid "Revenue recognition %(pct).1f%% — %(contract)s"
 msgstr "الاعتراف بالإيراد %(pct).1f%% — %(contract)s"
 
 #. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_variation_line__change_type__vary
+msgid "Revise an existing item"
+msgstr "تعديل بند قائم"
+
+#. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__revised_budget_cost
 msgid "Revised Budget"
 msgstr "الموازنة المعدّلة"
 
 #. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__revised_completion_date
+msgid "Revised Completion"
+msgstr "تاريخ الإنجاز المعدَّل"
+
+#. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__revised_contract_value
 msgid "Revised Contract Value"
 msgstr "قيمة العقد المعدّلة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__quantity_new
+msgid "Revised Quantity"
+msgstr "الكمية المعدَّلة"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__revised_value
@@ -2582,8 +2776,6 @@ msgid ""
 "                               the tax invoice, post it, withhold the "
 "retention                               and recover the advance."
 msgstr ""
-"تنفيذ كل الخطوات المتبقية: التقديم، والاعتماد، وإصدار الفاتورة الضريبية، "
-"وترحيلها، واحتجاز المحتجزات، واسترداد الدفعة المقدمة."
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
@@ -2592,6 +2784,7 @@ msgstr ""
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_has_sms_error
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_has_sms_error
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_has_sms_error
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_has_sms_error
 msgid "SMS Delivery error"
@@ -2611,6 +2804,7 @@ msgstr "نطاق الأعمال"
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__sequence
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_budget_line__sequence
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__sequence
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__sequence
 msgid "Sequence"
 msgstr "التسلسل"
@@ -2619,6 +2813,13 @@ msgstr "التسلسل"
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
 msgid "Set Contract Value from Bill"
 msgstr "تحديد قيمة العقد من الجدول"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__applied
+msgid ""
+"Set once the items have been written into the bill of quantities, so "
+"approving twice cannot add them twice."
+msgstr ""
 
 #. module: mizan_contracting
 #. odoo-python
@@ -2637,7 +2838,7 @@ msgstr "حدّد العقد على %s أولاً."
 #: code:addons/mizan_contracting/models/contract.py:0
 msgid ""
 "Set the journal, revenue account and accrued revenue account before posting."
-msgstr "حدّد الدفتر وحساب الإيراد وحساب الإيراد المستحق قبل الترحيل."
+msgstr ""
 
 #. module: mizan_contracting
 #. odoo-python
@@ -2656,14 +2857,12 @@ msgid ""
 "Set when the item came from a variation order rather than the original bill."
 " Only approved variations add to the measurable quantity."
 msgstr ""
-"يُحدَّد عندما يأتي البند من أمر تغيير لا من الجدول الأصلي. وأوامر التغيير "
-"المعتمدة وحدها تضيف إلى الكمية القابلة للقياس."
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_costcodes
 msgid ""
 "Sets cost to complete from what is already ordered plus the unspent budget."
-msgstr "يحدّد تكلفة الإكمال من المأمور به فعلاً زائد الموازنة غير المنفقة."
+msgstr ""
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__retention_percent
@@ -2706,6 +2905,7 @@ msgstr "الحالة"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__activity_state
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__activity_state
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__activity_state
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__activity_state
 msgid ""
@@ -2714,10 +2914,6 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
-"الحالة بناءً على الأنشطة\n"
-"متأخر: تاريخ الاستحقاق قد فات\n"
-"اليوم: تاريخ النشاط هو اليوم\n"
-"مخطط: أنشطة مستقبلية."
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_list
@@ -2765,6 +2961,11 @@ msgid "Submit to Consultant"
 msgstr "تقديم للاستشاري"
 
 #. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid "Submit to the client"
+msgstr "تقديم للعميل"
+
+#. module: mizan_contracting
 #: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_variation__state__submitted
 msgid "Submitted"
 msgstr "مُقدَّم"
@@ -2781,8 +2982,6 @@ msgid ""
 "Submitted to the consultant: %(amount)s for the period, %(pct).1f%% of the "
 "contract certified to date."
 msgstr ""
-"قُدّم للاستشاري: %(amount)s لهذه الفترة، و%(pct).1f%% من العقد معتمد حتى "
-"الآن."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__cost_incurred
@@ -2847,6 +3046,20 @@ msgid "The advance on %s is already recorded."
 msgstr "الدفعة المقدمة على %s مسجلة بالفعل."
 
 #. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__date_end_before
+msgid ""
+"The completion date before this variation moved it, so the change can be "
+"undone."
+msgstr ""
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__client_reference
+msgid ""
+"The consultant's or client's own reference for the instruction. It is what "
+"the argument will be conducted in terms of."
+msgstr ""
+
+#. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_account_bank_statement_line__mizan_contract_id
 #: model:ir.model.fields,help:mizan_contracting.field_account_move__mizan_contract_id
 msgid "The contract this claim is drawn against."
@@ -2858,8 +3071,6 @@ msgid ""
 "The cost codes below do not add up to the contract\n"
 "                        budget. One of the two is out of date."
 msgstr ""
-"بنود التكلفة أدناه لا تساوي موازنة العقد.\n"
-"                        أحدهما غير محدَّث."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__budget_line_mismatch
@@ -2873,8 +3084,6 @@ msgid ""
 "The heading this item sits under in the priced bill — the consultant "
 "certifies section by section."
 msgstr ""
-"العنوان الذي يقع تحته هذا البند في الجدول المُسعّر — الاستشاري يعتمد قسماً "
-"قسماً."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__certified_to_date
@@ -2882,8 +3091,25 @@ msgid ""
 "The highest gross value any certified claim has reached — the measured "
 "position, as against the accounting one."
 msgstr ""
-"أعلى قيمة إجمالية بلغها أي مستخلص معتمد — الموقف بالقياس مقابل الموقف "
-"المحاسبي."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid "The instruction"
+msgstr "التعليمات"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid "The items add up to"
+msgstr "مجموع البنود"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/variation_order.py:0
+msgid ""
+"The items add up to %(lines)s and the variation is valued at %(stated)s. "
+"Reconcile them before approving — this is the figure that moves the contract"
+" value."
+msgstr ""
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
@@ -2892,9 +3118,6 @@ msgid ""
 "                        value. Claims are measured against the bill, so whichever\n"
 "                        of the two is wrong, the claims will follow the bill."
 msgstr ""
-"البنود المُسعّرة أدناه لا تساوي قيمة العقد. والمستخلصات\n"
-"                        تُقاس على الجدول، فأيّهما كان الخطأ ستتبع\n"
-"                        المستخلصات الجدول."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__boq_mismatch
@@ -2902,8 +3125,6 @@ msgid ""
 "The priced items do not add up to the contract value. One of the two is "
 "wrong, and the claims will be measured against the bill."
 msgstr ""
-"البنود المُسعّرة لا تساوي قيمة العقد. أحدهما خطأ، والمستخلصات ستُقاس على "
-"الجدول."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__consultant_ref
@@ -2916,8 +3137,6 @@ msgid ""
 "The trade this agreement covers. Its value lands here as committed cost "
 "until the subcontractor bills."
 msgstr ""
-"البند الذي تغطيه هذه الاتفاقية. وقيمتها تستقر هنا كتكلفة ملتزم بها حتى "
-"يُفوتر مقاول الباطن."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__loss_provision_required
@@ -2925,8 +3144,6 @@ msgid ""
 "The whole expected loss. A foreseeable loss is recognised as soon as it is "
 "foreseen, not spread over the remaining work."
 msgstr ""
-"كامل الخسارة المتوقعة. تُعترف الخسارة المتوقعة بمجرد توقّعها، ولا تُوزّع على"
-" الأعمال المتبقية."
 
 #. module: mizan_contracting
 #. odoo-python
@@ -2935,7 +3152,6 @@ msgid ""
 "There is no new revenue to recognise: work done so far is already fully "
 "booked."
 msgstr ""
-"لا يوجد إيراد جديد للاعتراف به: الأعمال المنفذة حتى الآن مقيّدة بالكامل."
 
 #. module: mizan_contracting
 #. odoo-python
@@ -2945,9 +3161,6 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"هذه البنود مقيسة بأكثر مما يسمح به جدول الكميات. صحّح الكمية أو أصدر أمر تغيير للزيادة:\n"
-"\n"
-"%s"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__this_amount
@@ -2968,8 +3181,6 @@ msgid ""
 "This claim's share of the advance, at the contract's recovery rate and never"
 " more than what is still outstanding."
 msgstr ""
-"حصة هذا المستخلص من الدفعة المقدمة، بنسبة الاسترداد المنصوص عليها في العقد "
-"وبما لا يزيد أبداً عن المتبقي منها."
 
 #. module: mizan_contracting
 #: model_terms:ir.actions.act_window,help:mizan_contracting.action_mizan_wip
@@ -2978,14 +3189,18 @@ msgid ""
 "                the work has actually earned. The difference is either a\n"
 "                liability to the client or money you have not yet asked for."
 msgstr ""
-"هذا الكشف يقابل ما فُوتر على كل عميل بما كسبته الأعمال فعلاً.\n"
-"                والفرق إمّا التزام تجاه العميل أو مال لم تطالب\n"
-"                به بعد."
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
 msgid "This subcontractor's insurance expires on"
 msgstr "تأمين مقاول الباطن هذا ينتهي في"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid ""
+"This undoes what approving it did: the new bill items are removed, revised "
+"quantities go back, and the completion date returns."
+msgstr ""
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_boq_line__cost_code_id
@@ -2994,8 +3209,6 @@ msgid ""
 "Ties the item's revenue to the trade that will spend against it, so a rate "
 "can be compared with what it actually costs."
 msgstr ""
-"يربط إيراد البند بالبند الذي سيُنفق عليه، فيمكن مقابلة السعر بما يكلّف "
-"فعلاً."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_account_bank_statement_line__mizan_subcontract_id
@@ -3022,8 +3235,6 @@ msgid ""
 "Total cost expected to complete. Progress is measured against it, so "
 "revising it revises revenue for every later period."
 msgstr ""
-"إجمالي التكلفة المتوقعة للإكمال. الإنجاز يُقاس عليها، فتعديلها يعدّل الإيراد"
-" في كل فترة لاحقة."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__contract_value
@@ -3032,6 +3243,7 @@ msgstr "إجمالي الإيراد المتوقع على عمر العقد."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__activity_exception_decoration
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__activity_exception_decoration
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__activity_exception_decoration
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__activity_exception_decoration
 msgid "Type of the exception activity on record."
@@ -3039,6 +3251,7 @@ msgstr "نوع النشاط الاستثنائي المسجل."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__unit
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__unit
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__unit
 msgid "Unit"
 msgstr "الوحدة"
@@ -3049,13 +3262,24 @@ msgid "Unpaid"
 msgstr "غير مدفوع"
 
 #. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid "Use the items' total"
+msgstr "استخدم مجموع البنود"
+
+#. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__reference
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__reference
 msgid "VO No."
 msgstr "رقم أمر التغيير"
 
 #. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid "VO-001"
+msgstr ""
+
+#. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_list
 msgid "Value"
 msgstr "القيمة"
@@ -3093,9 +3317,15 @@ msgstr "نسبة الفرق %"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__variation_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__variation_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__variation_ids
 msgid "Variation"
 msgstr "أمر تغيير"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_contract_variation_line
+msgid "Variation Item"
+msgstr "بند أمر تغيير"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__boq_variation_total
@@ -3105,16 +3335,21 @@ msgstr "بنود أوامر التغيير"
 
 #. module: mizan_contracting
 #: model:ir.model,name:mizan_contracting.model_mizan_contract_variation
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
 msgid "Variation Order"
 msgstr "أمر تغيير"
 
 #. module: mizan_contracting
+#: model:ir.actions.act_window,name:mizan_contracting.action_variation
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__variation_ids
+#: model:ir.ui.menu,name:mizan_contracting.menu_variations
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_forecast
 msgid "Variation Orders"
 msgstr "أوامر التغيير"
 
 #. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/variation_order.py:0
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__variation_total
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
 msgid "Variations"
@@ -3132,6 +3367,7 @@ msgstr "مُتنازل عنه"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__website_message_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__website_message_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__website_message_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__website_message_ids
 msgid "Website Messages"
@@ -3139,6 +3375,7 @@ msgstr "رسائل الموقع"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__website_message_ids
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__website_message_ids
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__website_message_ids
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__website_message_ids
 msgid "Website communication history"
@@ -3151,14 +3388,26 @@ msgid ""
 "costs to own and run, not from the market hire rate — the point is to "
 "recover cost, not to make a margin on yourself."
 msgstr ""
-"ما يُحمّل على المشروع مقابل استخدام هذه الآلية. حدّده من تكلفة تملّكها "
-"وتشغيلها لا من سعر الإيجار في السوق — فالمقصود استرداد التكلفة لا تحقيق هامش"
-" على نفسك."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid "What it changes"
+msgstr "ما الذي يغيّره"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__cost_impact
 msgid "What it is expected to cost to build."
 msgstr "ما يُتوقع أن يكلف تنفيذه."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation_line__quantity_before
+msgid "What the bill said before this variation changed it."
+msgstr "ما كان عليه الجدول قبل أن يغيّره أمر التغيير."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid "What the client asked for"
+msgstr "ما طلبه العميل"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__amount
@@ -3172,8 +3421,6 @@ msgid ""
 "claimed. The difference is what the next claim has to argue about, so it is "
 "recorded rather than overwritten."
 msgstr ""
-"ما اعتمده الاستشاري فعلاً حين يختلف عمّا طُولب به. والفرق هو ما سيُناقش في "
-"المستخلص التالي، فيُسجّل ولا يُطمس."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__cost_to_complete
@@ -3181,15 +3428,20 @@ msgid ""
 "What the site team expects the rest of the job to cost. Leave empty and the "
 "original budget is assumed, which is only true while nothing has gone wrong."
 msgstr ""
-"ما يتوقع فريق الموقع أن يكلّفه باقي المشروع. إذا تُرك فارغاً افتُرضت "
-"الموازنة الأصلية، وهي لا تصحّ إلا ما لم يحدث خطأ."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation_line__cost_estimate
+msgid ""
+"What this item is expected to cost to build. Left empty the variation's "
+"margin is only as good as the header figure."
+msgstr ""
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim_line__this_qty
 msgid ""
 "What was measured on site during this period. Negative to correct an earlier"
 " over-measurement."
-msgstr "ما قيس في الموقع خلال هذه الفترة. وسالباً لتصحيح قياس زائد سابق."
+msgstr ""
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__backcharge_total
@@ -3210,6 +3462,11 @@ msgstr "الآلية التي تنتمي إليها هذه التكلفة أو �
 #: model:ir.model.fields,help:mizan_contracting.field_account_move_line__mizan_cost_code_id
 msgid "Which part of the job this cost belongs to."
 msgstr "الجزء من المشروع الذي تنتمي إليه هذه التكلفة."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__requested_by
+msgid "Who on the client's side asked for it."
+msgstr "من طلبها من جانب العميل."
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_move_form_retention
@@ -3247,6 +3504,11 @@ msgstr "استُرد من الدفعة المقدمة %s"
 #: code:addons/mizan_contracting/models/complete_all.py:0
 msgid "advance recovered on %s"
 msgstr "استُردت الدفعة المقدمة على %s"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
+msgid "and the variation is valued at"
+msgstr "وقيمة أمر التغيير"
 
 #. module: mizan_contracting
 #. odoo-python

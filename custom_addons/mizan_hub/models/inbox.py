@@ -276,11 +276,21 @@ class MizanInboxItem(models.TransientModel):
         if role["accounts"]:
             Line = self.env["account.bank.statement.line"]
             for line in Line.search([("is_reconciled", "=", False)]):
-                add(_("Reconcile: %s", (line.payment_ref or "")[:40]),
-                    _("Banking"), line.partner_id.display_name or "",
-                    abs(line.amount), "2",
-                    _("The bank moved money nothing explains"), line,
-                    due=line.date, act=False)
+                # A line the importer had a candidate for is a different task
+                # from one it had nothing for: the first needs a yes, the
+                # second needs somebody to work out what the money was.
+                if line.mizan_match_candidate_id:
+                    why = _("%(pct)s%% — %(reason)s",
+                            pct=line.mizan_match_confidence,
+                            reason=line.mizan_match_reason or "")
+                    caption = _("Confirm: %(ref)s looks like %(doc)s",
+                                ref=(line.payment_ref or "")[:30],
+                                doc=line.mizan_match_candidate_id.name)
+                else:
+                    why = _("The bank moved money nothing explains")
+                    caption = _("Reconcile: %s", (line.payment_ref or "")[:40])
+                add(caption, _("Banking"), line.partner_id.display_name or "",
+                    abs(line.amount), "2", why, line, due=line.date, act=False)
 
         # --- guarantees about to lapse ----------------------------------
         if role["finance"] or role["projects"]:

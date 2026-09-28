@@ -74,6 +74,16 @@
                             string="Reconcile Automatically" class="btn-primary"
                             display="always"/>
                 </header>
+                <!-- The proposal the importer found and did not post, with
+                     what it rests on. A line below the threshold is the one
+                     case where showing the reasoning matters most: the person
+                     is being asked to take the decision the system declined
+                     to take for them. -->
+                <field name="mizan_match_confidence" optional="show"
+                       widget="progressbar"/>
+                <field name="mizan_match_candidate_id" optional="show"/>
+                <field name="mizan_match_reason" optional="show"/>
+                <field name="mizan_auto_matched" optional="hide"/>
             </xpath>
         </field>
     </record>

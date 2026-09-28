@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_variation_form" model="ir.ui.view">
+        <field name="name">mizan.contract.variation.form</field>
+        <field name="model">mizan.contract.variation</field>
+        <field name="arch" type="xml">
+            <form string="Variation Order">
+                <header>
+                    <button name="action_submit" type="object"
+                            string="Submit to the client" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object"
+                            string="Record the client's approval"
+                            class="btn-primary" invisible="state != 'submitted'"
+                            confirm="Approving changes the contract: the items are written into the bill of quantities, the contract value and expected cost move, and the completion date shifts by the days stated."/>
+                    <button name="action_reject" type="object" string="Rejected by the client"
+                            invisible="state != 'submitted'"/>
+                    <button name="action_draft" type="object" string="Back to draft"
+                            invisible="state == 'draft'"
+                            confirm="This undoes what approving it did: the new bill items are removed, revised quantities go back, and the completion date returns."/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,submitted,approved"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="reference"/>
+                        <h1><field name="reference" placeholder="VO-001"/></h1>
+                        <h3><field name="name" placeholder="What the client asked for"/></h3>
+                    </div>
+                    <div class="alert alert-warning" role="alert"
+                         invisible="not lines_disagree">
+                        The items add up to
+                        <field name="amount_from_lines" readonly="1" nolabel="1" class="oe_inline"/>
+                        and the variation is valued at
+                        <field name="amount" readonly="1" nolabel="1" class="oe_inline"/>.
+                        It cannot be approved until they agree.
+                        <button name="action_use_line_total" type="object"
+                                string="Use the items' total" class="btn-link"/>
+                    </div>
+                    <group>
+                        <group string="The instruction">
+                            <field name="contract_id"
+                                   readonly="state == 'approved'"/>
+                            <field name="client_reference"/>
+                            <field name="requested_by"/>
+                            <field name="date_requested"/>
+                            <field name="date"/>
+                        </group>
+                        <group string="What it changes">
+                            <field name="amount" readonly="state == 'approved'"/>
+                            <field name="cost_impact" readonly="state == 'approved'"/>
+                            <field name="margin" readonly="1"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="days_impact" readonly="state == 'approved'"/>
+                            <field name="revised_completion_date" readonly="1"/>
+                            <field name="lines_disagree" invisible="1"/>
+                            <field name="applied" readonly="1"
+                                   invisible="state != 'approved'"/>
+                        </group>
+                    </group>
+                    <group invisible="state != 'approved'">
+                        <group>
+                            <field name="approved_by" placeholder="Name on the client's side"/>
+                            <field name="date_approved" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="approved_by_user_id" readonly="1"/>
+                            <field name="date_end_before" readonly="1"
+                                   invisible="not date_end_before"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Items" name="items">
+                            <field name="line_ids"
+                                   readonly="state == 'approved'"
+                                   context="{'default_contract_id': contract_id}">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="change_type"/>
+                                    <field name="contract_id" column_invisible="1"/>
+                                    <field name="boq_line_id"
+                                           readonly="change_type == 'new'"/>
+                                    <field name="section" optional="hide"/>
+                                    <field name="item_no"/>
+                                    <field name="name"/>
+                                    <field name="unit" optional="show"/>
+                                    <field name="quantity"
+                                           readonly="change_type != 'new'"/>
+                                    <field name="quantity_original"
+                                           optional="show" readonly="1"/>
+                                    <field name="quantity_new"
+                                           readonly="change_type == 'new'"/>
+                                    <field name="rate"/>
+                                    <field name="cost_code_id" optional="show"/>
+                                    <field name="cost_estimate" sum="Cost"/>
+                                    <field name="amount" sum="Value" readonly="1"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                </list>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right">
+                                <field name="amount_from_lines" readonly="1"/>
+                                <field name="cost_from_lines" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_variation" model="ir.actions.act_window">
+        <field name="name">Variation Orders</field>
+        <field name="res_model">mizan.contract.variation</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No variation yet.</p>
+            <p>A variation records what the client instructed, what it is worth, what it will cost, and how much time it adds — and on approval it changes the bill of quantities.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_variations" name="Variation Orders"
+              parent="mizan_core.menu_mizan_contracting"
+              action="action_variation" sequence="25"/>
+
+</odoo>

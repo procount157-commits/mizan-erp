@@ -6,11 +6,16 @@
         <field name="name">mizan.contract.variation.list</field>
         <field name="model">mizan.contract.variation</field>
         <field name="arch" type="xml">
-            <list editable="bottom" decoration-muted="state == 'rejected'"
+            <!-- Not editable inline any more: a variation now carries its
+                 items, its instruction reference and its correspondence, and
+                 none of that fits on a row. -->
+            <list decoration-muted="state == 'rejected'"
                   decoration-success="state == 'approved'">
                 <field name="reference"/>
+                <field name="client_reference" optional="show"/>
                 <field name="date"/>
                 <field name="name"/>
+                <field name="days_impact" optional="show"/>
                 <field name="amount" sum="Value"/>
                 <field name="cost_impact" sum="Cost"/>
                 <field name="margin" sum="Margin"/>

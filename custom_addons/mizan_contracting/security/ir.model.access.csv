@@ -39,3 +39,6 @@ access_mizan_claim_project,mizan.progress.claim.project,model_mizan_progress_cla
 access_mizan_claim_line_user,mizan.progress.claim.line.user,model_mizan_progress_claim_line,account.group_account_invoice,1,1,1,1
 access_mizan_claim_line_manager,mizan.progress.claim.line.manager,model_mizan_progress_claim_line,account.group_account_manager,1,1,1,1
 access_mizan_claim_line_project,mizan.progress.claim.line.project,model_mizan_progress_claim_line,project.group_project_manager,1,1,1,1
+access_mizan_variation_line_user,mizan.contract.variation.line.user,model_mizan_contract_variation_line,account.group_account_invoice,1,0,0,0
+access_mizan_variation_line_manager,mizan.contract.variation.line.manager,model_mizan_contract_variation_line,account.group_account_manager,1,1,1,1
+access_mizan_variation_line_project,mizan.contract.variation.line.project,model_mizan_contract_variation_line,project.group_project_manager,1,1,1,1
