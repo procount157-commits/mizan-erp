@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mizan_work_item,mizan.work.item,model_mizan_work_item,base.group_user,1,1,1,1
+access_mizan_project_health,mizan.project.health,model_mizan_project_health,account.group_account_invoice,1,1,1,1
+access_mizan_project_health_ro,mizan.project.health.readonly,model_mizan_project_health,account.group_account_readonly,1,1,1,1
+access_mizan_project_health_pm,mizan.project.health.pm,model_mizan_project_health,project.group_project_manager,1,1,1,1
+access_mizan_data_quality,mizan.data.quality,model_mizan_data_quality,account.group_account_manager,1,1,1,1
+access_mizan_data_quality_ro,mizan.data.quality.readonly,model_mizan_data_quality,account.group_account_readonly,1,1,1,1

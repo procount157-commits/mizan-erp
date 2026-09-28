@@ -1,0 +1,1419 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_hub
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-28 17:39+0000\n"
+"PO-Revision-Date: 2026-09-28 17:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__completion_percent
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_health_list
+msgid "% Complete"
+msgstr "نسبة الإنجاز"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid "%(amount)s of advance still to recover"
+msgstr "مبلغ %(amount)s من الدفعة المقدمة لم يُسترد بعد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid ""
+"%(amount)s of cost carries no cost code, so it is outside every budget line"
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid ""
+"%(amount)s of variations submitted and not approved — work priced but not "
+"yet part of the contract"
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid "%(amount)s of work done and not yet billed"
+msgstr "أعمال منفَّذة بقيمة %(amount)s ولم تُفوتر بعد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid "%(amount)s spent on cost codes that carry no budget"
+msgstr "صُرف %(amount)s على أكواد تكلفة بلا موازنة"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid "%(count)s claim(s) with the consultant and not certified"
+msgstr "%(count)s مستخلص لدى الاستشاري ولم يُعتمد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid "%(count)s invoice(s) overdue, %(amount)s outstanding"
+msgstr "%(count)s فاتورة متأخرة، والمستحق %(amount)s"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "%s corrected."
+msgstr "صُحِّح %s."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "%s could not be completed:"
+msgstr "تعذّر إتمام %s:"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "%s could not be worked out and need a person."
+msgstr "تعذّر استنتاج %s ويحتاج إلى شخص."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "%s done."
+msgstr "أُنجز %s."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "%s is forecast to lose money"
+msgstr "المتوقع أن يخسر %s"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "%s is overdue"
+msgstr "%s متأخرة السداد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "%s is with the consultant"
+msgstr "%s لدى الاستشاري"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "%s — %s"
+msgstr "%s — %s"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid ""
+"A cheque leaving the company is approved before it is written into the "
+"ledger."
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid ""
+"A cost outside every cost centre is outside every project's progress "
+"calculation, so revenue is understated."
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid ""
+"A tax invoice without the buyer's TRN cannot be used by them to reclaim the "
+"input tax."
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Accounting"
+msgstr "المحاسبة"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Add at least one line before posting."
+msgstr "أضف بنداً واحداً على الأقل قبل الترحيل."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Advance outstanding on %s"
+msgstr "دفعة مقدمة لم تُسترد على %s"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "An expired guarantee holds up the next claim"
+msgstr "الضمان المنتهي يعطّل المستخلص التالي"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "An expired guarantee holds up the next claim."
+msgstr "الضمان المنتهي يعطّل المستخلص التالي."
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__source
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_search
+msgid "App"
+msgstr "التطبيق"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Approve cheque %s"
+msgstr "اعتماد الشيك %s"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Approved and not posted"
+msgstr "معتمد ولم يُرحَّل"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Approves the cheque and registers it."
+msgstr "يعتمد الشيك ويسجّله."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid ""
+"Approves the claim. It still has to be posted before it reaches the ledger."
+msgstr ""
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_quality_search
+msgid "Area"
+msgstr "المجال"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Ask the bank, or record it bounced"
+msgstr "راجع البنك، أو سجّله مرتداً"
+
+#. module: mizan_hub
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_project_health__cash__bad
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_project_health__contractual__bad
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_project_health__financial__bad
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_project_health__operational__bad
+msgid "At risk"
+msgstr "في خطر"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "Bank lines not matched"
+msgstr "أسطر بنكية غير مطابَقة"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Banking"
+msgstr "البنوك"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__billed_to_date
+msgid "Billed"
+msgstr "المفوتر"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_account_bank_statement_line__mizan_next_blocked
+#: model:ir.model.fields,field_description:mizan_hub.field_account_move__mizan_next_blocked
+#: model:ir.model.fields,field_description:mizan_hub.field_hr_expense_sheet__mizan_next_blocked
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_cheque__mizan_next_blocked
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_contract_variation__mizan_next_blocked
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_next_action_mixin__mizan_next_blocked
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_progress_claim__mizan_next_blocked
+msgid "Blocked by"
+msgstr "يمنعه"
+
+#. module: mizan_hub
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_data_quality__severity__3
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_quality_search
+msgid "Blocks a return or a close"
+msgstr "يعطّل إقراراً أو إقفالاً"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__can_act
+msgid "Can Act"
+msgstr "قابل للتنفيذ"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__fixable
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_quality_search
+msgid "Can be fixed automatically"
+msgstr "يمكن إصلاحه تلقائياً"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__cash
+msgid "Cash"
+msgstr "النقد"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__category
+msgid "Category"
+msgstr "الفئة"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Certified"
+msgstr "معتمد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Certified and not yet invoiced"
+msgstr "معتمد ولم يُفوتر بعد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "Certified claims not yet invoiced"
+msgstr "مستخلصات معتمدة ولم تُفوتر"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Chase the customer"
+msgstr "طالب العميل"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Cheque %s bounced"
+msgstr "ارتدّ الشيك %s"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Cheque %s is past its date and not cleared"
+msgstr "تجاوز الشيك %s تاريخه ولم يُحصَّل"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Cleared"
+msgstr "مُحصَّل"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__partner_name
+msgid "Client"
+msgstr "العميل"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__collected
+msgid "Collected"
+msgstr "المُحصَّل"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__committed
+msgid "Committed"
+msgstr "الملتزم به"
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_list
+msgid "Complete selected"
+msgstr "إنجاز المحدَّد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid "Completion date passed on %(date)s and the job is still running"
+msgstr "انقضى تاريخ الإنجاز في %(date)s والمشروع ما زال قائماً"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__contract_id
+msgid "Contract"
+msgstr "العقد"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__contract_value
+msgid "Contract Value"
+msgstr "قيمة العقد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Contracting"
+msgstr "المقاولات"
+
+#. module: mizan_hub
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_data_quality__category__contract
+msgid "Contracts"
+msgstr "العقود"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "Contracts with no cost breakdown"
+msgstr "عقود بلا تفصيل للتكلفة"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__contractual
+msgid "Contractual"
+msgstr "التعاقدي"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__cost_incurred
+msgid "Cost to Date"
+msgstr "التكلفة حتى تاريخه"
+
+#. module: mizan_hub
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_data_quality__category__costing
+msgid "Costing"
+msgstr "التكاليف"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Counts towards pending variations until the client approves it."
+msgstr "يُحتسب ضمن أوامر التغيير المعلّقة حتى يعتمده العميل."
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__create_uid
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__create_uid
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__create_date
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__create_date
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid ""
+"Creates the invoice for the certified amount, less retention and advance "
+"recovery."
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Creates the journal entry owing the employee."
+msgstr "ينشئ القيد الذي يثبت المبلغ المستحق للموظف."
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__currency_id
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "Customers with no email"
+msgstr "عملاء بلا بريد إلكتروني"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "Customers with no tax registration number"
+msgstr "عملاء بلا رقم تسجيل ضريبي"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+#: model:ir.actions.server,name:mizan_hub.action_quality_open
+#: model:ir.model,name:mizan_hub.model_mizan_data_quality
+#: model:ir.ui.menu,name:mizan_hub.menu_hub_quality
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_quality_list
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_quality_search
+msgid "Data Quality"
+msgstr "جودة البيانات"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__days_late
+msgid "Days"
+msgstr "الأيام"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Deposit at the bank"
+msgstr "إيداع في البنك"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Deposited"
+msgstr "مودَع"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "Direct job costs with no cost centre"
+msgstr "تكاليف مباشرة بلا مركز تكلفة"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "Direct job costs with no cost code"
+msgstr "تكاليف مباشرة بلا كود تكلفة"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__display_name
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__display_name
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: mizan_hub
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_data_quality__severity__2
+msgid "Distorts a report"
+msgstr "يشوّه تقريراً"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "Documents still in draft"
+msgstr "مستندات ما زالت مسودة"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__domain
+msgid "Domain"
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Draft, not in the ledger"
+msgstr "مسودة، وليست في الدفاتر"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Drafted"
+msgstr "مسوَّدة"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__date_due
+msgid "Due"
+msgstr "تاريخ الاستحقاق"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "Every invoice to them has to be sent by hand."
+msgstr "كل فاتورة لهم تُرسل يدوياً."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid ""
+"Every invoice you issue prints TRN NOT SET, and is not a valid tax invoice."
+msgstr ""
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__cost_at_completion
+msgid "Expected Cost"
+msgstr "التكلفة المتوقعة"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid "Expected cost is %(pct).1f%% over the original budget"
+msgstr "التكلفة المتوقعة تتجاوز الموازنة الأصلية بنسبة %(pct).1f%%"
+
+#. module: mizan_hub
+#: model:ir.model,name:mizan_hub.model_hr_expense_sheet
+msgid "Expense Report"
+msgstr "تقرير المصروفات"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__financial
+msgid "Financial"
+msgstr "المالي"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__fix_method
+msgid "Fix Method"
+msgstr ""
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_quality_list
+msgid "Fix what can be worked out"
+msgstr "أصلِح ما يمكن استنتاجه"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__forecast_margin
+msgid "Forecast Margin"
+msgstr "الهامش المتوقع"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid ""
+"Forecast loss of %(amount)s — the whole loss belongs in this period, not the"
+" remaining ones"
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid "Forecast margin down to %(pct).1f%%"
+msgstr "انخفض الهامش المتوقع إلى %(pct).1f%%"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid ""
+"Form 201 reports sales by emirate. Without one the revenue lands in the "
+"wrong box."
+msgstr ""
+
+#. module: mizan_hub
+#: model:res.groups,name:mizan_hub.group_general_manager
+msgid "General Manager"
+msgstr "المدير العام"
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_search
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_quality_search
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid "Guarantee %(ref)s expires in %(days)s days"
+msgstr "الضمان %(ref)s ينتهي خلال %(days)s يوماً"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "Guarantees expiring within 30 days"
+msgstr "ضمانات تنتهي خلال 30 يوماً"
+
+#. module: mizan_hub
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_project_health__cash__ok
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_project_health__contractual__ok
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_project_health__financial__ok
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_project_health__operational__ok
+msgid "Healthy"
+msgstr "سليم"
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_search
+msgid "I can finish from here"
+msgstr "أستطيع إنهاءه من هنا"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__id
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__id
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__id
+msgid "ID"
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid ""
+"IFRS 15 wants the whole loss provided now, not spread over the remaining "
+"periods"
+msgstr ""
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__severity
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_quality_search
+msgid "Impact"
+msgstr "الأثر"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "In hand"
+msgstr "في اليد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Invoiced"
+msgstr "مُفوتر"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__name
+msgid "Issue"
+msgstr "المشكلة"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid ""
+"It reaches the project total but no budget line, so the breakdown stops "
+"adding up to the whole."
+msgstr ""
+
+#. module: mizan_hub
+#: model:ir.model,name:mizan_hub.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__write_uid
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__write_uid
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__write_date
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__write_date
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: mizan_hub
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_data_quality__category__ledger
+msgid "Ledger"
+msgstr "الدفاتر"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid ""
+"Load the bill of quantities first — a claim with no lines certifies nothing."
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Locks the quantities and sends the claim out for certification."
+msgstr "يثبّت الكميات ويرسل المستخلص للاعتماد."
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__forecast_margin_percent
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_health_list
+msgid "Margin %"
+msgstr "نسبة الهامش"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Marks it lodged. No entry is posted until it clears."
+msgstr "يسجّله مودعاً. ولا يُرحَّل قيد حتى يُحصَّل."
+
+#. module: mizan_hub
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_data_quality__category__master
+msgid "Master data"
+msgstr "البيانات الأساسية"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_account_bank_statement_line__mizan_next_method
+#: model:ir.model.fields,field_description:mizan_hub.field_account_move__mizan_next_method
+#: model:ir.model.fields,field_description:mizan_hub.field_hr_expense_sheet__mizan_next_method
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_cheque__mizan_next_method
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_contract_variation__mizan_next_method
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_next_action_mixin__mizan_next_method
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_progress_claim__mizan_next_method
+msgid "Mizan Next Method"
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid ""
+"Moves the amount into the bank account. Use Bounced instead if the bank "
+"returned it."
+msgstr ""
+
+#. module: mizan_hub
+#: model:ir.ui.menu,name:mizan_hub.menu_hub_root
+msgid "My Work"
+msgstr "عملي"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: mizan_hub
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_work_item__urgency__1
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_search
+msgid "Needs a decision"
+msgstr "يحتاج قراراً"
+
+#. module: mizan_hub
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_work_item__urgency__2
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_search
+msgid "Needs checking"
+msgstr "يحتاج مراجعة"
+
+#. module: mizan_hub
+#: model:ir.model,name:mizan_hub.model_mizan_next_action_mixin
+#: model:ir.model.fields,field_description:mizan_hub.field_account_bank_statement_line__mizan_next_label
+#: model:ir.model.fields,field_description:mizan_hub.field_account_move__mizan_next_label
+#: model:ir.model.fields,field_description:mizan_hub.field_hr_expense_sheet__mizan_next_label
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_cheque__mizan_next_label
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_contract_variation__mizan_next_label
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_next_action_mixin__mizan_next_label
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_progress_claim__mizan_next_label
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__action_label
+msgid "Next Action"
+msgstr "الإجراء التالي"
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_form
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_list
+msgid "Next action"
+msgstr "الإجراء التالي"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid ""
+"No cost breakdown — progress is measured against one number for the whole "
+"job"
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid ""
+"Not an error on its own. A hundred of them means the purchase process is "
+"being bypassed."
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Not in the contract value until it is approved"
+msgstr "لا يدخل قيمة العقد حتى يُعتمد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid ""
+"Not in the ledger, not in the VAT return, and invisible to every report."
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid "Nothing needs attention on this job."
+msgstr "لا شيء يحتاج انتباهاً في هذا المشروع."
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_quality_list
+msgid ""
+"Only the rows with one derivable answer are touched — an emirate from a "
+"city, for instance. Nothing that would have to be invented is filled in."
+msgstr ""
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_list
+msgid "Open"
+msgstr "فتح"
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_health_form
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_health_list
+msgid "Open the contract"
+msgstr "فتح العقد"
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_form
+msgid "Open the document"
+msgstr "فتح المستند"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Open the invoice"
+msgstr "فتح الفاتورة"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Opens the payment window for the amount still outstanding."
+msgstr "يفتح نافذة السداد للمبلغ المتبقي."
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__operational
+msgid "Operational"
+msgstr "التشغيلي"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__outstanding
+msgid "Outstanding"
+msgstr "المستحق"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Paid"
+msgstr "مدفوع"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "Partners with no emirate"
+msgstr "جهات بلا إمارة"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__partner_name
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_search
+msgid "Party"
+msgstr "الطرف"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Petty Cash"
+msgstr "العهدة"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_account_bank_statement_line__mizan_pipeline
+#: model:ir.model.fields,field_description:mizan_hub.field_account_move__mizan_pipeline
+#: model:ir.model.fields,field_description:mizan_hub.field_hr_expense_sheet__mizan_pipeline
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_cheque__mizan_pipeline
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_contract_variation__mizan_pipeline
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_next_action_mixin__mizan_pipeline
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_progress_claim__mizan_pipeline
+msgid "Pipeline"
+msgstr "المسار"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Post"
+msgstr "ترحيل"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Post %s"
+msgstr "ترحيل %s"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Post a draft %(kind)s for %(party)s"
+msgstr "ترحيل %(kind)s مسودة لـ %(party)s"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Post to the ledger"
+msgstr "الترحيل إلى الدفاتر"
+
+#. module: mizan_hub
+#: model:ir.model,name:mizan_hub.model_mizan_cheque
+msgid "Post-Dated Cheque"
+msgstr "شيك آجل"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Posted"
+msgstr "مُرحَّل"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "Posted invoice lines carrying no tax"
+msgstr "بنود فواتير مُرحَّلة بلا ضريبة"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid ""
+"Posts it to cheques under collection — out of receivables, and not yet cash."
+msgstr ""
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__urgency
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_search
+msgid "Priority"
+msgstr "الأولوية"
+
+#. module: mizan_hub
+#: model:ir.module.category,name:mizan_hub.module_category_proaccount
+msgid "ProAccount"
+msgstr "برو أكاونت"
+
+#. module: mizan_hub
+#: model:ir.model,name:mizan_hub.model_mizan_progress_claim
+msgid "Progress Claim"
+msgstr "مستخلص"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid ""
+"Progress is measured against one number for the whole job, so an overrun "
+"only shows once it is total."
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+#: model:ir.actions.server,name:mizan_hub.action_health_open
+#: model:ir.model,name:mizan_hub.model_mizan_project_health
+#: model:ir.ui.menu,name:mizan_hub.menu_hub_health
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_health_form
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_health_list
+msgid "Project Health"
+msgstr "صحة المشروع"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid ""
+"Puts the document in the ledger. After this it can be reversed, not edited."
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Raise a claim on it or write it off"
+msgstr "ارفع مطالبة به أو اشطبه"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Raise the tax invoice"
+msgstr "إصدار الفاتورة الضريبية"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Raise the tax invoice for %s"
+msgstr "إصدار الفاتورة الضريبية لـ %s"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid ""
+"Raises the contract value and the expected cost, and recomputes the forecast"
+" margin."
+msgstr ""
+
+#. module: mizan_hub
+#: model:res.groups,comment:mizan_hub.group_general_manager
+msgid ""
+"Reads the whole business and posts none of\n"
+"                it: dashboards, project health, contracts and the ledger, with\n"
+"                no ability to create or post documents."
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Reconcile: %s"
+msgstr "مطابقة: %s"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Record it cleared"
+msgstr "تسجيله مُحصَّلاً"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Record the approval"
+msgstr "تسجيل الاعتماد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Record the certification"
+msgstr "تسجيل الاعتماد"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__count
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_quality_list
+msgid "Records"
+msgstr "السجلات"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid ""
+"Records what the consultant certified. The certified amount is what gets "
+"invoiced."
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Recovered from each claim"
+msgstr "يُسترد من كل مستخلص"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Register payment"
+msgstr "تسجيل سداد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Register the cheque"
+msgstr "تسجيل الشيك"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__res_id
+msgid "Res"
+msgstr ""
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__res_model
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__res_model
+msgid "Res Model"
+msgstr ""
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__retention_held
+msgid "Retention"
+msgstr "المحتجزات"
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_quality_list
+msgid "Review"
+msgstr "مراجعة"
+
+#. module: mizan_hub
+#: model:ir.module.category,description:mizan_hub.module_category_proaccount
+msgid "Roles specific to ProAccount."
+msgstr "أدوار خاصة ببرو أكاونت."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Second signature required"
+msgstr "يحتاج توقيعاً ثانياً"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Send for approval"
+msgstr "إرسال للاعتماد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Sends the claim for approval."
+msgstr "يرسل المطالبة للاعتماد."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Settled"
+msgstr "مُسدَّد"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__severity
+msgid "Severity"
+msgstr "الخطورة"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Submit to the client"
+msgstr "تقديم للعميل"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Submit to the consultant"
+msgstr "تقديم للاستشاري"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Submit to the manager"
+msgstr "تقديم للمدير"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Submitted"
+msgstr "مُقدَّم"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Submitted and waiting"
+msgstr "مُقدَّم وينتظر"
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_list
+msgid ""
+"Take the next step on every selected task. Anything blocked is reported and "
+"left alone."
+msgstr ""
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__name
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_form
+msgid "Task"
+msgstr "المهمة"
+
+#. module: mizan_hub
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_data_quality__category__tax
+msgid "Tax & compliance"
+msgstr "الضريبة والامتثال"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "That document no longer exists. Refresh the inbox."
+msgstr "لم يعد هذا المستند موجوداً. حدِّث صندوق العمل."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "The bank moved money nothing explains"
+msgstr "حرَّك البنك مبلغاً لا يفسّره شيء"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "The bank moved money that nothing in the ledger explains."
+msgstr "حرَّك البنك مبلغاً لا يفسّره شيء في الدفاتر."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "The company has no tax registration number"
+msgstr "الشركة بلا رقم تسجيل ضريبي"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "The invoice for this claim already exists."
+msgstr "فاتورة هذا المستخلص موجودة أصلاً."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/project_health.py:0
+msgid "The loss provision is not booked"
+msgstr "مخصص الخسارة غير مُرحَّل"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "This cheque needs a second signature, and you gave the first one."
+msgstr "هذا الشيك يحتاج توقيعاً ثانياً، وأنت من وقّع الأول."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "This document has no next step waiting."
+msgstr "لا توجد خطوة تالية تنتظر هذا المستند."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "This row is not linked to a document."
+msgstr "هذا السطر غير مرتبط بمستند."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "To submit"
+msgstr "للتقديم"
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_health_list
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_list
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: mizan_hub
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_data_quality__severity__1
+msgid "Untidy"
+msgstr "غير مرتَّب"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Variation %s: %s"
+msgstr "أمر تغيير %s: %s"
+
+#. module: mizan_hub
+#: model:ir.model,name:mizan_hub.model_mizan_contract_variation
+msgid "Variation Order"
+msgstr "أمر تغيير"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid "Vendor bills with no purchase order"
+msgstr "فواتير موردين بلا أمر شراء"
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_health_form
+msgid "Verdicts"
+msgstr "الأحكام"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "Waiting approval"
+msgstr "بانتظار الاعتماد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Waiting for approval"
+msgstr "ينتظر الاعتماد"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "Waiting for certification"
+msgstr "ينتظر الاعتماد"
+
+#. module: mizan_hub
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_project_health__cash__watch
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_project_health__contractual__watch
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_project_health__financial__watch
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_project_health__operational__watch
+msgid "Watch"
+msgstr "راقِب"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_account_bank_statement_line__mizan_next_hint
+#: model:ir.model.fields,field_description:mizan_hub.field_account_move__mizan_next_hint
+#: model:ir.model.fields,field_description:mizan_hub.field_hr_expense_sheet__mizan_next_hint
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_cheque__mizan_next_hint
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_contract_variation__mizan_next_hint
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_next_action_mixin__mizan_next_hint
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_progress_claim__mizan_next_hint
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__action_hint
+msgid "What happens"
+msgstr "ماذا سيحدث"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_data_quality__note
+msgid "What it costs you"
+msgstr "ماذا يكلّفك"
+
+#. module: mizan_hub
+#: model:ir.model.fields,help:mizan_hub.field_account_bank_statement_line__mizan_next_hint
+#: model:ir.model.fields,help:mizan_hub.field_account_move__mizan_next_hint
+#: model:ir.model.fields,help:mizan_hub.field_hr_expense_sheet__mizan_next_hint
+#: model:ir.model.fields,help:mizan_hub.field_mizan_cheque__mizan_next_hint
+#: model:ir.model.fields,help:mizan_hub.field_mizan_contract_variation__mizan_next_hint
+#: model:ir.model.fields,help:mizan_hub.field_mizan_next_action_mixin__mizan_next_hint
+#: model:ir.model.fields,help:mizan_hub.field_mizan_progress_claim__mizan_next_hint
+msgid "What pressing the button will do, said before it is pressed."
+msgstr "ما الذي سيفعله الزر، مقولاً قبل الضغط عليه."
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_health_form
+msgid "Where the money is"
+msgstr "أين المال"
+
+#. module: mizan_hub
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_health_form
+msgid "Where the money is going"
+msgstr "إلى أين يذهب المال"
+
+#. module: mizan_hub
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__reasons
+#: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__note
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_health_form
+msgid "Why"
+msgstr "السبب"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "With the client"
+msgstr "لدى العميل"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/next_action.py:0
+msgid "With the consultant"
+msgstr "لدى الاستشاري"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+#: model:ir.actions.server,name:mizan_hub.action_inbox_open
+#: model:ir.model,name:mizan_hub.model_mizan_work_item
+#: model:ir.ui.menu,name:mizan_hub.menu_hub_inbox
+#: model:ir.ui.menu,name:mizan_hub.menu_hub_inbox_accounting
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_list
+#: model_terms:ir.ui.view,arch_db:mizan_hub.view_inbox_search
+msgid "Work Inbox"
+msgstr "صندوق العمل"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid ""
+"Work the client has agreed to pay for and has not been asked to pay for."
+msgstr ""
+
+#. module: mizan_hub
+#: model:ir.model.fields.selection,name:mizan_hub.selection__mizan_work_item__urgency__3
+msgid "Worth knowing"
+msgstr "جدير بالمعرفة"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/data_quality.py:0
+msgid ""
+"Zero-rated, exempt and reverse charge are each a decision the return "
+"reports. A blank is not a decision."
+msgstr ""
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/inbox.py:0
+msgid "no party"
+msgstr "بلا طرف"

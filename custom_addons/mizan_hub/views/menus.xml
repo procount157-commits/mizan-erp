@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- First in the list on purpose. The product's claim is that a user
+         should not need a week's training to know what to do; that only holds
+         if the screen answering "what do I do?" is the one they land on. -->
+    <menuitem id="menu_hub_root" name="My Work" sequence="1"
+              web_icon="mizan_hub,static/description/icon.png"/>
+
+    <menuitem id="menu_hub_inbox" name="Work Inbox" parent="menu_hub_root"
+              action="action_inbox_open" sequence="10"/>
+
+    <menuitem id="menu_hub_health" name="Project Health" parent="menu_hub_root"
+              action="action_health_open" sequence="20"
+              groups="account.group_account_invoice,account.group_account_readonly,project.group_project_manager"/>
+
+    <menuitem id="menu_hub_quality" name="Data Quality" parent="menu_hub_root"
+              action="action_quality_open" sequence="30"
+              groups="account.group_account_manager,account.group_account_readonly"/>
+
+    <!-- Reachable from Accounting as well. A finance manager who lives in one
+         app should not have to leave it to see what is waiting. -->
+    <menuitem id="menu_hub_inbox_accounting" name="Work Inbox"
+              parent="account.menu_finance" action="action_inbox_open"
+              sequence="1"/>
+
+</odoo>

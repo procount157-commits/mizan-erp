@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_inbox_list" model="ir.ui.view">
+        <field name="name">mizan.work.item.list</field>
+        <field name="model">mizan.work.item</field>
+        <field name="arch" type="xml">
+            <list string="Work Inbox" create="false" delete="false"
+                  edit="false" default_order="urgency,amount desc"
+                  decoration-danger="urgency == '1'"
+                  decoration-warning="urgency == '2'"
+                  decoration-muted="urgency == '3'">
+                <header>
+                    <button name="action_do_selected" type="object"
+                            string="Complete selected"
+                            confirm="Take the next step on every selected task. Anything blocked is reported and left alone."/>
+                </header>
+                <field name="urgency" optional="show"/>
+                <field name="name"/>
+                <field name="source"/>
+                <field name="partner_name"/>
+                <field name="note" optional="show"/>
+                <field name="date_due" optional="hide"/>
+                <field name="amount" sum="Total"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="can_act" column_invisible="1"/>
+                <field name="action_hint" optional="hide"/>
+                <button name="action_do_next" type="object" icon="fa-check"
+                        string="Next action" invisible="not can_act"/>
+                <field name="action_label" string=" " optional="show"/>
+                <button name="action_open" type="object"
+                        icon="fa-external-link" string="Open"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_inbox_form" model="ir.ui.view">
+        <field name="name">mizan.work.item.form</field>
+        <field name="model">mizan.work.item</field>
+        <field name="arch" type="xml">
+            <form string="Task" create="false" edit="false">
+                <header>
+                    <button name="action_do_next" type="object" string="Next action"
+                            class="btn-primary" invisible="not can_act"/>
+                    <button name="action_open" type="object"
+                            string="Open the document"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="source" readonly="1"/>
+                            <field name="partner_name" readonly="1"/>
+                            <field name="urgency" readonly="1"/>
+                            <field name="date_due" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="amount" readonly="1"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="note" readonly="1"/>
+                            <field name="action_label" readonly="1"/>
+                            <field name="action_hint" readonly="1"/>
+                            <field name="can_act" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_inbox_search" model="ir.ui.view">
+        <field name="name">mizan.work.item.search</field>
+        <field name="model">mizan.work.item</field>
+        <field name="arch" type="xml">
+            <search string="Work Inbox">
+                <field name="name"/>
+                <field name="partner_name"/>
+                <field name="source"/>
+                <filter name="decisions" string="Needs a decision"
+                        domain="[('urgency', '=', '1')]"/>
+                <filter name="checking" string="Needs checking"
+                        domain="[('urgency', '=', '2')]"/>
+                <separator/>
+                <filter name="actionable" string="I can finish from here"
+                        domain="[('can_act', '=', True)]"/>
+                <group expand="1" string="Group By">
+                    <filter name="group_urgency" string="Priority"
+                            context="{'group_by': 'urgency'}"/>
+                    <filter name="group_source" string="App"
+                            context="{'group_by': 'source'}"/>
+                    <filter name="group_party" string="Party"
+                            context="{'group_by': 'partner_name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Opening the inbox rebuilds it. A menu that showed the previous
+         visit's list would be a stale inbox, which is the one failure this
+         design exists to avoid. -->
+    <record id="action_inbox_open" model="ir.actions.server">
+        <field name="name">Work Inbox</field>
+        <field name="model_id" ref="model_mizan_work_item"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh()</field>
+    </record>
+
+</odoo>

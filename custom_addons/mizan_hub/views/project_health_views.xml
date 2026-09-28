@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_health_list" model="ir.ui.view">
+        <field name="name">mizan.project.health.list</field>
+        <field name="model">mizan.project.health</field>
+        <field name="arch" type="xml">
+            <list string="Project Health" create="false" delete="false"
+                  edit="false" default_order="severity desc"
+                  decoration-danger="severity >= 4"
+                  decoration-warning="severity >= 1 and severity &lt; 4"
+                  decoration-success="severity == 0">
+                <field name="name"/>
+                <field name="partner_name"/>
+                <!-- No percentage widget: the field already holds 34.0 for
+                     34%, and the widget multiplies by a hundred again. -->
+                <field name="completion_percent" string="% Complete"
+                       digits="[16,1]"/>
+                <field name="contract_value" sum="Total"/>
+                <field name="cost_at_completion" sum="Total"/>
+                <field name="forecast_margin" sum="Total"/>
+                <field name="forecast_margin_percent" string="Margin %"
+                       digits="[16,1]"/>
+                <field name="billed_to_date" optional="show" sum="Total"/>
+                <field name="outstanding" optional="show" sum="Total"/>
+                <field name="retention_held" optional="hide" sum="Total"/>
+                <field name="financial" widget="badge"
+                       decoration-danger="financial == 'bad'"
+                       decoration-warning="financial == 'watch'"
+                       decoration-success="financial == 'ok'"/>
+                <field name="contractual" widget="badge"
+                       decoration-danger="contractual == 'bad'"
+                       decoration-warning="contractual == 'watch'"
+                       decoration-success="contractual == 'ok'"/>
+                <field name="cash" widget="badge"
+                       decoration-danger="cash == 'bad'"
+                       decoration-warning="cash == 'watch'"
+                       decoration-success="cash == 'ok'"/>
+                <field name="operational" widget="badge"
+                       decoration-danger="operational == 'bad'"
+                       decoration-warning="operational == 'watch'"
+                       decoration-success="operational == 'ok'"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="severity" column_invisible="1"/>
+                <button name="action_open_contract" type="object"
+                        icon="fa-external-link" string="Open the contract"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_health_form" model="ir.ui.view">
+        <field name="name">mizan.project.health.form</field>
+        <field name="model">mizan.project.health</field>
+        <field name="arch" type="xml">
+            <form string="Project Health" create="false" edit="false">
+                <header>
+                    <button name="action_open_contract" type="object"
+                            string="Open the contract" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                        <h3><field name="partner_name" readonly="1"/></h3>
+                    </div>
+                    <group>
+                        <group string="Where the money is going">
+                            <field name="contract_value" readonly="1"/>
+                            <field name="cost_at_completion" readonly="1"/>
+                            <field name="cost_incurred" readonly="1"/>
+                            <field name="committed" readonly="1"/>
+                            <field name="forecast_margin" readonly="1"/>
+                            <field name="forecast_margin_percent" readonly="1"/>
+                            <field name="completion_percent" readonly="1"
+                                   digits="[16,1]"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Where the money is">
+                            <field name="billed_to_date" readonly="1"/>
+                            <field name="collected" readonly="1"/>
+                            <field name="outstanding" readonly="1"/>
+                            <field name="retention_held" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Verdicts">
+                        <group>
+                            <field name="financial" readonly="1"/>
+                            <field name="contractual" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="cash" readonly="1"/>
+                            <field name="operational" readonly="1"/>
+                        </group>
+                    </group>
+                    <separator string="Why"/>
+                    <field name="reasons" readonly="1" nolabel="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_health_open" model="ir.actions.server">
+        <field name="name">Project Health</field>
+        <field name="model_id" ref="model_mizan_project_health"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh()</field>
+    </record>
+
+</odoo>

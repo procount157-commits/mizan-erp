@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- A general manager is not an accountant with more rights. He reads
+             everything and posts nothing: the whole point of the role is that
+             the figures he acts on were entered by someone accountable for
+             them. So the group implies the READ-level accounting group and
+             project user, and never the manager groups. -->
+        <record id="module_category_proaccount" model="ir.module.category">
+            <field name="name">ProAccount</field>
+            <field name="description">Roles specific to ProAccount.</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="group_general_manager" model="res.groups">
+            <field name="name">General Manager</field>
+            <field name="category_id" ref="module_category_proaccount"/>
+            <field name="implied_ids"
+                   eval="[(4, ref('account.group_account_readonly')),
+                          (4, ref('project.group_project_user'))]"/>
+            <field name="comment">Reads the whole business and posts none of
+                it: dashboards, project health, contracts and the ledger, with
+                no ability to create or post documents.</field>
+        </record>
+
+        <!-- Each user's inbox is their own. The rows share a table because
+             they share a model, which is not a reason for one manager to read
+             another's queue. -->
+        <record id="rule_inbox_own" model="ir.rule">
+            <field name="name">Work Inbox: your own rows</field>
+            <field name="model_id" ref="model_mizan_work_item"/>
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+        <record id="rule_health_own" model="ir.rule">
+            <field name="name">Project Health: your own rows</field>
+            <field name="model_id" ref="model_mizan_project_health"/>
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+        <record id="rule_quality_own" model="ir.rule">
+            <field name="name">Data Quality: your own rows</field>
+            <field name="model_id" ref="model_mizan_data_quality"/>
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

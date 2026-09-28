@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_quality_list" model="ir.ui.view">
+        <field name="name">mizan.data.quality.list</field>
+        <field name="model">mizan.data.quality</field>
+        <field name="arch" type="xml">
+            <list string="Data Quality" create="false" delete="false"
+                  edit="false" default_order="severity desc,count desc"
+                  decoration-danger="severity == '3'"
+                  decoration-warning="severity == '2'"
+                  decoration-muted="severity == '1'">
+                <header>
+                    <button name="action_fix" type="object"
+                            string="Fix what can be worked out"
+                            confirm="Only the rows with one derivable answer are touched — an emirate from a city, for instance. Nothing that would have to be invented is filled in."/>
+                </header>
+                <field name="name"/>
+                <field name="category"/>
+                <field name="count" sum="Records"/>
+                <field name="severity"/>
+                <field name="note"/>
+                <field name="fixable" optional="show"/>
+                <button name="action_review" type="object" icon="fa-list"
+                        string="Review"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_quality_search" model="ir.ui.view">
+        <field name="name">mizan.data.quality.search</field>
+        <field name="model">mizan.data.quality</field>
+        <field name="arch" type="xml">
+            <search string="Data Quality">
+                <field name="name"/>
+                <filter name="blocking" string="Blocks a return or a close"
+                        domain="[('severity', '=', '3')]"/>
+                <filter name="auto" string="Can be fixed automatically"
+                        domain="[('fixable', '=', True)]"/>
+                <group expand="1" string="Group By">
+                    <filter name="group_category" string="Area"
+                            context="{'group_by': 'category'}"/>
+                    <filter name="group_severity" string="Impact"
+                            context="{'group_by': 'severity'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_quality_open" model="ir.actions.server">
+        <field name="name">Data Quality</field>
+        <field name="model_id" ref="model_mizan_data_quality"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh()</field>
+    </record>
+
+</odoo>
