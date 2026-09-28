@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- The right to let an employee hold two advances at once, or one
+             above the ceiling. Kept separate from "can approve an advance"
+             because they are different decisions: approving is routine, and
+             setting aside the rule that stops advances accumulating is not. -->
+        <record id="group_advance_override" model="res.groups">
+            <field name="name">Advances / Override the limit</field>
+            <field name="category_id" ref="mizan_hub.module_category_proaccount"/>
+            <field name="comment">May approve a second advance while one is
+                outstanding, or one above the company ceiling. Every use is
+                recorded on the advance with the reason.</field>
+        </record>
+
+        <record id="rule_advance_own" model="ir.rule">
+            <field name="name">Advances: an employee sees their own</field>
+            <field name="model_id" ref="model_mizan_employee_advance"/>
+            <field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="rule_advance_all" model="ir.rule">
+            <field name="name">Advances: finance and HR see all</field>
+            <field name="model_id" ref="model_mizan_employee_advance"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('account.group_account_manager')),
+                                        (4, ref('account.group_account_readonly')),
+                                        (4, ref('hr.group_hr_manager'))]"/>
+        </record>
+    </data>
+</odoo>

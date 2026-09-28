@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- In the Expenses app, beside the claims it settles against, rather
+         than in a corner of Accounting: the person who needs to see an
+         outstanding advance is the one approving the next claim. -->
+    <menuitem id="menu_advances" name="Employee Advances"
+              parent="hr_expense.menu_hr_expense_root"
+              action="action_employee_advance" sequence="18"
+              groups="hr_expense.group_hr_expense_team_approver,hr_expense.group_hr_expense_manager,account.group_account_manager,account.group_account_readonly"/>
+
+    <!-- And under Accounting, where the balance is chased. Not under
+         Customers: an advance is owed by staff, and filing it with the
+         customer ledger is how it stops being looked at. -->
+    <menuitem id="menu_advances_accounting" name="Employee Advances"
+              parent="account.menu_finance_entries"
+              action="action_employee_advance" sequence="40"
+              groups="account.group_account_manager,account.group_account_readonly"/>
+</odoo>

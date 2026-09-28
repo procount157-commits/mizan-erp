@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_month_close" name="Month-End Close"
+              parent="mizan_hub.menu_hub_root" action="action_month_close"
+              sequence="40"
+              groups="account.group_account_manager,account.group_account_readonly"/>
+</odoo>

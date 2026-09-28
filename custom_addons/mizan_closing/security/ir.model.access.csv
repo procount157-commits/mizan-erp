@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_month_close_ro,mizan.month.close.readonly,model_mizan_month_close,account.group_account_readonly,1,0,0,0
+access_month_close_user,mizan.month.close.user,model_mizan_month_close,account.group_account_invoice,1,0,0,0
+access_month_close_mgr,mizan.month.close.manager,model_mizan_month_close,account.group_account_manager,1,1,1,1
+access_month_check_ro,mizan.month.close.check.readonly,model_mizan_month_close_check,account.group_account_readonly,1,0,0,0
+access_month_check_user,mizan.month.close.check.user,model_mizan_month_close_check,account.group_account_invoice,1,0,0,0
+access_month_check_mgr,mizan.month.close.check.manager,model_mizan_month_close_check,account.group_account_manager,1,1,1,1

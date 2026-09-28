@@ -1,0 +1,836 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_advance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-28 17:55+0000\n"
+"PO-Revision-Date: 2026-09-28 17:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "%(amount)s is above the advance limit of %(limit)s."
+msgstr "المبلغ %(amount)s يتجاوز سقف السلفة البالغ %(limit)s."
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid ""
+"%(name)s still has %(amount)s outstanding on %(ref)s. Settle that before "
+"advancing more, or ask someone with the override right."
+msgstr ""
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "%s has no default account."
+msgstr "لا يوجد حساب افتراضي لـ %s."
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "%s has no work contact, so there is no partner to settle against."
+msgstr "لا توجد جهة اتصال عمل لـ %s، فلا يوجد طرف تُسوّى السلفة معه."
+
+#. module: mizan_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_form
+msgid "<span class=\"o_stat_text\">Entries</span>"
+msgstr ""
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Above the advance limit"
+msgstr "يتجاوز سقف السلفة"
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_res_company__mizan_advance_limit
+#: model:ir.model.fields,help:mizan_advance.field_res_config_settings__mizan_advance_limit
+msgid "Above this an advance needs the override right. Zero means no ceiling."
+msgstr "فوق هذا المبلغ تحتاج السلفة صلاحية التجاوز. والصفر يعني بلا سقف."
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Advance %(ref)s — %(name)s"
+msgstr "سلفة %(ref)s — %(name)s"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_res_company__mizan_advance_limit
+#: model:ir.model.fields,field_description:mizan_advance.field_res_config_settings__mizan_advance_limit
+msgid "Advance Limit per Employee"
+msgstr "سقف السلفة لكل موظف"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_res_company__mizan_advance_journal_id
+#: model:ir.model.fields,field_description:mizan_advance.field_res_config_settings__mizan_advance_journal_id
+msgid "Advance Payment Journal"
+msgstr "دفتر صرف السلف"
+
+#. module: mizan_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_list
+msgid "Advanced"
+msgstr "المصروف سلفةً"
+
+#. module: mizan_advance
+#: model:res.groups,name:mizan_advance.group_advance_override
+msgid "Advances / Override the limit"
+msgstr "السلف / تجاوز السقف"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_hr_expense_sheet__mizan_advance_id
+msgid "Against Advance"
+msgstr "مقابل سلفة"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__amount_outstanding
+msgid "Amount Outstanding"
+msgstr "المبلغ المتبقي"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__amount_returned
+msgid "Amount Returned"
+msgstr "المبلغ المُعاد"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__amount_spent
+msgid "Amount Spent"
+msgstr "المبلغ المصروف"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "An advance has to be more than zero."
+msgstr "السلفة يجب أن تكون أكبر من صفر."
+
+#. module: mizan_advance
+#: model_terms:ir.actions.act_window,help:mizan_advance.action_employee_advance
+msgid ""
+"An advance stays here until it is spent against claims or the balance comes "
+"back."
+msgstr ""
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_form
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Approve it before paying it."
+msgstr "اعتمدها قبل صرفها."
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+#: model:ir.model.fields.selection,name:mizan_advance.selection__mizan_employee_advance__state__approved
+msgid "Approved"
+msgstr "معتمدة"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__approved_by_id
+msgid "Approved By"
+msgstr "اعتمدها"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid ""
+"Approves it. Refused if the employee already holds an advance that is not "
+"settled."
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: mizan_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_form
+msgid "Back to draft"
+msgstr "إعادة إلى مسودة"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Balance returned"
+msgstr "إعادة الرصيد"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Balance returned on advance %s"
+msgstr "إعادة رصيد السلفة %s"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__mizan_next_blocked
+msgid "Blocked by"
+msgstr "يمنعه"
+
+#. module: mizan_advance
+#: model:ir.model.fields.selection,name:mizan_advance.selection__mizan_employee_advance__state__cancel
+msgid "Cancelled"
+msgstr "ملغاة"
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__amount_returned
+msgid "Cash the employee handed back."
+msgstr "النقد الذي أعاده الموظف."
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Choose the account the advance is paid from."
+msgstr "اختر الحساب الذي تُصرف منه السلفة."
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__expense_sheet_ids
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_form
+msgid "Claims against it"
+msgstr "المطالبات المحمّلة عليها"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Clears the advance against what the company owes on the posted claims."
+msgstr "يقفل السلفة مقابل ما تدين به الشركة على المطالبات المُرحَّلة."
+
+#. module: mizan_advance
+#: model:ir.model,name:mizan_advance.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__company_id
+msgid "Company"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model,name:mizan_advance.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__analytic_account_id
+msgid "Cost Center"
+msgstr "مركز التكلفة"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__department_id
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_search
+msgid "Department"
+msgstr "القسم"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields.selection,name:mizan_advance.selection__mizan_employee_advance__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Drafted"
+msgstr "مسوَّدة"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__employee_id
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_search
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: mizan_advance
+#: model:ir.model,name:mizan_advance.model_mizan_employee_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_form
+msgid "Employee Advance"
+msgstr "سلفة موظف"
+
+#. module: mizan_advance
+#: model:ir.actions.act_window,name:mizan_advance.action_employee_advance
+#: model:ir.ui.menu,name:mizan_advance.menu_advances
+#: model:ir.ui.menu,name:mizan_advance.menu_advances_accounting
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_list
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_search
+msgid "Employee Advances"
+msgstr "سلف الموظفين"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_res_company__mizan_advance_account_id
+#: model:ir.model.fields,field_description:mizan_advance.field_res_config_settings__mizan_advance_account_id
+msgid "Employee Advances Account"
+msgstr "حساب سلف الموظفين"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__partner_id
+msgid "Employee Contact"
+msgstr "جهة اتصال الموظف"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Entries"
+msgstr "القيود"
+
+#. module: mizan_advance
+#: model:ir.model,name:mizan_advance.model_hr_expense_sheet
+msgid "Expense Report"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__amount_spent
+msgid ""
+"From the expense claims POSTED against this advance. Not typed by anybody."
+msgstr ""
+
+#. module: mizan_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_search
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__id
+msgid "ID"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__message_has_error
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "It has been paid. Settle or return it instead of resetting it."
+msgstr "صُرفت بالفعل. سوّها أو أعِد رصيدها بدل إرجاعها إلى مسودة."
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__override_by_id
+msgid "Limit overridden by"
+msgstr "تجاوز السقف"
+
+#. module: mizan_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_search
+msgid "Limit was overridden"
+msgstr "جرى تجاوز السقف"
+
+#. module: mizan_advance
+#: model:res.groups,comment:mizan_advance.group_advance_override
+msgid ""
+"May approve a second advance while one is\n"
+"                outstanding, or one above the company ceiling. Every use is\n"
+"                recorded on the advance with the reason."
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__mizan_next_method
+msgid "Mizan Next Method"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "New"
+msgstr "جديدة"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__mizan_next_label
+msgid "Next Action"
+msgstr "الإجراء التالي"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: mizan_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_form
+msgid "Next action"
+msgstr "الإجراء التالي"
+
+#. module: mizan_advance
+#: model_terms:ir.actions.act_window,help:mizan_advance.action_employee_advance
+msgid "No advance is outstanding."
+msgstr "لا توجد سلفة قائمة."
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__note
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_form
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Only a draft can be submitted."
+msgstr "المسودة وحدها هي ما يُقدَّم."
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Only a paid advance can be returned."
+msgstr "السلفة المصروفة وحدها هي ما يُعاد رصيدها."
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Only a paid advance can be settled."
+msgstr "السلفة المصروفة وحدها هي ما تُسوّى."
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Only a submitted advance can be approved."
+msgstr "السلفة المُقدَّمة وحدها هي ما تُعتمد."
+
+#. module: mizan_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_list
+msgid "Outstanding"
+msgstr "المتبقي"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__override_reason
+msgid "Override Reason"
+msgstr "سبب التجاوز"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+#: model:ir.model.fields.selection,name:mizan_advance.selection__mizan_employee_advance__state__paid
+msgid "Paid"
+msgstr "مصروفة"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__journal_id
+msgid "Paid From"
+msgstr "تُصرف من"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_form
+msgid "Pay"
+msgstr "صرف"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__move_pay_id
+msgid "Payment Entry"
+msgstr "قيد الصرف"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__mizan_pipeline
+msgid "Pipeline"
+msgstr "المسار"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid ""
+"Posts the payment and puts the amount in the employee advances account."
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__project_id
+msgid "Project"
+msgstr "المشروع"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__purpose
+msgid "Purpose"
+msgstr "الغرض"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_form
+msgid "Record the balance returned"
+msgstr "تسجيل إعادة الرصيد"
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__override_by_id
+msgid ""
+"Recorded when somebody allowed a second advance, or one above the ceiling. "
+"The exception is part of the record, not a conversation nobody can find "
+"later."
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__name
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: mizan_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_form
+msgid "Refuse"
+msgstr "رفض"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: mizan_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_list
+msgid "Returned"
+msgstr "المُعاد"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Second advance while %s is outstanding"
+msgstr "سلفة ثانية مع بقاء %s قائمة"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Sends the request for approval."
+msgstr "يرسل الطلب للاعتماد."
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid ""
+"Set the Employee Advances account on the company first. Without it the "
+"advance would have to be posted somewhere arbitrary, and an advance in the "
+"wrong account is an advance nobody chases."
+msgstr ""
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_form
+msgid "Settle against the claims"
+msgstr "تسوية مقابل المطالبات"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+#: model:ir.model.fields.selection,name:mizan_advance.selection__mizan_employee_advance__state__settled
+msgid "Settled"
+msgstr "مُسوّاة"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__move_settle_ids
+msgid "Settlement Entries"
+msgstr "قيود التسوية"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__settlement_percent
+msgid "Settlement Percent"
+msgstr "نسبة التسوية"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Settling advance %s"
+msgstr "تسوية السلفة %s"
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_hr_expense_sheet__mizan_advance_id
+msgid ""
+"Spend the claim against an advance the employee already holds, instead of "
+"the company paying twice."
+msgstr ""
+
+#. module: mizan_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_list
+msgid "Spent"
+msgstr "المصروف"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__state
+msgid "State"
+msgstr ""
+
+#. module: mizan_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_search
+msgid "Status"
+msgstr "الحالة"
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: mizan_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_search
+msgid "Still outstanding"
+msgstr "ما زالت قائمة"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_form
+msgid "Submit"
+msgstr "تقديم"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+#: model:ir.model.fields.selection,name:mizan_advance.selection__mizan_employee_advance__state__submitted
+msgid "Submitted"
+msgstr "مُقدَّمة"
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_res_company__mizan_advance_journal_id
+#: model:ir.model.fields,help:mizan_advance.field_res_config_settings__mizan_advance_journal_id
+msgid "The account the advance is actually paid from."
+msgstr "الحساب الذي تُصرف منه السلفة فعلياً."
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__partner_id
+msgid ""
+"The advance is settled against what the company owes this person on their "
+"expense claims, so both sides must point at the same partner."
+msgstr ""
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "The employee hands back what is left."
+msgstr "يعيد الموظف ما تبقّى."
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "There is nothing left to return."
+msgstr "لا يوجد رصيد متبقٍ لإعادته."
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid ""
+"There is nothing new to settle. Post the employee's expense claims against "
+"this advance first."
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: mizan_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_search
+msgid "Waiting for approval"
+msgstr "بانتظار الاعتماد"
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__mizan_next_hint
+msgid "What happens"
+msgstr "ماذا سيحدث"
+
+#. module: mizan_advance
+#: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_form
+msgid "What is left"
+msgstr "ما تبقّى"
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__mizan_next_hint
+msgid "What pressing the button will do, said before it is pressed."
+msgstr "ما الذي سيفعله الزر، مقولاً قبل الضغط عليه."
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_mizan_employee_advance__purpose
+msgid ""
+"What the money is for. A blank purpose is how an advance becomes impossible "
+"to settle."
+msgstr ""
+
+#. module: mizan_advance
+#: model:ir.model.fields,help:mizan_advance.field_res_company__mizan_advance_account_id
+#: model:ir.model.fields,help:mizan_advance.field_res_config_settings__mizan_advance_account_id
+msgid ""
+"Where an advance sits while the employee still holds it. It is an asset — "
+"the company is owed the money — and not an expense, which is the mistake "
+"that makes advances disappear."
+msgstr ""

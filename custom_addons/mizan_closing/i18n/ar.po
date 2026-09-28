@@ -1,0 +1,635 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_closing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-28 17:55+0000\n"
+"PO-Revision-Date: 2026-09-28 17:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid ""
+"%s check(s) still block the close. They are not untidiness — each one is a "
+"figure that would be wrong in the month you are about to freeze."
+msgstr ""
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "%s is closed. Reopen it before running the checks again."
+msgstr "أُقفل %s. أعد فتحه قبل تشغيل الفحوص مرة أخرى."
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid ""
+"A month closed over an unposted entry is closed over a figure somebody meant"
+" to include."
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "An expired guarantee holds up the next claim."
+msgstr "الضمان المنتهي يعطّل المستخلص التالي."
+
+#. module: mizan_closing
+#: model:ir.model.fields.selection,name:mizan_closing.selection__mizan_month_close_check__category__arithmetic
+msgid "Arithmetic"
+msgstr "الحساب"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Bank lines not matched"
+msgstr "أسطر بنكية غير مطابَقة"
+
+#. module: mizan_closing
+#: model:ir.model.fields.selection,name:mizan_closing.selection__mizan_month_close_check__category__banking
+msgid "Banking"
+msgstr "البنوك"
+
+#. module: mizan_closing
+#: model_terms:ir.ui.view,arch_db:mizan_closing.view_close_form
+msgid "Blocked while a blocking check is failing."
+msgstr "ممنوع ما دام فحصٌ مانع راسباً."
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__blocking
+msgid "Blocking"
+msgstr "مانع"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__blocking_count
+msgid "Blocking Count"
+msgstr "عدد الموانع"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__category
+msgid "Category"
+msgstr "الفئة"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Certified claims not invoiced"
+msgstr "مستخلصات معتمدة ولم تُفوتر"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__checked_on
+msgid "Checked On"
+msgstr "تاريخ الفحص"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__check_ids
+#: model_terms:ir.ui.view,arch_db:mizan_closing.view_close_form
+msgid "Checks"
+msgstr "الفحوص"
+
+#. module: mizan_closing
+#: model:ir.model.fields.selection,name:mizan_closing.selection__mizan_month_close__state__checking
+msgid "Checks run"
+msgstr "شُغّلت الفحوص"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Cheques past their date and not settled"
+msgstr "شيكات تجاوزت تاريخها ولم تُسوَّ"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__close_id
+msgid "Close"
+msgstr ""
+
+#. module: mizan_closing
+#: model_terms:ir.actions.act_window,help:mizan_closing.action_month_close
+msgid "Close a month with evidence rather than memory."
+msgstr "أقفِل الشهر بالدليل لا بالذاكرة."
+
+#. module: mizan_closing
+#: model_terms:ir.ui.view,arch_db:mizan_closing.view_close_form
+msgid "Close the period"
+msgstr "إقفال الفترة"
+
+#. module: mizan_closing
+#: model:ir.model.fields.selection,name:mizan_closing.selection__mizan_month_close__state__closed
+msgid "Closed"
+msgstr "مُقفَل"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__closed_by_id
+msgid "Closed By"
+msgstr "أقفله"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__closed_on
+msgid "Closed On"
+msgstr "تاريخ الإقفال"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Closed to %(date)s with %(warnings)s warning(s) accepted."
+msgstr "أُقفل حتى %(date)s مع قبول %(warnings)s تنبيهاً."
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__company_id
+msgid "Company"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields.selection,name:mizan_closing.selection__mizan_month_close_check__category__contracting
+msgid "Contracting"
+msgstr "المقاولات"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Contracts with revenue earned and not recognised"
+msgstr "عقود لها إيراد مكتسب ولم يُعترف به"
+
+#. module: mizan_closing
+#: model:ir.model.fields.selection,name:mizan_closing.selection__mizan_month_close_check__category__costing
+msgid "Costing"
+msgstr "التكاليف"
+
+#. module: mizan_closing
+#: model_terms:ir.actions.act_window,help:mizan_closing.action_month_close
+msgid "Create the period, run the checks, open whatever they find, and close."
+msgstr "أنشئ الفترة، شغّل الفحوص، افتح ما تجده، ثم أقفِل."
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__create_uid
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__create_date
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Customers invoiced this month with no TRN"
+msgstr "عملاء فُوتروا هذا الشهر بلا رقم ضريبي"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Direct job costs with no cost centre"
+msgstr "تكاليف مباشرة بلا مركز تكلفة"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Direct job costs with no cost code"
+msgstr "تكاليف مباشرة بلا كود تكلفة"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__display_name
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields.selection,name:mizan_closing.selection__mizan_month_close_check__category__documents
+msgid "Documents"
+msgstr "المستندات"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__domain
+msgid "Domain"
+msgstr ""
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Each entry must balance by itself, not only in total."
+msgstr "كل قيد يجب أن يتوازن وحده، لا في المجموع فقط."
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid ""
+"Either the bank has not told you, or it bounced and nobody recorded it."
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__count
+msgid "Found"
+msgstr "العدد"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__date_from
+msgid "From"
+msgstr "من"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Guarantees expiring within 30 days"
+msgstr "ضمانات تنتهي خلال 30 يوماً"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,help:mizan_closing.field_mizan_month_close__closed_over_warnings
+msgid ""
+"How many warnings the manager knowingly closed over. Kept because 'we closed"
+" with eleven open' is a different month from 'we closed clean'."
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__id
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__id
+msgid "ID"
+msgstr ""
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "IFRS 15 puts revenue where the progress is, not where the invoice is."
+msgstr "المعيار 15 يضع الإيراد حيث الإنجاز، لا حيث الفاتورة."
+
+#. module: mizan_closing
+#: model:ir.model.fields,help:mizan_closing.field_mizan_month_close__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,help:mizan_closing.field_mizan_month_close__message_has_error
+#: model:ir.model.fields,help:mizan_closing.field_mizan_month_close__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Invoices and bills still in draft"
+msgstr "فواتير ما زالت مسودة"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Journal entries still in draft"
+msgstr "قيود يومية ما زالت مسودة"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__key
+msgid "Key"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__write_uid
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__write_date
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__lock_date_before
+msgid "Lock Date Before"
+msgstr "تاريخ القفل السابق"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Loss-making contracts with no provision booked"
+msgstr "عقود خاسرة بلا مخصص مُرحَّل"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__note
+msgid "Manager's note"
+msgstr "ملاحظة المدير"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model,name:mizan_closing.model_mizan_month_close_check
+msgid "Month-End Check"
+msgstr "فحص إقفال الشهر"
+
+#. module: mizan_closing
+#: model:ir.actions.act_window,name:mizan_closing.action_month_close
+#: model:ir.model,name:mizan_closing.model_mizan_month_close
+#: model:ir.ui.menu,name:mizan_closing.menu_month_close
+#: model_terms:ir.ui.view,arch_db:mizan_closing.view_close_form
+#: model_terms:ir.ui.view,arch_db:mizan_closing.view_close_list
+msgid "Month-End Close"
+msgstr "إقفال الشهر"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__name
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__name
+msgid "Name"
+msgstr ""
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "New close"
+msgstr "إقفال جديد"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid ""
+"Not in the ledger, not in the VAT return, and not in any report for the "
+"month you are closing."
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields.selection,name:mizan_closing.selection__mizan_month_close__state__draft
+msgid "Not started"
+msgstr "لم يبدأ"
+
+#. module: mizan_closing
+#: model_terms:ir.ui.view,arch_db:mizan_closing.view_close_form
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,help:mizan_closing.field_mizan_month_close__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,help:mizan_closing.field_mizan_month_close__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid ""
+"Outside every project, so it understates progress and therefore revenue."
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__passed
+msgid "Passed"
+msgstr "ناجح"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Posted entries that do not balance on their own"
+msgstr "قيود مُرحَّلة لا تتوازن وحدها"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Posted invoice lines carrying no tax decision"
+msgstr "بنود فواتير مُرحَّلة بلا قرار ضريبي"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid ""
+"Reaches the project total but no budget line, so the breakdown stops adding "
+"up."
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__ready
+msgid "Ready to close"
+msgstr "جاهز للإقفال"
+
+#. module: mizan_closing
+#: model_terms:ir.ui.view,arch_db:mizan_closing.view_close_form
+msgid "Reopen"
+msgstr "إعادة فتح"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "Reopened by %s."
+msgstr "أعاد فتحه %s."
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__res_model
+msgid "Res Model"
+msgstr ""
+
+#. module: mizan_closing
+#: model_terms:ir.ui.view,arch_db:mizan_closing.view_close_form
+msgid "Review"
+msgstr "مراجعة"
+
+#. module: mizan_closing
+#: model_terms:ir.ui.view,arch_db:mizan_closing.view_close_form
+msgid "Run the checks"
+msgstr "تشغيل الفحوص"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid ""
+"Run the checks before closing. Closing a month nobody checked is the thing "
+"this screen exists to stop."
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__state
+msgid "State"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields.selection,name:mizan_closing.selection__mizan_month_close_check__category__tax
+msgid "Tax"
+msgstr "الضريبة"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "The bank moved money that nothing in the ledger explains."
+msgstr "حرَّك البنك مبلغاً لا يفسّره شيء في الدفاتر."
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "The buyer cannot reclaim the input tax on those invoices."
+msgstr "لا يستطيع المشتري استرداد ضريبة المدخلات على تلك الفواتير."
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid ""
+"The lock date has moved since this close, so reopening here would undo "
+"somebody else's work. Change it on the company instead, deliberately."
+msgstr ""
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid ""
+"The whole expected loss belongs in this period, not spread over the periods "
+"left."
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.constraint,message:mizan_closing.constraint_mizan_month_close_period_company_uniq
+msgid "This period has already been set up for closing."
+msgstr "هذه الفترة مُعدّة للإقفال أصلاً."
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "This period is already closed."
+msgstr "هذه الفترة مُقفلة أصلاً."
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid "This period is not closed."
+msgstr "هذه الفترة غير مُقفلة."
+
+#. module: mizan_closing
+#: model_terms:ir.ui.view,arch_db:mizan_closing.view_close_form
+msgid "This puts the lock date back where it was before this close."
+msgstr "يعيد تاريخ القفل إلى ما كان عليه قبل هذا الإقفال."
+
+#. module: mizan_closing
+#: model_terms:ir.ui.view,arch_db:mizan_closing.view_close_form
+msgid ""
+"This writes the global lock date. Entries up to and including the end of the"
+" period will be pushed to a later date. It can be undone by reopening."
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__date_to
+msgid "To"
+msgstr "إلى"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__warning_count
+msgid "Warning Count"
+msgstr "عدد التنبيهات"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__closed_over_warnings
+msgid "Warnings accepted at close"
+msgstr "تنبيهات قُبلت عند الإقفال"
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,help:mizan_closing.field_mizan_month_close__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: mizan_closing
+#: model:ir.model.fields,help:mizan_closing.field_mizan_month_close__lock_date_before
+msgid ""
+"What the lock date was before this close, so reopening puts it back rather "
+"than guessing."
+msgstr ""
+
+#. module: mizan_closing
+#: model_terms:ir.ui.view,arch_db:mizan_closing.view_close_form
+msgid "What was unusual about this month, for whoever reads it later."
+msgstr "ما كان غير معتاد في هذا الشهر، لمن يقرأه لاحقاً."
+
+#. module: mizan_closing
+#: model:ir.model.fields,field_description:mizan_closing.field_mizan_month_close_check__note
+msgid "Why it matters"
+msgstr "لماذا يهم"
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid ""
+"Work the client agreed to pay for, in a month that will not show the "
+"revenue."
+msgstr ""
+
+#. module: mizan_closing
+#. odoo-python
+#: code:addons/mizan_closing/models/month_close.py:0
+msgid ""
+"Zero-rated, exempt and reverse charge are each reported in their own box. A "
+"blank has no box."
+msgstr ""
