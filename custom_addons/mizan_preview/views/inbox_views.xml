@@ -55,10 +55,7 @@
         <field name="code">action = model.action_refresh()</field>
     </record>
 
-    <menuitem id="menu_inbox_root" name="Work Inbox" sequence="14"
+    <menuitem id="menu_inbox_root" name="Preview" sequence="14"
               web_icon="mizan_core,static/img/proaccount-icon-192x192.png"
               groups="account.group_account_invoice,project.group_project_manager"/>
-    <menuitem id="menu_inbox" name="What Is Waiting For Me"
-              parent="menu_inbox_root" action="action_inbox" sequence="10"/>
-
 </odoo>

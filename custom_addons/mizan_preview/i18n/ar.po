@@ -295,3 +295,705 @@ msgstr "للعلم"
 #: code:addons/mizan_preview/models/inbox.py:0
 msgid "no party"
 msgstr "بلا طرف"
+
+# --- Proposal register (seeded data) ---
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_inbox
+msgid "Work Inbox — what is waiting for me"
+msgstr "صندوق المهام — ما الذي ينتظرني الآن"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_inbox
+msgid "Built here as a read-only prototype. It is not the landing screen, and nothing is approved from it."
+msgstr "مبني هنا كنموذج للقراءة فقط. ليس الشاشة الأولى، ولا يُعتمد منه شيء."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_inbox
+msgid "One screen answering “what is waiting for me?” — claims to certify, cheques to sign, bills to review, expenses to approve, unmatched bank lines — instead of opening eight apps to find out."
+msgstr "شاشة واحدة تجيب: ما الذي ينتظرني؟ مستخلصات للاعتماد، شيكات للتوقيع، فواتير للمراجعة، مصروفات للموافقة، أسطر بنكية غير مسوّاة — بدل الدخول إلى ثمانية تطبيقات لمعرفة ذلك."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_inbox
+msgid "Open it from Preview › Working Prototypes and judge the thing itself rather than the description. Making it the landing screen is easy; letting approvals happen on it is the part that needs your decision, because an approval taken outside the document's own form has no audit trail unless it is wired through the document."
+msgstr "افتحه من معاينة › نماذج عاملة واحكم على الشيء نفسه لا على وصفه. جعله الشاشة الأولى سهل؛ أما الاعتماد منه مباشرة فهو ما يحتاج قرارك، لأن اعتمادًا يُتخذ خارج نموذج المستند نفسه يبقى بلا سجل تدقيق إن لم يُمرَّر عبر المستند."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_dashboards
+msgid "A screen per role, not one dashboard"
+msgstr "شاشة لكل دور بدل لوحة واحدة"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_dashboards
+msgid "No dashboards at all today. Every role opens the same menus."
+msgstr "لا توجد لوحات إطلاقًا اليوم. كل الأدوار تفتح نفس القوائم."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_dashboards
+msgid "A general manager screen (contract value, receivables, cash, warnings), a finance screen (work in progress, cost at completion, retention, VAT, closing), and a project manager screen with no accounting on it at all."
+msgstr "شاشة للمدير العام (قيمة العقود، الذمم، النقد، التحذيرات)، وشاشة مالية (الأعمال تحت التنفيذ، تكلفة الإكمال، المحتجزات، الضريبة، الإقفال)، وشاشة لمدير المشروع بلا محاسبة إطلاقًا."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_dashboards
+msgid "Agreed on the project manager screen — he should not see the ledger, and the access rights already allow that today. I would not build three dashboards of figures: the inbox plus one exception list per role carries the same information and does not go stale. A dashboard is the first thing that stops being maintained, and a stale dashboard is worse than none."
+msgstr "أوافق على شاشة مدير المشروع — لا يجب أن يرى القيود، والصلاحيات تسمح بذلك اليوم أصلًا. لكنني لا أنصح ببناء ثلاث لوحات أرقام: صندوق المهام مع قائمة استثناءات لكل دور يحمل نفس المعلومة ولا يتقادم. اللوحة أول ما يُهمل تحديثه، واللوحة المتقادمة أسوأ من عدمها."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_next_action
+msgid "One button that names the next step"
+msgstr "زر واحد يسمّي الخطوة التالية"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_next_action
+msgid "Documents have their state buttons, and Complete All runs the whole chain. Neither tells the user which single step comes next."
+msgstr "المستندات لها أزرار حالاتها، و«إكمال الكل» ينفّذ السلسلة كلها. ولا أحدهما يقول ما هي الخطوة الواحدة التالية."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_next_action
+msgid "Draft → quantity check → sequence check → project manager → finance → invoice → collection, with one button relabelled at each stage: Send for review, then Approve, then Create invoice, then Record collection."
+msgstr "مسودة → فحص الكمية → فحص الترتيب → مدير المشروع → المالية → الفاتورة → التحصيل، مع زر واحد يتغير اسمه في كل مرحلة: أرسل للمراجعة، ثم اعتمد، ثم أنشئ الفاتورة، ثم سجّل التحصيل."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_next_action
+msgid "The cheapest of the experience items and the one your complaint was really about. One caution: keep it separate from Complete All. A button that names one step teaches the workflow; a button that does seven hides it, and the person who never learned the sequence is the person who cannot tell when it went wrong."
+msgstr "أرخص بنود التجربة، وهو جوهر ملاحظتك. تحذير واحد: أبقِه منفصلًا عن «إكمال الكل». الزر الذي يسمّي خطوة واحدة يعلّم الدورة، والذي ينفّذ سبعًا يخفيها، ومن لم يتعلم الترتيب لا يعرف متى اختلّ."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_claim_wizard
+msgid "A stepped wizard for the progress claim"
+msgstr "معالج خطوات لإنشاء المستخلص"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_claim_wizard
+msgid "The claim already pulls the bill of quantities, carries previous quantities forward, and refuses over-measurement and out-of-order certification. What is missing is only the step-by-step presentation."
+msgstr "المستخلص يسحب جدول الكميات أصلًا، وينقل الكميات السابقة، ويرفض تجاوز الكميات والاعتماد خارج الترتيب. الناقص هو العرض على خطوات فقط."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_claim_wizard
+msgid "Project → period → lines extracted → enter current quantities → the system computes previous + current = cumulative and runs its checks → create the claim."
+msgstr "المشروع → الفترة → استخراج البنود → إدخال الكميات الحالية → يحسب النظام: السابق + الحالي = التراكمي ويشغّل فحوصه → إنشاء المستخلص."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_claim_wizard
+msgid "Worth doing, but it is presentation, not protection. The checks are what stop a wrong claim, and they already exist and are enforced when the claim is saved, not when a wizard asks nicely. I would rank the claim form's own clarity — quantity, previous, cumulative, remaining in one grid — ahead of the wizard, and the wizard after the change order."
+msgstr "يستحق التنفيذ، لكنه عرض لا حماية. الفحوص هي ما يمنع المستخلص الخاطئ، وهي موجودة ومفروضة عند حفظ المستخلص لا عند سؤال المعالج. أرتّب وضوح نموذج المستخلص نفسه — الكمية، السابق، التراكمي، المتبقي في شبكة واحدة — قبل المعالج، والمعالج بعد أمر التغيير."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_smart_defaults
+msgid "Smart defaults, and a warning before posting"
+msgstr "إعدادات تلقائية وتحذير قبل الترحيل"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_smart_defaults
+msgid "Currency, tax, emirate and the fiscal position are already derived from the customer. Project, cost centre and payment terms are not, and missing data is refused at posting instead of warned about while the invoice is open."
+msgstr "العملة والضريبة والإمارة والوضع الضريبي تُستخرج من العميل أصلًا. أما المشروع ومركز التكلفة وشروط الدفع فلا. والبيانات الناقصة تُرفض عند الترحيل بدل التحذير أثناء فتح الفاتورة."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_smart_defaults
+msgid "Choosing the customer fills in everything derivable, and anything missing shows on the form as a warning: this customer has no emirate — set it before posting."
+msgstr "اختيار العميل يملأ كل ما يمكن استخراجه، وما ينقص يظهر على النموذج كتحذير: هذا العميل بلا إمارة — حدّدها قبل الترحيل."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_smart_defaults
+msgid "The emirate is the proof of why this matters: every customer in this database lacked one, so a non-UAE fiscal position was zero-rating domestic sales until it was found and fixed. A warning while the invoice is still open costs under a day and prevents exactly that class of error — the kind nobody notices until the return is filed."
+msgstr "الإمارة هي الدليل على أهمية هذا: كل عميل في هذه القاعدة كان بلا إمارة، فكان وضع ضريبي غير إماراتي يصفّر الضريبة على مبيعات محلية حتى اكتُشف وصُحّح. تحذير أثناء فتح الفاتورة يكلّف أقل من يوم ويمنع هذا النوع من الأخطاء تحديدًا — النوع الذي لا يُلاحظ حتى يُقدَّم الإقرار."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_rules_engine
+msgid "A central business rules engine"
+msgstr "محرك قواعد عمل مركزي"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_rules_engine
+msgid "The rules are real and enforced, but each lives in the module that owns its document."
+msgstr "القواعد موجودة ومفروضة فعلًا، لكن كل قاعدة تسكن في الوحدة التي تملك مستندها."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_rules_engine
+msgid "One module holding the conditions — cumulative quantity not above the bill unless a change order is approved, the previous certificate posted, retention, tax position, revenue recognition — instead of six modules each holding their own."
+msgstr "وحدة واحدة تحتفظ بالشروط — التراكمي لا يتجاوز الجدول إلا بأمر تغيير معتمد، والمستخلص السابق مرحَّل، والمحتجزات، والوضع الضريبي، والاعتراف بالإيراد — بدل ست وحدات كل منها تحمل قواعدها."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_rules_engine
+msgid "I would share the check functions and stop there, rather than make the rules configurable. These rules come from UAE law and from IFRS 15: they must be identical for every client, and a rules table invites a client to switch off the one refusing their claim. Shared functions give you the single place to edit without that risk — the benefit you actually described."
+msgstr "أفضّل مشاركة دوال الفحص والتوقف عند ذلك، لا جعل القواعد قابلة للتهيئة. هذه القواعد من قانون الإمارات ومن IFRS 15: يجب أن تكون متطابقة لكل عميل، وجدول قواعد يدعو العميل لإيقاف القاعدة التي ترفض مستخلصه. الدوال المشتركة تعطي الموضع الواحد للتعديل بلا هذه المخاطرة — وهي الفائدة التي وصفتها فعلًا."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_match_confidence
+msgid "A confidence score for bank matching"
+msgstr "درجة ثقة للمطابقة البنكية"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_match_confidence
+msgid "Matching is built and automatic, but its answer is yes or no. A weak match and a certain one are treated the same."
+msgstr "المطابقة مبنية وتلقائية، لكن جوابها نعم أو لا. المطابقة الضعيفة والمؤكدة تُعاملان بالمثل."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_match_confidence
+msgid "98% invoice number and amount both match · 92% the party's only open document of exactly this amount · 88% a reconciliation rule claims it · 63% document named, amount differs · 12% nothing recognised. Settle automatically above 95% and send the rest to the inbox."
+msgstr "٩٨٪ رقم الفاتورة والمبلغ متطابقان · ٩٢٪ المستند المفتوح الوحيد لهذا الطرف بهذا المبلغ · ٨٨٪ قاعدة تسوية تطالب به · ٦٣٪ المستند مذكور والمبلغ مختلف · ١٢٪ لا شيء معروف. التسوية تلقائيًا فوق ٩٥٪ والباقي إلى صندوق المهام."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_match_confidence
+msgid "Working now in Preview › Bank Match Confidence, scored against the open lines in this database. This is the item I would build first: it changes nothing about whether the ledger is correct and everything about how a thousand lines a month get handled. Note the threshold is a policy, not a constant — you own it, and it should be visible in settings."
+msgstr "يعمل الآن في معاينة › درجة ثقة المطابقة، محسوبًا على الأسطر المفتوحة في هذه القاعدة. هذا أول بند أبنيه: لا يغيّر شيئًا في صحة الدفتر، ويغيّر كل شيء في طريقة التعامل مع ألف سطر شهريًا. ولاحظ أن الحد سياسة لا ثابتًا برمجيًا — هو ملكك، ويجب أن يظهر في الإعدادات."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_employee_advances
+msgid "Employee advances"
+msgstr "سلف الموظفين"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_employee_advances
+msgid "Nothing exists. An advance to staff is an ordinary journal entry, with nothing tracking what is left of it."
+msgstr "لا يوجد شيء. سلفة الموظف قيد عادي، ولا شيء يتتبّع المتبقي منها."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_employee_advances
+msgid "Request → approval → payment → spending → receipts → settlement → balance → return, with the balance visible (Ahmed: 10,000 advanced, 7,200 spent, 2,800 outstanding) and a new advance refused while an old one is unsettled, except under a specific right."
+msgstr "طلب → اعتماد → صرف → استخدام → رفع الفواتير → تسوية → المتبقي → إرجاع، مع ظهور الرصيد (أحمد: ١٠٠٠٠ مصروفة، ٧٢٠٠ مستخدمة، ٢٨٠٠ متبقية)، ومنع سلفة جديدة قبل تسوية القديمة إلا بصلاحية خاصة."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_employee_advances
+msgid "This is the largest genuine hole in the system for a contractor. Site cash moves through advances, and an unsettled advance is a receivable nobody can age — it sits in a control account and grows. It also gives the expense module a reason to exist beyond reimbursement, which is how the receipts arrive at all."
+msgstr "هذا أكبر فراغ حقيقي في النظام بالنسبة للمقاول. نقد الموقع يتحرك عبر السلف، والسلفة غير المسوّاة ذمة لا يستطيع أحد تعميرها — تقبع في حساب وسيط وتنمو. كما تعطي وحدة المصروفات سببًا للوجود أكثر من الاسترداد، وهي الطريق الذي تصل به الفواتير أصلًا."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_change_orders
+msgid "A change order that actually changes the contract"
+msgstr "أمر تغيير يغيّر العقد فعلًا"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_change_orders
+msgid "A variation order exists, with value, cost impact, margin and an approval state. It does not touch the bill of quantities, carries no time impact, no attachments and no record of who requested it, and approving it does not revise the contract value or the budget."
+msgstr "أمر التغيير موجود بقيمة وأثر تكلفة وهامش وحالة اعتماد. لكنه لا يمس جدول الكميات، ولا يحمل أثرًا زمنيًا ولا مرفقات ولا من طلبه، واعتماده لا يراجع قيمة العقد ولا الميزانية."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_change_orders
+msgid "The order carries the original line, the original and new quantity, the price, the financial and the time impact, attachments, correspondence, who asked, who approved, and when. Approving it updates the bill of quantities, the contract value, the budget, the cost at completion and revenue recognition."
+msgstr "يحمل الأمر البند الأصلي، والكمية الأصلية والجديدة، والسعر، والأثر المالي والزمني، والمرفقات، والمراسلات، ومن طلبه، ومن اعتمده، ومتى. واعتماده يحدّث جدول الكميات وقيمة العقد والميزانية وتكلفة الإكمال والاعتراف بالإيراد."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_change_orders
+msgid "This is the item that decides whether the product is a contracting system. The claim already refuses to measure more than the bill allows; without a change order that raises the bill, that refusal becomes the thing users work around — and the moment they work around it, the quantities stop meaning anything and so does the percentage of completion built on them."
+msgstr "هذا البند يحدد إن كان المنتج نظام مقاولات. المستخلص يرفض أصلًا قياس أكثر مما يسمح الجدول؛ وبدون أمر تغيير يرفع الجدول يصبح هذا الرفض ما يتحايل عليه المستخدمون — وفي اللحظة التي يتحايلون فيها تفقد الكميات معناها، وتفقده معها نسبة الإنجاز المبنية عليها."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_commitments_eac
+msgid "Commitments and cost at completion, side by side"
+msgstr "الالتزامات وتكلفة الإكمال جنبًا إلى جنب"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_commitments_eac
+msgid "The figures exist and are computed — committed, cost at completion, over budget, forecast loss. What is missing is a screen that puts them side by side instead of as columns inside one contract form."
+msgstr "الأرقام موجودة ومحسوبة — الملتزم به، وتكلفة الإكمال، والتجاوز، والخسارة المتوقعة. الناقص شاشة تجمعها جنبًا إلى جنب بدل أعمدة داخل نموذج عقد واحد."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_commitments_eac
+msgid "Budget 10M, actual 4M, committed 3M, remaining 3M — and above all cost at completion 11.2M with a red 1.2M expected overrun, shown before the overrun happens rather than reported after it."
+msgstr "ميزانية ١٠ مليون، فعلي ٤، ملتزم ٣، متبقٍ ٣ — والأهم تكلفة الإكمال ١١٫٢ مليون مع تجاوز متوقع ١٫٢ مليون بالأحمر، يظهر قبل وقوع التجاوز لا يُقرَّر بعده."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_commitments_eac
+msgid "Already visible in Preview › Project Health for every live contract, one row each. Since the arithmetic is done and tested, this is a view rather than a feature — which is why I recommend it even though the work is under a day."
+msgstr "ظاهر الآن في معاينة › صحة المشاريع لكل عقد قائم، سطر لكل عقد. وبما أن الحساب منجز ومختبر فهذه شاشة لا ميزة — ولهذا أنصح بها وإن كان العمل أقل من يوم."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_project_health
+msgid "Project health, with reasons instead of a score"
+msgstr "صحة المشروع بأسبابها لا بدرجة"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_project_health
+msgid "Every condition is computed somewhere. Nothing gathered them into one row per project until this prototype did."
+msgstr "كل حالة محسوبة في مكان ما. لكن لا شيء جمعها في سطر واحد لكل مشروع حتى فعل هذا النموذج."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_project_health
+msgid "One row per project: contract, budget, actual, committed, cost at completion, overrun, forecast margin, percent by cost against percent measured, certified, collected, outstanding — and a plain list of what needs attention."
+msgstr "سطر لكل مشروع: العقد، والميزانية، والفعلي، والملتزم، وتكلفة الإكمال، والتجاوز، والهامش المتوقع، والنسبة بالتكلفة مقابل النسبة المقيسة، والمعتمد، والمحصّل، والمستحق — وقائمة صريحة بما يحتاج انتباهًا."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_project_health
+msgid "I followed your own advice and left the aggregate score out. A number a manager can neither argue with nor act on is worse than three sentences he can. The screen says over budget by 8.4 percent, claim certified and not invoiced, collection behind — and each of those names the next move."
+msgstr "اتبعت نصيحتك وتركت الدرجة التجميعية. رقم لا يستطيع المدير مناقشته ولا التصرف بناءً عليه أسوأ من ثلاث جمل يستطيع. الشاشة تقول: تجاوز ٨٫٤ بالمئة، مستخلص معتمد وغير مفوتر، التحصيل متأخر — وكل واحدة تسمّي الخطوة التالية."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_mobile_site
+msgid "A site engineer screen on the phone"
+msgstr "شاشة مهندس الموقع على الهاتف"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_mobile_site
+msgid "Nothing. An engineer given access today gets the whole back office on a phone screen."
+msgstr "لا يوجد. المهندس الذي يُمنح صلاحية اليوم يجد النظام الخلفي كاملًا على شاشة هاتف."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_mobile_site
+msgid "My projects, then: raise a claim, upload a receipt, request materials, record labour, request a purchase, attach a photo, ask for a change order, site note, problem, leave, attendance."
+msgstr "مشاريعي، ثم: رفع مطالبة، ورفع إيصال، وطلب مواد، وتسجيل عمالة، وطلب شراء، وإرفاق صورة، وطلب أمر تغيير، وملاحظة موقع، ومشكلة، وإجازة، وحضور."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_mobile_site
+msgid "Agreed that this is what sells the product, and agreed with building it on Odoo's own field service, tasks and barcode capabilities instead of a separate platform. But it is a week or more, and it depends on the site store and employee advances existing first: an engineer requesting materials against nothing is a form that goes nowhere."
+msgstr "أوافق أن هذا ما يبيع المنتج، وأوافق على بنائه فوق قدرات أودو للخدمة الميدانية والمهام والباركود بدل منصة منفصلة. لكنه أسبوع أو أكثر، ويعتمد على وجود مخزن الموقع وسلف الموظفين أولًا: مهندس يطلب مواد من لا شيء نموذج لا يصل إلى مكان."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_site_store
+msgid "Site store"
+msgstr "مخزن الموقع"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_site_store
+msgid "The system does not use inventory at all. Material reaches a job only as a supplier bill."
+msgstr "النظام لا يستخدم المخزون إطلاقًا. المادة تصل إلى المشروع كفاتورة مورد فقط."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_site_store
+msgid "Main warehouse → site → engineer → issue request → approval → issue, posting itself to cost centre, cost code and project: 120 bags of cement, villa project, concrete item, direct cost — with no accountant typing a journal entry."
+msgstr "المستودع الرئيسي → الموقع → المهندس → طلب صرف → اعتماد → صرف، ويُرحَّل تلقائيًا إلى مركز التكلفة وبند التكلفة والمشروع: ١٢٠ كيس إسمنت، مشروع الفيلا، بند الخرسانة، تكلفة مباشرة — بلا قيد يكتبه محاسب."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_site_store
+msgid "Material bought is not material consumed, and today the system cannot tell the difference: a delivery to the yard is charged to whichever project the bill names. That overstates completion on one job and understates it on another — the same error the percentage-of-completion revenue is calculated from, which is why this matters more than it looks."
+msgstr "المادة المشتراة ليست المادة المستهلكة، والنظام اليوم لا يفرّق: توريد إلى الساحة يُحمَّل على المشروع المذكور في الفاتورة. هذا يبالغ في إنجاز مشروع ويقلّل آخر — وهو نفس الخطأ الذي يُحسب منه الإيراد بنسبة الإنجاز، ولهذا أهميته أكبر مما تبدو."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_closing
+msgid "Month-end closing wizard, and a period lock"
+msgstr "معالج الإقفال الشهري وقفل الفترة"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_closing
+msgid "The checks exist as a script nobody runs and, now, as a screen. There is no guided close and no period lock, and the year-end closing module is half installed on the old demo database and will not upgrade."
+msgstr "الفحوص موجودة كسكربت لا يشغّله أحد، والآن كشاشة. لا يوجد إقفال موجَّه ولا قفل للفترة، ووحدة إقفال السنة نصف مثبتة على قاعدة العرض القديمة ولا تقبل الترقية."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_closing
+msgid "Press Start closing, and the system checks drafts, uncertified claims, costs with no cost centre or cost code, unmatched bank lines, VAT, work in progress, retention, accruals, prepayments, customer and vendor advances, payroll, pending cheques and expiring guarantees — then says 11 problems, opens each one, and when they are gone: month ready to close, lock period."
+msgstr "اضغط «ابدأ الإقفال»، فيفحص النظام المسودات، والمستخلصات غير المفوترة، والتكاليف بلا مركز تكلفة أو بند تكلفة، والبنك غير المسوّى، والضريبة، والأعمال تحت التنفيذ، والمحتجزات، والمستحقات، والمقدمات، ومقدمات العملاء والموردين، والرواتب، والشيكات المعلقة، والضمانات المنتهية — ثم يقول: ١١ مشكلة، ويفتح كل واحدة، وعند حلّها: الشهر جاهز للإقفال، اقفل الفترة."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_closing
+msgid "Preview › Month-End Readiness already runs those checks against this database and shows only what blocks the close. The lock is the part that matters most and the part not built: without it a posted month keeps changing, and the statements you sent the bank stop matching the statements in the system — which is the one thing an auditor will find."
+msgstr "معاينة › جاهزية الإقفال تشغّل هذه الفحوص فعلًا على هذه القاعدة وتُظهر ما يمنع الإقفال فقط. أما القفل فهو الأهم وغير المبني: بدونه يستمر الشهر المرحَّل في التغيّر، فتتوقف القوائم التي أرسلتها إلى البنك عن مطابقة القوائم في النظام — وهذا أول ما يجده المدقق."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_audit_trail
+msgid "A real audit trail"
+msgstr "سجل تدقيق حقيقي"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_audit_trail
+msgid "Thirty-seven sensitive fields are tracked, and every change sits in the chatter with the user, the old value and the new one. What is missing is a reason attached to the change, and one screen that reads across documents."
+msgstr "سبعة وثلاثون حقلًا حساسًا متتبَّعة، وكل تغيير في المحادثة مع المستخدم والقيمة القديمة والجديدة. الناقص سبب مرفق بالتغيير، وشاشة واحدة تقرأ عبر المستندات."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_audit_trail
+msgid "Contract value 10,000,000 → 10,500,000, user CFO, reason: approved change order CO-004, 27/09/2026 14:35 — for claims, contracts, change orders, journal entries, cheques, taxes and access rights."
+msgstr "قيمة العقد ١٠٠٠٠٠٠٠ → ١٠٥٠٠٠٠٠، المستخدم: المدير المالي، السبب: أمر تغيير معتمد CO-004، ٢٧/٠٩/٢٠٢٦ ١٤:٣٥ — للمستخلصات والعقود وأوامر التغيير والقيود والشيكات والضرائب والصلاحيات."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_audit_trail
+msgid "The tracking is there; the reason is not, and the reason is the only part an auditor ever asks about. Ask for it at the moment of the change — a field on the form, refused if empty — and the trail turns from a log into evidence. Reading it across documents is the easy half and can follow."
+msgstr "التتبّع موجود؛ السبب غير موجود، والسبب وحده ما يسأل عنه المدقق. اطلبه لحظة التغيير — حقل في النموذج يُرفض فارغًا — فيتحول السجل من مذكرة إلى دليل. أما قراءته عبر المستندات فهي النصف السهل ويمكن أن تتبع."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_ai_assistant
+msgid "An assistant that reads and explains, and never posts"
+msgstr "مساعد يقرأ ويشرح ولا يرحّل"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_ai_assistant
+msgid "Nothing."
+msgstr "لا يوجد."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_ai_assistant
+msgid "What is the expected cost of the villa project? Which claims are certified and not invoiced? Why did the school project's margin fall? Which invoices are more than 30 days overdue? Answered from the data. Later, limited actions that only ever produce a draft."
+msgstr "كم التكلفة المتوقعة لمشروع الفيلا؟ ما المستخلصات المعتمدة وغير المفوترة؟ لماذا انخفض هامش مشروع المدرسة؟ ما الفواتير المتأخرة أكثر من ٣٠ يومًا؟ يجيب من البيانات. ولاحقًا إجراءات مقيدة لا تنتج إلا مسودة."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_ai_assistant
+msgid "I agree completely with the limit — never post, pay or approve without a person — and I would go further. Three of the four questions listed there are answered by screens in this app, cheaply and identically every time, which a language model cannot promise. Build the assistant when the screens exist and people still cannot find the answer, not instead of them."
+msgstr "أوافق تمامًا على الحد — لا ترحيل ولا دفع ولا اعتماد بلا إنسان — وأزيد عليه. ثلاثة من الأسئلة الأربعة المذكورة تجيب عليها شاشات في هذا التطبيق، بثمن أقل وبنفس الإجابة كل مرة، وهذا ما لا يستطيع نموذج لغوي أن يضمنه. ابنِ المساعد حين توجد الشاشات ويظل الناس لا يجدون الإجابة، لا بدلًا عنها."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_whatsapp
+msgid "WhatsApp inside the flow"
+msgstr "واتساب جزءًا من النظام"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_whatsapp
+msgid "A send button exists on invoices and statements. There is no record that it was sent, no automatic reminder, and no switch to turn it off for one client."
+msgstr "زر الإرسال موجود على الفواتير وكشوف الحساب. لا يوجد تسجيل أنها أُرسلت، ولا تذكير تلقائي، ولا مفتاح لتعطيله لعميل واحد."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_whatsapp
+msgid "On issue: send the invoice, the link, the number, the amount and the due date; record it as sent, later as paid; remind after 7 days and again after 14. Switchable off per client."
+msgstr "عند الإصدار: أرسل الفاتورة والرابط والرقم والمبلغ وتاريخ الاستحقاق؛ سجّلها مُرسَلة، ثم مدفوعة؛ وذكّر بعد ٧ أيام ثم بعد ١٤. قابل للتعطيل لكل عميل."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_whatsapp
+msgid "The reminder is the valuable half, and the sending is already built. One condition, which is why I mark it for your decision rather than doing it: reminders go out on a schedule with nobody watching, so they must be off by default and turned on per customer. A second reminder to a client the company is mid-negotiation with costs more than the collection it chases."
+msgstr "التذكير هو النصف المفيد، والإرسال مبني أصلًا. بشرط واحد، ولهذا أضعه لقرارك لا أنفّذه: التذكيرات تخرج بمهمة مجدولة بلا رقابة، فيجب أن تكون معطّلة افتراضيًا وتُفعَّل لكل عميل على حدة. تذكير ثانٍ لعميل تتفاوض معه الشركة يكلّف أكثر من التحصيل الذي يطارده."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_document_centre
+msgid "The contractor's document centre"
+msgstr "مركز مستندات المقاول"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_document_centre
+msgid "Attachments work, and guarantees have an expiry date with a warning. Nothing groups a contract's, a supplier's or a project's documents, and licences and trade certificates have no expiry date at all."
+msgstr "المرفقات تعمل، وللضمانات تاريخ انتهاء وتحذير. لكن لا شيء يجمع مستندات عقد أو مورد أو مشروع، ولا تواريخ انتهاء للرخص والشهادات."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_document_centre
+msgid "Under the contract: the original, addenda, change orders, correspondence, claims, guarantees, cheques. Under the supplier: contract, licence, TRN, bank certificate, cheques, invoices. Under the project: bill of quantities, drawings, site reports, certificates, invoices, photos. With alerts — the licence expires in 20 days."
+msgstr "تحت العقد: الأصل، والملاحق، وأوامر التغيير، والمراسلات، والمستخلصات، والضمانات، والشيكات. وتحت المورد: العقد، والرخصة، والرقم الضريبي، وشهادة البنك، والشيكات، والفواتير. وتحت المشروع: جدول الكميات، والمخططات، وتقارير الموقع، والشهادات، والفواتير، والصور. مع تنبيهات — الرخصة تنتهي خلال ٢٠ يومًا."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_document_centre
+msgid "The expiry dates are the reason to build it. Grouping files is a convenience; an expired supplier licence found during an audit, or a guarantee that lapsed while a claim was outstanding, is money. Model the dates first and the folders second — the folders are what makes it look finished, the dates are what makes it worth having."
+msgstr "تواريخ الانتهاء هي سبب البناء. تجميع الملفات راحة؛ أما رخصة مورد منتهية يكتشفها التدقيق، أو ضمان انتهى ومستخلص قائم، فهذه نقود. صمّم التواريخ أولًا والمجلدات ثانيًا — المجلدات ما يجعله يبدو مكتملًا، والتواريخ ما يجعله يستحق الوجود."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_background_jobs
+msgid "Heavy work moved to the background"
+msgstr "نقل العمليات الثقيلة إلى الخلفية"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_background_jobs
+msgid "Everything runs inside the request. The server is still in threaded mode with no workers configured, so a large import holds the page and a second user waits behind it."
+msgstr "كل شيء يعمل داخل الطلب. والخادم لا يزال في النمط الخيطي بلا workers مضبوطة، فالاستيراد الكبير يحجز الصفحة وينتظر مستخدم ثانٍ خلفه."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_background_jobs
+msgid "Bank statement imports, Excel imports, large reports, payment runs, mass journal entries, service provider sync, bulk notifications and work-in-progress reports move to a job queue. OCA's queue_job supports Odoo 18 and requires more than one worker."
+msgstr "استيراد كشوف البنك، واستيراد Excel، والتقارير الكبيرة، وتشغيل الدفعات، والقيود الجماعية، ومزامنة مزود الخدمة، والإشعارات الجماعية، وتقارير الأعمال تحت التنفيذ تنتقل إلى طابور مهام. وqueue_job من OCA يدعم أودو ١٨ ويتطلب أكثر من worker واحد."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_background_jobs
+msgid "Correct that this is architecture rather than polish: the workers must be set before a second client shares the server, and that is a production setting still sitting at its default. I would configure the workers now, today, and add the queue when an import actually times out — the first is an hour, the second is a week."
+msgstr "صحيح أن هذا معمار لا تجميل: يجب ضبط الـworkers قبل أن يتشارك عميل ثانٍ الخادم، وهو إعداد إنتاج لا يزال على قيمته الافتراضية. أضبط الـworkers الآن، اليوم، وأضيف الطابور عندما يتجاوز استيراد فعلي المهلة — الأول ساعة والثاني أسبوع."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_perf_monitoring
+msgid "Performance monitoring, and a load-test database"
+msgstr "مراقبة الأداء وقاعدة اختبار حِمل"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_perf_monitoring
+msgid "Nothing is measured. The hosting sizing in the architecture report is an estimate and says so."
+msgstr "لا شيء مقيس. وحجم الاستضافة في التقرير المعماري تقدير ويقول ذلك عن نفسه."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_perf_monitoring
+msgid "Screen open time, SQL queries, slow requests, cron and queue duration, user count, worker state, server errors and database size — plus a synthetic database (100 projects, 50,000 invoices, 500,000 journal lines, 100,000 bank transactions) measured at 5, 10, 20 and 30 users."
+msgstr "زمن فتح الشاشة، واستعلامات SQL، والطلبات البطيئة، ومدة المهام المجدولة والطابور، وعدد المستخدمين، وحالة الـworkers، وأخطاء الخادم، وحجم القاعدة — مع قاعدة اصطناعية (١٠٠ مشروع، ٥٠٠٠٠ فاتورة، ٥٠٠٠٠٠ سطر قيد، ١٠٠٠٠٠ حركة بنكية) تُقاس عند ٥ و١٠ و٢٠ و٣٠ مستخدمًا."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_perf_monitoring
+msgid "The load-test database is the half I would build first and it is cheap: generating it is a script, and it replaces a guess about hosting with a measurement. Monitoring can wait for the first client who complains, because until there is a baseline there is nothing to compare a measurement against."
+msgstr "قاعدة اختبار الحمل هي النصف الذي أبنيه أولًا وهي رخيصة: توليدها سكربت، وتستبدل تخمينًا عن الاستضافة بقياس. أما المراقبة فتنتظر أول عميل يشتكي، لأنه قبل وجود خط أساس لا يوجد ما يُقارن به القياس."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_platform_centre
+msgid "The platform control centre"
+msgstr "لوحة تحكم المنصة"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_platform_centre
+msgid "Built. Client, database, plan, users against the limit, size, last activity, backup state, health with its reason, and a renewal warning — for every tenant."
+msgstr "مبنية. العميل، والقاعدة، والخطة، والمستخدمون مقابل الحد، والحجم، وآخر نشاط، وحالة النسخ الاحتياطي، والصحة مع سببها، وتحذير التجديد — لكل عميل."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_platform_centre
+msgid "A table of every tenant database with size, users, backup and health, so one person can run ten clients."
+msgstr "جدول بكل قاعدة عميل مع الحجم والمستخدمين والنسخ الاحتياطي والصحة، ليدير شخص واحد عشرة عملاء."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_platform_centre
+msgid "Nothing to decide: open Platform › Tenants and look. What it does not yet carry is the module version each client runs, which is the next proposal in this list."
+msgstr "لا شيء للقرار: افتح المنصة › العملاء وانظر. ما لا تحمله بعد هو إصدار الوحدات الذي يعمل به كل عميل، وهو المقترح التالي في هذه القائمة."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_upgrade_centre
+msgid "An upgrade centre"
+msgstr "مركز الترقية"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_upgrade_centre
+msgid "No tenant record says which version it runs, so an upgrade is done by hand and remembered by hand."
+msgstr "لا يقول سجل أي عميل أي إصدار يعمل به، فالترقية تُجرى يدويًا وتُتذكَّر يدويًا."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_upgrade_centre
+msgid "Every release numbered, with migration scripts, tests, database compatibility and a rollback plan; then per client: current 1.4.1, available 1.4.2 → back up → run tests → upgrade → health check."
+msgstr "كل إصدار مرقّم، مع سكربتات ترحيل واختبارات وتوافق قواعد بيانات وخطة رجوع؛ ثم لكل عميل: الحالي ١٫٤٫١، المتاح ١٫٤٫٢ → نسخة احتياطية → تشغيل الاختبارات → ترقية → فحص صحة."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_upgrade_centre
+msgid "The version field and the rollback plan are worth doing before the third client, not after. The one-click upgrade can wait; the record of who runs what cannot, because the first question on any support call is which version they are on — and today the only way to answer it is to log into their database."
+msgstr "حقل الإصدار وخطة الرجوع يستحقان التنفيذ قبل العميل الثالث لا بعده. أما الترقية بضغطة فتنتظر؛ لكن سجل من يعمل بأي إصدار لا ينتظر، لأن أول سؤال في أي مكالمة دعم هو: أي إصدار عندهم؟ — والطريقة الوحيدة للإجابة اليوم هي الدخول إلى قاعدتهم."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_backup_verify
+msgid "Backup verification by actually restoring it"
+msgstr "التحقق من النسخة الاحتياطية بالاستعادة فعلًا"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_backup_verify
+msgid "Backups run and are recorded with size, duration and errors, and the restore manifest is written. No backup has ever been restored to prove that it can be."
+msgstr "النسخ تُنفَّذ وتُسجَّل بالحجم والمدة والأخطاء، ويُكتب ملف الاستعادة. لكن لم تُستعد نسخة واحدة قط لإثبات أنها قابلة للاستعادة."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_backup_verify
+msgid "Weekly: back up → restore into a temporary environment → health check → destroy it, and show last verified restore: 27 Sep 2026."
+msgstr "أسبوعيًا: نسخة → استعادة إلى بيئة مؤقتة → فحص صحة → إتلاف البيئة، وإظهار: آخر استعادة متحققة: ٢٧ سبتمبر ٢٠٢٦."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_backup_verify
+msgid "I agree this is a condition rather than a feature. A backup that has never been restored is a file, not a backup, and the health check that would run against the restored copy already exists — so the work is mostly wiring. This is the one item on the list I would not let a client go live without."
+msgstr "أوافق أن هذا شرط لا ميزة. النسخة التي لم تُستعد قط ملف لا نسخة، وفحص الصحة الذي سيعمل على النسخة المستعادة موجود أصلًا — فالعمل توصيل أكثر منه بناء. وهذا البند الوحيد في القائمة الذي لا أسمح بإطلاق عميل بدونه."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_alerts
+msgid "An alert rules engine"
+msgstr "محرك قواعد التنبيهات"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_alerts
+msgid "Individual warnings exist — guarantee expiring, over budget, over the user limit — each written into the code that owns it. There are no rules, no recipients and no channels."
+msgstr "توجد تحذيرات مفردة — ضمان ينتهي، وتجاوز ميزانية، وتجاوز حد المستخدمين — كل منها مكتوب في الكود الذي يملكه. لا قواعد ولا مستقبِلون ولا قنوات."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_alerts
+msgid "Project cost above 90% of budget → project manager. Cost at completion above the contract → finance. Guarantee under 30 days → finance. Customer over 30 days late → accounts. Cheque bounced → finance and the general manager. Advance overdue → HR and finance. Each with its channel: in the system, email, WhatsApp, push."
+msgstr "تكلفة المشروع فوق ٩٠٪ من الميزانية → مدير المشروع. تكلفة الإكمال فوق قيمة العقد → المالية. ضمان أقل من ٣٠ يومًا → المالية. عميل متأخر أكثر من ٣٠ يومًا → الحسابات. شيك مرتجع → المالية والمدير العام. سلفة متأخرة → الموارد البشرية والمالية. ولكل تنبيه قناته: داخل النظام، أو بريد، أو واتساب، أو إشعار."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_alerts
+msgid "Here a rules table earns its place, unlike the business rules: who is told, at what threshold, on which channel is genuinely a company's own choice and changes without a developer. Start in the system only, and add email and WhatsApp once somebody complains they missed one — an alert nobody reads trains people to ignore the next one."
+msgstr "هنا يستحق جدول القواعد وجوده، بخلاف قواعد العمل: من يُبلَّغ، وعند أي حد، وبأي قناة — هذا خيار الشركة فعلًا ويتغير بلا مبرمج. ابدأ داخل النظام فقط، وأضف البريد والواتساب عندما يشتكي أحد أنه فوّت تنبيهًا — والتنبيه الذي لا يقرأه أحد يدرّب الناس على تجاهل الذي بعده."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_tax_master_data
+msgid "UAE tax as master data, not code"
+msgstr "ضريبة الإمارات بيانات لا كودًا"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_tax_master_data
+msgid "The taxes and the fiscal positions are configuration already. But the city-to-emirate map is a Python dictionary I wrote, and you cannot add a city to it."
+msgstr "الضرائب والأوضاع الضريبية إعدادات فعلًا. لكن خريطة المدينة إلى الإمارة قاموس بايثون كتبته أنا، ولا تستطيع إضافة مدينة إليه."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_tax_master_data
+msgid "A table of emirate, fiscal position, VAT treatment, whether a TRN is required, default accounts and rules — editable without touching Python. Plus an e-invoicing adapter, so the product is not tied to one accredited service provider."
+msgstr "جدول بالإمارة، والوضع الضريبي، ومعالجة الضريبة، وهل الرقم الضريبي مطلوب، والحسابات الافتراضية، والقواعد — قابل للتعديل بلا لمس بايثون. مع مهايئ للفوترة الإلكترونية، فلا يرتبط المنتج بمزود خدمة معتمد واحد."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_tax_master_data
+msgid "The hardcoded map is a fair criticism of my own work: a customer in a town that dictionary does not list silently ends up with no emirate, which is the exact failure that zero-rated domestic sales here. Moving it to a table is under a day. The adapter I agree with entirely — the federal programme and the accredited provider list are still changing, and the PINT AE document is already written independently of any provider."
+msgstr "الخريطة المثبتة في الكود نقد عادل لعملي: عميل في بلدة لا يذكرها القاموس يبقى بلا إمارة بصمت، وهو نفس الخلل الذي صفّر الضريبة على مبيعات محلية هنا. نقلها إلى جدول أقل من يوم. والمهايئ أوافق عليه تمامًا — البرنامج الفيدرالي وقائمة المزودين المعتمدين لا تزال تتغير، ومستند PINT AE مكتوب أصلًا بمعزل عن أي مزود."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_structured_first
+msgid "Structured data first, PDF never the source"
+msgstr "البيانات المنظمة أولًا ولا يكون PDF مصدرًا"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_structured_first
+msgid "This is already the rule. Bank statements import from CSV, XLSX and CAMT and are matched automatically; PDF was refused deliberately."
+msgstr "هذه هي القاعدة أصلًا. كشوف البنك تُستورد من CSV و XLSX و CAMT وتُطابق تلقائيًا؛ وPDF مرفوض عن قصد."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_structured_first
+msgid "CSV, XLSX, API, XML, Peppol, bank feeds — and PDF only as something to read or attach, never the source of truth when a structured format exists."
+msgstr "CSV و XLSX و API و XML و Peppol وتغذية البنك — وPDF للقراءة أو الإرفاق فقط، لا مصدرًا للحقيقة إذا وُجدت صيغة منظمة."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_structured_first
+msgid "Nothing to decide, but worth recording as a policy rather than a coincidence, because the request to import PDF statements will come back. A machine that reads a PDF correctly 98 percent of the time is wrong once every fifty lines, in a ledger that has to tie to the fils."
+msgstr "لا شيء للقرار، لكنه يستحق التسجيل كسياسة لا كمصادفة، لأن طلب استيراد كشوف PDF سيعود. آلة تقرأ PDF بصواب ٩٨ بالمئة تكون خاطئة مرة كل خمسين سطرًا، في دفتر يجب أن يطابق إلى الفلس."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_global_search
+msgid "Search that crosses documents"
+msgstr "بحث يعبر المستندات"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_global_search
+msgid "Odoo searches inside whichever list is open. Typing an invoice number does not show you the claim, the payment and the entry behind it."
+msgstr "أودو يبحث داخل القائمة المفتوحة. وكتابة رقم فاتورة لا تُظهر المستخلص والدفعة والقيد وراءها."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_global_search
+msgid "Type INV/2026/00005 and get the invoice, the customer, the claim, the account, the payment, the entry and the bank line. Type the villa project and get the contract, bill of quantities, budget, invoices, bills, expenses, retention, work in progress and change orders."
+msgstr "اكتب INV/2026/00005 فتظهر الفاتورة والعميل والمستخلص والحساب والدفعة والقيد والسطر البنكي. واكتب مشروع الفيلا فيظهر العقد وجدول الكميات والميزانية والفواتير وفواتير الموردين والمصروفات والمحتجزات والأعمال تحت التنفيذ وأوامر التغيير."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_global_search
+msgid "Useful, and less small than it looks: a search across models either queries a dozen tables on every keystroke or needs an index that has to be maintained. The contract form already carries the project half of this. I would put the links on the documents themselves — an invoice showing its claim, a claim showing its invoice — and leave the search bar as Odoo built it."
+msgstr "مفيد، وأقل بساطة مما يبدو: البحث عبر النماذج إما يستعلم عشرات الجداول عند كل حرف أو يحتاج فهرسًا يجب صيانته. ونموذج العقد يحمل نصف هذا الخاص بالمشروع أصلًا. أفضّل وضع الروابط على المستندات نفسها — فاتورة تُظهر مستخلصها، ومستخلص يُظهر فاتورته — وترك شريط البحث كما بناه أودو."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_command_palette
+msgid "A command palette"
+msgstr "لوحة الأوامر"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_command_palette
+msgid "Odoo 18 ships one. Ctrl+K opens it and it already searches menus, records and commands. Our own actions are simply not registered in it."
+msgstr "أودو ١٨ يوفرها. Ctrl+K يفتحها وتبحث في القوائم والسجلات والأوامر أصلًا. إجراءاتنا فقط غير مسجّلة فيها."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_command_palette
+msgid "Press Ctrl+K and type create invoice, or open the villa project, or approve claim 7, or bank."
+msgstr "اضغط Ctrl+K واكتب: أنشئ فاتورة، أو افتح مشروع الفيلا، أو اعتمد المستخلص ٧، أو البنك."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_command_palette
+msgid "Try it before approving anything — the feature is in the product you already have. What is worth an hour is registering our own commands in it and checking it behaves in Arabic. Building a second palette would mean maintaining what Odoo maintains for us."
+msgstr "جرّبها قبل اعتماد أي شيء — الميزة موجودة في المنتج الذي عندك. وما يستحق ساعة هو تسجيل أوامرنا فيها والتأكد من سلوكها بالعربية. أما بناء لوحة ثانية فمعناه صيانة ما يصونه أودو لنا."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_bulk_actions
+msgid "Bulk actions on a selection"
+msgstr "إجراءات جماعية على تحديد"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_bulk_actions
+msgid "Complete All already runs over a selection. Assigning a cost centre or a project to fifty lines at once, and sending in bulk, do not exist."
+msgstr "«إكمال الكل» يعمل على تحديد أصلًا. أما إسناد مركز تكلفة أو مشروع لخمسين سطرًا مرة واحدة، والإرسال الجماعي، فغير موجودين."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_bulk_actions
+msgid "Approve, reject, set cost centre, set project, export, send by WhatsApp, send by email, post — over everything selected."
+msgstr "اعتماد، ورفض، وتعيين مركز تكلفة، وتعيين مشروع، وتصدير، وإرسال بالواتساب، وإرسال بالبريد، وترحيل — على كل ما هو محدَّد."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_bulk_actions
+msgid "Setting the cost centre in bulk is the one that pays for itself: the data quality screen finds costs with no cost centre, and fixing them one at a time is why they stay unfixed. Bulk posting I would leave out — posting fifty entries on one click is fifty entries nobody read, and that is the complaint about Complete All in a new place."
+msgstr "تعيين مركز التكلفة جماعيًا هو ما يسدّد ثمنه: شاشة جودة البيانات تجد تكاليف بلا مركز تكلفة، وإصلاحها واحدًا واحدًا هو سبب بقائها. أما الترحيل الجماعي فأستثنيه — ترحيل خمسين قيدًا بضغطة هو خمسون قيدًا لم يقرأها أحد، وهي شكوى «إكمال الكل» في موضع جديد."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_data_quality
+msgid "Data quality as a screen, not a report"
+msgstr "جودة البيانات شاشة لا تقريرًا"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_data_quality
+msgid "Built here as a screen over the same checks the script used to print. The fix-everything-automatically button is not built."
+msgstr "مبنية هنا كشاشة على نفس الفحوص التي كان السكربت يطبعها. أما زر «إصلاح الكل تلقائيًا» فغير مبني."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_data_quality
+msgid "11 problems — projects 3, customers 1, vendors 2, expenses 5 — then: fix all automatically, or review."
+msgstr "١١ مشكلة — المشاريع ٣، العملاء ١، الموردون ٢، المصروفات ٥ — ثم: إصلاح الكل تلقائيًا، أو مراجعة."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_data_quality
+msgid "Open Preview › Data Quality: the screen is there, every row counts real records in this database and opens them. I recommend against fix all. What would it fix? A cost with no cost centre has no correct answer the system can guess, and a guessed cost centre moves money to the wrong project while reporting the problem as solved — the worst of the two outcomes. Bulk assignment with a person choosing saves the same hours honestly."
+msgstr "افتح معاينة › جودة البيانات: الشاشة موجودة، وكل سطر يعدّ سجلات حقيقية في هذه القاعدة ويفتحها. لكنني أنصح بعدم «إصلاح الكل». ماذا سيصلح؟ تكلفة بلا مركز تكلفة ليس لها جواب صحيح يخمّنه النظام، والمركز المخمَّن ينقل المال إلى مشروع خاطئ ويعلن المشكلة محلولة — وهي أسوأ النتيجتين. الإسناد الجماعي بقرار إنسان يوفّر نفس الساعات بصدق."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_no_primavera
+msgid "Full critical-path planning, Primavera class"
+msgstr "تخطيط كامل بالمسار الحرج بمستوى بريمافيرا"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_no_primavera
+msgid "Not built, and not proposed to be."
+msgstr "غير مبني، وغير مقترح أن يُبنى."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_no_primavera
+msgid "Activity networks, logic links, float, resource levelling and a baseline programme against which delay is claimed."
+msgstr "شبكات أنشطة، وعلاقات منطقية، ووقت عائم، وموازنة موارد، وبرنامج خط أساس يُطالب التأخير مقابله."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_no_primavera
+msgid "Agreed with excluding it. That is a different product, and the contractors who need it already own it. What is worth taking from it is one field — the time impact on a change order — not the engine."
+msgstr "أوافق على استثنائه. هذا منتج مختلف، والمقاولون الذين يحتاجونه يملكونه أصلًا. وما يستحق الأخذ منه حقل واحد — الأثر الزمني في أمر التغيير — لا المحرك."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_no_multicountry
+msgid "Multi-country support"
+msgstr "دعم تعدد الدول"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_no_multicountry
+msgid "Not built, and not proposed to be."
+msgstr "غير مبني، وغير مقترح أن يُبنى."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_no_multicountry
+msgid "A chart of accounts, tax regime and statutory reports for more than one country."
+msgstr "دليل حسابات ونظام ضريبي وتقارير نظامية لأكثر من دولة."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_no_multicountry
+msgid "Agreed. The product's value is that it knows the UAE rules exactly — VAT per emirate, Form 201, the federal e-invoicing programme. Generalising that away is how the advantage is lost, and Odoo already localises other countries for whoever needs them."
+msgstr "أوافق. قيمة المنتج أنه يعرف قواعد الإمارات بدقة — الضريبة لكل إمارة، ونموذج ٢٠١، وبرنامج الفوترة الفيدرالي. وتعميم ذلك هو كيف تُفقد الميزة، وأودو يوطّن دولًا أخرى لمن يحتاجها."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_no_pdf_ocr
+msgid "Reading bank statements out of PDF"
+msgstr "قراءة كشوف البنك من PDF"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_no_pdf_ocr
+msgid "Not built, and deliberately refused."
+msgstr "غير مبني، ومرفوض عن قصد."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_no_pdf_ocr
+msgid "Extracting transactions from a PDF statement by character recognition."
+msgstr "استخراج الحركات من كشف PDF بالتعرف على الحروف."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_no_pdf_ocr
+msgid "Agreed, and this one I would refuse rather than defer. Every UAE bank offers CSV or XLSX; choosing the harder input to save the customer one menu click means the ledger's bank balance comes from character recognition. The import already takes CSV, XLSX and CAMT."
+msgstr "أوافق، وهذا بالذات أرفضه لا أؤجّله. كل بنك إماراتي يوفّر CSV أو XLSX؛ واختيار المصدر الأصعب لتوفير ضغطة قائمة على العميل يعني أن رصيد البنك في الدفتر يأتي من تعرّف على الحروف. والاستيراد يقبل CSV و XLSX و CAMT أصلًا."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_no_ai_posting
+msgid "An AI that posts entries and makes payments"
+msgstr "ذكاء اصطناعي يرحّل القيود وينفّذ الدفعات"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_no_ai_posting
+msgid "Not built, and it should stay that way."
+msgstr "غير مبني، ويجب أن يبقى كذلك."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_no_ai_posting
+msgid "An assistant permitted to post journal entries, pay suppliers and approve documents on its own."
+msgstr "مساعد مسموح له بترحيل القيود ودفع المستحقات واعتماد المستندات وحده."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_no_ai_posting
+msgid "Agreed, and I would keep it refused permanently rather than scheduled for later. The audit trail has to name a person for every posting; an assistant that posts breaks the single property that makes a ledger evidence."
+msgstr "أوافق، وأبقيه مرفوضًا دائمًا لا مؤجّلًا إلى لاحقًا. سجل التدقيق يجب أن يسمّي شخصًا لكل ترحيل؛ ومساعد يرحّل يهدم الخصيصة الوحيدة التي تجعل الدفتر دليلًا."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,name:mizan_preview.proposal_no_more_reports
+msgid "Dozens more reports"
+msgstr "عشرات التقارير الإضافية"
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,gap:mizan_preview.proposal_no_more_reports
+msgid "Not built, and not proposed to be."
+msgstr "غير مبني، وغير مقترح أن يُبنى."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,detail:mizan_preview.proposal_no_more_reports
+msgid "A report for every question anyone has ever asked, added to the reporting menu."
+msgstr "تقرير لكل سؤال سأله أحد يومًا، يُضاف إلى قائمة التقارير."
+
+#. module: mizan_preview
+#: model:mizan.preview.proposal,reasoning:mizan_preview.proposal_no_more_reports
+msgid "Agreed. The reporting menu was flattened for exactly this reason, and your complaint was that you could not find anything in it. An exception screen tells you what needs you; eighty reports tell you to go looking."
+msgstr "أوافق. قائمة التقارير سُطّحت لهذا السبب تحديدًا، وشكوتك كانت أنك لا تجد شيئًا فيها. شاشة الاستثناءات تقول لك ما يحتاجك؛ وثمانون تقريرًا تقول لك ابحث."

@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- The thirty proposals, plus the five the author recommended against.
+         Seeded as data rather than typed in by hand so the wording the finance
+         manager reads is the wording in the repository, and so an upgrade can
+         correct a description without touching a decision he has recorded.
+
+         "Status today" on every row was checked against the code before it was
+         written here. Six things described as proposals already exist, and one
+         of them ships with Odoo itself. -->
+
+    <record id="proposal_inbox" model="mizan.preview.proposal">
+        <field name="sequence">10</field>
+        <field name="name">Work Inbox — what is waiting for me</field>
+        <field name="area">ux</field>
+        <field name="build_state">partial</field>
+        <field name="gap">Built here as a read-only prototype. It is not the landing screen, and nothing is approved from it.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">m</field>
+        <field name="priority">1</field>
+        <field name="detail">One screen answering “what is waiting for me?” — claims to certify, cheques to sign, bills to review, expenses to approve, unmatched bank lines — instead of opening eight apps to find out.</field>
+        <field name="reasoning">Open it from Preview › Working Prototypes and judge the thing itself rather than the description. Making it the landing screen is easy; letting approvals happen on it is the part that needs your decision, because an approval taken outside the document's own form has no audit trail unless it is wired through the document.</field>
+    </record>
+    <record id="proposal_dashboards" model="mizan.preview.proposal">
+        <field name="sequence">20</field>
+        <field name="name">A screen per role, not one dashboard</field>
+        <field name="area">ux</field>
+        <field name="build_state">new</field>
+        <field name="gap">No dashboards at all today. Every role opens the same menus.</field>
+        <field name="recommendation">differ</field>
+        <field name="effort">l</field>
+        <field name="priority">14</field>
+        <field name="detail">A general manager screen (contract value, receivables, cash, warnings), a finance screen (work in progress, cost at completion, retention, VAT, closing), and a project manager screen with no accounting on it at all.</field>
+        <field name="reasoning">Agreed on the project manager screen — he should not see the ledger, and the access rights already allow that today. I would not build three dashboards of figures: the inbox plus one exception list per role carries the same information and does not go stale. A dashboard is the first thing that stops being maintained, and a stale dashboard is worse than none.</field>
+    </record>
+    <record id="proposal_next_action" model="mizan.preview.proposal">
+        <field name="sequence">30</field>
+        <field name="name">One button that names the next step</field>
+        <field name="area">ux</field>
+        <field name="build_state">partial</field>
+        <field name="gap">Documents have their state buttons, and Complete All runs the whole chain. Neither tells the user which single step comes next.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">m</field>
+        <field name="priority">11</field>
+        <field name="detail">Draft → quantity check → sequence check → project manager → finance → invoice → collection, with one button relabelled at each stage: Send for review, then Approve, then Create invoice, then Record collection.</field>
+        <field name="reasoning">The cheapest of the experience items and the one your complaint was really about. One caution: keep it separate from Complete All. A button that names one step teaches the workflow; a button that does seven hides it, and the person who never learned the sequence is the person who cannot tell when it went wrong.</field>
+    </record>
+    <record id="proposal_claim_wizard" model="mizan.preview.proposal">
+        <field name="sequence">40</field>
+        <field name="name">A stepped wizard for the progress claim</field>
+        <field name="area">contracting</field>
+        <field name="build_state">partial</field>
+        <field name="gap">The claim already pulls the bill of quantities, carries previous quantities forward, and refuses over-measurement and out-of-order certification. What is missing is only the step-by-step presentation.</field>
+        <field name="recommendation">differ</field>
+        <field name="effort">m</field>
+        <field name="priority">16</field>
+        <field name="detail">Project → period → lines extracted → enter current quantities → the system computes previous + current = cumulative and runs its checks → create the claim.</field>
+        <field name="reasoning">Worth doing, but it is presentation, not protection. The checks are what stop a wrong claim, and they already exist and are enforced when the claim is saved, not when a wizard asks nicely. I would rank the claim form's own clarity — quantity, previous, cumulative, remaining in one grid — ahead of the wizard, and the wizard after the change order.</field>
+    </record>
+    <record id="proposal_smart_defaults" model="mizan.preview.proposal">
+        <field name="sequence">50</field>
+        <field name="name">Smart defaults, and a warning before posting</field>
+        <field name="area">finance</field>
+        <field name="build_state">partial</field>
+        <field name="gap">Currency, tax, emirate and the fiscal position are already derived from the customer. Project, cost centre and payment terms are not, and missing data is refused at posting instead of warned about while the invoice is open.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">s</field>
+        <field name="priority">8</field>
+        <field name="detail">Choosing the customer fills in everything derivable, and anything missing shows on the form as a warning: this customer has no emirate — set it before posting.</field>
+        <field name="reasoning">The emirate is the proof of why this matters: every customer in this database lacked one, so a non-UAE fiscal position was zero-rating domestic sales until it was found and fixed. A warning while the invoice is still open costs under a day and prevents exactly that class of error — the kind nobody notices until the return is filed.</field>
+    </record>
+    <record id="proposal_rules_engine" model="mizan.preview.proposal">
+        <field name="sequence">60</field>
+        <field name="name">A central business rules engine</field>
+        <field name="area">ops</field>
+        <field name="build_state">new</field>
+        <field name="gap">The rules are real and enforced, but each lives in the module that owns its document.</field>
+        <field name="recommendation">differ</field>
+        <field name="effort">l</field>
+        <field name="priority">22</field>
+        <field name="detail">One module holding the conditions — cumulative quantity not above the bill unless a change order is approved, the previous certificate posted, retention, tax position, revenue recognition — instead of six modules each holding their own.</field>
+        <field name="reasoning">I would share the check functions and stop there, rather than make the rules configurable. These rules come from UAE law and from IFRS 15: they must be identical for every client, and a rules table invites a client to switch off the one refusing their claim. Shared functions give you the single place to edit without that risk — the benefit you actually described.</field>
+    </record>
+    <record id="proposal_match_confidence" model="mizan.preview.proposal">
+        <field name="sequence">70</field>
+        <field name="name">A confidence score for bank matching</field>
+        <field name="area">finance</field>
+        <field name="build_state">partial</field>
+        <field name="gap">Matching is built and automatic, but its answer is yes or no. A weak match and a certain one are treated the same.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">s</field>
+        <field name="priority">7</field>
+        <field name="detail">98% invoice number and amount both match · 92% the party's only open document of exactly this amount · 88% a reconciliation rule claims it · 63% document named, amount differs · 12% nothing recognised. Settle automatically above 95% and send the rest to the inbox.</field>
+        <field name="reasoning">Working now in Preview › Bank Match Confidence, scored against the open lines in this database. This is the item I would build first: it changes nothing about whether the ledger is correct and everything about how a thousand lines a month get handled. Note the threshold is a policy, not a constant — you own it, and it should be visible in settings.</field>
+    </record>
+    <record id="proposal_employee_advances" model="mizan.preview.proposal">
+        <field name="sequence">80</field>
+        <field name="name">Employee advances</field>
+        <field name="area">finance</field>
+        <field name="build_state">new</field>
+        <field name="gap">Nothing exists. An advance to staff is an ordinary journal entry, with nothing tracking what is left of it.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">m</field>
+        <field name="priority">5</field>
+        <field name="detail">Request → approval → payment → spending → receipts → settlement → balance → return, with the balance visible (Ahmed: 10,000 advanced, 7,200 spent, 2,800 outstanding) and a new advance refused while an old one is unsettled, except under a specific right.</field>
+        <field name="reasoning">This is the largest genuine hole in the system for a contractor. Site cash moves through advances, and an unsettled advance is a receivable nobody can age — it sits in a control account and grows. It also gives the expense module a reason to exist beyond reimbursement, which is how the receipts arrive at all.</field>
+    </record>
+    <record id="proposal_change_orders" model="mizan.preview.proposal">
+        <field name="sequence">90</field>
+        <field name="name">A change order that actually changes the contract</field>
+        <field name="area">contracting</field>
+        <field name="build_state">partial</field>
+        <field name="gap">A variation order exists, with value, cost impact, margin and an approval state. It does not touch the bill of quantities, carries no time impact, no attachments and no record of who requested it, and approving it does not revise the contract value or the budget.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">l</field>
+        <field name="priority">4</field>
+        <field name="detail">The order carries the original line, the original and new quantity, the price, the financial and the time impact, attachments, correspondence, who asked, who approved, and when. Approving it updates the bill of quantities, the contract value, the budget, the cost at completion and revenue recognition.</field>
+        <field name="reasoning">This is the item that decides whether the product is a contracting system. The claim already refuses to measure more than the bill allows; without a change order that raises the bill, that refusal becomes the thing users work around — and the moment they work around it, the quantities stop meaning anything and so does the percentage of completion built on them.</field>
+    </record>
+    <record id="proposal_commitments_eac" model="mizan.preview.proposal">
+        <field name="sequence">100</field>
+        <field name="name">Commitments and cost at completion, side by side</field>
+        <field name="area">contracting</field>
+        <field name="build_state">built</field>
+        <field name="gap">The figures exist and are computed — committed, cost at completion, over budget, forecast loss. What is missing is a screen that puts them side by side instead of as columns inside one contract form.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">s</field>
+        <field name="priority">7</field>
+        <field name="detail">Budget 10M, actual 4M, committed 3M, remaining 3M — and above all cost at completion 11.2M with a red 1.2M expected overrun, shown before the overrun happens rather than reported after it.</field>
+        <field name="reasoning">Already visible in Preview › Project Health for every live contract, one row each. Since the arithmetic is done and tested, this is a view rather than a feature — which is why I recommend it even though the work is under a day.</field>
+    </record>
+    <record id="proposal_project_health" model="mizan.preview.proposal">
+        <field name="sequence">110</field>
+        <field name="name">Project health, with reasons instead of a score</field>
+        <field name="area">contracting</field>
+        <field name="build_state">partial</field>
+        <field name="gap">Every condition is computed somewhere. Nothing gathered them into one row per project until this prototype did.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">s</field>
+        <field name="priority">7</field>
+        <field name="detail">One row per project: contract, budget, actual, committed, cost at completion, overrun, forecast margin, percent by cost against percent measured, certified, collected, outstanding — and a plain list of what needs attention.</field>
+        <field name="reasoning">I followed your own advice and left the aggregate score out. A number a manager can neither argue with nor act on is worse than three sentences he can. The screen says over budget by 8.4 percent, claim certified and not invoiced, collection behind — and each of those names the next move.</field>
+    </record>
+    <record id="proposal_mobile_site" model="mizan.preview.proposal">
+        <field name="sequence">120</field>
+        <field name="name">A site engineer screen on the phone</field>
+        <field name="area">ux</field>
+        <field name="build_state">new</field>
+        <field name="gap">Nothing. An engineer given access today gets the whole back office on a phone screen.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">l</field>
+        <field name="priority">10</field>
+        <field name="detail">My projects, then: raise a claim, upload a receipt, request materials, record labour, request a purchase, attach a photo, ask for a change order, site note, problem, leave, attendance.</field>
+        <field name="reasoning">Agreed that this is what sells the product, and agreed with building it on Odoo's own field service, tasks and barcode capabilities instead of a separate platform. But it is a week or more, and it depends on the site store and employee advances existing first: an engineer requesting materials against nothing is a form that goes nowhere.</field>
+    </record>
+    <record id="proposal_site_store" model="mizan.preview.proposal">
+        <field name="sequence">130</field>
+        <field name="name">Site store</field>
+        <field name="area">contracting</field>
+        <field name="build_state">new</field>
+        <field name="gap">The system does not use inventory at all. Material reaches a job only as a supplier bill.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">l</field>
+        <field name="priority">6</field>
+        <field name="detail">Main warehouse → site → engineer → issue request → approval → issue, posting itself to cost centre, cost code and project: 120 bags of cement, villa project, concrete item, direct cost — with no accountant typing a journal entry.</field>
+        <field name="reasoning">Material bought is not material consumed, and today the system cannot tell the difference: a delivery to the yard is charged to whichever project the bill names. That overstates completion on one job and understates it on another — the same error the percentage-of-completion revenue is calculated from, which is why this matters more than it looks.</field>
+    </record>
+    <record id="proposal_closing" model="mizan.preview.proposal">
+        <field name="sequence">140</field>
+        <field name="name">Month-end closing wizard, and a period lock</field>
+        <field name="area">finance</field>
+        <field name="build_state">partial</field>
+        <field name="gap">The checks exist as a script nobody runs and, now, as a screen. There is no guided close and no period lock, and the year-end closing module is half installed on the old demo database and will not upgrade.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">m</field>
+        <field name="priority">2</field>
+        <field name="detail">Press Start closing, and the system checks drafts, uncertified claims, costs with no cost centre or cost code, unmatched bank lines, VAT, work in progress, retention, accruals, prepayments, customer and vendor advances, payroll, pending cheques and expiring guarantees — then says 11 problems, opens each one, and when they are gone: month ready to close, lock period.</field>
+        <field name="reasoning">Preview › Month-End Readiness already runs those checks against this database and shows only what blocks the close. The lock is the part that matters most and the part not built: without it a posted month keeps changing, and the statements you sent the bank stop matching the statements in the system — which is the one thing an auditor will find.</field>
+    </record>
+    <record id="proposal_audit_trail" model="mizan.preview.proposal">
+        <field name="sequence">150</field>
+        <field name="name">A real audit trail</field>
+        <field name="area">compliance</field>
+        <field name="build_state">partial</field>
+        <field name="gap">Thirty-seven sensitive fields are tracked, and every change sits in the chatter with the user, the old value and the new one. What is missing is a reason attached to the change, and one screen that reads across documents.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">m</field>
+        <field name="priority">8</field>
+        <field name="detail">Contract value 10,000,000 → 10,500,000, user CFO, reason: approved change order CO-004, 27/09/2026 14:35 — for claims, contracts, change orders, journal entries, cheques, taxes and access rights.</field>
+        <field name="reasoning">The tracking is there; the reason is not, and the reason is the only part an auditor ever asks about. Ask for it at the moment of the change — a field on the form, refused if empty — and the trail turns from a log into evidence. Reading it across documents is the easy half and can follow.</field>
+    </record>
+    <record id="proposal_ai_assistant" model="mizan.preview.proposal">
+        <field name="sequence">160</field>
+        <field name="name">An assistant that reads and explains, and never posts</field>
+        <field name="area">ux</field>
+        <field name="build_state">new</field>
+        <field name="gap">Nothing.</field>
+        <field name="recommendation">differ</field>
+        <field name="effort">l</field>
+        <field name="priority">13</field>
+        <field name="detail">What is the expected cost of the villa project? Which claims are certified and not invoiced? Why did the school project's margin fall? Which invoices are more than 30 days overdue? Answered from the data. Later, limited actions that only ever produce a draft.</field>
+        <field name="reasoning">I agree completely with the limit — never post, pay or approve without a person — and I would go further. Three of the four questions listed there are answered by screens in this app, cheaply and identically every time, which a language model cannot promise. Build the assistant when the screens exist and people still cannot find the answer, not instead of them.</field>
+    </record>
+    <record id="proposal_whatsapp" model="mizan.preview.proposal">
+        <field name="sequence">170</field>
+        <field name="name">WhatsApp inside the flow</field>
+        <field name="area">ux</field>
+        <field name="build_state">partial</field>
+        <field name="gap">A send button exists on invoices and statements. There is no record that it was sent, no automatic reminder, and no switch to turn it off for one client.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">m</field>
+        <field name="priority">17</field>
+        <field name="detail">On issue: send the invoice, the link, the number, the amount and the due date; record it as sent, later as paid; remind after 7 days and again after 14. Switchable off per client.</field>
+        <field name="reasoning">The reminder is the valuable half, and the sending is already built. One condition, which is why I mark it for your decision rather than doing it: reminders go out on a schedule with nobody watching, so they must be off by default and turned on per customer. A second reminder to a client the company is mid-negotiation with costs more than the collection it chases.</field>
+    </record>
+    <record id="proposal_document_centre" model="mizan.preview.proposal">
+        <field name="sequence">180</field>
+        <field name="name">The contractor's document centre</field>
+        <field name="area">ops</field>
+        <field name="build_state">partial</field>
+        <field name="gap">Attachments work, and guarantees have an expiry date with a warning. Nothing groups a contract's, a supplier's or a project's documents, and licences and trade certificates have no expiry date at all.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">m</field>
+        <field name="priority">18</field>
+        <field name="detail">Under the contract: the original, addenda, change orders, correspondence, claims, guarantees, cheques. Under the supplier: contract, licence, TRN, bank certificate, cheques, invoices. Under the project: bill of quantities, drawings, site reports, certificates, invoices, photos. With alerts — the licence expires in 20 days.</field>
+        <field name="reasoning">The expiry dates are the reason to build it. Grouping files is a convenience; an expired supplier licence found during an audit, or a guarantee that lapsed while a claim was outstanding, is money. Model the dates first and the folders second — the folders are what makes it look finished, the dates are what makes it worth having.</field>
+    </record>
+    <record id="proposal_background_jobs" model="mizan.preview.proposal">
+        <field name="sequence">190</field>
+        <field name="name">Heavy work moved to the background</field>
+        <field name="area">ops</field>
+        <field name="build_state">new</field>
+        <field name="gap">Everything runs inside the request. The server is still in threaded mode with no workers configured, so a large import holds the page and a second user waits behind it.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">m</field>
+        <field name="priority">9</field>
+        <field name="detail">Bank statement imports, Excel imports, large reports, payment runs, mass journal entries, service provider sync, bulk notifications and work-in-progress reports move to a job queue. OCA's queue_job supports Odoo 18 and requires more than one worker.</field>
+        <field name="reasoning">Correct that this is architecture rather than polish: the workers must be set before a second client shares the server, and that is a production setting still sitting at its default. I would configure the workers now, today, and add the queue when an import actually times out — the first is an hour, the second is a week.</field>
+    </record>
+    <record id="proposal_perf_monitoring" model="mizan.preview.proposal">
+        <field name="sequence">200</field>
+        <field name="name">Performance monitoring, and a load-test database</field>
+        <field name="area">ops</field>
+        <field name="build_state">new</field>
+        <field name="gap">Nothing is measured. The hosting sizing in the architecture report is an estimate and says so.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">m</field>
+        <field name="priority">19</field>
+        <field name="detail">Screen open time, SQL queries, slow requests, cron and queue duration, user count, worker state, server errors and database size — plus a synthetic database (100 projects, 50,000 invoices, 500,000 journal lines, 100,000 bank transactions) measured at 5, 10, 20 and 30 users.</field>
+        <field name="reasoning">The load-test database is the half I would build first and it is cheap: generating it is a script, and it replaces a guess about hosting with a measurement. Monitoring can wait for the first client who complains, because until there is a baseline there is nothing to compare a measurement against.</field>
+    </record>
+    <record id="proposal_platform_centre" model="mizan.preview.proposal">
+        <field name="sequence">210</field>
+        <field name="name">The platform control centre</field>
+        <field name="area">ops</field>
+        <field name="build_state">built</field>
+        <field name="gap">Built. Client, database, plan, users against the limit, size, last activity, backup state, health with its reason, and a renewal warning — for every tenant.</field>
+        <field name="recommendation">done</field>
+        <field name="effort">s</field>
+        <field name="priority">20</field>
+        <field name="detail">A table of every tenant database with size, users, backup and health, so one person can run ten clients.</field>
+        <field name="reasoning">Nothing to decide: open Platform › Tenants and look. What it does not yet carry is the module version each client runs, which is the next proposal in this list.</field>
+    </record>
+    <record id="proposal_upgrade_centre" model="mizan.preview.proposal">
+        <field name="sequence">220</field>
+        <field name="name">An upgrade centre</field>
+        <field name="area">ops</field>
+        <field name="build_state">new</field>
+        <field name="gap">No tenant record says which version it runs, so an upgrade is done by hand and remembered by hand.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">m</field>
+        <field name="priority">21</field>
+        <field name="detail">Every release numbered, with migration scripts, tests, database compatibility and a rollback plan; then per client: current 1.4.1, available 1.4.2 → back up → run tests → upgrade → health check.</field>
+        <field name="reasoning">The version field and the rollback plan are worth doing before the third client, not after. The one-click upgrade can wait; the record of who runs what cannot, because the first question on any support call is which version they are on — and today the only way to answer it is to log into their database.</field>
+    </record>
+    <record id="proposal_backup_verify" model="mizan.preview.proposal">
+        <field name="sequence">230</field>
+        <field name="name">Backup verification by actually restoring it</field>
+        <field name="area">ops</field>
+        <field name="build_state">partial</field>
+        <field name="gap">Backups run and are recorded with size, duration and errors, and the restore manifest is written. No backup has ever been restored to prove that it can be.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">m</field>
+        <field name="priority">9</field>
+        <field name="detail">Weekly: back up → restore into a temporary environment → health check → destroy it, and show last verified restore: 27 Sep 2026.</field>
+        <field name="reasoning">I agree this is a condition rather than a feature. A backup that has never been restored is a file, not a backup, and the health check that would run against the restored copy already exists — so the work is mostly wiring. This is the one item on the list I would not let a client go live without.</field>
+    </record>
+    <record id="proposal_alerts" model="mizan.preview.proposal">
+        <field name="sequence">240</field>
+        <field name="name">An alert rules engine</field>
+        <field name="area">ops</field>
+        <field name="build_state">partial</field>
+        <field name="gap">Individual warnings exist — guarantee expiring, over budget, over the user limit — each written into the code that owns it. There are no rules, no recipients and no channels.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">m</field>
+        <field name="priority">8</field>
+        <field name="detail">Project cost above 90% of budget → project manager. Cost at completion above the contract → finance. Guarantee under 30 days → finance. Customer over 30 days late → accounts. Cheque bounced → finance and the general manager. Advance overdue → HR and finance. Each with its channel: in the system, email, WhatsApp, push.</field>
+        <field name="reasoning">Here a rules table earns its place, unlike the business rules: who is told, at what threshold, on which channel is genuinely a company's own choice and changes without a developer. Start in the system only, and add email and WhatsApp once somebody complains they missed one — an alert nobody reads trains people to ignore the next one.</field>
+    </record>
+    <record id="proposal_tax_master_data" model="mizan.preview.proposal">
+        <field name="sequence">250</field>
+        <field name="name">UAE tax as master data, not code</field>
+        <field name="area">compliance</field>
+        <field name="build_state">partial</field>
+        <field name="gap">The taxes and the fiscal positions are configuration already. But the city-to-emirate map is a Python dictionary I wrote, and you cannot add a city to it.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">s</field>
+        <field name="priority">12</field>
+        <field name="detail">A table of emirate, fiscal position, VAT treatment, whether a TRN is required, default accounts and rules — editable without touching Python. Plus an e-invoicing adapter, so the product is not tied to one accredited service provider.</field>
+        <field name="reasoning">The hardcoded map is a fair criticism of my own work: a customer in a town that dictionary does not list silently ends up with no emirate, which is the exact failure that zero-rated domestic sales here. Moving it to a table is under a day. The adapter I agree with entirely — the federal programme and the accredited provider list are still changing, and the PINT AE document is already written independently of any provider.</field>
+    </record>
+    <record id="proposal_structured_first" model="mizan.preview.proposal">
+        <field name="sequence">260</field>
+        <field name="name">Structured data first, PDF never the source</field>
+        <field name="area">compliance</field>
+        <field name="build_state">built</field>
+        <field name="gap">This is already the rule. Bank statements import from CSV, XLSX and CAMT and are matched automatically; PDF was refused deliberately.</field>
+        <field name="recommendation">done</field>
+        <field name="effort">s</field>
+        <field name="priority">24</field>
+        <field name="detail">CSV, XLSX, API, XML, Peppol, bank feeds — and PDF only as something to read or attach, never the source of truth when a structured format exists.</field>
+        <field name="reasoning">Nothing to decide, but worth recording as a policy rather than a coincidence, because the request to import PDF statements will come back. A machine that reads a PDF correctly 98 percent of the time is wrong once every fifty lines, in a ledger that has to tie to the fils.</field>
+    </record>
+    <record id="proposal_global_search" model="mizan.preview.proposal">
+        <field name="sequence">270</field>
+        <field name="name">Search that crosses documents</field>
+        <field name="area">ux</field>
+        <field name="build_state">partial</field>
+        <field name="gap">Odoo searches inside whichever list is open. Typing an invoice number does not show you the claim, the payment and the entry behind it.</field>
+        <field name="recommendation">differ</field>
+        <field name="effort">m</field>
+        <field name="priority">15</field>
+        <field name="detail">Type INV/2026/00005 and get the invoice, the customer, the claim, the account, the payment, the entry and the bank line. Type the villa project and get the contract, bill of quantities, budget, invoices, bills, expenses, retention, work in progress and change orders.</field>
+        <field name="reasoning">Useful, and less small than it looks: a search across models either queries a dozen tables on every keystroke or needs an index that has to be maintained. The contract form already carries the project half of this. I would put the links on the documents themselves — an invoice showing its claim, a claim showing its invoice — and leave the search bar as Odoo built it.</field>
+    </record>
+    <record id="proposal_command_palette" model="mizan.preview.proposal">
+        <field name="sequence">280</field>
+        <field name="name">A command palette</field>
+        <field name="area">ux</field>
+        <field name="build_state">built</field>
+        <field name="gap">Odoo 18 ships one. Ctrl+K opens it and it already searches menus, records and commands. Our own actions are simply not registered in it.</field>
+        <field name="recommendation">done</field>
+        <field name="effort">s</field>
+        <field name="priority">25</field>
+        <field name="detail">Press Ctrl+K and type create invoice, or open the villa project, or approve claim 7, or bank.</field>
+        <field name="reasoning">Try it before approving anything — the feature is in the product you already have. What is worth an hour is registering our own commands in it and checking it behaves in Arabic. Building a second palette would mean maintaining what Odoo maintains for us.</field>
+    </record>
+    <record id="proposal_bulk_actions" model="mizan.preview.proposal">
+        <field name="sequence">290</field>
+        <field name="name">Bulk actions on a selection</field>
+        <field name="area">ux</field>
+        <field name="build_state">partial</field>
+        <field name="gap">Complete All already runs over a selection. Assigning a cost centre or a project to fifty lines at once, and sending in bulk, do not exist.</field>
+        <field name="recommendation">yes</field>
+        <field name="effort">s</field>
+        <field name="priority">13</field>
+        <field name="detail">Approve, reject, set cost centre, set project, export, send by WhatsApp, send by email, post — over everything selected.</field>
+        <field name="reasoning">Setting the cost centre in bulk is the one that pays for itself: the data quality screen finds costs with no cost centre, and fixing them one at a time is why they stay unfixed. Bulk posting I would leave out — posting fifty entries on one click is fifty entries nobody read, and that is the complaint about Complete All in a new place.</field>
+    </record>
+    <record id="proposal_data_quality" model="mizan.preview.proposal">
+        <field name="sequence">300</field>
+        <field name="name">Data quality as a screen, not a report</field>
+        <field name="area">finance</field>
+        <field name="build_state">partial</field>
+        <field name="gap">Built here as a screen over the same checks the script used to print. The fix-everything-automatically button is not built.</field>
+        <field name="recommendation">differ</field>
+        <field name="effort">s</field>
+        <field name="priority">3</field>
+        <field name="detail">11 problems — projects 3, customers 1, vendors 2, expenses 5 — then: fix all automatically, or review.</field>
+        <field name="reasoning">Open Preview › Data Quality: the screen is there, every row counts real records in this database and opens them. I recommend against fix all. What would it fix? A cost with no cost centre has no correct answer the system can guess, and a guessed cost centre moves money to the wrong project while reporting the problem as solved — the worst of the two outcomes. Bulk assignment with a person choosing saves the same hours honestly.</field>
+    </record>
+    <record id="proposal_no_primavera" model="mizan.preview.proposal">
+        <field name="sequence">310</field>
+        <field name="name">Full critical-path planning, Primavera class</field>
+        <field name="area">contracting</field>
+        <field name="build_state">new</field>
+        <field name="gap">Not built, and not proposed to be.</field>
+        <field name="recommendation">no</field>
+        <field name="effort">l</field>
+        <field name="priority">90</field>
+        <field name="detail">Activity networks, logic links, float, resource levelling and a baseline programme against which delay is claimed.</field>
+        <field name="reasoning">Agreed with excluding it. That is a different product, and the contractors who need it already own it. What is worth taking from it is one field — the time impact on a change order — not the engine.</field>
+    </record>
+    <record id="proposal_no_multicountry" model="mizan.preview.proposal">
+        <field name="sequence">320</field>
+        <field name="name">Multi-country support</field>
+        <field name="area">compliance</field>
+        <field name="build_state">new</field>
+        <field name="gap">Not built, and not proposed to be.</field>
+        <field name="recommendation">no</field>
+        <field name="effort">l</field>
+        <field name="priority">91</field>
+        <field name="detail">A chart of accounts, tax regime and statutory reports for more than one country.</field>
+        <field name="reasoning">Agreed. The product's value is that it knows the UAE rules exactly — VAT per emirate, Form 201, the federal e-invoicing programme. Generalising that away is how the advantage is lost, and Odoo already localises other countries for whoever needs them.</field>
+    </record>
+    <record id="proposal_no_pdf_ocr" model="mizan.preview.proposal">
+        <field name="sequence">330</field>
+        <field name="name">Reading bank statements out of PDF</field>
+        <field name="area">finance</field>
+        <field name="build_state">new</field>
+        <field name="gap">Not built, and deliberately refused.</field>
+        <field name="recommendation">no</field>
+        <field name="effort">m</field>
+        <field name="priority">92</field>
+        <field name="detail">Extracting transactions from a PDF statement by character recognition.</field>
+        <field name="reasoning">Agreed, and this one I would refuse rather than defer. Every UAE bank offers CSV or XLSX; choosing the harder input to save the customer one menu click means the ledger's bank balance comes from character recognition. The import already takes CSV, XLSX and CAMT.</field>
+    </record>
+    <record id="proposal_no_ai_posting" model="mizan.preview.proposal">
+        <field name="sequence">340</field>
+        <field name="name">An AI that posts entries and makes payments</field>
+        <field name="area">ops</field>
+        <field name="build_state">new</field>
+        <field name="gap">Not built, and it should stay that way.</field>
+        <field name="recommendation">no</field>
+        <field name="effort">l</field>
+        <field name="priority">93</field>
+        <field name="detail">An assistant permitted to post journal entries, pay suppliers and approve documents on its own.</field>
+        <field name="reasoning">Agreed, and I would keep it refused permanently rather than scheduled for later. The audit trail has to name a person for every posting; an assistant that posts breaks the single property that makes a ledger evidence.</field>
+    </record>
+    <record id="proposal_no_more_reports" model="mizan.preview.proposal">
+        <field name="sequence">350</field>
+        <field name="name">Dozens more reports</field>
+        <field name="area">finance</field>
+        <field name="build_state">new</field>
+        <field name="gap">Not built, and not proposed to be.</field>
+        <field name="recommendation">no</field>
+        <field name="effort">m</field>
+        <field name="priority">94</field>
+        <field name="detail">A report for every question anyone has ever asked, added to the reporting menu.</field>
+        <field name="reasoning">Agreed. The reporting menu was flattened for exactly this reason, and your complaint was that you could not find anything in it. An exception screen tells you what needs you; eighty reports tell you to go looking.</field>
+    </record>
+
+</odoo>

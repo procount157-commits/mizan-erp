@@ -1,24 +1,34 @@
 {
-    "name": "ProAccount Preview — Work Inbox",
+    "name": "Preview — proposals awaiting a decision",
     "version": "0.1",
     "category": "Accounting/Accounting",
-    "summary": "A working prototype of the proposed Work Inbox, for review before it is built for real",
+    "summary": "The proposed roadmap as one app: what exists, what does not, and a decision recorded against each item",
     "description": """
-A PROTOTYPE, deliberately marked as one.
+Thirty proposals, five recommended exclusions, and five working prototypes.
 
-The proposal was a single screen answering "what is waiting for me?", instead
-of opening eight apps to find out. Arguing about that on paper wastes everyone's
-time: this builds it against the live ledger so the finance manager can open it
-and say yes or no to the thing itself.
+The roadmap arrived as a document. A document cannot be argued with usefully:
+it does not say which items already exist, and it cannot be tried. This app
+puts the whole list on one screen with an honest status against each row --
+already built, partly built, not built -- and where a proposal could be shown
+rather than described, it is built here and runs against the live ledger.
 
-It is read-only by design. Every row links to the real document and the real
-buttons; nothing is approved or posted from here. That keeps a prototype from
-quietly becoming a second way to post entries.
+Six of the thirty already exist in some form, and one of them ships with Odoo
+itself. Those are marked as such. Asking someone to approve building what is
+already built is how a roadmap loses its credibility.
 
-Uninstalling it removes the menu and the model and touches nothing else.
+Decisions: approved, later or rejected, with a note and the name of whoever
+recorded it. The decision survives an upgrade; the descriptions do not, so a
+wording can be corrected without touching what was decided.
+
+The prototypes are read-only. Every row links to the real document and the
+real buttons; nothing is approved or posted from here. That is what keeps a
+prototype from quietly becoming a second way to post entries.
+
+Uninstalling removes the menu, the models and the decisions, and touches
+nothing else.
 """,
     "depends": [
-        "mizan_core", "mizan_contracting", "mizan_cheque", "hr_expense",
+        "mizan_core", "mizan_contracting", "mizan_cheque", "hr_expense", "mail",
     ],
     "installable": True,
     "application": False,
@@ -26,5 +36,7 @@ Uninstalling it removes the menu and the model and touches nothing else.
     "data": [
         "security/ir.model.access.csv",
         "views/inbox_views.xml",
+        "views/preview_views.xml",
+        "data/proposals.xml",
     ],
 }

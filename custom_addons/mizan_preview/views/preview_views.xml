@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ===================== Data quality / month-end ===================== -->
+    <record id="view_check_list" model="ir.ui.view">
+        <field name="name">mizan.preview.check.list</field>
+        <field name="model">mizan.preview.check</field>
+        <field name="arch" type="xml">
+            <list create="false" delete="false" edit="false"
+                  decoration-danger="severity == '1' and count &gt; 0"
+                  decoration-warning="severity == '2' and count &gt; 0"
+                  decoration-muted="count == 0">
+                <field name="severity" widget="badge"
+                       decoration-danger="severity == '1'"
+                       decoration-warning="severity == '2'"
+                       decoration-success="severity == '3'"/>
+                <field name="category"/>
+                <field name="name"/>
+                <field name="count" sum="Total"/>
+                <field name="detail"/>
+                <button name="action_open_records" type="object"
+                        string="Show" class="btn-link" icon="fa-arrow-left"
+                        invisible="count == 0 or not res_model"/>
+                <field name="res_model" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_check_search" model="ir.ui.view">
+        <field name="name">mizan.preview.check.search</field>
+        <field name="model">mizan.preview.check</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="open" string="Needs fixing"
+                        domain="[('count', '&gt;', 0)]"/>
+                <group expand="1" string="Group By">
+                    <filter name="group_severity" string="Severity"
+                            context="{'group_by': 'severity'}"/>
+                    <filter name="group_category" string="Area"
+                            context="{'group_by': 'category'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_data_quality" model="ir.actions.server">
+        <field name="name">Data Quality</field>
+        <field name="model_id" ref="model_mizan_preview_check"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh()</field>
+    </record>
+
+    <record id="action_closing" model="ir.actions.server">
+        <field name="name">Month-End Readiness</field>
+        <field name="model_id" ref="model_mizan_preview_check"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_closing()</field>
+    </record>
+
+    <!-- ===================== Project health =============================== -->
+    <record id="view_project_list" model="ir.ui.view">
+        <field name="name">mizan.preview.project.list</field>
+        <field name="model">mizan.preview.project</field>
+        <field name="arch" type="xml">
+            <list create="false" delete="false" edit="false"
+                  decoration-danger="overrun &gt; 0">
+                <field name="name"/>
+                <field name="contract_value" sum="Total"/>
+                <field name="budget" sum="Total"/>
+                <field name="actual" sum="Total"/>
+                <field name="committed" sum="Total" optional="show"/>
+                <field name="eac" sum="Total"/>
+                <field name="overrun" sum="Total"/>
+                <field name="margin" sum="Total"/>
+                <field name="pct_cost" digits="[5,1]" optional="show"/>
+                <field name="pct_measured" digits="[5,1]" optional="show"/>
+                <field name="outstanding" sum="Total" optional="show"/>
+                <field name="flags"/>
+                <button name="action_open" type="object" string="Open"
+                        class="btn-link" icon="fa-arrow-left"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_project_health" model="ir.actions.server">
+        <field name="name">Project Health</field>
+        <field name="model_id" ref="model_mizan_preview_project"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh()</field>
+    </record>
+
+    <!-- ===================== Match confidence ============================= -->
+    <record id="view_match_list" model="ir.ui.view">
+        <field name="name">mizan.preview.match.list</field>
+        <field name="model">mizan.preview.match</field>
+        <field name="arch" type="xml">
+            <list create="false" delete="false" edit="false"
+                  decoration-success="verdict == 'auto'"
+                  decoration-muted="verdict == 'none'">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="amount" sum="Total"/>
+                <field name="confidence"/>
+                <field name="verdict" widget="badge"
+                       decoration-success="verdict == 'auto'"
+                       decoration-warning="verdict == 'review'"/>
+                <field name="candidate"/>
+                <field name="basis"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_match_confidence" model="ir.actions.server">
+        <field name="name">Bank Match Confidence</field>
+        <field name="model_id" ref="model_mizan_preview_match"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh()</field>
+    </record>
+
+    <!-- ===================== The decision register ======================== -->
+    <record id="view_proposal_list" model="ir.ui.view">
+        <field name="name">mizan.preview.proposal.list</field>
+        <field name="model">mizan.preview.proposal</field>
+        <field name="arch" type="xml">
+            <list decoration-success="decision == 'approved'"
+                  decoration-muted="decision == 'rejected' or build_state == 'built'"
+                  decoration-info="decision == 'later'">
+                <field name="priority" optional="hide"/>
+                <field name="name"/>
+                <field name="area"/>
+                <field name="build_state" widget="badge"
+                       decoration-success="build_state == 'built'"
+                       decoration-warning="build_state == 'partial'"/>
+                <field name="gap"/>
+                <field name="recommendation" widget="badge"
+                       decoration-success="recommendation == 'yes'"
+                       decoration-warning="recommendation == 'differ'"
+                       decoration-danger="recommendation == 'no'"/>
+                <field name="effort"/>
+                <field name="decision" widget="badge"
+                       decoration-success="decision == 'approved'"
+                       decoration-danger="decision == 'rejected'"/>
+                <button name="action_approve" type="object" string="Approve"
+                        class="btn-link" icon="fa-check"/>
+                <button name="action_later" type="object" string="Later"
+                        class="btn-link" icon="fa-clock-o"/>
+                <button name="action_reject" type="object" string="Reject"
+                        class="btn-link" icon="fa-times"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_proposal_form" model="ir.ui.view">
+        <field name="name">mizan.preview.proposal.form</field>
+        <field name="model">mizan.preview.proposal</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_approve" type="object"
+                            string="Approve — build it" class="btn-primary"
+                            invisible="decision == 'approved'"/>
+                    <button name="action_later" type="object" string="Later"
+                            invisible="decision == 'later'"/>
+                    <button name="action_reject" type="object" string="Reject"
+                            invisible="decision == 'rejected'"/>
+                    <button name="action_clear" type="object"
+                            string="Clear decision" invisible="not decision"/>
+                    <field name="decision" widget="statusbar"
+                           statusbar_visible="approved,later,rejected"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Today">
+                            <field name="area" readonly="1"/>
+                            <field name="build_state" readonly="1"/>
+                            <field name="gap" readonly="1"/>
+                        </group>
+                        <group string="My view">
+                            <field name="recommendation" readonly="1"/>
+                            <field name="effort" readonly="1"/>
+                            <field name="priority" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="What it does">
+                        <field name="detail" nolabel="1" readonly="1"/>
+                    </group>
+                    <group string="Why I say that">
+                        <field name="reasoning" nolabel="1" readonly="1"/>
+                    </group>
+                    <group string="Finance manager">
+                        <field name="decision_note" nolabel="1"
+                               placeholder="Conditions, questions, what you want changed…"/>
+                        <field name="decided_by_id"/>
+                        <field name="decided_on"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_proposal_search" model="ir.ui.view">
+        <field name="name">mizan.preview.proposal.search</field>
+        <field name="model">mizan.preview.proposal</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="undecided" string="Not yet decided"
+                        domain="[('decision', '=', False)]"/>
+                <filter name="recommended" string="I recommend"
+                        domain="[('recommendation', '=', 'yes')]"/>
+                <filter name="notbuilt" string="Not built yet"
+                        domain="[('build_state', '!=', 'built')]"/>
+                <group expand="1" string="Group By">
+                    <filter name="group_decision" string="Decision"
+                            context="{'group_by': 'decision'}"/>
+                    <filter name="group_state" string="Status today"
+                            context="{'group_by': 'build_state'}"/>
+                    <filter name="group_area" string="Area"
+                            context="{'group_by': 'area'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_proposals" model="ir.actions.act_window">
+        <field name="name">Proposals — for your decision</field>
+        <field name="res_model">mizan.preview.proposal</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_group_decision': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing proposed yet</p>
+            <p>Each row says what the proposal is, whether it already exists,
+               and what I recommend. Approve, defer or reject each one.</p>
+        </field>
+    </record>
+
+    <!-- ===================== Menus ======================================== -->
+    <!-- Decisions first: the prototypes exist to inform the decision, not the
+         other way round. -->
+    <menuitem id="menu_preview_decide" name="Decisions"
+              parent="menu_inbox_root" sequence="10"/>
+    <menuitem id="menu_preview_proposals" name="Proposals"
+              parent="menu_preview_decide" action="action_proposals" sequence="10"/>
+
+    <menuitem id="menu_preview_live" name="Working Prototypes"
+              parent="menu_inbox_root" sequence="20"/>
+    <menuitem id="menu_inbox" name="What Is Waiting For Me"
+              parent="menu_preview_live" action="action_inbox" sequence="10"/>
+    <menuitem id="menu_preview_quality" name="Data Quality"
+              parent="menu_preview_live" action="action_data_quality" sequence="20"/>
+    <menuitem id="menu_preview_closing" name="Month-End Readiness"
+              parent="menu_preview_live" action="action_closing" sequence="30"/>
+    <menuitem id="menu_preview_health" name="Project Health"
+              parent="menu_preview_live" action="action_project_health" sequence="40"/>
+    <menuitem id="menu_preview_match" name="Bank Match Confidence"
+              parent="menu_preview_live" action="action_match_confidence" sequence="50"/>
+
+</odoo>

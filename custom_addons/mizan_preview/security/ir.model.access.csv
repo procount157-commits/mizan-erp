@@ -2,3 +2,10 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_mizan_inbox_user,mizan.inbox.item.user,model_mizan_inbox_item,account.group_account_invoice,1,1,1,1
 access_mizan_inbox_manager,mizan.inbox.item.manager,model_mizan_inbox_item,account.group_account_manager,1,1,1,1
 access_mizan_inbox_project,mizan.inbox.item.project,model_mizan_inbox_item,project.group_project_manager,1,1,1,1
+access_mizan_preview_check_user,mizan.preview.check.user,model_mizan_preview_check,account.group_account_invoice,1,1,1,1
+access_mizan_preview_check_project,mizan.preview.check.project,model_mizan_preview_check,project.group_project_manager,1,1,1,1
+access_mizan_preview_project_user,mizan.preview.project.user,model_mizan_preview_project,account.group_account_invoice,1,1,1,1
+access_mizan_preview_project_pm,mizan.preview.project.pm,model_mizan_preview_project,project.group_project_manager,1,1,1,1
+access_mizan_preview_match_user,mizan.preview.match.user,model_mizan_preview_match,account.group_account_invoice,1,1,1,1
+access_mizan_preview_proposal_read,mizan.preview.proposal.read,model_mizan_preview_proposal,base.group_user,1,0,0,0
+access_mizan_preview_proposal_decide,mizan.preview.proposal.decide,model_mizan_preview_proposal,account.group_account_manager,1,1,0,0
