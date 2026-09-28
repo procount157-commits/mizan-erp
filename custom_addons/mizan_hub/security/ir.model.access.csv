@@ -5,3 +5,6 @@ access_mizan_project_health_ro,mizan.project.health.readonly,model_mizan_project
 access_mizan_project_health_pm,mizan.project.health.pm,model_mizan_project_health,project.group_project_manager,1,1,1,1
 access_mizan_data_quality,mizan.data.quality,model_mizan_data_quality,account.group_account_manager,1,1,1,1
 access_mizan_data_quality_ro,mizan.data.quality.readonly,model_mizan_data_quality,account.group_account_readonly,1,1,1,1
+access_mizan_dashboard_tile,mizan.dashboard.tile,model_mizan_dashboard_tile,base.group_user,1,1,1,1
+access_mizan_find,mizan.find,model_mizan_find,base.group_user,1,1,1,1
+access_mizan_find_result,mizan.find.result,model_mizan_find_result,base.group_user,1,1,1,1

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_find_form" model="ir.ui.view">
+        <field name="name">mizan.find.form</field>
+        <field name="model">mizan.find</field>
+        <field name="arch" type="xml">
+            <form string="Find anything">
+                <group>
+                    <field name="query" nolabel="1"
+                           placeholder="An invoice number, a contract, a client, a cheque, a tax number…"/>
+                </group>
+                <footer>
+                    <button name="action_search" type="object" string="Find"
+                            class="btn-primary"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+                <field name="searched" invisible="1"/>
+                <field name="result_ids" readonly="1" nolabel="1"
+                       invisible="not searched">
+                    <list create="false" delete="false">
+                        <field name="kind"/>
+                        <field name="name"/>
+                        <field name="detail"/>
+                        <field name="state" optional="show"/>
+                        <field name="amount" optional="show"/>
+                        <field name="currency_id" column_invisible="1"/>
+                        <button name="action_open" type="object"
+                                icon="fa-external-link" string="Open"/>
+                    </list>
+                </field>
+                <div class="text-muted mt-2" invisible="not searched">
+                    Searched across documents, claims, contracts, variations,
+                    cheques, payments, bank lines, guarantees, parties and
+                    projects.
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_find" model="ir.actions.server">
+        <field name="name">Find anything</field>
+        <field name="model_id" ref="model_mizan_find"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open()</field>
+    </record>
+
+</odoo>

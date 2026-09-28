@@ -1,0 +1,30 @@
+// The tone is carried by a bar on the leading edge rather than by colouring
+// the whole card. A wall of red cards reads as an emergency even when three
+// of the five are routine, and the figure itself becomes hard to read on a
+// saturated background. The bar is visible at a glance and does not compete
+// with the number.
+.o_mizan_dashboard {
+    .o_mizan_tile {
+        padding: 0.25rem 0.5rem;
+        border-inline-start: 4px solid transparent;
+    }
+
+    .o_mizan_tile_value {
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    .o_mizan_tile_name {
+        font-weight: 500;
+    }
+
+    .o_mizan_tile_sub {
+        font-size: 0.85rem;
+    }
+
+    .o_mizan_tone_good  { border-inline-start-color: #28a745; }
+    .o_mizan_tone_watch { border-inline-start-color: #f0ad4e; }
+    .o_mizan_tone_bad   { border-inline-start-color: #dc3545; }
+    .o_mizan_tone_plain { border-inline-start-color: #d8dadd; }
+}

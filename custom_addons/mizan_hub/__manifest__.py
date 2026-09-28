@@ -39,8 +39,16 @@ yesterday, which is worse than no inbox at all.
         "security/hub_groups.xml",
         "security/ir.model.access.csv",
         "views/inbox_views.xml",
+        "views/dashboard_views.xml",
+        "views/find_views.xml",
         "views/project_health_views.xml",
         "views/data_quality_views.xml",
         "views/menus.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "mizan_hub/static/src/scss/dashboard.scss",
+            "mizan_hub/static/src/js/commands.js",
+        ],
+    },
 }

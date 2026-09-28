@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_dashboard_kanban" model="ir.ui.view">
+        <field name="name">mizan.dashboard.tile.kanban</field>
+        <field name="model">mizan.dashboard.tile</field>
+        <field name="arch" type="xml">
+            <kanban class="o_mizan_dashboard" create="false" edit="false"
+                    default_group_by="section" records_draggable="false"
+                    group_create="false">
+                <field name="tone"/>
+                <field name="res_model"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="o_mizan_tile"
+                             t-attf-class="o_mizan_tone_#{record.tone.raw_value}">
+                            <div class="o_mizan_tile_value">
+                                <field name="value"/>
+                            </div>
+                            <div class="o_mizan_tile_name">
+                                <field name="name"/>
+                            </div>
+                            <div class="o_mizan_tile_sub text-muted">
+                                <field name="sublabel"/>
+                            </div>
+                            <button name="action_open" type="object"
+                                    class="btn btn-link p-0 mt-1"
+                                    t-if="record.res_model.raw_value">
+                                Open the records
+                            </button>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_dashboard_search" model="ir.ui.view">
+        <field name="name">mizan.dashboard.tile.search</field>
+        <field name="model">mizan.dashboard.tile</field>
+        <field name="arch" type="xml">
+            <search string="Dashboard">
+                <field name="name"/>
+                <filter name="attention" string="Needs attention"
+                        domain="[('tone', 'in', ('bad', 'watch'))]"/>
+                <group expand="1" string="Group By">
+                    <filter name="group_section" string="Section"
+                            context="{'group_by': 'section'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Opening it rebuilds it. A dashboard showing the last visit's figures
+         is worse than no dashboard: it is wrong without saying so. -->
+    <record id="action_dashboard" model="ir.actions.server">
+        <field name="name">Dashboard</field>
+        <field name="model_id" ref="model_mizan_dashboard_tile"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh()</field>
+    </record>
+
+    <!-- The same screen, asked for from another role's point of view. A
+         general manager reviewing a project manager should see what that
+         person sees, not a translation of it. -->
+    <record id="action_dashboard_gm" model="ir.actions.server">
+        <field name="name">Dashboard — General Manager</field>
+        <field name="model_id" ref="model_mizan_dashboard_tile"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh(role='gm')</field>
+    </record>
+
+    <record id="action_dashboard_cfo" model="ir.actions.server">
+        <field name="name">Dashboard — Finance</field>
+        <field name="model_id" ref="model_mizan_dashboard_tile"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh(role='cfo')</field>
+    </record>
+
+    <record id="action_dashboard_pm" model="ir.actions.server">
+        <field name="name">Dashboard — Projects</field>
+        <field name="model_id" ref="model_mizan_dashboard_tile"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh(role='pm')</field>
+    </record>
+
+</odoo>

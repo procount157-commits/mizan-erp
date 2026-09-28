@@ -36,4 +36,9 @@ place to make an irreversible decision on a manager's behalf.
         "views/close_views.xml",
         "views/menus.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "mizan_closing/static/src/js/commands.js",
+        ],
+    },
 }

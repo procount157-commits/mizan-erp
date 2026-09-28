@@ -7,8 +7,31 @@
     <menuitem id="menu_hub_root" name="My Work" sequence="1"
               web_icon="mizan_hub,static/description/icon.png"/>
 
+    <menuitem id="menu_hub_dashboard" name="Dashboard" parent="menu_hub_root"
+              action="action_dashboard" sequence="5"/>
+
     <menuitem id="menu_hub_inbox" name="Work Inbox" parent="menu_hub_root"
               action="action_inbox_open" sequence="10"/>
+
+    <!-- The other roles' views, for whoever is entitled to look over their
+         shoulder. Kept as separate entries rather than a filter, because a
+         manager reviewing a project manager should see what that person sees
+         rather than a translation of it. -->
+    <menuitem id="menu_hub_dashboards" name="Other Views" parent="menu_hub_root"
+              sequence="90"
+              groups="account.group_account_manager,account.group_account_readonly,mizan_hub.group_general_manager"/>
+    <menuitem id="menu_hub_dashboard_gm" name="As the General Manager"
+              parent="menu_hub_dashboards" action="action_dashboard_gm"
+              sequence="10"/>
+    <menuitem id="menu_hub_dashboard_cfo" name="As Finance"
+              parent="menu_hub_dashboards" action="action_dashboard_cfo"
+              sequence="20"/>
+    <menuitem id="menu_hub_dashboard_pm" name="As a Project Manager"
+              parent="menu_hub_dashboards" action="action_dashboard_pm"
+              sequence="30"/>
+
+    <menuitem id="menu_hub_find" name="Find anything" parent="menu_hub_root"
+              action="action_find" sequence="15"/>
 
     <menuitem id="menu_hub_health" name="Project Health" parent="menu_hub_root"
               action="action_health_open" sequence="20"
