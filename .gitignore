@@ -19,6 +19,12 @@ logs/
 !docker/.env.example
 docker/odoo_fixed.conf
 
+# Credentials issued by scripts/clients/*.py and scripts/rotate_passwords.py.
+# They are handed over and then deleted; nothing here ever belongs in git,
+# because removing a password from a file does not remove it from the history.
+secrets/
+*-users.txt
+
 # IDE
 .vscode/
 .idea/

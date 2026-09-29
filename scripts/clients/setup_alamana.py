@@ -13,11 +13,39 @@ ledger and pay it out of the petty cash box. Nobody approves their own
 spending — which is the whole point of the control, and the reason the
 approver is set on each employee record rather than left to Odoo's default of
 "whoever is above you in the org chart".
+
+CREDENTIALS. This script does not contain any. A password written into a file
+that lives in source control is a password every future collaborator has, for
+as long as the repository exists — and rotating it later does not remove it
+from the history. So a new user gets a generated one, written to a file this
+script names at the end and that .gitignore keeps out of the repository.
+
+An EXISTING user's password is never touched. Re-running the setup is how
+roles and approval chains get corrected, and a script that silently reset six
+people's logins every time it ran would make that unusable.
+
+    MIZAN_CREDENTIALS_OUT=/tmp/alamana-users.txt   # where to write them
+
 """
+import os
+import secrets
 from datetime import date, timedelta
 
 company = env.company
 AED = company.currency_id
+
+# Written for every user this run actually creates, so the operator has one
+# place to take them from and hand them over.
+issued = []
+
+
+def new_password():
+    """A generated password, not a pattern.
+
+    token_urlsafe rather than a memorable scheme built from the company name
+    and the job: anybody who sees one such login can work out the other five,
+    which is worse than a hard password written down once and handed over."""
+    return secrets.token_urlsafe(15)
 
 
 def gid(xmlid):
@@ -62,7 +90,6 @@ PEOPLE = [
         "key": "gm",
         "name": "سالم الشامسي",
         "login": "manager@alamana.ae",
-        "password": "Amana#Mgr2026",
         "job": "المدير العام",
         "dept": d_exec,
         # Full sight of the numbers and every approval, without the system
@@ -88,7 +115,6 @@ PEOPLE = [
         "key": "cfo",
         "name": "ندى القاسمي",
         "login": "finance@alamana.ae",
-        "password": "Amana#Fin2026",
         "job": "المدير المالي",
         "dept": d_fin,
         # Everything, deliberately. In a company this size the finance manager
@@ -121,7 +147,6 @@ PEOPLE = [
         "key": "acc",
         "name": "يوسف حيدر",
         "login": "accountant@alamana.ae",
-        "password": "Amana#Acc2026",
         "job": "محاسب",
         "dept": d_fin,
         # The same reach as the finance manager. In a company this size the
@@ -150,7 +175,6 @@ PEOPLE = [
         "key": "eng1",
         "name": "عمر خليل",
         "login": "eng.omar@alamana.ae",
-        "password": "Amana#Eng1-2026",
         "job": "مهندس موقع أول",
         "dept": d_eng,
         # Projects and petty cash only. An engineer books time to a job and
@@ -168,7 +192,6 @@ PEOPLE = [
         "key": "eng2",
         "name": "ليلى منصور",
         "login": "eng.laila@alamana.ae",
-        "password": "Amana#Eng2-2026",
         "job": "مهندس مدني",
         "dept": d_eng,
         # Projects and petty cash only. An engineer books time to a job and
@@ -186,7 +209,6 @@ PEOPLE = [
         "key": "eng3",
         "name": "طارق عبدالله",
         "login": "eng.tariq@alamana.ae",
-        "password": "Amana#Eng3-2026",
         "job": "مهندس كهروميكانيك",
         "dept": d_eng,
         # Projects and petty cash only. An engineer books time to a job and
@@ -214,10 +236,12 @@ for person in PEOPLE:
         user = existing
         user.write({"groups_id": groups(*person["groups"])})
     else:
+        password = new_password()
+        issued.append((person["login"], person["name"], password))
         user = Users.create({
             "name": person["name"],
             "login": person["login"],
-            "password": person["password"],
+            "password": password,
             "lang": "ar_001",
             "tz": "Asia/Dubai",
             "company_id": company.id,
@@ -503,3 +527,24 @@ print("contracts: %s (%s) | %s (%s)" % (
     c1.code, c1.contract_value, c2.code, c2.contract_value))
 
 env.cr.commit()
+
+# --------------------------------------------------------------- credentials
+# Last, and only for the logins this run actually created. Printed as a path
+# rather than as the passwords themselves: a terminal scrollback is not a
+# place to leave six people's credentials, and whoever runs this needs to
+# move them into a password manager and delete the file anyway.
+if issued:
+    out = os.environ.get("MIZAN_CREDENTIALS_OUT",
+                         "/tmp/%s-users.txt" % env.cr.dbname)
+    with open(out, "w", encoding="utf-8") as handle:
+        handle.write("%s — logins created %s\n\n"
+                     % (company.name, date.today().isoformat()))
+        for login, name, password in issued:
+            handle.write("%-28s %-24s %s\n" % (login, name, password))
+        handle.write("\nHand these over, then delete this file.\n")
+    os.chmod(out, 0o600)
+    print("\n%d login(s) created. Passwords written to %s" % (len(issued), out))
+    print("Hand them over, then delete that file.")
+else:
+    print("\nNo new logins: every one already existed, and existing "
+          "passwords were left alone.")
