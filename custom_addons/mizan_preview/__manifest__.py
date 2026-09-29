@@ -1,5 +1,5 @@
 {
-    "name": "Preview — proposals awaiting a decision",
+    "name": "Preview — proposals awaiting a decision (superseded)",
     "version": "0.1",
     "category": "Accounting/Accounting",
     "summary": "The proposed roadmap as one app: what exists, what does not, and a decision recorded against each item",
@@ -30,7 +30,13 @@ nothing else.
     "depends": [
         "mizan_core", "mizan_contracting", "mizan_cheque", "hr_expense", "mail",
     ],
-    "installable": True,
+    # Superseded by mizan_hub and uninstalled from every database on
+    # 2026-09-29. Kept in the tree because data/proposals.xml is the roadmap
+    # itself — the honest status of all thirty proposals, which is worth
+    # reading before planning anything — but marked uninstallable so nobody
+    # brings it back and ends up with two Work Inboxes fighting over the same
+    # model name, which is exactly how it went the first time.
+    "installable": False,
     "application": False,
     "license": "LGPL-3",
     "data": [
