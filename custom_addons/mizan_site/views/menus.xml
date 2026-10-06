@@ -8,6 +8,9 @@
               web_icon="mizan_site,static/description/icon.png"
               groups="mizan_site.group_site_engineer,project.group_project_manager,account.group_account_manager"/>
 
+    <menuitem id="menu_site_capture" name="Photograph a Bill"
+              parent="menu_site_root" action="action_site_capture" sequence="5"/>
+
     <menuitem id="menu_site_today" name="Daily Report" parent="menu_site_root"
               action="action_site_report" sequence="10"/>
 

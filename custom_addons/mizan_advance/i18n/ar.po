@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0-20260908\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-28 17:55+0000\n"
-"PO-Revision-Date: 2026-09-28 17:55+0000\n"
+"POT-Creation-Date: 2026-10-06 16:49+0000\n"
+"PO-Revision-Date: 2026-10-06 16:49+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -98,6 +98,24 @@ msgstr "سقف السلفة لكل موظف"
 #: model:ir.model.fields,field_description:mizan_advance.field_res_config_settings__mizan_advance_journal_id
 msgid "Advance Payment Journal"
 msgstr "دفتر صرف السلف"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Advance approved"
+msgstr "اعتُمدت السلفة"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Advance paid"
+msgstr "صُرفت السلفة"
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Advance refused"
+msgstr "رُفضت السلفة"
 
 #. module: mizan_advance
 #: model_terms:ir.ui.view,arch_db:mizan_advance.view_advance_list
@@ -239,7 +257,7 @@ msgstr ""
 #. module: mizan_advance
 #: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__company_id
 msgid "Company"
-msgstr ""
+msgstr "الشركة"
 
 #. module: mizan_advance
 #: model:ir.model,name:mizan_advance.model_res_config_settings
@@ -264,7 +282,7 @@ msgstr ""
 #. module: mizan_advance
 #: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "العملة"
 
 #. module: mizan_advance
 #: model:ir.model.fields,field_description:mizan_advance.field_mizan_employee_advance__date
@@ -806,3 +824,21 @@ msgstr "الغرض من المبلغ. والغرض الفارغ هو ما يجع
 #: model:ir.model.fields,help:mizan_advance.field_res_config_settings__mizan_advance_account_id
 msgid "Where an advance sits while the employee still holds it. It is an asset — the company is owed the money — and not an expense, which is the mistake that makes advances disappear."
 msgstr "حيث تستقر السلفة ما دامت بحوزة الموظف. وهي أصل — فالمال مستحق للشركة — لا مصروف، وهذا هو الخطأ الذي يُخفي السلف."
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Your advance %(ref)s for %(amount)s has been paid. Claim your receipts against it."
+msgstr "صُرفت سلفتك %(ref)s بمبلغ %(amount)s. قدّم إيصالاتك عليها."
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Your advance %(ref)s for %(amount)s is approved. Payment follows."
+msgstr "اعتُمدت سلفتك %(ref)s بمبلغ %(amount)s. والصرف يتبع."
+
+#. module: mizan_advance
+#. odoo-python
+#: code:addons/mizan_advance/models/advance.py:0
+msgid "Your advance %(ref)s for %(amount)s was refused."
+msgstr "رُفضت سلفتك %(ref)s بمبلغ %(amount)s."

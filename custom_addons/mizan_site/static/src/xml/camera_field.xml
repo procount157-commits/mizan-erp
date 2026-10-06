@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="mizan_site.CameraField">
+        <div class="o_mizan_camera">
+            <input t-ref="input" type="file" accept="image/*"
+                   capture="environment" class="d-none"
+                   t-on-change="onChange"/>
+            <t t-if="src">
+                <img t-att-src="src" class="o_mizan_camera_preview" alt="Photograph"/>
+                <div class="d-flex gap-2 mt-2" t-if="!props.readonly">
+                    <button type="button" class="btn btn-secondary flex-fill"
+                            t-on-click="open">
+                        <i class="fa fa-camera me-1" title="Retake"/> Retake
+                    </button>
+                    <button type="button" class="btn btn-link text-danger"
+                            t-on-click="clear">Remove</button>
+                </div>
+            </t>
+            <t t-else="">
+                <button type="button" class="btn btn-primary o_mizan_camera_button"
+                        t-on-click="open" t-att-disabled="state.busy or props.readonly">
+                    <i class="fa fa-camera" title="Camera"/>
+                    <span t-if="!state.busy">Photograph the bill</span>
+                    <span t-else="">Reading the photograph…</span>
+                </button>
+            </t>
+        </div>
+    </t>
+</templates>

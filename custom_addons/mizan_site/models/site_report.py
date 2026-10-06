@@ -134,7 +134,88 @@ class MizanSiteReport(models.Model):
             if not vals.get("name") or vals["name"] == _("New"):
                 vals["name"] = self.env["ir.sequence"].next_by_code(
                     "mizan.site.report") or _("New")
-        return super().create(vals_list)
+        reports = super().create(vals_list)
+        reports._close_reminders()
+        return reports
+
+    # ---------------------------------------------------------- reminders
+    def _close_reminders(self):
+        """A report filed answers the reminder for that job.
+
+        Closed as done rather than deleted, so the activity history shows the
+        reminder was met and when."""
+        activity_type = self.env.ref("mizan_site.activity_daily_report",
+                                     raise_if_not_found=False)
+        if not activity_type:
+            return
+        for report in self:
+            reminders = self.env["mail.activity"].sudo().search([
+                ("activity_type_id", "=", activity_type.id),
+                ("res_model", "=", "project.project"),
+                ("res_id", "=", report.project_id.id),
+                ("user_id", "=", report.author_id.id),
+            ])
+            if reminders:
+                reminders.action_feedback(
+                    feedback=_("Filed as %s", report.name))
+
+    @api.model
+    def _cron_daily_report_reminder(self):
+        """Remind each engineer, on each job he is on, that today has no report.
+
+        One reminder per engineer per job. Yesterday's, if still open, is
+        replaced rather than kept: a new reminder is what makes the phone
+        buzz, and a stack of identical overdue ones is noise that teaches
+        people to ignore the whole list."""
+        today = fields.Date.context_today(self)
+        days = self.env["ir.config_parameter"].sudo().get_param(
+            "mizan_site.report_weekdays", "0,1,2,3,4,5")
+        if str(today.weekday()) not in [d.strip() for d in days.split(",")]:
+            return
+        activity_type = self.env.ref("mizan_site.activity_daily_report")
+        engineers = self.env.ref("mizan_site.group_site_engineer").users.filtered(
+            lambda user: user.active and not user.share)
+        Activity = self.env["mail.activity"].sudo()
+        Project = self.env["project.project"].sudo()
+        model_id = self.env["ir.model"]._get_id("project.project")
+        for user in engineers:
+            # The jobs he is on: the ones he follows, and the ones he has
+            # filed on in the last fortnight.
+            recent = self.sudo().search([
+                ("author_id", "=", user.id),
+                ("date", ">=", fields.Date.subtract(today, days=14))])
+            projects = Project.search([
+                ("active", "=", True),
+                ("message_partner_ids", "in", user.partner_id.ids),
+            ]) | recent.mapped("project_id")
+            for project in projects:
+                filed = self.sudo().search_count([
+                    ("author_id", "=", user.id),
+                    ("project_id", "=", project.id), ("date", "=", today)])
+                if filed:
+                    continue
+                Activity.search([
+                    ("activity_type_id", "=", activity_type.id),
+                    ("res_model", "=", "project.project"),
+                    ("res_id", "=", project.id),
+                    ("user_id", "=", user.id)]).unlink()
+                Activity.create({
+                    "activity_type_id": activity_type.id,
+                    "res_model_id": model_id,
+                    "res_id": project.id,
+                    "user_id": user.id,
+                    "date_deadline": today,
+                    "summary": _("File today's site report"),
+                    "note": _("Nothing has been filed for %(project)s today. "
+                              "Men, plant, what was built and what stopped — "
+                              "it is what a delay claim is argued from later.",
+                              project=project.name),
+                })
+
+    def _notify_partner(self, partner, body, subject):
+        if partner and partner != self.env.user.partner_id:
+            self.message_notify(partner_ids=partner.ids, body=body,
+                                subject=subject)
 
     # ------------------------------------------------------------- workflow
     def action_submit(self):
@@ -146,10 +227,29 @@ class MizanSiteReport(models.Model):
                 "%(count)s men, %(hours).0f man-hours. %(work)s",
                 count=report.headcount, hours=report.manhours,
                 work=(report.work_done or "")[:200]))
+            # The project's manager is told a report is in; otherwise the
+            # office learns of a stopped day when somebody asks.
+            manager = report.project_id.sudo().user_id.partner_id
+            report._notify_partner(
+                manager,
+                _("%(user)s filed %(name)s for %(project)s%(stop)s.",
+                  user=report.author_id.name, name=report.name,
+                  project=report.project_id.name,
+                  stop=(_(" — work stopped: %s",
+                          dict(report._fields["stop_reason"]._description_selection(
+                              report.env)).get(report.stop_reason, ""))
+                        if report.work_stopped else "")),
+                _("Site report filed"))
         return True
 
     def action_acknowledge(self):
         self.write({"state": "acknowledged"})
+        # Told, so the engineer knows the day he wrote up was actually read.
+        for report in self:
+            report._notify_partner(
+                report.author_id.partner_id,
+                _("The office has read %(name)s.", name=report.name),
+                _("Your site report was read"))
         return True
 
     def action_reopen(self):

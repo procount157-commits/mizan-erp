@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- A dialog, not a page: on a phone a dialog takes the whole screen and,
+         unlike a form header, its footer buttons are always drawn. The save
+         button is the second thing the engineer needs after the camera, so it
+         must not be hidden in a menu on a narrow screen. -->
+    <record id="view_site_capture_form" model="ir.ui.view">
+        <field name="name">mizan.site.capture.form</field>
+        <field name="model">mizan.site.capture</field>
+        <field name="arch" type="xml">
+            <form string="Photograph a Bill">
+                <field name="photo" widget="mizan_camera" nolabel="1"/>
+                <group>
+                    <field name="paid_by" widget="radio"/>
+                    <field name="project_id" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="amount" required="paid_by == 'me'"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="description" placeholder="Cement, diesel, a hired pump…"/>
+                    <field name="supplier_id" invisible="paid_by != 'supplier'"
+                           options="{'no_create': True, 'no_open': True}"/>
+                    <field name="supplier_name" invisible="paid_by != 'supplier' or supplier_id"/>
+                    <field name="date"/>
+                </group>
+                <footer>
+                    <button name="action_save" type="object" string="Save"
+                            class="btn-primary btn-lg"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_site_capture" model="ir.actions.act_window">
+        <field name="name">Photograph a Bill</field>
+        <field name="res_model">mizan.site.capture</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

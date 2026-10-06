@@ -23,3 +23,32 @@
         }
     }
 }
+
+// The camera button is the whole point of the screen, so it is sized like it:
+// full width and tall enough to hit with a thumb wearing a work glove.
+.o_mizan_camera {
+    width: 100%;
+
+    .o_mizan_camera_button {
+        width: 100%;
+        min-height: 7rem;
+        font-size: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+
+        .fa-camera {
+            font-size: 2.5rem;
+        }
+    }
+
+    .o_mizan_camera_preview {
+        width: 100%;
+        max-height: 60vh;
+        object-fit: contain;
+        border-radius: 0.5rem;
+        background: #f2f2f2;
+    }
+}

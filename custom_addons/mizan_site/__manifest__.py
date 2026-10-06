@@ -24,8 +24,8 @@ Nothing here posts to the ledger. An engineer raises; somebody else approves.
 That separation is the reason a site engineer can be given a login at all.
 """,
     "depends": [
-        "project", "hr_timesheet", "hr_expense", "purchase_request",
-        "mizan_contracting", "mizan_hub",
+        "project", "hr", "hr_timesheet", "hr_expense", "purchase_request", "account",
+        "mizan_contracting", "mizan_hub", "mail",
     ],
     "installable": True,
     "application": True,
@@ -34,12 +34,17 @@ That separation is the reason a site engineer can be given a login at all.
         "security/site_groups.xml",
         "security/ir.model.access.csv",
         "data/sequence.xml",
+        "data/reminder.xml",
+        "data/trades.xml",
         "views/site_report_views.xml",
+        "views/site_capture_views.xml",
         "views/menus.xml",
     ],
     "assets": {
         "web.assets_backend": [
             "mizan_site/static/src/scss/site.scss",
+            "mizan_site/static/src/js/camera_field.js",
+            "mizan_site/static/src/xml/camera_field.xml",
         ],
     },
 }

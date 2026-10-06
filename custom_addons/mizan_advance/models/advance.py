@@ -170,6 +170,19 @@ class MizanEmployeeAdvance(models.Model):
                     "mizan.employee.advance") or _("New")
         return super().create(vals_list)
 
+    def _notify_employee(self, body, subject):
+        """Tell the employee what happened to his money.
+
+        An advance approved and paid while the engineer is on site is no use to
+        him until he knows; one refused is worse if he finds out at the till."""
+        for advance in self:
+            partner = advance.employee_id.user_id.partner_id
+            if partner and partner != self.env.user.partner_id:
+                advance.message_notify(
+                    partner_ids=partner.ids, subject=subject,
+                    body=body % {"ref": advance.name,
+                                 "amount": "{:,.2f}".format(advance.amount)})
+
     def action_submit(self):
         for advance in self:
             if advance.state != "draft":
@@ -184,11 +197,16 @@ class MizanEmployeeAdvance(models.Model):
             advance._check_allowed()
             advance.write({"state": "approved",
                            "approved_by_id": self.env.user.id})
+        self._notify_employee(_("Your advance %(ref)s for %(amount)s is "
+                                "approved. Payment follows."),
+                              _("Advance approved"))
         return True
 
     def action_refuse(self):
         for advance in self:
             advance.state = "cancel"
+        self._notify_employee(_("Your advance %(ref)s for %(amount)s was "
+                                "refused."), _("Advance refused"))
         return True
 
     def action_draft(self):
@@ -247,6 +265,9 @@ class MizanEmployeeAdvance(models.Model):
             })
             move.action_post()
             advance.write({"move_pay_id": move.id, "state": "paid"})
+        self._notify_employee(_("Your advance %(ref)s for %(amount)s has been "
+                                "paid. Claim your receipts against it."),
+                              _("Advance paid"))
         return True
 
     def action_settle(self):

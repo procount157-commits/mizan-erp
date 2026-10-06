@@ -11,3 +11,6 @@ access_site_plant_engineer,mizan.site.plant.engineer,model_mizan_site_plant,miza
 access_site_plant_manager,mizan.site.plant.manager,model_mizan_site_plant,project.group_project_manager,1,1,1,1
 access_site_plant_finance,mizan.site.plant.finance,model_mizan_site_plant,account.group_account_manager,1,1,1,1
 access_site_plant_ro,mizan.site.plant.readonly,model_mizan_site_plant,account.group_account_readonly,1,0,0,0
+access_site_capture_engineer,mizan.site.capture.engineer,model_mizan_site_capture,mizan_site.group_site_engineer,1,1,1,1
+access_site_capture_pm,mizan.site.capture.pm,model_mizan_site_capture,project.group_project_manager,1,1,1,1
+access_site_capture_finance,mizan.site.capture.finance,model_mizan_site_capture,account.group_account_manager,1,1,1,1

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- The trades a daily report counts men by. Without them the manpower
+         tab offers an empty list, and an engineer — rightly — cannot create
+         job positions, so the one thing the report exists to record could not
+         be recorded at all. noupdate: a client renames or adds to these. -->
+    <data noupdate="1">
+        <record id="trade_labourer" model="hr.job"><field name="name">Labourer</field></record>
+        <record id="trade_mason" model="hr.job"><field name="name">Mason</field></record>
+        <record id="trade_steel_fixer" model="hr.job"><field name="name">Steel Fixer</field></record>
+        <record id="trade_carpenter" model="hr.job"><field name="name">Shuttering Carpenter</field></record>
+        <record id="trade_electrician" model="hr.job"><field name="name">Electrician</field></record>
+        <record id="trade_plumber" model="hr.job"><field name="name">Plumber</field></record>
+        <record id="trade_painter" model="hr.job"><field name="name">Painter</field></record>
+        <record id="trade_operator" model="hr.job"><field name="name">Plant Operator</field></record>
+        <record id="trade_driver" model="hr.job"><field name="name">Driver</field></record>
+        <record id="trade_foreman" model="hr.job"><field name="name">Foreman</field></record>
+        <record id="trade_surveyor" model="hr.job"><field name="name">Surveyor</field></record>
+    </data>
+</odoo>
