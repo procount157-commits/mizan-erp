@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Seeded with nobody to tell. A rule with no recipient raises
+             nothing, so a new client gets the list to choose from rather than
+             a week of activities addressed to whoever installed it. -->
+
+        <record id="rule_budget_overrun" model="mizan.alert.rule">
+            <field name="name">Project cost near its budget</field>
+            <field name="kind">budget_overrun</field>
+            <field name="threshold">90</field>
+            <field name="sequence">10</field>
+            <field name="note">Check the estimate at completion before the next
+commitment is placed. Past ninety per cent the question is no longer whether
+the job is on budget but what the final cost will be.</field>
+        </record>
+
+        <record id="rule_eac_over_contract" model="mizan.alert.rule">
+            <field name="name">Job forecast to cost more than it earns</field>
+            <field name="kind">eac_over_contract</field>
+            <field name="sequence">20</field>
+            <field name="note">IFRS 15 asks for the whole foreseeable loss to be
+provided the moment it is foreseeable, not spread over the remaining periods.
+Either the estimate is wrong or there is a provision to make and a variation to
+argue for.</field>
+        </record>
+
+        <record id="rule_bond_expiring" model="mizan.alert.rule">
+            <field name="name">Guarantee about to lapse</field>
+            <field name="kind">bond_expiring</field>
+            <field name="threshold">30</field>
+            <field name="sequence">30</field>
+            <field name="note">A lapsed guarantee holds up certification of the
+next claim, and the bank needs more notice than the client does.</field>
+        </record>
+
+        <record id="rule_customer_overdue" model="mizan.alert.rule">
+            <field name="name">Customer more than 30 days late</field>
+            <field name="kind">customer_overdue</field>
+            <field name="threshold">30</field>
+            <field name="sequence">40</field>
+            <field name="note">Chase it before the next claim is certified: a
+client who is behind on one invoice and about to receive another is the point
+at which the exposure doubles.</field>
+        </record>
+
+        <record id="rule_cheque_bounced" model="mizan.alert.rule">
+            <field name="name">Cheque bounced</field>
+            <field name="kind">cheque_bounced</field>
+            <field name="sequence">50</field>
+            <field name="note">Decide within the week whether to re-present or
+to claim. The legal position on a returned cheque gets worse the longer it
+sits.</field>
+        </record>
+
+        <record id="rule_advance_overdue" model="mizan.alert.rule">
+            <field name="name">Employee advance not settled</field>
+            <field name="kind">advance_overdue</field>
+            <field name="threshold">30</field>
+            <field name="sequence">60</field>
+            <field name="note">An advance nobody settles is a receivable nobody
+ages. Ask for the receipts or recover it from payroll.</field>
+        </record>
+
+        <record id="rule_claim_uninvoiced" model="mizan.alert.rule">
+            <field name="name">Claim certified and not invoiced</field>
+            <field name="kind">claim_uninvoiced</field>
+            <field name="sequence">70</field>
+            <field name="note">The client has already accepted this work. Every
+day it stays uninvoiced is a day of financing it for them.</field>
+        </record>
+
+        <record id="cron_alerts" model="ir.cron">
+            <field name="name">ProAccount: check the alert rules</field>
+            <field name="model_id" ref="model_mizan_alert_rule"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_run_alerts()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

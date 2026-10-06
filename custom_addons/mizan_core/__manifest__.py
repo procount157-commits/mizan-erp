@@ -24,6 +24,8 @@
         "views/reporting.xml",
         "views/views.xml",
         "report/mizan_invoice_template.xml",
+        # Last: it refers to the Platform menu that views.xml creates.
+        "data/repair_icons.xml",
     ],
     "assets": {
         "web.assets_backend": [

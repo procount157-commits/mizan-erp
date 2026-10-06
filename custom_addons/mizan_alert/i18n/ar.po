@@ -1,0 +1,534 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_alert
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-04 17:27+0000\n"
+"PO-Revision-Date: 2026-10-04 17:27+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar_001\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_alert
+#. odoo-python
+#: code:addons/mizan_alert/models/alert_rule.py:0
+msgid "%(amount)s outstanding, %(days)s days past due."
+msgstr "%(amount)s مستحقة، متأخرة %(days)s يومًا."
+
+#. module: mizan_alert
+#. odoo-python
+#: code:addons/mizan_alert/models/alert_rule.py:0
+msgid ""
+"%(used).1f%% of the budget is spent (%(cost)s of %(budget)s), and the job is"
+" %(done).1f%% complete."
+msgstr "صُرف %(used).1f%% من الميزانية (%(cost)s من %(budget)s)، والمشروع منجَز بنسبة %(done).1f%%."
+
+#. module: mizan_alert
+#. odoo-python
+#: code:addons/mizan_alert/models/alert_rule.py:0
+msgid "%s new alert(s)."
+msgstr "%s تنبيه جديد."
+
+#. module: mizan_alert
+#: model:mizan.alert.rule,note:mizan_alert.rule_bond_expiring
+msgid ""
+"A lapsed guarantee holds up certification of the\n"
+"next claim, and the bank needs more notice than the client does."
+msgstr "الضمان المنتهي يعطّل اعتماد المستخلص التالي، والبنك يحتاج مهلة أطول مما يحتاجه العميل."
+
+#. module: mizan_alert
+#: model:ir.model.fields,help:mizan_alert.field_mizan_alert_rule__threshold
+msgid ""
+"A percentage for the budget rule, a number of days for the others. Left at "
+"zero the evaluator uses its own default."
+msgstr "نسبة مئوية لقاعدة الميزانية، وعدد أيام لما عداها. وإن تُرك صفرًا استخدم الفاحص قيمته الافتراضية."
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__active
+msgid "Active"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model,name:mizan_alert.model_mizan_alert_log
+msgid "Alert"
+msgstr "تنبيه"
+
+#. module: mizan_alert
+#: model:ir.model,name:mizan_alert.model_mizan_alert_rule
+msgid "Alert Rule"
+msgstr "قاعدة تنبيه"
+
+#. module: mizan_alert
+#: model:ir.actions.act_window,name:mizan_alert.action_alert_rules
+#: model:ir.ui.menu,name:mizan_alert.menu_alert_rules
+msgid "Alert Rules"
+msgstr "قواعد التنبيه"
+
+#. module: mizan_alert
+#. odoo-python
+#: code:addons/mizan_alert/models/alert_rule.py:0
+#: model:ir.actions.act_window,name:mizan_alert.action_alert_log
+#: model:ir.ui.menu,name:mizan_alert.menu_alerts
+msgid "Alerts"
+msgstr "التنبيهات"
+
+#. module: mizan_alert
+#: model:mizan.alert.rule,note:mizan_alert.rule_advance_overdue
+msgid ""
+"An advance nobody settles is a receivable nobody\n"
+"ages. Ask for the receipts or recover it from payroll."
+msgstr "السلفة التي لا يسوّيها أحد ذمة لا يعمّرها أحد. اطلب الفواتير أو استردها من الراتب."
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: mizan_alert
+#. odoo-python
+#: code:addons/mizan_alert/models/alert_rule.py:0
+msgid "Bounced on %(date)s. %(amount)s is not coming without a claim."
+msgstr "ارتجع في %(date)s. مبلغ %(amount)s لن يصل بلا مطالبة."
+
+#. module: mizan_alert
+#. odoo-python
+#: code:addons/mizan_alert/models/alert_rule.py:0
+msgid ""
+"Certified on %(date)s and still not invoiced. The client has accepted the "
+"work."
+msgstr "اعتُمد في %(date)s ولم يُفوتر. العميل قَبِل العمل بالفعل."
+
+#. module: mizan_alert
+#: model:mizan.alert.rule,note:mizan_alert.rule_customer_overdue
+msgid ""
+"Chase it before the next claim is certified: a\n"
+"client who is behind on one invoice and about to receive another is the point\n"
+"at which the exposure doubles."
+msgstr "طالب به قبل اعتماد المستخلص التالي: العميل المتأخر عن فاتورة وعلى وشك استلام أخرى هو اللحظة التي يتضاعف فيها التعرّض."
+
+#. module: mizan_alert
+#: model_terms:ir.ui.view,arch_db:mizan_alert.view_alert_rule_form
+msgid "Check now"
+msgstr "افحص الآن"
+
+#. module: mizan_alert
+#: model:mizan.alert.rule,note:mizan_alert.rule_budget_overrun
+msgid ""
+"Check the estimate at completion before the next\n"
+"commitment is placed. Past ninety per cent the question is no longer whether\n"
+"the job is on budget but what the final cost will be."
+msgstr "افحص تكلفة الإكمال قبل وضع أي التزام جديد. فبعد تسعين بالمئة لم يعد السؤال هل المشروع ضمن ميزانيته، بل كم ستكون تكلفته النهائية."
+
+#. module: mizan_alert
+#: model:mizan.alert.rule,name:mizan_alert.rule_cheque_bounced
+msgid "Cheque bounced"
+msgstr "شيك مرتجع"
+
+#. module: mizan_alert
+#: model:ir.model.fields.selection,name:mizan_alert.selection__mizan_alert_rule__kind__cheque_bounced
+msgid "Cheque bounced or under claim"
+msgstr "شيك مرتجع أو تحت المطالبة"
+
+#. module: mizan_alert
+#: model:ir.model.fields.selection,name:mizan_alert.selection__mizan_alert_rule__kind__claim_uninvoiced
+#: model:mizan.alert.rule,name:mizan_alert.rule_claim_uninvoiced
+msgid "Claim certified and not invoiced"
+msgstr "مستخلص معتمد ولم يُفوتر"
+
+#. module: mizan_alert
+#: model:ir.model.fields.selection,name:mizan_alert.selection__mizan_alert_rule__kind__eac_over_contract
+msgid "Cost at completion above the contract value"
+msgstr "تكلفة الإكمال تتجاوز قيمة العقد"
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__create_uid
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__create_date
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields.selection,name:mizan_alert.selection__mizan_alert_rule__kind__customer_overdue
+msgid "Customer invoice overdue"
+msgstr "فاتورة عميل متأخرة"
+
+#. module: mizan_alert
+#: model:mizan.alert.rule,name:mizan_alert.rule_customer_overdue
+msgid "Customer more than 30 days late"
+msgstr "عميل متأخر أكثر من ٣٠ يومًا"
+
+#. module: mizan_alert
+#: model:mizan.alert.rule,note:mizan_alert.rule_cheque_bounced
+msgid ""
+"Decide within the week whether to re-present or\n"
+"to claim. The legal position on a returned cheque gets worse the longer it\n"
+"sits."
+msgstr "احسم خلال الأسبوع: إعادة تقديم أم مطالبة. فالموقف القانوني من الشيك المرتجع يسوء كلما طال تركه."
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__display_name
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields.selection,name:mizan_alert.selection__mizan_alert_rule__kind__advance_overdue
+#: model:mizan.alert.rule,name:mizan_alert.rule_advance_overdue
+msgid "Employee advance not settled"
+msgstr "سلفة موظف غير مسوّاة"
+
+#. module: mizan_alert
+#: model_terms:ir.actions.act_window,help:mizan_alert.action_alert_log
+msgid ""
+"Every rule that is switched on has been checked and found\n"
+"               nothing over its limit."
+msgstr "كل قاعدة مفعّلة فُحصت ولم تجد شيئًا تجاوز حدّه."
+
+#. module: mizan_alert
+#. odoo-python
+#: code:addons/mizan_alert/models/alert_rule.py:0
+msgid ""
+"Expected to cost %(eac)s against a contract worth %(value)s — a loss of "
+"%(loss)s unless something changes."
+msgstr "متوقع أن يكلّف %(eac)s مقابل عقد قيمته %(value)s — خسارة %(loss)s ما لم يتغير شيء."
+
+#. module: mizan_alert
+#. odoo-python
+#: code:addons/mizan_alert/models/alert_rule.py:0
+msgid "Expires in %(days)s day(s), on %(date)s."
+msgstr "ينتهي خلال %(days)s يوم، في %(date)s."
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: mizan_alert
+#: model_terms:ir.ui.view,arch_db:mizan_alert.view_alert_log_search
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: mizan_alert
+#: model:mizan.alert.rule,name:mizan_alert.rule_bond_expiring
+msgid "Guarantee about to lapse"
+msgstr "ضمان يوشك على الانتهاء"
+
+#. module: mizan_alert
+#: model:ir.model.fields.selection,name:mizan_alert.selection__mizan_alert_rule__kind__bond_expiring
+msgid "Guarantee expiring"
+msgstr "ضمان يوشك على الانتهاء"
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__id
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__id
+msgid "ID"
+msgstr ""
+
+#. module: mizan_alert
+#: model:mizan.alert.rule,note:mizan_alert.rule_eac_over_contract
+msgid ""
+"IFRS 15 asks for the whole foreseeable loss to be\n"
+"provided the moment it is foreseeable, not spread over the remaining periods.\n"
+"Either the estimate is wrong or there is a provision to make and a variation to\n"
+"argue for."
+msgstr "يطلب المعيار الدولي ١٥ تكوين مخصص الخسارة المتوقعة كاملة لحظة توقّعها، لا توزيعها على الفترات المتبقية. فإما أن التقدير خاطئ، وإما أن هناك مخصصًا يجب تكوينه وأمر تغيير يجب المطالبة به."
+
+#. module: mizan_alert
+#: model:ir.model.fields,help:mizan_alert.field_mizan_alert_log__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,help:mizan_alert.field_mizan_alert_log__message_has_error
+#: model:ir.model.fields,help:mizan_alert.field_mizan_alert_log__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: mizan_alert
+#: model_terms:ir.ui.view,arch_db:mizan_alert.view_alert_log_list
+msgid "Ignore"
+msgstr "تجاهل"
+
+#. module: mizan_alert
+#: model:ir.model.fields.selection,name:mizan_alert.selection__mizan_alert_log__state__ignored
+msgid "Ignored"
+msgstr "متجاهَل"
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: mizan_alert
+#: model:mizan.alert.rule,name:mizan_alert.rule_eac_over_contract
+msgid "Job forecast to cost more than it earns"
+msgstr "المشروع متوقع أن يكلّف أكثر مما يعود"
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__kind
+msgid "Kind"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__last_run
+msgid "Last Run"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__write_uid
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__write_date
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__message
+msgid "Message"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__name
+msgid "Name"
+msgstr ""
+
+#. module: mizan_alert
+#: model_terms:ir.actions.act_window,help:mizan_alert.action_alert_log
+msgid "Nothing is raised"
+msgstr "لا توجد تنبيهات"
+
+#. module: mizan_alert
+#. odoo-python
+#: code:addons/mizan_alert/models/alert_rule.py:0
+msgid "Nothing new. Everything these rules watch is within its limit."
+msgstr "لا جديد. كل ما تراقبه هذه القواعد ضمن حدّه."
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,help:mizan_alert.field_mizan_alert_log__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,help:mizan_alert.field_mizan_alert_log__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: mizan_alert
+#: model_terms:ir.ui.view,arch_db:mizan_alert.view_alert_rule_form
+msgid "Off"
+msgstr "معطّلة"
+
+#. module: mizan_alert
+#: model:ir.model.fields.selection,name:mizan_alert.selection__mizan_alert_log__state__open
+#: model_terms:ir.ui.view,arch_db:mizan_alert.view_alert_log_list
+#: model_terms:ir.ui.view,arch_db:mizan_alert.view_alert_log_search
+#: model_terms:ir.ui.view,arch_db:mizan_alert.view_alert_rule_form
+msgid "Open"
+msgstr "مفتوح"
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__raised_count
+msgid "Open alerts"
+msgstr "تنبيهات مفتوحة"
+
+#. module: mizan_alert
+#. odoo-python
+#: code:addons/mizan_alert/models/alert_rule.py:0
+msgid "Paid on %(date)s and still not settled."
+msgstr "صُرفت في %(date)s ولم تُسوَّ بعد."
+
+#. module: mizan_alert
+#: model:ir.actions.server,name:mizan_alert.cron_alerts_ir_actions_server
+msgid "ProAccount: check the alert rules"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields.selection,name:mizan_alert.selection__mizan_alert_rule__kind__budget_overrun
+msgid "Project cost above a share of its budget"
+msgstr "تكلفة المشروع تتجاوز نسبة من ميزانيته"
+
+#. module: mizan_alert
+#: model:mizan.alert.rule,name:mizan_alert.rule_budget_overrun
+msgid "Project cost near its budget"
+msgstr "تكلفة المشروع تقترب من ميزانيتها"
+
+#. module: mizan_alert
+#: model_terms:ir.ui.view,arch_db:mizan_alert.view_alert_log_list
+msgid "Raised"
+msgstr "أُثير"
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__name
+msgid "Record"
+msgstr "السجل"
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__res_id
+msgid "Res"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__res_model
+msgid "Res Model"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields.selection,name:mizan_alert.selection__mizan_alert_log__state__resolved
+msgid "Resolved"
+msgstr "عولج"
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__resolved_on
+msgid "Resolved On"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__rule_id
+#: model_terms:ir.ui.view,arch_db:mizan_alert.view_alert_log_search
+msgid "Rule"
+msgstr "القاعدة"
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,help:mizan_alert.field_mizan_alert_rule__note
+msgid ""
+"Shown on the activity, so the person who gets it is not left to work out "
+"what is being asked."
+msgstr "يظهر على النشاط، فلا يُترك من يصله ليستنتج المطلوب."
+
+#. module: mizan_alert
+#: model_terms:ir.ui.view,arch_db:mizan_alert.view_alert_rule_form
+msgid "Shown on the activity, so whoever gets it is not left guessing."
+msgstr "يظهر على النشاط، فلا يُترك من يصله يخمّن."
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__state
+msgid "State"
+msgstr ""
+
+#. module: mizan_alert
+#: model_terms:ir.ui.view,arch_db:mizan_alert.view_alert_log_search
+msgid "Status"
+msgstr "الحالة"
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__recipient_ids
+msgid "Tell"
+msgstr "أبلغ"
+
+#. module: mizan_alert
+#: model:mizan.alert.rule,note:mizan_alert.rule_claim_uninvoiced
+msgid ""
+"The client has already accepted this work. Every\n"
+"day it stays uninvoiced is a day of financing it for them."
+msgstr "العميل قَبِل هذا العمل بالفعل. وكل يوم يبقى فيه بلا فاتورة هو يوم تموّله أنت عنه."
+
+#. module: mizan_alert
+#: model:ir.model.fields,help:mizan_alert.field_mizan_alert_rule__kind
+msgid ""
+"The condition. It is a named test rather than a filter because the "
+"interesting ones read computed figures -- cost at completion, percent "
+"complete -- that no stored filter can see."
+msgstr "الشرط. وهو فحص مسمّى لا مرشّح، لأن الشروط المهمة تقرأ أرقامًا محسوبة — تكلفة الإكمال، ونسبة الإنجاز — لا يراها أي مرشّح مخزَّن."
+
+#. module: mizan_alert
+#. odoo-python
+#: code:addons/mizan_alert/models/alert_rule.py:0
+msgid "The record this alert was about is gone."
+msgstr "السجل الذي يخص هذا التنبيه لم يعد موجودًا."
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__threshold
+msgid "Threshold"
+msgstr "الحد"
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_log__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: mizan_alert
+#: model:ir.model.fields,help:mizan_alert.field_mizan_alert_log__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: mizan_alert
+#: model_terms:ir.ui.view,arch_db:mizan_alert.view_alert_rule_form
+msgid "What this watches"
+msgstr "ما الذي تراقبه"
+
+#. module: mizan_alert
+#: model:ir.model.fields,field_description:mizan_alert.field_mizan_alert_rule__note
+#: model_terms:ir.ui.view,arch_db:mizan_alert.view_alert_rule_form
+msgid "What to do about it"
+msgstr "ما العمل"
+
+#. module: mizan_alert
+#: model:ir.model.fields,help:mizan_alert.field_mizan_alert_rule__recipient_ids
+msgid "Who gets the activity. A rule with nobody to tell is off."
+msgstr "من يصله النشاط. والقاعدة التي لا أحد يُبلَّغ بها معطّلة فعليًا."

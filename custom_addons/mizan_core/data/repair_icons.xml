@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- A server action so support can run the repair while looking at a
+         broken icon, instead of asking for a shell. -->
+    <record id="action_mizan_repair_icons" model="ir.actions.server">
+        <field name="name">Repair App Icons</field>
+        <field name="model_id" ref="base.model_ir_ui_menu"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_mizan_repair_web_icons()</field>
+    </record>
+
+    <menuitem id="menu_mizan_repair_icons" name="Repair App Icons"
+              parent="menu_mizan_platform" action="action_mizan_repair_icons"
+              sequence="50" groups="group_platform_admin"/>
+
+    <!-- Runs on install AND on every update of this module, which is what
+         makes it a fix rather than a one-off repair: a deploy re-derives
+         every icon from its file. Nothing is written when nothing changed,
+         so the menu hash stays put and browsers keep their cached payload. -->
+    <function model="ir.ui.menu" name="_mizan_repair_web_icons"/>
+
+</odoo>

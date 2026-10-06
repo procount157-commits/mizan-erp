@@ -1,0 +1,63 @@
+// Tiles, not list rows: this screen is read at a glance from across a desk,
+// and the figure is the thing the eye should land on.
+.o_mizan_quick {
+    .o_quick_tile {
+        border-radius: 6px;
+        border-inline-start: 4px solid transparent;
+        transition: box-shadow .12s ease-in-out;
+
+        &:hover { box-shadow: 0 2px 8px rgba(0, 0, 0, .12); }
+    }
+
+    .o_quick_hit {
+        background: none;
+        padding: 0;
+        &:focus { box-shadow: none; }
+    }
+
+    .o_quick_row {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .o_quick_icon {
+        flex: 0 0 auto;
+        width: 2rem;
+        text-align: center;
+        font-size: 1.25rem;
+        opacity: .75;
+        line-height: 1.4;
+    }
+
+    .o_quick_text { display: flex; flex-direction: column; min-width: 0; }
+
+    .o_quick_name {
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    .o_quick_hint {
+        font-size: .82rem;
+        color: var(--o-gray-600, #6c757d);
+        line-height: 1.3;
+    }
+
+    // The reason to click, or the reason not to.
+    .o_quick_value {
+        margin-top: .4rem;
+        padding-inline-start: calc(2rem + 10px);
+        font-size: .85rem;
+        font-weight: 600;
+    }
+
+    .o_quick_tone_good    { border-inline-start-color: #28a745;
+                            .o_quick_value { color: #28a745; } }
+    .o_quick_tone_watch   { border-inline-start-color: #e0a800;
+                            .o_quick_value { color: #b58100; } }
+    .o_quick_tone_bad     { border-inline-start-color: #dc3545;
+                            .o_quick_value { color: #dc3545; } }
+    .o_quick_tone_new     { border-inline-start-color: #1A3C6E;
+                            .o_quick_value { color: #1A3C6E; } }
+    .o_quick_tone_plain   { border-inline-start-color: #d8dadd; }
+}

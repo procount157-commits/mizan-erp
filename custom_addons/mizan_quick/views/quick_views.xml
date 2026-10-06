@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_quick_kanban" model="ir.ui.view">
+        <field name="name">mizan.quick.tile.kanban</field>
+        <field name="model">mizan.quick.tile</field>
+        <field name="arch" type="xml">
+            <kanban class="o_mizan_quick" create="false" edit="false"
+                    default_group_by="section" records_draggable="false"
+                    group_create="false" group_delete="false"
+                    group_edit="false">
+                <field name="tone"/>
+                <field name="icon"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="o_quick_tile"
+                             t-attf-class="o_quick_tone_#{record.tone.raw_value}"
+                             name="open_tile">
+                            <button name="action_open" type="object"
+                                    class="o_quick_hit btn p-0 border-0 text-start w-100">
+                                <div class="o_quick_row">
+                                    <span class="o_quick_icon">
+                                        <i t-attf-class="fa #{record.icon.raw_value}"
+                                           role="img" aria-hidden="true"/>
+                                    </span>
+                                    <span class="o_quick_text">
+                                        <span class="o_quick_name">
+                                            <field name="name"/>
+                                        </span>
+                                        <span class="o_quick_hint">
+                                            <field name="hint"/>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="o_quick_value" t-if="record.value.raw_value">
+                                    <field name="value"/>
+                                </div>
+                            </button>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_quick_search" model="ir.ui.view">
+        <field name="name">mizan.quick.tile.search</field>
+        <field name="model">mizan.quick.tile</field>
+        <field name="arch" type="xml">
+            <search string="Quick Access">
+                <field name="name"/>
+                <field name="hint"/>
+                <filter name="attention" string="Needs attention"
+                        domain="[('tone', 'in', ('bad', 'watch'))]"/>
+                <filter name="create" string="Starts something new"
+                        domain="[('tone', '=', 'new')]"/>
+                <group expand="1" string="Group By">
+                    <filter name="group_section" string="Section"
+                            context="{'group_by': 'section'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- A server action, not a window action: the figures are rebuilt before
+         the screen is shown, so the first visit of the day is not yesterday's
+         answer with today's date on it. -->
+    <record id="action_quick_open" model="ir.actions.server">
+        <field name="name">Quick Access</field>
+        <field name="model_id" ref="model_mizan_quick_tile"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_refresh()</field>
+    </record>
+
+    <!-- Second in the app list, right after My Work: one answers what needs
+         me, the other answers where everything is. -->
+    <menuitem id="menu_quick_root" name="Quick Access" sequence="2"
+              web_icon="mizan_quick,static/description/icon.png"/>
+    <menuitem id="menu_quick_all" name="Everything, one click away"
+              parent="menu_quick_root" action="action_quick_open" sequence="10"/>
+
+    <!-- Also inside Accounting, for whoever lives in that app. -->
+    <menuitem id="menu_quick_accounting" name="Quick Access"
+              parent="account.menu_finance" action="action_quick_open"
+              sequence="2"/>
+
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_alert_rule_user,mizan.alert.rule.user,model_mizan_alert_rule,account.group_account_invoice,1,0,0,0
+access_alert_rule_manager,mizan.alert.rule.manager,model_mizan_alert_rule,account.group_account_manager,1,1,1,1
+access_alert_log_user,mizan.alert.log.user,model_mizan_alert_log,base.group_user,1,1,0,0
+access_alert_log_manager,mizan.alert.log.manager,model_mizan_alert_log,account.group_account_manager,1,1,1,1

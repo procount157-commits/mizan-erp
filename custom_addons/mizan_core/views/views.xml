@@ -271,6 +271,7 @@
 
     <!-- ===== Platform: the operator's own, never the client's ==== -->
     <menuitem id="menu_mizan_platform" name="Platform" sequence="200"
+              web_icon="mizan_core,static/img/platform-icon.png"
               groups="group_platform_admin"/>
     <menuitem id="menu_mizan_users" name="Users" parent="menu_mizan_platform"
               action="base.action_res_users" sequence="10"

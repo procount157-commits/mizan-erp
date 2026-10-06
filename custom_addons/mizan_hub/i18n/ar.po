@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0-20260908\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-28 18:19+0000\n"
-"PO-Revision-Date: 2026-09-28 18:19+0000\n"
+"POT-Creation-Date: 2026-10-06 13:25+0000\n"
+"PO-Revision-Date: 2026-10-06 13:25+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -80,6 +80,18 @@ msgstr "هامش متوقع %(margin)s · مفوتر %(billed)s"
 #: code:addons/mizan_hub/models/inbox.py:0
 msgid "%(pct)s%% — %(reason)s"
 msgstr "%(pct)s%% — %(reason)s"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/dashboard.py:0
+msgid "%.0f hours lost this month"
+msgstr "%.0f ساعة ضائعة هذا الشهر"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/dashboard.py:0
+msgid "%s claim(s)"
+msgstr "%s مطالبة"
 
 #. module: mizan_hub
 #. odoo-python
@@ -593,6 +605,12 @@ msgid "Customers with no tax registration number"
 msgstr "عملاء بلا رقم تسجيل ضريبي"
 
 #. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/dashboard.py:0
+msgid "Daily reports this month"
+msgstr "التقارير اليومية هذا الشهر"
+
+#. module: mizan_hub
 #. odoo-javascript
 #. odoo-python
 #: code:addons/mizan_hub/models/dashboard.py:0
@@ -636,6 +654,12 @@ msgstr "جودة البيانات"
 #: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__days_late
 msgid "Days"
 msgstr "الأيام"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/dashboard.py:0
+msgid "Days work stopped"
+msgstr "أيام توقف العمل"
 
 #. module: mizan_hub
 #. odoo-python
@@ -772,6 +796,12 @@ msgstr "تقرير المصروفات"
 #: model:ir.model.fields,field_description:mizan_hub.field_mizan_dashboard_tile__name
 msgid "Figure"
 msgstr "الرقم"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/dashboard.py:0
+msgid "Filed today"
+msgstr "سُجِّل اليوم"
 
 #. module: mizan_hub
 #: model:ir.model.fields,field_description:mizan_hub.field_mizan_project_health__financial
@@ -1034,6 +1064,24 @@ msgstr "عملي"
 #. module: mizan_hub
 #. odoo-python
 #: code:addons/mizan_hub/models/dashboard.py:0
+msgid "My expenses not yet paid"
+msgstr "مصروفاتي غير المدفوعة"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/dashboard.py:0
+msgid "My hours this month"
+msgstr "ساعاتي هذا الشهر"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/dashboard.py:0
+msgid "My site"
+msgstr "موقعي"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/dashboard.py:0
 msgid "NOT SET"
 msgstr "غير مُسجَّل"
 
@@ -1111,9 +1159,21 @@ msgstr "ليست في الدفاتر، ولا في الإقرار الضريبي
 
 #. module: mizan_hub
 #. odoo-python
+#: code:addons/mizan_hub/models/dashboard.py:0
+msgid "Nothing filed today yet"
+msgstr "لم يُسجَّل تقرير اليوم بعد"
+
+#. module: mizan_hub
+#. odoo-python
 #: code:addons/mizan_hub/models/project_health.py:0
 msgid "Nothing needs attention on this job."
 msgstr "لا شيء يحتاج انتباهاً في هذا المشروع."
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/dashboard.py:0
+msgid "On %s project(s)"
+msgstr "على %s مشروع"
 
 #. module: mizan_hub
 #: model_terms:ir.ui.view,arch_db:mizan_hub.view_quality_list
@@ -1427,6 +1487,12 @@ msgid "Released at handover, not before"
 msgstr "يُفرج عنها عند التسليم، لا قبله"
 
 #. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/dashboard.py:0
+msgid "Reports not submitted"
+msgstr "تقارير لم تُقدَّم"
+
+#. module: mizan_hub
 #: model:ir.model.fields,field_description:mizan_hub.field_mizan_find_result__res_id
 #: model:ir.model.fields,field_description:mizan_hub.field_mizan_work_item__res_id
 msgid "Res"
@@ -1637,6 +1703,12 @@ msgstr "مخصص الخسارة غير مُرحَّل"
 #: code:addons/mizan_hub/models/dashboard.py:0
 msgid "The money"
 msgstr "المال"
+
+#. module: mizan_hub
+#. odoo-python
+#: code:addons/mizan_hub/models/dashboard.py:0
+msgid "The office cannot see them until you submit"
+msgstr "لا يراها المكتب حتى تقدّمها"
 
 #. module: mizan_hub
 #. odoo-python

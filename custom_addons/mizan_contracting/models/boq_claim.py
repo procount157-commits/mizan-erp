@@ -254,7 +254,13 @@ class MizanProgressClaim(models.Model):
             # bill the early work once per claim.
             prior_gross = max(previous.mapped("gross_to_date") or [0.0])
             pct = claim.retention_percent or 0.0
-            retention_to_date = gross * pct / 100.0
+            # Rounded here, not left to the store. The period figure below is
+            # the difference between two cumulative ones, so if this is still
+            # carrying fractions of a fils the difference disagrees with what
+            # gets posted by exactly that fraction -- which is how a ledger
+            # that is correct ends up not matching the document that made it.
+            retention_to_date = claim.currency_id.round(gross * pct / 100.0) \
+                if claim.currency_id else gross * pct / 100.0
             prior_retention = max(
                 previous.mapped("retention_to_date") or [0.0])
 

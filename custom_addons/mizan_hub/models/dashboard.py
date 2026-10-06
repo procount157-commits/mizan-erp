@@ -23,6 +23,7 @@ twice.
 from ast import literal_eval
 
 from odoo import api, fields, models, _
+from odoo.exceptions import AccessError
 
 
 class MizanDashboardTile(models.TransientModel):
@@ -81,17 +82,29 @@ class MizanDashboardTile(models.TransientModel):
                 "action_xmlid": xmlid or "",
             })
 
-        running = Contract.search([("state", "=", "running")])
-        receivable = Move.search([
-            ("company_id", "=", company.id), ("state", "=", "posted"),
-            ("move_type", "=", "out_invoice"),
-            ("payment_state", "in", ("not_paid", "partial"))])
-        overdue = receivable.filtered(
-            lambda move: move.invoice_date_due and move.invoice_date_due < today)
-        payable = Move.search([
-            ("company_id", "=", company.id), ("state", "=", "posted"),
-            ("move_type", "=", "in_invoice"),
-            ("payment_state", "in", ("not_paid", "partial"))])
+        # A dashboard must open for every role it is offered to. Where the
+        # user may not read contracts, the sections built on them are left
+        # out rather than the screen failing with an access error.
+        try:
+            running = Contract.search([("state", "=", "running")])
+        except AccessError:
+            running = Contract.browse()
+        # The ledger is read only for the roles that are shown ledger figures.
+        # Read unconditionally, it failed the screen for every user without
+        # accounting rights before a single tile was built.
+        receivable = overdue = payable = Move.browse()
+        if role in ("gm", "cfo"):
+            receivable = Move.search([
+                ("company_id", "=", company.id), ("state", "=", "posted"),
+                ("move_type", "=", "out_invoice"),
+                ("payment_state", "in", ("not_paid", "partial"))])
+            overdue = receivable.filtered(
+                lambda move: move.invoice_date_due
+                and move.invoice_date_due < today)
+            payable = Move.search([
+                ("company_id", "=", company.id), ("state", "=", "posted"),
+                ("move_type", "=", "in_invoice"),
+                ("payment_state", "in", ("not_paid", "partial"))])
 
         # ---------------------------------------------------- the business
         if role in ("gm", "cfo"):
@@ -212,6 +225,94 @@ class MizanDashboardTile(models.TransientModel):
                          else "good"),
                      model="mizan.contract", domain=[("id", "=", contract.id)])
 
+        # ------------------------------------------------------ my site
+        if role == "site":
+            rows.extend(self._site_tiles(tile_start=len(rows)))
+
+        return rows
+
+    @api.model
+    def _site_tiles(self, tile_start=0):
+        """An engineer's day: what he filed, what stopped, what he is owed.
+
+        Every figure is one he can open and every model is one his role may
+        read. The office figures — contract value, margin, retention — are
+        exactly what this screen leaves out."""
+        rows = []
+        today = fields.Date.context_today(self)
+        month_start = today.replace(day=1)
+        user = self.env.user
+
+        def tile(name, value, sublabel="", tone="plain", model=False,
+                 domain=None):
+            rows.append({
+                "sequence": (tile_start + len(rows)) * 10,
+                "section": _("My site"), "name": name, "value": value,
+                "sublabel": sublabel, "tone": tone, "res_model": model,
+                "domain": repr(domain or []), "action_xmlid": "",
+            })
+
+        if "mizan.site.report" in self.env:
+            Report = self.env["mizan.site.report"]
+            mine = [("author_id", "=", user.id), ("date", ">=", month_start)]
+            try:
+                filed = Report.search(mine)
+                today_filed = filed.filtered(lambda r: r.date == today)
+                tile(_("Daily reports this month"), str(len(filed)),
+                     _("Filed today") if today_filed
+                     else _("Nothing filed today yet"),
+                     tone="good" if today_filed else "watch",
+                     model="mizan.site.report", domain=mine)
+                stopped = filed.filtered("work_stopped")
+                tile(_("Days work stopped"), str(len(stopped)),
+                     _("%.0f hours lost this month",
+                       sum(stopped.mapped("stop_hours"))),
+                     tone="watch" if stopped else "good",
+                     model="mizan.site.report",
+                     domain=mine + [("work_stopped", "=", True)])
+                drafts = Report.search([("author_id", "=", user.id),
+                                        ("state", "=", "draft")])
+                if drafts:
+                    tile(_("Reports not submitted"), str(len(drafts)),
+                         _("The office cannot see them until you submit"),
+                         tone="bad", model="mizan.site.report",
+                         domain=[("author_id", "=", user.id),
+                                 ("state", "=", "draft")])
+            except AccessError:
+                pass
+
+        employee = self.env["hr.employee"].search(
+            [("user_id", "=", user.id)], limit=1)
+        if employee:
+            try:
+                waiting = self.env["hr.expense"].search([
+                    ("employee_id", "=", employee.id),
+                    ("state", "in", ("draft", "reported", "submitted",
+                                     "approved"))])
+                tile(_("My expenses not yet paid"),
+                     self._money(sum(waiting.mapped("total_amount"))),
+                     _("%s claim(s)", len(waiting)),
+                     tone="watch" if waiting else "good",
+                     model="hr.expense",
+                     domain=[("employee_id", "=", employee.id),
+                             ("state", "in", ("draft", "reported",
+                                              "submitted", "approved"))])
+            except AccessError:
+                pass
+            try:
+                hours = self.env["account.analytic.line"].search([
+                    ("employee_id", "=", employee.id),
+                    ("project_id", "!=", False),
+                    ("date", ">=", month_start)])
+                tile(_("My hours this month"),
+                     "%.0f" % sum(hours.mapped("unit_amount")),
+                     _("On %s project(s)", len(hours.mapped("project_id"))),
+                     model="account.analytic.line",
+                     domain=[("employee_id", "=", employee.id),
+                             ("project_id", "!=", False),
+                             ("date", ">=", month_start)])
+            except AccessError:
+                pass
         return rows
 
     @api.model
@@ -225,7 +326,10 @@ class MizanDashboardTile(models.TransientModel):
             return "pm"
         if user.has_group("account.group_account_readonly"):
             return "gm"
-        return "pm"
+        # Everybody else — a site engineer, above all. Handing them the
+        # project manager's screen meant handing them contract values they are
+        # deliberately not allowed to read, and the screen failed on open.
+        return "site"
 
     @api.model
     def action_refresh(self, role=None):

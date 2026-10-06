@@ -55,6 +55,31 @@ class AccountMove(models.Model):
                 "this database.", code))
         return retention, control
 
+    def _mizan_retention_to_withhold(self):
+        """How much to hold back, and why the claim gets the last word.
+
+        Retention is five per cent of the value certified *to date*, not five
+        per cent of each invoice taken on its own. The two agree until
+        rounding bites: 5% of a cumulative figure, minus 5% of the previous
+        cumulative figure, is not always 5% of the difference. Recomputing it
+        from the invoice therefore drifts a fils at a time, and the drift only
+        ever grows, until the retention account no longer equals what the
+        claims say is held -- which is the number the contractor and the
+        client argue over at handover.
+
+        So when the invoice came from a progress claim, the claim's figure is
+        the one posted. Only a retention invoice with no claim behind it falls
+        back to a percentage of itself, because then there is nothing
+        cumulative to be consistent with.
+        """
+        self.ensure_one()
+        claim = self.env["mizan.progress.claim"].search(
+            [("invoice_id", "=", self.id)], limit=1)
+        if claim and claim.retention_amount:
+            return self.currency_id.round(claim.retention_amount)
+        return self.currency_id.round(
+            self.amount_untaxed * self.mizan_retention_percent / 100.0)
+
     def action_withhold_retention(self):
         for move in self:
             if move.state != "posted":
@@ -66,8 +91,7 @@ class AccountMove(models.Model):
                 raise UserError(_("Set the retention percentage first."))
 
             retention_account, control_type = move._retention_accounts()
-            amount = move.currency_id.round(
-                move.amount_untaxed * move.mizan_retention_percent / 100.0)
+            amount = move._mizan_retention_to_withhold()
             if amount <= 0:
                 raise UserError(_("Nothing to withhold on %s.", move.name))
 

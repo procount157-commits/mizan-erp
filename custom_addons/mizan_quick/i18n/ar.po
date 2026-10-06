@@ -1,0 +1,735 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_quick
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-04 07:47+0000\n"
+"PO-Revision-Date: 2026-10-04 07:47+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar_001\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "%s account"
+msgstr "حساب واحد"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "%s accounts"
+msgstr "%s حسابًا"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "%s certified, not invoiced"
+msgstr "%s معتمد ولم يُفوتر"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "%s cheque"
+msgstr "شيك واحد"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "%s cheques"
+msgstr "%s شيكات"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "%s draft"
+msgstr "مسودة واحدة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "%s drafts"
+msgstr "%s مسودات"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "%s line unexplained"
+msgstr "سطر واحد غير مفسَّر"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "%s lines unexplained"
+msgstr "%s أسطر غير مفسَّرة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "%s live"
+msgstr "%s قيد التنفيذ"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "%s to approve"
+msgstr "%s بانتظار الاعتماد"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "%s waiting"
+msgstr "%s بانتظارك"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "A bill from a supplier"
+msgstr "فاتورة واردة من مورد"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "A new tax invoice"
+msgstr "فاتورة ضريبية جديدة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "A receipt to be reimbursed"
+msgstr "إيصال يُسترد"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Accounts & statements"
+msgstr "الحسابات والقوائم"
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__action_xmlid
+msgid "Action Xmlid"
+msgstr ""
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Aged Receivables"
+msgstr "أعمار الذمم المدينة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "An order that becomes a commitment"
+msgstr "أمر يتحول إلى التزام"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Balance Sheet"
+msgstr "الميزانية العمومية"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Bank & cash"
+msgstr "البنك والنقد"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Bank Reconciliation"
+msgstr "التسوية البنكية"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Bank Statements"
+msgstr "كشوف البنك"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Bank Transactions"
+msgstr "الحركات البنكية"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Bounced & Under Claim"
+msgstr "مرتجعة وتحت المطالبة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Changes the client asked for"
+msgstr "تغييرات طلبها العميل"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Chart of Accounts"
+msgstr "شجرة الحسابات"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Check the evidence, then lock the period"
+msgstr "افحص الأدلة، ثم اقفل الفترة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Cheques"
+msgstr "الشيكات"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Cheques Issued"
+msgstr "الشيكات الصادرة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Cheques Received"
+msgstr "الشيكات الواردة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Cheques that need the money to be there"
+msgstr "شيكات يجب أن يكون الرصيد جاهزًا لها"
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__ctx
+msgid "Context"
+msgstr ""
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Contracts"
+msgstr "العقود"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Cost Codes"
+msgstr "بنود التكلفة"
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__creates
+msgid "Creates"
+msgstr ""
+
+#. module: mizan_quick
+#: model:ir.model.fields.selection,name:mizan_quick.selection__mizan_quick_tile__tone__new
+msgid "Creates something"
+msgstr "ينشئ مستندًا"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Customer Invoice"
+msgstr "فاتورة عميل"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Data Quality"
+msgstr "جودة البيانات"
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__name
+msgid "Destination"
+msgstr "الوجهة"
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__domain
+msgid "Domain"
+msgstr ""
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Draft Invoices & Bills"
+msgstr "الفواتير المسودة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Due Within a Week"
+msgstr "تستحق خلال أسبوع"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Employee Advance"
+msgstr "سلفة موظف"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Every account, and what it is for"
+msgstr "كل حساب، وما الغرض منه"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Every account, debit against credit"
+msgstr "كل حساب، مدين مقابل دائن"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Every line the bank has sent"
+msgstr "كل سطر أرسله البنك"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Every movement on an account, in order"
+msgstr "كل حركة على الحساب، بالترتيب"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Everything waiting on you"
+msgstr "كل ما ينتظرك"
+
+#. module: mizan_quick
+#: model:ir.ui.menu,name:mizan_quick.menu_quick_all
+msgid "Everything, one click away"
+msgstr "كل شيء على بعد ضغطة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Expense"
+msgstr "مصروف"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Form 201, by emirate"
+msgstr "نموذج ٢٠١، حسب الإمارة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "General Ledger"
+msgstr "دفتر الأستاذ العام"
+
+#. module: mizan_quick
+#: model:ir.model.fields.selection,name:mizan_quick.selection__mizan_quick_tile__tone__good
+msgid "Good"
+msgstr "سليم"
+
+#. module: mizan_quick
+#: model_terms:ir.ui.view,arch_db:mizan_quick.view_quick_search
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Guarantees & Bonds"
+msgstr "الضمانات والكفالات"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Held, deposited, cleared"
+msgstr "في اليد، مودعة، محصّلة"
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__id
+msgid "ID"
+msgstr ""
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__icon
+msgid "Icon"
+msgstr ""
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Journal Items"
+msgstr "بنود القيود"
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Match what the bank says against the ledger"
+msgstr "طابق ما يقوله البنك مع الدفتر"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Material Requests"
+msgstr "طلبات المواد"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Measure a period against the bill"
+msgstr "قياس فترة مقابل جدول الكميات"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Measured, certified, invoiced"
+msgstr "مقيسة، معتمدة، مفوترة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Money promised that did not arrive"
+msgstr "مال وُعد به ولم يصل"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Month-End Close"
+msgstr "إقفال الشهر"
+
+#. module: mizan_quick
+#: model:ir.model.fields.selection,name:mizan_quick.selection__mizan_quick_tile__tone__bad
+#: model_terms:ir.ui.view,arch_db:mizan_quick.view_quick_search
+msgid "Needs attention"
+msgstr "يحتاج انتباهًا"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Not in the ledger until they are posted"
+msgstr "ليست في الدفتر حتى تُرحَّل"
+
+#. module: mizan_quick
+#: model:ir.model.fields,help:mizan_quick.field_mizan_quick_tile__creates
+msgid "Opens a blank form rather than the list it would be filed in."
+msgstr "يفتح نموذجًا فارغًا بدل القائمة التي سيُحفظ فيها."
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Payments"
+msgstr "المدفوعات"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Petty Cash to Approve"
+msgstr "العهدة بانتظار الاعتماد"
+
+#. module: mizan_quick
+#: model:ir.model.fields.selection,name:mizan_quick.selection__mizan_quick_tile__tone__plain
+msgid "Plain"
+msgstr "عادي"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Profit and Loss"
+msgstr "قائمة الدخل"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Progress Claim"
+msgstr "مستخلص"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Progress Claims"
+msgstr "المستخلصات"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Projects & sites"
+msgstr "المشاريع والمواقع"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Purchase Order"
+msgstr "أمر شراء"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+#: model:ir.actions.server,name:mizan_quick.action_quick_open
+#: model:ir.model,name:mizan_quick.model_mizan_quick_tile
+#: model:ir.ui.menu,name:mizan_quick.menu_quick_accounting
+#: model:ir.ui.menu,name:mizan_quick.menu_quick_root
+#: model_terms:ir.ui.view,arch_db:mizan_quick.view_quick_search
+msgid "Quick Access"
+msgstr "الوصول السريع"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Received and paid out"
+msgstr "المقبوض والمصروف"
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__res_model
+msgid "Res Model"
+msgstr ""
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Revenue against cost, for a period"
+msgstr "الإيراد مقابل التكلفة، عن فترة"
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__value
+msgid "Right now"
+msgstr "الآن"
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__section
+#: model_terms:ir.ui.view,arch_db:mizan_quick.view_quick_search
+msgid "Section"
+msgstr "القسم"
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Signed, handed over, presented"
+msgstr "موقّعة، مسلّمة، مقدّمة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Site Reports"
+msgstr "تقارير المواقع"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Site cash, with a settlement to come"
+msgstr "نقد الموقع، وتسوية لاحقة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Site spending waiting on a signature"
+msgstr "صرف الموقع بانتظار توقيع"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Start something"
+msgstr "ابدأ مستندًا"
+
+#. module: mizan_quick
+#: model_terms:ir.ui.view,arch_db:mizan_quick.view_quick_search
+msgid "Starts something new"
+msgstr "يبدأ شيئًا جديدًا"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "The ledger itself, unfiltered"
+msgstr "الدفتر نفسه، بلا تصفية"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "The month"
+msgstr "الشهر"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "The trades a job is broken into"
+msgstr "البنود التي قُسّم إليها المشروع"
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__tone
+msgid "Tone"
+msgstr ""
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Trial Balance"
+msgstr "ميزان المراجعة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Upload a statement, or open one"
+msgstr "ارفع كشفًا، أو افتح واحدًا"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "VAT Return"
+msgstr "الإقرار الضريبي"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Value, budget, what is left to build"
+msgstr "القيمة، والميزانية، وما بقي تنفيذه"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Variation Orders"
+msgstr "أوامر التغيير"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Vendor Bill"
+msgstr "فاتورة مورد"
+
+#. module: mizan_quick
+#: model:ir.model.fields.selection,name:mizan_quick.selection__mizan_quick_tile__tone__watch
+msgid "Watch"
+msgstr "راقب"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "What is lodged, and when it lapses"
+msgstr "ما هو مودع، ومتى ينتهي"
+
+#. module: mizan_quick
+#: model:ir.model.fields,field_description:mizan_quick.field_mizan_quick_tile__hint
+msgid "What it is"
+msgstr "ما هو"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "What the company owns and owes"
+msgstr "ما تملكه الشركة وما عليها"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "What the engineers filed from the sites"
+msgstr "ما رفعه المهندسون من المواقع"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "What the site has asked for"
+msgstr "ما طلبه الموقع"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "What will go wrong at the close"
+msgstr "ما سيختل عند الإقفال"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Who owes, and for how long"
+msgstr "من عليه مستحق، ومنذ متى"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "Work Inbox"
+msgstr "صندوق المهام"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "everything is matched"
+msgstr "كل شيء مطابق"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "none open"
+msgstr "لا يوجد مفتوح"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "none outstanding"
+msgstr "لا شيء قائم"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "none running"
+msgstr "لا يوجد قيد التنفيذ"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "none this week"
+msgstr "لا شيء هذا الأسبوع"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "nothing to approve"
+msgstr "لا شيء للاعتماد"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "nothing to bill"
+msgstr "لا شيء للفوترة"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "nothing waiting"
+msgstr "لا شيء بانتظارك"
+
+#. module: mizan_quick
+#. odoo-python
+#: code:addons/mizan_quick/models/tile.py:0
+msgid "opens a blank form"
+msgstr "يفتح نموذجًا فارغًا"

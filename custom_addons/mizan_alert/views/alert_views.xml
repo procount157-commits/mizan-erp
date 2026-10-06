@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_alert_rule_list" model="ir.ui.view">
+        <field name="name">mizan.alert.rule.list</field>
+        <field name="model">mizan.alert.rule</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="not active">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="kind"/>
+                <field name="threshold"/>
+                <field name="recipient_ids" widget="many2many_tags"/>
+                <field name="raised_count"/>
+                <field name="last_run"/>
+                <field name="active" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_alert_rule_form" model="ir.ui.view">
+        <field name="name">mizan.alert.rule.form</field>
+        <field name="model">mizan.alert.rule</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_run_now" type="object"
+                            string="Check now" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Off" bg_color="text-bg-danger"
+                            invisible="active"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_alerts" type="object"
+                                class="oe_stat_button" icon="fa-bell">
+                            <field name="raised_count" widget="statinfo"
+                                   string="Open"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="What this watches"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="kind"/>
+                            <field name="threshold"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="recipient_ids" widget="many2many_tags"
+                                   options="{'no_create': True}"/>
+                            <field name="last_run" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="What to do about it">
+                        <field name="note" nolabel="1"
+                               placeholder="Shown on the activity, so whoever gets it is not left guessing."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_alert_rules" model="ir.actions.act_window">
+        <field name="name">Alert Rules</field>
+        <field name="res_model">mizan.alert.rule</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="view_alert_log_list" model="ir.ui.view">
+        <field name="name">mizan.alert.log.list</field>
+        <field name="model">mizan.alert.log</field>
+        <field name="arch" type="xml">
+            <list create="false"
+                  decoration-muted="state in ('resolved', 'ignored')">
+                <field name="create_date" string="Raised"/>
+                <field name="rule_id"/>
+                <field name="name"/>
+                <field name="message"/>
+                <field name="state" widget="badge"
+                       decoration-danger="state == 'open'"
+                       decoration-success="state == 'resolved'"/>
+                <button name="action_open_record" type="object" string="Open"
+                        class="btn-link" icon="fa-arrow-right"/>
+                <button name="action_ignore" type="object" string="Ignore"
+                        class="btn-link" icon="fa-bell-slash"
+                        invisible="state != 'open'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_alert_log_search" model="ir.ui.view">
+        <field name="name">mizan.alert.log.search</field>
+        <field name="model">mizan.alert.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="rule_id"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <group expand="1" string="Group By">
+                    <filter name="group_rule" string="Rule"
+                            context="{'group_by': 'rule_id'}"/>
+                    <filter name="group_state" string="Status"
+                            context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_alert_log" model="ir.actions.act_window">
+        <field name="name">Alerts</field>
+        <field name="res_model">mizan.alert.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_open': 1, 'search_default_group_rule': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing is raised</p>
+            <p>Every rule that is switched on has been checked and found
+               nothing over its limit.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_alerts" name="Alerts" parent="mizan_hub.menu_hub_root"
+              action="action_alert_log" sequence="25"/>
+    <menuitem id="menu_alert_rules" name="Alert Rules"
+              parent="account.menu_finance_configuration"
+              action="action_alert_rules" sequence="90"
+              groups="account.group_account_manager"/>
+
+</odoo>
