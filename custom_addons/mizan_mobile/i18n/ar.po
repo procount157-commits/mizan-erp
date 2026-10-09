@@ -1,0 +1,256 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_mobile
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-09 11:46+0000\n"
+"PO-Revision-Date: 2026-10-09 11:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_mobile
+#. odoo-python
+#: code:addons/mizan_mobile/models/dashboard.py:0
+msgid "%(n)s open · %(won)s won this month"
+msgstr "%(n)s مفتوحة · %(won)s رابحة هذا الشهر"
+
+#. module: mizan_mobile
+#. odoo-python
+#: code:addons/mizan_mobile/models/dashboard.py:0
+msgid "%s overdue"
+msgstr "%s متأخرة"
+
+#. module: mizan_mobile
+#. odoo-python
+#: code:addons/mizan_mobile/models/dashboard.py:0
+msgid "%s past their deadline"
+msgstr "%s تجاوزت موعدها"
+
+#. module: mizan_mobile
+#: model_terms:ir.ui.view,arch_db:mizan_mobile.view_settings_mobile
+msgid "-----BEGIN PRIVATE KEY----- …"
+msgstr ""
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_res_config_settings__mizan_apns_environment
+msgid "APNs Environment"
+msgstr "بيئة إشعارات Apple"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_res_config_settings__mizan_apns_key
+msgid "APNs Key (.p8 contents)"
+msgstr "مفتاح الإشعارات (محتوى ملف .p8)"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_res_config_settings__mizan_apns_key_id
+msgid "APNs Key ID"
+msgstr "معرّف مفتاح الإشعارات"
+
+#. module: mizan_mobile
+#: model:ir.model.fields.selection,name:mizan_mobile.selection__mizan_native_device__platform__android
+msgid "Android"
+msgstr "أندرويد"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_mizan_native_device__app_id
+msgid "App"
+msgstr "التطبيق"
+
+#. module: mizan_mobile
+#: model:ir.model.fields.selection,name:mizan_mobile.selection__res_config_settings__mizan_apns_environment__production
+msgid "App Store / TestFlight"
+msgstr "App Store / TestFlight"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_res_config_settings__mizan_apns_team_id
+msgid "Apple Team ID"
+msgstr "Team ID في Apple"
+
+#. module: mizan_mobile
+#: model_terms:ir.ui.view,arch_db:mizan_mobile.view_settings_mobile
+msgid "Apple account"
+msgstr "حساب Apple"
+
+#. module: mizan_mobile
+#: model:ir.model,name:mizan_mobile.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات "
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_mizan_native_device__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_mizan_native_device__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: mizan_mobile
+#: model:ir.model,name:mizan_mobile.model_mizan_dashboard_tile
+msgid "Dashboard"
+msgstr "لوحة المعلومات"
+
+#. module: mizan_mobile
+#: model:ir.model.fields.selection,name:mizan_mobile.selection__res_config_settings__mizan_apns_environment__sandbox
+msgid "Development build"
+msgstr "نسخة تطوير"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_mizan_native_device__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: mizan_mobile
+#: model:ir.model,name:mizan_mobile.model_mail_thread
+msgid "Email Thread"
+msgstr "المحادثة البريدية"
+
+#. module: mizan_mobile
+#: model_terms:ir.ui.view,arch_db:mizan_mobile.view_settings_mobile
+msgid "From the Apple developer account that publishes the app: Certificates, Identifiers & Profiles → Keys → a key with Apple Push Notifications."
+msgstr "من حساب Apple Developer الذي ينشر التطبيق: Certificates, Identifiers & Profiles ← Keys ← مفتاح مفعّل له Apple Push Notifications."
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_mizan_native_device__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_mizan_native_device__last_seen
+msgid "Last Seen"
+msgstr "آخر ظهور"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_mizan_native_device__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_mizan_native_device__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: mizan_mobile
+#. odoo-python
+#: code:addons/mizan_mobile/models/dashboard.py:0
+msgid "My opportunities"
+msgstr "فرصي"
+
+#. module: mizan_mobile
+#. odoo-python
+#: code:addons/mizan_mobile/models/dashboard.py:0
+msgid "My tasks"
+msgstr "مهامي"
+
+#. module: mizan_mobile
+#. odoo-python
+#: code:addons/mizan_mobile/models/dashboard.py:0
+msgid "My work"
+msgstr "أعمالي"
+
+#. module: mizan_mobile
+#. odoo-python
+#: code:addons/mizan_mobile/models/dashboard.py:0
+msgid "Nothing overdue"
+msgstr "لا شيء متأخر"
+
+#. module: mizan_mobile
+#. odoo-python
+#: code:addons/mizan_mobile/models/dashboard.py:0
+msgid "On time"
+msgstr "في الموعد"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,help:mizan_mobile.field_mizan_native_device__partner_id
+msgid "Partner-related data of the user"
+msgstr "بيانات جهة الاتصال للمستخدم"
+
+#. module: mizan_mobile
+#: model:ir.model,name:mizan_mobile.model_mizan_native_device
+msgid "Phone App Device"
+msgstr "جهاز التطبيق"
+
+#. module: mizan_mobile
+#: model_terms:ir.ui.view,arch_db:mizan_mobile.view_settings_mobile
+msgid "Phone Apps"
+msgstr "تطبيقات الجوال"
+
+#. module: mizan_mobile
+#: model_terms:ir.ui.view,arch_db:mizan_mobile.view_native_device_list
+msgid "Phones"
+msgstr "الجوالات"
+
+#. module: mizan_mobile
+#: model:ir.actions.act_window,name:mizan_mobile.action_native_devices
+msgid "Phones with the App"
+msgstr "الجوالات المثبّت عليها التطبيق"
+
+#. module: mizan_mobile
+#: model_terms:ir.ui.view,arch_db:mizan_mobile.view_settings_mobile
+msgid "Phones with the app"
+msgstr "الجوالات المثبّت عليها التطبيق"
+
+#. module: mizan_mobile
+#. odoo-python
+#: code:addons/mizan_mobile/models/dashboard.py:0
+msgid "Pipeline"
+msgstr "الفرص المفتوحة"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_mizan_native_device__platform
+msgid "Platform"
+msgstr "النظام"
+
+#. module: mizan_mobile
+#: model_terms:ir.ui.view,arch_db:mizan_mobile.view_settings_mobile
+msgid "Push key"
+msgstr "مفتاح الإشعارات"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_mizan_native_device__partner_id
+msgid "Related Partner"
+msgstr "جهة الاتصال"
+
+#. module: mizan_mobile
+#: model:ir.model.constraint,message:mizan_mobile.constraint_mizan_native_device_token_unique
+msgid "This device is already registered."
+msgstr "هذا الجهاز مسجّل مسبقاً."
+
+#. module: mizan_mobile
+#. odoo-python
+#: code:addons/mizan_mobile/models/dashboard.py:0
+msgid "To do today"
+msgstr "المطلوب اليوم"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_mizan_native_device__token
+msgid "Token"
+msgstr "الرمز"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_mizan_native_device__user_id
+msgid "User"
+msgstr "المستخدم"
+
+#. module: mizan_mobile
+#: model:ir.model.fields.selection,name:mizan_mobile.selection__mizan_native_device__platform__ios
+msgid "iPhone"
+msgstr "آيفون"
+
+#. module: mizan_mobile
+#: model:ir.model.fields,field_description:mizan_mobile.field_res_config_settings__mizan_apns_bundle_id
+msgid "iPhone App Bundle ID"
+msgstr "Bundle ID لتطبيق الآيفون"
+
+#. module: mizan_mobile
+#: model_terms:ir.ui.view,arch_db:mizan_mobile.view_settings_mobile
+msgid "iPhone notifications"
+msgstr "إشعارات الآيفون"

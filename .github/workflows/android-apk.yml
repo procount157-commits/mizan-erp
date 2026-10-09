@@ -26,10 +26,15 @@ jobs:
         env:
           KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           VERSION_CODE: ${{ github.run_number }}
-        run: gradle -p mobile :app:assembleRelease --no-daemon
+        # The APK installs directly on a phone; the AAB is what Google Play takes.
+        run: gradle -p mobile :app:assembleRelease :app:bundleRelease --no-daemon
       - name: Signing fingerprint (for the server's assetlinks)
         run: keytool -list -v -keystore "$KEYSTORE_PATH" -storepass "${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" | grep "SHA256:"
       - uses: actions/upload-artifact@v4
         with:
           name: miqyas-apk
           path: mobile/app/build/outputs/apk/release/*.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: miqyas-aab-for-google-play
+          path: mobile/app/build/outputs/bundle/release/*.aab

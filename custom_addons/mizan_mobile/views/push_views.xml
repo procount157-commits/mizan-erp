@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_native_device_list" model="ir.ui.view">
+        <field name="name">mizan.native.device.list</field>
+        <field name="model">mizan.native.device</field>
+        <field name="arch" type="xml">
+            <list string="Phones" create="0">
+                <field name="user_id"/>
+                <field name="platform"/>
+                <field name="app_id"/>
+                <field name="last_seen"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_native_devices" model="ir.actions.act_window">
+        <field name="name">Phones with the App</field>
+        <field name="res_model">mizan.native.device</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <!-- Filled in once, from the Apple developer account that publishes the
+         iPhone app. Until then the iPhone app works; it just stays silent. -->
+    <record id="view_settings_mobile" model="ir.ui.view">
+        <field name="name">res.config.settings.mizan.mobile</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="Phone Apps" name="mizan_mobile" groups="base.group_system">
+                    <block title="iPhone notifications"
+                           help="From the Apple developer account that publishes the app: Certificates, Identifiers &amp; Profiles → Keys → a key with Apple Push Notifications.">
+                        <setting string="Apple account">
+                            <div class="row"><label for="mizan_apns_team_id" class="col-lg-4"/><field name="mizan_apns_team_id"/></div>
+                            <div class="row"><label for="mizan_apns_bundle_id" class="col-lg-4"/><field name="mizan_apns_bundle_id"/></div>
+                            <div class="row"><label for="mizan_apns_environment" class="col-lg-4"/><field name="mizan_apns_environment"/></div>
+                        </setting>
+                        <setting string="Push key">
+                            <div class="row"><label for="mizan_apns_key_id" class="col-lg-4"/><field name="mizan_apns_key_id"/></div>
+                            <field name="mizan_apns_key" widget="text" password="True"
+                                   placeholder="-----BEGIN PRIVATE KEY----- …"/>
+                            <button name="%(action_native_devices)d" type="action"
+                                    string="Phones with the app" icon="fa-mobile" class="btn-link"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

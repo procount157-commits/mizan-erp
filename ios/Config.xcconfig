@@ -1,0 +1,12 @@
+// The only file to edit before publishing. Everything else stays as it is.
+//
+// MIQYAS_BUNDLE_ID  must match the App ID registered in the Apple developer
+//                   account that publishes the app.
+// MIQYAS_TEAM_ID    that account's Team ID (Membership details).
+// MIQYAS_DOMAIN     where client companies live: code "alamana" opens
+//                   alamana.<domain>.
+MIQYAS_BUNDLE_ID = ae.miqyas.app
+MIQYAS_TEAM_ID =
+MIQYAS_DOMAIN = miqyas.example.com
+MIQYAS_VERSION = 1.0.0
+MIQYAS_BUILD = 1

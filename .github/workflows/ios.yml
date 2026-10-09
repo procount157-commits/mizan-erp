@@ -1,0 +1,31 @@
+# Builds the Miqyas iPhone app on every change under ios/ — unsigned, to
+# prove it compiles — and publishes the ready Xcode project as an artifact.
+# Signing and uploading to the App Store happen in Xcode, with the developer
+# account that publishes the app (see ios/README.md).
+name: iOS app
+on:
+  push:
+    paths: ["ios/**", ".github/workflows/ios.yml"]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate the Xcode project
+        run: |
+          brew install xcodegen
+          cd ios && xcodegen generate
+      - name: Build for the simulator (no signing)
+        run: |
+          cd ios
+          xcodebuild -project Miqyas.xcodeproj -scheme Miqyas -configuration Release \
+            -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO build | tail -40
+          test ${PIPESTATUS[0]} -eq 0
+      - name: Package the project
+        run: cd ios && zip -qr "$RUNNER_TEMP/Miqyas-iOS.zip" . -x 'build/*' '*.DS_Store'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: miqyas-ios-project
+          path: ${{ runner.temp }}/Miqyas-iOS.zip
