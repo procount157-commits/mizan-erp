@@ -288,7 +288,12 @@ class MizanEmployeeAdvance(models.Model):
                 for move in advance.move_settle_ids
                 for line in move.line_ids
                 if line.account_id == advance_account)
-            to_clear = advance.amount_spent - already
+            # Never clear more than was advanced. Receipts beyond the advance
+            # are money the company owes the employee, and they stay on his
+            # payable to be reimbursed — crediting them to the advance account
+            # would turn it negative and hide the debt.
+            to_clear = min(advance.amount_spent,
+                           advance.amount - advance.amount_returned) - already
             if to_clear <= 0:
                 raise UserError(_(
                     "There is nothing new to settle. Post the employee's "
@@ -312,6 +317,18 @@ class MizanEmployeeAdvance(models.Model):
             })
             move.action_post()
             advance.move_settle_ids = [(4, move.id)]
+            # Match the settlement against the claims it pays, so the claims
+            # read as paid. Left open, every claim settled from an advance
+            # still said "to pay", and the next payment run paid it in cash.
+            claims = advance.expense_sheet_ids.filtered(
+                lambda sheet: sheet.state in ("post", "done"))
+            open_lines = claims.account_move_ids.line_ids.filtered(
+                lambda line: line.account_id == payable
+                and line.parent_state == "posted" and not line.reconciled)
+            settle_line = move.line_ids.filtered(
+                lambda line: line.account_id == payable)
+            if open_lines and payable.reconcile:
+                (settle_line | open_lines).reconcile()
             if advance.amount_outstanding <= 0:
                 advance.state = "settled"
         return True
@@ -342,6 +359,18 @@ class MizanEmployeeAdvance(models.Model):
             })
             move.action_post()
             advance.move_settle_ids = [(4, move.id)]
+            # Match the settlement against the claims it pays, so the claims
+            # read as paid. Left open, every claim settled from an advance
+            # still said "to pay", and the next payment run paid it in cash.
+            claims = advance.expense_sheet_ids.filtered(
+                lambda sheet: sheet.state in ("post", "done"))
+            open_lines = claims.account_move_ids.line_ids.filtered(
+                lambda line: line.account_id == payable
+                and line.parent_state == "posted" and not line.reconciled)
+            settle_line = move.line_ids.filtered(
+                lambda line: line.account_id == payable)
+            if open_lines and payable.reconcile:
+                (settle_line | open_lines).reconcile()
             advance.amount_returned += balance
             advance.state = "settled"
         return True

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Its own app, so an engineer finds his cash without passing through
+         Expenses, and a manager finds the day's receipts in one place. -->
+    <menuitem id="menu_petty_root" name="Petty Cash" sequence="4"
+              web_icon="mizan_pettycash,static/description/icon.png"
+              groups="mizan_site.group_site_engineer,hr_expense.group_hr_expense_team_approver,account.group_account_invoice"/>
+
+    <menuitem id="menu_petty_capture" name="Photograph a Receipt" parent="menu_petty_root"
+              action="action_capture_cash" sequence="5"
+              groups="mizan_site.group_site_engineer"/>
+    <menuitem id="menu_petty_mine" name="My Petty Cash" parent="menu_petty_root"
+              action="action_my_receipts" sequence="10"
+              groups="mizan_site.group_site_engineer"/>
+    <menuitem id="menu_petty_topup" name="Ask for a Top-up" parent="menu_petty_root"
+              action="action_topup" sequence="15"
+              groups="mizan_site.group_site_engineer"/>
+    <menuitem id="menu_petty_approve" name="To Approve" parent="menu_petty_root"
+              action="action_approve_receipts" sequence="20"
+              groups="hr_expense.group_hr_expense_team_approver"/>
+    <menuitem id="menu_petty_post" name="To Post" parent="menu_petty_root"
+              action="action_post_receipts" sequence="25"
+              groups="account.group_account_invoice"/>
+    <menuitem id="menu_petty_balances" name="Who Holds Cash" parent="menu_petty_root"
+              action="action_balances" sequence="30"
+              groups="hr_expense.group_hr_expense_team_approver,account.group_account_invoice"/>
+    <menuitem id="menu_petty_advances" name="Advances and Top-ups" parent="menu_petty_root"
+              action="mizan_advance.action_employee_advance" sequence="40"
+              groups="hr_expense.group_hr_expense_team_approver,account.group_account_invoice"/>
+</odoo>

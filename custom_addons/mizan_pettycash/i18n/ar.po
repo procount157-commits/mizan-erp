@@ -1,0 +1,552 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_pettycash
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-09 11:08+0000\n"
+"PO-Revision-Date: 2026-10-09 11:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/dashboard.py:0
+msgid "%(held)s held · %(n)s receipt(s) waiting"
+msgstr "معك %(held)s · %(n)s إيصال قيد الاعتماد"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/sheet.py:0
+msgid "%(n)s receipt(s) approved and posted."
+msgstr "تم اعتماد %(n)s إيصال وترحيلها."
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/sheet.py:0
+msgid "%(n)s receipt(s) approved. Accounting will post them."
+msgstr "تم اعتماد %(n)s إيصال. سيرحّلها قسم الحسابات."
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/sheet.py:0
+msgid "%(n)s receipt(s) posted; the advances are settled."
+msgstr "تم ترحيل %(n)s إيصال وتسوية العهد."
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/advance.py:0
+msgid "%(name)s already holds %(held)s. A top-up of %(amount)s would take it above the limit of %(limit)s."
+msgstr "لدى %(name)s عهدة قدرها %(held)s. تعويض بمبلغ %(amount)s يتجاوز الحد المسموح %(limit)s."
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/sheet.py:0
+msgid "%(who)s approved %(name)s for %(amount)s."
+msgstr "اعتمد %(who)s الإيصال %(name)s بمبلغ %(amount)s."
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/dashboard.py:0
+msgid "A receipt or a supplier's invoice"
+msgstr "إيصال أو فاتورة مورد"
+
+#. module: mizan_pettycash
+#: model:ir.ui.menu,name:mizan_pettycash.menu_petty_advances
+msgid "Advances and Top-ups"
+msgstr "العهد والتعويضات"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_receipt_list
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_receipt_list
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/advance.py:0
+msgid "Approve %(kind)s of %(amount)s for %(name)s"
+msgstr "اعتماد %(kind)s بمبلغ %(amount)s لـ %(name)s"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/dashboard.py:0
+msgid "Approved, to post"
+msgstr "معتمدة بانتظار الترحيل"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/advance.py:0
+#: model:ir.actions.server,name:mizan_pettycash.action_topup
+#: model:ir.ui.menu,name:mizan_pettycash.menu_petty_topup
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_topup_form
+msgid "Ask for a Top-up"
+msgstr "طلب تعويض العهدة"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/dashboard.py:0
+msgid "Ask for a top-up"
+msgstr "طلب تعويض العهدة"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_petty_cash_balance__available
+msgid "Available"
+msgstr "المتاح"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields.selection,name:mizan_pettycash.selection__mizan_petty_cash_balance__tone__bad
+msgid "Bad"
+msgstr "سيئ"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_site_capture__cash_held
+msgid "Cash Held"
+msgstr "العهدة"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/dashboard.py:0
+msgid "Cash out on site"
+msgstr "نقد العهد في المواقع"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/dashboard.py:0
+msgid "Cash requests to approve"
+msgstr "طلبات عهدة بانتظار الاعتماد"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_topup_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_petty_cash_balance__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_petty_cash_balance__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_petty_cash_balance__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/dashboard.py:0
+msgid "Daily report"
+msgstr "التقرير اليومي"
+
+#. module: mizan_pettycash
+#: model:ir.model,name:mizan_pettycash.model_mizan_dashboard_tile
+msgid "Dashboard"
+msgstr "لوحة المعلومات"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_receipt_list
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,help:mizan_pettycash.field_mizan_site_capture__spend_kind
+msgid "Decides the expense account, so the cost lands under the right heading without the office recoding it."
+msgstr "يحدد حساب المصروف، فتُسجَّل التكلفة في بندها الصحيح دون أن يعيد المكتب تصنيفها."
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_petty_cash_balance__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/dashboard.py:0
+msgid "Do it now"
+msgstr "إجراء سريع"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/capture.py:0
+#: code:addons/mizan_pettycash/models/sheet.py:0
+msgid "Done"
+msgstr "تم"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_petty_cash_balance__employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: mizan_pettycash
+#: model:ir.model,name:mizan_pettycash.model_mizan_employee_advance
+msgid "Employee Advance"
+msgstr "سلفة موظف"
+
+#. module: mizan_pettycash
+#: model:ir.model,name:mizan_pettycash.model_hr_expense_sheet
+msgid "Expense Report"
+msgstr "تقرير المصروفات"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_receipt_list
+msgid "For"
+msgstr "البيان"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields.selection,name:mizan_pettycash.selection__mizan_site_capture__paid_by__cash
+msgid "From my petty cash"
+msgstr "من عهدتي"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields.selection,name:mizan_pettycash.selection__mizan_site_capture__spend_kind__pc-fuel
+msgid "Fuel"
+msgstr "وقود"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields.selection,name:mizan_pettycash.selection__mizan_petty_cash_balance__tone__good
+msgid "Good"
+msgstr "جيد"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields.selection,name:mizan_pettycash.selection__mizan_site_capture__spend_kind__pc-gov
+msgid "Government fees"
+msgstr "رسوم حكومية"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_petty_cash_balance__held
+msgid "Holding"
+msgstr "العهدة"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields.selection,name:mizan_pettycash.selection__mizan_site_capture__spend_kind__pc-hosp
+msgid "Hospitality"
+msgstr "ضيافة"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_petty_cash_balance__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_site_capture__spend_kind
+msgid "Kind"
+msgstr "النوع"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_petty_cash_balance__last_paid
+msgid "Last Top-up"
+msgstr "آخر تعويض"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_petty_cash_balance__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_petty_cash_balance__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: mizan_pettycash
+#: model:ir.actions.act_window,name:mizan_pettycash.action_my_receipts
+#: model:ir.ui.menu,name:mizan_pettycash.menu_petty_mine
+msgid "My Petty Cash"
+msgstr "عهدتي"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/dashboard.py:0
+msgid "My petty cash"
+msgstr "عهدتي"
+
+#. module: mizan_pettycash
+#: model_terms:ir.actions.act_window,help:mizan_pettycash.action_my_receipts
+msgid "No receipts yet"
+msgstr "لا توجد إيصالات بعد"
+
+#. module: mizan_pettycash
+#: model_terms:ir.actions.act_window,help:mizan_pettycash.action_approve_receipts
+msgid "Nothing waiting for you"
+msgstr "لا شيء بانتظارك"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,help:mizan_pettycash.field_mizan_site_capture__vat_on_receipt
+msgid "Only a tax invoice with the supplier's TRN lets the company recover the VAT. A plain receipt is booked without it, in full."
+msgstr "لا تسترد الشركة الضريبة إلا بفاتورة ضريبية عليها الرقم الضريبي للمورد. الإيصال العادي يُسجَّل كاملاً بلا ضريبة."
+
+#. module: mizan_pettycash
+#: model:ir.model.fields.selection,name:mizan_pettycash.selection__mizan_site_capture__spend_kind__pc-gen
+msgid "Other"
+msgstr "أخرى"
+
+#. module: mizan_pettycash
+#: model:ir.ui.menu,name:mizan_pettycash.menu_petty_root
+msgid "Petty Cash"
+msgstr "العهدة"
+
+#. module: mizan_pettycash
+#: model:ir.model,name:mizan_pettycash.model_mizan_petty_cash_balance
+msgid "Petty Cash Balance"
+msgstr "رصيد العهدة"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/balance.py:0
+#: model:ir.actions.server,name:mizan_pettycash.action_balances
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_balance_list
+msgid "Petty Cash Balances"
+msgstr "أرصدة العهد"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_receipt_list
+msgid "Petty Cash Receipts"
+msgstr "إيصالات العهدة"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_employee_advance__mizan_topup
+msgid "Petty Cash Top-up"
+msgstr "تعويض عهدة"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/dashboard.py:0
+msgid "Petty cash"
+msgstr "العهدة"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_site_capture__cash_available
+msgid "Petty cash available"
+msgstr "المتاح من العهدة"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_site_capture_form_cash
+msgid "Petty cash available:"
+msgstr "المتاح من عهدتك:"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/sheet.py:0
+msgid "Petty cash ready to post"
+msgstr "إيصالات عهدة جاهزة للترحيل"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/advance.py:0
+msgid "Petty cash top-up"
+msgstr "تعويض العهدة"
+
+#. module: mizan_pettycash
+#: model:ir.model,name:mizan_pettycash.model_mizan_site_capture
+msgid "Photograph a Bill"
+msgstr "صوّر فاتورة"
+
+#. module: mizan_pettycash
+#: model:ir.actions.act_window,name:mizan_pettycash.action_capture_cash
+#: model:ir.ui.menu,name:mizan_pettycash.menu_petty_capture
+msgid "Photograph a Receipt"
+msgstr "صوّر إيصالاً"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/dashboard.py:0
+msgid "Photograph a bill"
+msgstr "صوّر فاتورة"
+
+#. module: mizan_pettycash
+#: model_terms:ir.actions.act_window,help:mizan_pettycash.action_my_receipts
+msgid "Photograph a receipt and choose \"From my petty cash\"."
+msgstr "صوّر الإيصال واختر \"من عهدتي\"."
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_receipt_list
+msgid "Post"
+msgstr "ترحيل"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_hr_expense_sheet__mizan_photo
+msgid "Receipt"
+msgstr "الإيصال"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_site_capture__vat_on_receipt
+msgid "Receipt shows 5% VAT"
+msgstr "الإيصال عليه ضريبة 5%"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_petty_cash_balance__waiting_count
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_balance_list
+msgid "Receipts"
+msgstr "الإيصالات"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_petty_cash_balance__waiting
+msgid "Receipts Waiting"
+msgstr "قيد الاعتماد"
+
+#. module: mizan_pettycash
+#: model:ir.actions.act_window,name:mizan_pettycash.action_approve_receipts
+msgid "Receipts to Approve"
+msgstr "إيصالات بانتظار الاعتماد"
+
+#. module: mizan_pettycash
+#: model:ir.actions.act_window,name:mizan_pettycash.action_post_receipts
+msgid "Receipts to Post"
+msgstr "إيصالات بانتظار الترحيل"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/dashboard.py:0
+msgid "Receipts waiting for you"
+msgstr "إيصالات بانتظار اعتمادك"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_receipt_list
+msgid "Refuse"
+msgstr "رفض"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,help:mizan_pettycash.field_mizan_employee_advance__mizan_topup
+msgid "Replenishes cash the employee already holds. Unlike a new advance, a top-up is expected while the last one is still being spent; the ceiling still applies to the total held."
+msgstr "يعوّض العهدة التي يحملها الموظف. بخلاف السلفة الجديدة، يُطلب التعويض قبل نفاد العهدة السابقة، ويبقى الحد الأقصى مطبقاً على إجمالي ما يحمله."
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/sheet.py:0
+msgid "Select approved receipts."
+msgstr "اختر إيصالات معتمدة."
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/sheet.py:0
+msgid "Select receipts waiting for approval."
+msgstr "اختر إيصالات بانتظار الاعتماد."
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_topup_form
+msgid "Send to my manager"
+msgstr "أرسل لمديري"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/advance.py:0
+msgid "Sent"
+msgstr "تم الإرسال"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/capture.py:0
+msgid "Sent to your manager. It is %s more than the petty cash you hold; the office reimburses the difference."
+msgstr "أُرسل لمديرك. المبلغ أكبر من عهدتك بـ %s، وسيعوّضك المكتب الفرق."
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/capture.py:0
+msgid "Sent to your manager. Petty cash left: %s"
+msgstr "أُرسل لمديرك. المتبقي في عهدتك: %s"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields.selection,name:mizan_pettycash.selection__mizan_site_capture__spend_kind__pc-site
+msgid "Site materials"
+msgstr "مواد للموقع"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,help:mizan_pettycash.field_hr_expense_sheet__mizan_photo
+msgid "The photograph, on the approval list itself: the manager approves what he can see, without opening each claim."
+msgstr "صورة الإيصال في قائمة الاعتماد نفسها، فيعتمد المدير ما يراه دون فتح كل طلب."
+
+#. module: mizan_pettycash
+#: model:ir.ui.menu,name:mizan_pettycash.menu_petty_approve
+msgid "To Approve"
+msgstr "للاعتماد"
+
+#. module: mizan_pettycash
+#: model:ir.ui.menu,name:mizan_pettycash.menu_petty_post
+msgid "To Post"
+msgstr "للترحيل"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/dashboard.py:0
+msgid "Today's site report"
+msgstr "تقرير الموقع اليوم"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_petty_cash_balance__tone
+msgid "Tone"
+msgstr "الحالة"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/advance.py:0
+msgid "Top-up above the petty cash limit"
+msgstr "تعويض يتجاوز حد العهدة"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_balance_list
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_receipt_list
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields.selection,name:mizan_pettycash.selection__mizan_petty_cash_balance__tone__watch
+msgid "Watch"
+msgstr "انتبه"
+
+#. module: mizan_pettycash
+#: model:ir.ui.menu,name:mizan_pettycash.menu_petty_balances
+msgid "Who Holds Cash"
+msgstr "من يحمل عهدة"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_mizan_site_capture__paid_by
+msgid "Who paid?"
+msgstr "من دفع؟"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/dashboard.py:0
+msgid "With %s people"
+msgstr "مع %s أشخاص"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/capture.py:0
+msgid "You hold no petty cash, so there is nothing to spend this from. Choose \"I paid it\" to claim it back, or ask for petty cash first."
+msgstr "ليست معك عهدة لتصرف منها. اختر \"دفعتها أنا\" لاستردادها، أو اطلب عهدة أولاً."
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/advance.py:0
+msgid "Your login is not linked to an employee record."
+msgstr "حسابك غير مربوط بسجل موظف."
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/advance.py:0
+msgid "Your top-up request went to your manager."
+msgstr "وصل طلب التعويض إلى مديرك."
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/advance.py:0
+msgid "a petty cash top-up"
+msgstr "تعويض عهدة"
+
+#. module: mizan_pettycash
+#. odoo-python
+#: code:addons/mizan_pettycash/models/advance.py:0
+msgid "an advance"
+msgstr "سلفة"
