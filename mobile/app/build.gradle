@@ -1,11 +1,12 @@
-// Miqyas for Android: a Trusted Web Activity. The app is the web system
+// Miqyas for Android, like Odoo's own app: pick the company, sign in, and
+// the app remembers it. Each company then runs as a Trusted Web Activity. The app is the web system
 // itself running in Chrome's engine — which is what gives it push
 // notifications and the camera for free — without a browser bar around it.
 plugins { id "com.android.application" }
 
 def twa = new Properties()
 file("../twa.properties").withInputStream { twa.load(it) }
-def host = twa.getProperty("host")
+def domain = twa.getProperty("domain")
 
 android {
     namespace "ae.miqyas.app"
@@ -16,9 +17,10 @@ android {
         targetSdk 34
         versionCode Integer.parseInt(System.getenv("VERSION_CODE") ?: "1")
         versionName "1.0." + (System.getenv("VERSION_CODE") ?: "1")
-        manifestPlaceholders = [hostName: host, launchUrl: "https://" + host + "/odoo"]
+        manifestPlaceholders = [domain: domain, launchUrl: "https://" + domain + "/odoo"]
+        resValue "string", "company_domain", domain
         resValue "string", "asset_statements",
-            '[{"relation":["delegate_permission/common.handle_all_urls"],"target":{"namespace":"web","site":"https://' + host + '"}}]'
+            '[{"relation":["delegate_permission/common.handle_all_urls"],"target":{"namespace":"web","site":"https://' + domain + '"}}]'
     }
     signingConfigs {
         release {

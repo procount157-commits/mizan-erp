@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">مقياس</string>
+    <string name="tagline">محاسبة المقاولات والمشاريع</string>
+    <string name="company_label">رمز الشركة</string>
+    <string name="company_placeholder">alamana</string>
+    <string name="company_hint">اكتب رمز شركتك كما أعطاك إياه المسؤول، أو عنوان السيرفر كاملاً. الرمز وحده يعني ‎%1$s‎</string>
+    <string name="go">متابعة</string>
+    <string name="checking">جارٍ التحقق…</string>
+    <string name="saved_title">شركاتك</string>
+    <string name="error_format">اكتب الرمز بحروف إنجليزية وأرقام فقط، مثل alamana</string>
+    <string name="error_unreachable">لم نصل إلى ‎%1$s‎. تأكد من الرمز ومن اتصال الإنترنت.</string>
+    <string name="forget_question">إزالة ‎%1$s‎ من هذا الجوال؟</string>
+    <string name="forget">إزالة</string>
+    <string name="cancel">إلغاء</string>
+    <string name="switch_company">تبديل الشركة</string>
     <color name="brand">#1A3C6E</color>
+    <color name="surface">#F4F6FA</color>
+    <color name="ink">#1C2430</color>
+    <color name="muted">#6B7686</color>
+    <color name="danger">#C0392B</color>
 </resources>

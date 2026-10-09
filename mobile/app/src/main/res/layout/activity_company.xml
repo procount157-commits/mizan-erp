@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/surface" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="28dp" android:layoutDirection="rtl">
+
+        <ImageView android:layout_width="96dp" android:layout_height="96dp"
+            android:layout_gravity="center_horizontal" android:layout_marginTop="40dp"
+            android:src="@mipmap/ic_launcher" android:contentDescription="@string/app_name"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" android:layout_marginTop="12dp"
+            android:text="@string/app_name" android:textColor="@color/brand"
+            android:textSize="30sp" android:textStyle="bold"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" android:layout_marginBottom="36dp"
+            android:text="@string/tagline" android:textColor="@color/muted" android:textSize="15sp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/company_label" android:textColor="@color/ink"
+            android:textSize="16sp" android:textStyle="bold"/>
+        <EditText android:id="@+id/company" android:layout_width="match_parent"
+            android:layout_height="56dp" android:layout_marginTop="8dp"
+            android:background="@drawable/field" android:paddingHorizontal="16dp"
+            android:hint="@string/company_placeholder" android:inputType="textUri"
+            android:imeOptions="actionGo" android:singleLine="true" android:textSize="17sp"
+            android:textDirection="ltr" android:gravity="center_vertical|start"/>
+        <TextView android:id="@+id/hint" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="6dp"
+            android:textColor="@color/muted" android:textSize="13sp"/>
+        <TextView android:id="@+id/error" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="6dp"
+            android:textColor="@color/danger" android:textSize="14sp"/>
+        <Button android:id="@+id/go" android:layout_width="match_parent"
+            android:layout_height="56dp" android:layout_marginTop="12dp"
+            android:background="@drawable/button" android:text="@string/go"
+            android:textColor="#FFFFFF" android:textSize="17sp" android:textStyle="bold"/>
+
+        <TextView android:id="@+id/saved_title" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="36dp"
+            android:text="@string/saved_title" android:textColor="@color/ink"
+            android:textSize="16sp" android:textStyle="bold"/>
+        <LinearLayout android:id="@+id/saved" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"/>
+    </LinearLayout>
+</ScrollView>
