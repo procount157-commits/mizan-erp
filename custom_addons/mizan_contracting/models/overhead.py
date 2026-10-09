@@ -272,3 +272,83 @@ class MizanContract(models.Model):
                                        - contract.cost_incurred)
             contract.margin_after_overhead = (contract.margin_to_date
                                               - contract.overhead_allocated)
+
+
+class AccountAnalyticLineForecast(models.Model):
+    """Keep each job's forecast in step with the cost booked to it.
+
+    The estimate at completion, the forecast margin and the loss flag are
+    stored, but they depend on cost to date, which is computed from analytic
+    lines and not stored. Odoo cannot see a change through a field it does not
+    store, so a plant charge or a supplier bill posted to a job left the stored
+    estimate behind — and progress, measured against that estimate, ran ahead
+    of the site. On الأمانة's villa it read 52.07% where the books said
+    50.35%. Telling the contract its cost changed whenever an analytic line
+    on its cost centre changes keeps the two in step.
+    """
+
+    _inherit = "account.analytic.line"
+
+    def _mizan_touch_contracts(self, accounts):
+        if not accounts:
+            return
+        contracts = self.env["mizan.contract"].sudo().search(
+            [("analytic_account_id", "in", accounts.ids)])
+        if contracts:
+            # Drop the cached cost first: modified() schedules the stored
+            # forecast for recomputation, and without this it would be
+            # recomputed from the cost as it was before the change.
+            contracts.invalidate_recordset(["cost_incurred"])
+            contracts.modified(["cost_incurred"])
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        lines = super().create(vals_list)
+        self._mizan_touch_contracts(lines.mapped("account_id"))
+        return lines
+
+    def write(self, vals):
+        before = self.mapped("account_id")
+        result = super().write(vals)
+        self._mizan_touch_contracts(before | self.mapped("account_id"))
+        return result
+
+    def unlink(self):
+        accounts = self.mapped("account_id")
+        result = super().unlink()
+        self._mizan_touch_contracts(accounts)
+        return result
+
+
+class MizanOverheadAllocationAuto(models.Model):
+    _inherit = "mizan.overhead.allocation"
+
+    @api.model
+    def _cron_allocate_last_month(self):
+        """Allocate last month's overhead on the first of the month, by itself.
+
+        The office books its expenses as usual — no cost centre — and on the
+        first of the next month each job receives its share on the default
+        basis. A month already allocated, by hand or by this, is left alone,
+        and so is a month with nothing to share."""
+        from dateutil.relativedelta import relativedelta
+        today = fields.Date.context_today(self)
+        date_to = today.replace(day=1) - relativedelta(days=1)
+        date_from = date_to.replace(day=1)
+        for company in self.env["res.company"].search([]):
+            Alloc = self.with_company(company)
+            if Alloc.search_count([("company_id", "=", company.id),
+                                   ("date_from", "=", date_from),
+                                   ("date_to", "=", date_to)]):
+                continue
+            allocation = Alloc.create({"company_id": company.id,
+                                       "date_from": date_from,
+                                       "date_to": date_to})
+            if not allocation.amount_to_allocate:
+                allocation.unlink()
+                continue
+            try:
+                allocation.action_post()
+            except UserError:
+                # Nothing running to share it by: leave the draft for a person.
+                continue
