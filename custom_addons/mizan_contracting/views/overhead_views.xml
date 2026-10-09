@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_overhead_allocation_form" model="ir.ui.view">
+        <field name="name">mizan.overhead.allocation.form</field>
+        <field name="model">mizan.overhead.allocation</field>
+        <field name="arch" type="xml">
+            <form string="Overhead Allocation">
+                <header>
+                    <button name="action_compute" type="object" string="Calculate the shares"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_post" type="object" string="Allocate"
+                            class="btn-primary" invisible="state != 'draft' or not line_ids"
+                            confirm="This records each job's overhead share for analysis. No journal entry is posted, and progress and revenue do not change."/>
+                    <button name="action_reset" type="object" string="Reset to draft"
+                            invisible="state != 'posted'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="name" readonly="1"/></h1></div>
+                    <div class="alert alert-info" role="status">
+                        Management analysis only: no journal entry is posted, and each job's
+                        progress and revenue are unchanged. Costs that belong to a site
+                        (site engineer, site office, plant) should be charged to that job
+                        directly, not shared here.
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date_from" readonly="state != 'draft'"/>
+                            <field name="date_to" readonly="state != 'draft'"/>
+                            <field name="basis" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="pool_amount"/>
+                            <field name="amount_override" readonly="state != 'draft'"/>
+                            <field name="amount_to_allocate"/>
+                            <field name="allocated_total"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Shares by job">
+                            <field name="line_ids" readonly="1">
+                                <list>
+                                    <field name="contract_id"/>
+                                    <field name="basis_value" sum="Total"/>
+                                    <field name="share_percent" sum="Total"/>
+                                    <field name="amount" sum="Total"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Overhead accounts">
+                            <field name="account_ids" widget="many2many_tags"
+                                   readonly="state != 'draft'"/>
+                        </page>
+                        <page string="Note"><field name="note"/></page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_overhead_allocation_list" model="ir.ui.view">
+        <field name="name">mizan.overhead.allocation.list</field>
+        <field name="model">mizan.overhead.allocation</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="basis"/>
+                <field name="allocated_total" sum="Total"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="state" widget="badge" decoration-success="state == 'posted'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_overhead_allocation" model="ir.actions.act_window">
+        <field name="name">Overhead Allocation</field>
+        <field name="res_model">mizan.overhead.allocation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- The three figures on the contract itself, where the margin is read. -->
+    <record id="view_contract_form_overhead" model="ir.ui.view">
+        <field name="name">mizan.contract.form.overhead</field>
+        <field name="model">mizan.contract</field>
+        <field name="inherit_id" ref="mizan_contracting.view_mizan_contract_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Margin after overhead" name="overhead"
+                      groups="account.group_account_manager,account.group_account_readonly">
+                    <group>
+                        <field name="margin_to_date"/>
+                        <field name="overhead_allocated"/>
+                        <field name="margin_after_overhead"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

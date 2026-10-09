@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0-20260908\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-28 18:09+0000\n"
-"PO-Revision-Date: 2026-09-28 18:09+0000\n"
+"POT-Creation-Date: 2026-10-09 07:32+0000\n"
+"PO-Revision-Date: 2026-10-09 07:32+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -132,6 +132,12 @@ msgstr "أعمار الذمم المدينة"
 #: model:ir.ui.menu,name:mizan_core.menu_mizan_modules
 msgid "All Modules"
 msgstr "كل الوحدات"
+
+#. module: mizan_core
+#. odoo-python
+#: code:addons/mizan_core/models/menu_icon.py:0
+msgid "App Icons"
+msgstr ""
 
 #. module: mizan_core
 #: model_terms:ir.ui.view,arch_db:mizan_core.view_mizan_petty_approve_list
@@ -283,6 +289,20 @@ msgid "Enter your first statement"
 msgstr "أدخل أول كشف حساب"
 
 #. module: mizan_core
+#. odoo-python
+#: code:addons/mizan_core/models/menu_icon.py:0
+msgid "Every app icon is already attached and current."
+msgstr ""
+
+#. module: mizan_core
+#. odoo-python
+#: code:addons/mizan_core/models/menu_icon.py:0
+msgid ""
+"Every icon is already attached, but %(count)s menu(s) name a file that is "
+"not installed."
+msgstr ""
+
+#. module: mizan_core
 #. odoo-javascript
 #: code:addons/mizan_core/static/src/js/quick_create.js:0
 msgid "Expense"
@@ -344,6 +364,11 @@ msgid "Matched Automatically"
 msgstr "طوبق تلقائياً"
 
 #. module: mizan_core
+#: model:ir.model,name:mizan_core.model_ir_ui_menu
+msgid "Menu"
+msgstr ""
+
+#. module: mizan_core
 #: model_terms:ir.actions.act_window,help:mizan_core.action_mizan_petty_to_approve
 msgid "Nothing is waiting for you"
 msgstr "لا يوجد ما ينتظرك"
@@ -368,6 +393,11 @@ msgstr "البنود المفتوحة"
 #: model:ir.ui.menu,name:mizan_core.menu_mizan_contracting
 msgid "Operations"
 msgstr "العمليات"
+
+#. module: mizan_core
+#: model:ir.ui.menu,name:mizan_core.menu_mizan_overhead
+msgid "Overhead Allocation"
+msgstr "توزيع المصاريف الإدارية"
 
 #. module: mizan_core
 #: model:ir.ui.menu,name:mizan_core.menu_mizan_owned_plant
@@ -424,6 +454,14 @@ msgid "Quick create"
 msgstr "إضافة سريعة"
 
 #. module: mizan_core
+#. odoo-python
+#: code:addons/mizan_core/models/menu_icon.py:0
+msgid ""
+"Re-attached %(count)s icon(s). Reload the page with Ctrl+Shift+R — the "
+"browser keeps the old menu for a year."
+msgstr ""
+
+#. module: mizan_core
 #: model_terms:ir.ui.view,arch_db:mizan_core.view_bank_statement_line_list_auto
 msgid "Reconcile Automatically"
 msgstr "مطابقة تلقائية"
@@ -432,6 +470,12 @@ msgstr "مطابقة تلقائية"
 #: model_terms:ir.ui.view,arch_db:mizan_core.view_mizan_petty_approve_list
 msgid "Refuse"
 msgstr "رفض"
+
+#. module: mizan_core
+#: model:ir.actions.server,name:mizan_core.action_mizan_repair_icons
+#: model:ir.ui.menu,name:mizan_core.menu_mizan_repair_icons
+msgid "Repair App Icons"
+msgstr ""
 
 #. module: mizan_core
 #: model:ir.ui.menu,name:mizan_core.menu_mizan_revenue_recognition

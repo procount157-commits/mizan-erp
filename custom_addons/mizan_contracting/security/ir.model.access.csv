@@ -42,3 +42,7 @@ access_mizan_claim_line_project,mizan.progress.claim.line.project,model_mizan_pr
 access_mizan_variation_line_user,mizan.contract.variation.line.user,model_mizan_contract_variation_line,account.group_account_invoice,1,0,0,0
 access_mizan_variation_line_manager,mizan.contract.variation.line.manager,model_mizan_contract_variation_line,account.group_account_manager,1,1,1,1
 access_mizan_variation_line_project,mizan.contract.variation.line.project,model_mizan_contract_variation_line,project.group_project_manager,1,1,1,1
+access_overhead_alloc_manager,mizan.overhead.allocation.manager,model_mizan_overhead_allocation,account.group_account_manager,1,1,1,1
+access_overhead_alloc_ro,mizan.overhead.allocation.readonly,model_mizan_overhead_allocation,account.group_account_readonly,1,0,0,0
+access_overhead_line_manager,mizan.overhead.allocation.line.manager,model_mizan_overhead_allocation_line,account.group_account_manager,1,1,1,1
+access_overhead_line_ro,mizan.overhead.allocation.line.readonly,model_mizan_overhead_allocation_line,account.group_account_readonly,1,0,0,0

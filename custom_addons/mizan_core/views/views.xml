@@ -175,6 +175,13 @@
     <menuitem id="menu_mizan_project_budgets" name="Budgets" parent="menu_mizan_job_costing"
               action="account_budget_oca.act_crossovered_budget_view" sequence="40"/>
 
+    <!-- Head-office overhead shared across the jobs, for management analysis
+         only: it never enters job cost, so progress and revenue stay true. -->
+    <menuitem id="menu_mizan_overhead" name="Overhead Allocation"
+              parent="menu_mizan_job_costing"
+              action="mizan_contracting.action_overhead_allocation" sequence="40"
+              groups="account.group_account_manager,account.group_account_readonly"/>
+
     <menuitem id="menu_mizan_contracting_config" name="Configuration" parent="menu_mizan_root"
               sequence="90" groups="account.group_account_manager,project.group_project_manager"/>
     <menuitem id="menu_mizan_cost_codes" name="Cost Codes" parent="menu_mizan_contracting_config"

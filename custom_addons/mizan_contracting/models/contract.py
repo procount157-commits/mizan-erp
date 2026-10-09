@@ -78,6 +78,10 @@ class MizanContract(models.Model):
             # supplier would leave the job carrying it for ever.
             lines = Line.search([
                 ("account_id", "=", contract.analytic_account_id.id),
+                # Overhead shares are management analysis, not job cost: in
+                # here they would push progress, and with it revenue, ahead
+                # of the site.
+                ("mizan_overhead_allocation_id", "=", False),
                 ("general_account_id.account_type", "in",
                  ("expense_direct_cost", "expense", "expense_depreciation")),
             ])

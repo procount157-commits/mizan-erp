@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0-20260908\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-28 18:09+0000\n"
-"PO-Revision-Date: 2026-09-28 18:09+0000\n"
+"POT-Creation-Date: 2026-10-09 07:32+0000\n"
+"PO-Revision-Date: 2026-10-09 07:32+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -318,6 +318,7 @@ msgstr "إيراد مستحق"
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_needaction
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_needaction
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__message_needaction
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_needaction
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_needaction
 msgid "Action Needed"
@@ -471,6 +472,31 @@ msgid "Agreement"
 msgstr "الاتفاقية"
 
 #. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_overhead_allocation_form
+msgid "Allocate"
+msgstr "توزيع"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__amount_override
+msgid "Allocate instead"
+msgstr "وزّع بدلاً من ذلك"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_overhead_allocation__state__posted
+msgid "Allocated"
+msgstr "موزَّع"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__allocated_total
+msgid "Allocated Total"
+msgstr "إجمالي الموزَّع"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation_line__allocation_id
+msgid "Allocation"
+msgstr "التوزيع"
+
+#. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__revenue_recognised
 msgid "Already Recognised"
 msgstr "المعترف به سابقاً"
@@ -496,9 +522,25 @@ msgid "Amount Certified"
 msgstr "المبلغ المعتمد"
 
 #. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__amount_to_allocate
+msgid "Amount To Allocate"
+msgstr "المبلغ المراد توزيعه"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_overhead_allocation__basis__billing
+msgid "Amount invoiced in the period"
+msgstr "المفوتر خلال الفترة"
+
+#. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_hr_payslip_line__analytic_distribution
 msgid "Analytic Distribution"
 msgstr "التوزيع التحليلي"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_account_analytic_line
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation_line__analytic_line_id
+msgid "Analytic Line"
+msgstr ""
 
 #. module: mizan_contracting
 #: model:ir.model.constraint,message:mizan_contracting.constraint_mizan_contract_code_company_uniq
@@ -566,6 +608,7 @@ msgstr "حساب الأصل"
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_attachment_count
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_attachment_count
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__message_attachment_count
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_attachment_count
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_attachment_count
 msgid "Attachment Count"
@@ -597,6 +640,12 @@ msgstr "الخصومات على مقاول الباطن"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__backcharge_ids
 msgid "Backcharge"
 msgstr "خصم على مقاول الباطن"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__basis
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation_line__basis_value
+msgid "Basis"
+msgstr "أساس التوزيع"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__bill_ids
@@ -741,6 +790,11 @@ msgstr "الموازنة حسب بند التكلفة"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__budget_cost
 msgid "Budgeted Cost"
 msgstr "التكلفة المقدّرة"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_overhead_allocation_form
+msgid "Calculate the shares"
+msgstr "احسب الحصص"
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
@@ -939,6 +993,7 @@ msgstr "المتبقي من الالتزام"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__company_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__company_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__company_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__company_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__company_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__company_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__company_id
@@ -1000,6 +1055,7 @@ msgstr "رقم شهادة الاستشاري"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__contract_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__contract_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__contract_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation_line__contract_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__contract_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__contract_id
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_boq_line_search
@@ -1040,6 +1096,11 @@ msgstr "اسم العقد"
 #: code:addons/mizan_contracting/models/contract.py:0
 msgid "Contract revenue"
 msgstr "إيراد العقد"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_overhead_allocation__basis__contract_value
+msgid "Contract value"
+msgstr "قيمة العقد"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__revenue_earned
@@ -1150,6 +1211,8 @@ msgstr "التكاليف المُرحَّلة إلى مركز التكلفة ه�
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__create_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__create_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__create_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation_line__create_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__create_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__create_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__create_uid
@@ -1169,6 +1232,8 @@ msgstr "أنشأه"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__create_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__create_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__create_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation_line__create_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__create_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__create_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__create_date
@@ -1208,6 +1273,8 @@ msgstr "القيمة التراكمية للمواد المورَّدة وغير
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__currency_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__currency_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__currency_id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation_line__currency_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__currency_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__currency_id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__currency_id
@@ -1243,9 +1310,19 @@ msgid "Date End Before"
 msgstr "تاريخ الانتهاء السابق"
 
 #. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__date_from
+msgid "Date From"
+msgstr "من تاريخ"
+
+#. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__date_start
 msgid "Date Start"
 msgstr "تاريخ البداية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__date_to
+msgid "Date To"
+msgstr "إلى تاريخ"
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
@@ -1297,6 +1374,16 @@ msgid "Description"
 msgstr "الوصف"
 
 #. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_overhead_allocation__basis__direct_cost
+msgid "Direct cost in the period"
+msgstr "التكلفة المباشرة خلال الفترة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_overhead_allocation__basis__cost_to_date
+msgid "Direct cost to date"
+msgstr "التكلفة المباشرة حتى تاريخه"
+
+#. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__display_name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__display_name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_boq_line__display_name
@@ -1305,6 +1392,8 @@ msgstr "الوصف"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__display_name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__display_name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__display_name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation_line__display_name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__display_name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__display_name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__display_name
@@ -1320,6 +1409,7 @@ msgstr "الاسم المعروض"
 #: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_bond__state__draft
 #: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_recognition__state__draft
 #: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_variation__state__draft
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_overhead_allocation__state__draft
 #: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_plant_charge__state__draft
 #: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_progress_claim__state__draft
 #: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_subcontract__state__draft
@@ -1342,6 +1432,11 @@ msgstr "المُكتسب"
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__under_billing
 msgid "Earned beyond what has been billed — work done that nobody has been invoiced for."
 msgstr "مكتسب بأكثر مما فُوتر — أعمال منفذة لم يُفوتر عنها أحد."
+
+#. module: mizan_contracting
+#: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_overhead_allocation__basis__equal
+msgid "Equally between jobs"
+msgstr "بالتساوي بين المشاريع"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__cost_at_completion
@@ -1393,6 +1488,7 @@ msgstr "تمديد المدة (أيام)"
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_follower_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_follower_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__message_follower_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_follower_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_follower_ids
 msgid "Followers"
@@ -1401,6 +1497,7 @@ msgstr "المتابعون"
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_partner_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_partner_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__message_partner_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_partner_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_partner_ids
 msgid "Followers (Partners)"
@@ -1484,10 +1581,16 @@ msgstr "الضمانات البنكية"
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__has_message
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__has_message
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__has_message
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__has_message
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__has_message
 msgid "Has Message"
 msgstr "يحتوي رسالة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__overhead_allocated
+msgid "Head-office overhead allocated to this job for management analysis. It is not part of the job's cost and does not move progress or revenue."
+msgstr "نصيب هذا المشروع من المصاريف الإدارية للمكتب الرئيسي، للتحليل الإداري. ليس جزءاً من تكلفة المشروع ولا يحرّك الإنجاز أو الإيراد."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__retention_percent
@@ -1509,6 +1612,8 @@ msgstr "كيف يُقاس البند — م٢، م٣، طن، عدد، م.ط، �
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__id
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation_line__id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__id
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__id
@@ -1538,6 +1643,7 @@ msgstr "أيقونة للإشارة إلى نشاط استثنائي."
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__message_needaction
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__message_needaction
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_overhead_allocation__message_needaction
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_needaction
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__message_needaction
 msgid "If checked, new messages require your attention."
@@ -1548,6 +1654,8 @@ msgstr "إذا تم تحديده، فهناك رسائل جديدة تتطلب �
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__message_has_sms_error
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__message_has_error
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__message_has_sms_error
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_overhead_allocation__message_has_error
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_overhead_allocation__message_has_sms_error
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_has_error
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_has_sms_error
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__message_has_error
@@ -1608,6 +1716,7 @@ msgstr "إجمالي المفوتر"
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_is_follower
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_is_follower
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__message_is_follower
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_is_follower
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_is_follower
 msgid "Is Follower"
@@ -1673,6 +1782,11 @@ msgid "Items Total"
 msgstr "إجمالي البنود"
 
 #. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__line_ids
+msgid "Jobs"
+msgstr "المشاريع"
+
+#. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__journal_id
 msgid "Journal"
 msgstr "اليومية"
@@ -1708,6 +1822,8 @@ msgstr "التأمين المنتهي في الموقع مشكلة المقاو�
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__write_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__write_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__write_uid
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation_line__write_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__write_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__write_uid
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__write_uid
@@ -1727,6 +1843,8 @@ msgstr "آخر تحديث بواسطة"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__write_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__write_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__write_date
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation_line__write_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__write_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__write_date
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__write_date
@@ -1736,6 +1854,11 @@ msgstr "آخر تحديث بواسطة"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_variation__write_date
 msgid "Last Updated on"
 msgstr "آخر تحديث في"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_overhead_allocation__amount_override
+msgid "Leave empty to allocate the whole pool. Fill it to allocate a different figure — a budgeted monthly overhead, for instance."
+msgstr "اتركه فارغاً لتوزيع المبلغ كاملاً، أو اكتب مبلغاً آخر — كالمصاريف الإدارية الشهرية المُوازَنة مثلاً."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__advance_recovery
@@ -1798,10 +1921,26 @@ msgid "Maintenance Record"
 msgstr "سجل الصيانة"
 
 #. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_overhead_allocation_form
+msgid "Management analysis only: no journal entry is posted, and each job's\n                        progress and revenue are unchanged. Costs that belong to a site\n                        (site engineer, site office, plant) should be charged to that job\n                        directly, not shared here."
+msgstr "تحليل إداري فقط: لا يُرحَّل أي قيد، ولا تتغير نسبة إنجاز أي مشروع ولا إيراده. أما التكاليف الخاصة بموقع بعينه (مهندس الموقع، مكتب الموقع، المعدات) فتُحمَّل على مشروعها مباشرة، لا هنا."
+
+#. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__margin
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_list
 msgid "Margin"
 msgstr "الهامش"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__margin_after_overhead
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_overhead
+msgid "Margin after overhead"
+msgstr "الهامش بعد المصاريف الإدارية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__margin_to_date
+msgid "Margin to date"
+msgstr "الهامش حتى تاريخه"
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
@@ -1838,6 +1977,7 @@ msgstr "البنود المقيسة"
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_has_error
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_has_error
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__message_has_error
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_has_error
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_has_error
 msgid "Message Delivery error"
@@ -1846,6 +1986,7 @@ msgstr "خطأ في تسليم الرسالة"
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__message_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_ids
 msgid "Messages"
@@ -1877,6 +2018,7 @@ msgstr "الموعد النهائي لنشاطي"
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__name
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant__name
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__name
 msgid "Name"
@@ -1913,6 +2055,12 @@ msgstr "الصافي المستحق لهذه الفترة"
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_contract_form_boq
 msgid "New Progress Claim"
 msgstr "مستخلص جديد"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/overhead.py:0
+msgid "New allocation"
+msgstr "توزيع جديد"
 
 #. module: mizan_contracting
 #: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_variation_line__change_type__new
@@ -1975,6 +2123,12 @@ msgstr "لا يوجد سطر مدين أو دائن على %s."
 
 #. module: mizan_contracting
 #. odoo-python
+#: code:addons/mizan_contracting/models/overhead.py:0
+msgid "No running job has anything on this basis in the period, so there is nothing to share the overhead by. Try another basis."
+msgstr "لا يوجد مشروع قائم له قيمة على هذا الأساس في الفترة، فلا يمكن التوزيع به. جرّب أساساً آخر."
+
+#. module: mizan_contracting
+#. odoo-python
 #: code:addons/mizan_contracting/models/boq_claim.py:0
 msgid "No sales journal in this company."
 msgstr "لا يوجد دفتر مبيعات في هذه الشركة."
@@ -1991,11 +2145,13 @@ msgstr "لا يوجد أمر تغيير بعد."
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation_line__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_cost_code__note
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__note
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract_backcharge__note
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_overhead_allocation_form
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
 msgid "Note"
 msgstr "ملاحظة"
@@ -2037,6 +2193,7 @@ msgstr "لا يوجد ما يُحتجز على %s."
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_needaction_counter
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_needaction_counter
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__message_needaction_counter
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_needaction_counter
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_needaction_counter
 msgid "Number of Actions"
@@ -2045,6 +2202,7 @@ msgstr "عدد الإجراءات"
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_has_error_counter
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_has_error_counter
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__message_has_error_counter
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_has_error_counter
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_has_error_counter
 msgid "Number of errors"
@@ -2053,6 +2211,7 @@ msgstr "عدد الأخطاء"
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__message_needaction_counter
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__message_needaction_counter
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_overhead_allocation__message_needaction_counter
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_needaction_counter
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__message_needaction_counter
 msgid "Number of messages requiring action"
@@ -2061,6 +2220,7 @@ msgstr "عدد الرسائل التي تتطلب إجراءً"
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__message_has_error_counter
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__message_has_error_counter
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_overhead_allocation__message_has_error_counter
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__message_has_error_counter
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__message_has_error_counter
 msgid "Number of messages with delivery error"
@@ -2111,6 +2271,56 @@ msgstr "المتبقي"
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_list
 msgid "Over / Under Recovered"
 msgstr "زيادة / نقص الاسترداد"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/overhead.py:0
+msgid "Overhead %s"
+msgstr "المصاريف الإدارية %s"
+
+#. module: mizan_contracting
+#: model:ir.actions.act_window,name:mizan_contracting.action_overhead_allocation
+#: model:ir.model,name:mizan_contracting.model_mizan_overhead_allocation
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_overhead_allocation_form
+msgid "Overhead Allocation"
+msgstr "توزيع المصاريف الإدارية"
+
+#. module: mizan_contracting
+#: model:ir.model,name:mizan_contracting.model_mizan_overhead_allocation_line
+msgid "Overhead Allocation Line"
+msgstr "سطر توزيع المصاريف الإدارية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__account_ids
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_overhead_allocation_form
+msgid "Overhead accounts"
+msgstr "حسابات المصاريف الإدارية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_account_analytic_line__mizan_overhead_allocation_id
+msgid "Overhead allocation"
+msgstr "توزيع المصاريف الإدارية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__pool_amount
+msgid "Overhead in the period"
+msgstr "المصاريف الإدارية في الفترة"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation_line__amount
+msgid "Overhead share"
+msgstr "نصيب المصاريف الإدارية"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__overhead_allocated
+msgid "Overhead share to date"
+msgstr "نصيب المصاريف الإدارية حتى تاريخه"
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/overhead.py:0
+msgid "Overhead share — %(period)s (%(basis)s)"
+msgstr "نصيب المصاريف الإدارية — %(period)s (%(basis)s)"
 
 #. module: mizan_contracting
 #: model:ir.actions.act_window,name:mizan_contracting.action_plant
@@ -2235,6 +2445,11 @@ msgstr "ترحيل واحتجاز واسترداد الدفعة المقدمة"
 #: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_contract_recognition__state__posted
 msgid "Posted"
 msgstr "مُرحّل"
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_overhead_allocation__pool_amount
+msgid "Posted, in the chosen accounts, between the two dates, and charged to no job."
+msgstr "المُرحَّل في الحسابات المختارة بين التاريخين، وغير المحمَّل على أي مشروع."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__previous_amount
@@ -2366,6 +2581,7 @@ msgstr "أساس السعر"
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__rating_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__rating_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__rating_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__rating_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__rating_ids
 msgid "Ratings"
@@ -2509,10 +2725,27 @@ msgid "Released"
 msgstr "مُفرج عنه"
 
 #. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/overhead.py:0
+msgid "Reset it to draft before recomputing."
+msgstr "أعده إلى مسودة قبل إعادة الحساب."
+
+#. module: mizan_contracting
+#. odoo-python
+#: code:addons/mizan_contracting/models/overhead.py:0
+msgid "Reset the allocation to draft before deleting it."
+msgstr "أعد التوزيع إلى مسودة قبل حذفه."
+
+#. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_mizan_contract_form
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_progress_claim_form
 msgid "Reset to Draft"
 msgstr "إرجاع إلى مسودة"
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_overhead_allocation_form
+msgid "Reset to draft"
+msgstr "إعادة إلى مسودة"
 
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__activity_user_id
@@ -2628,6 +2861,11 @@ msgid "Revenue is recognised from progress on site, not from the invoice\n      
 msgstr "يُعترف بالإيراد من الإنجاز في الموقع لا من تاريخ الفاتورة: أدخل قيمة العقد والتكلفة المُوازَنة، وقيّد تكاليف المشروع على مركز التكلفة، ويحسب النظام ما كسبته من إيراد."
 
 #. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__margin_to_date
+msgid "Revenue recognised less direct cost to date."
+msgstr "الإيراد المعترف به ناقصاً التكلفة المباشرة حتى تاريخه."
+
+#. module: mizan_contracting
 #. odoo-python
 #: code:addons/mizan_contracting/models/contract.py:0
 msgid "Revenue recognition %(pct).1f%% — %(contract)s"
@@ -2676,6 +2914,7 @@ msgstr ""
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__message_has_sms_error
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__message_has_sms_error
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__message_has_sms_error
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__message_has_sms_error
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__message_has_sms_error
 msgid "SMS Delivery error"
@@ -2750,9 +2989,19 @@ msgid "Sets cost to complete from what is already ordered plus the unspent budge
 msgstr "يضبط تكلفة الإكمال من المطلوب أصلاً زائد الموازنة غير المنفقة."
 
 #. module: mizan_contracting
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation_line__share_percent
+msgid "Share %"
+msgstr "النسبة %"
+
+#. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__retention_percent
 msgid "Share of each progress claim the client withholds until handover."
 msgstr "حصة من كل مستخلص يحتجزها العميل حتى التسليم."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_overhead_allocation_form
+msgid "Shares by job"
+msgstr "الحصص حسب المشروع"
 
 #. module: mizan_contracting
 #: model:ir.model.fields.selection,name:mizan_contracting.selection__mizan_cost_code__category__site
@@ -2774,6 +3023,7 @@ msgstr "تاريخ البدء"
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_bond__state
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_recognition__state
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__state
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__state
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_plant_charge__state
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__state
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim_line__state
@@ -2955,6 +3205,11 @@ msgid "The cost codes do not add up to the contract budget."
 msgstr "بنود التكلفة لا تساوي موازنة العقد."
 
 #. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_overhead_allocation__account_ids
+msgid "The expense accounts the pool is drawn from. Only lines carrying no cost centre are counted: a cost already charged to a job is not overhead."
+msgstr "حسابات المصروفات التي يُجمع منها المبلغ. لا يُحتسب إلا ما لا يحمل مركز تكلفة: فالتكلفة المحمَّلة على مشروع ليست مصاريف إدارية."
+
+#. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_boq_line__section
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim_line__section
 msgid "The heading this item sits under in the priced bill — the consultant certifies section by section."
@@ -3037,6 +3292,16 @@ msgid "This claim's share of the advance, at the contract's recovery rate and ne
 msgstr "حصة هذا المستخلص من الدفعة المقدمة، بنسبة الاسترداد في العقد، ولا تزيد أبداً عمّا بقي قائماً."
 
 #. module: mizan_contracting
+#: model:ir.model.constraint,message:mizan_contracting.constraint_mizan_overhead_allocation_period_uniq
+msgid "This period already has an overhead allocation."
+msgstr "لهذه الفترة توزيع مصاريف إدارية بالفعل."
+
+#. module: mizan_contracting
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_overhead_allocation_form
+msgid "This records each job's overhead share for analysis. No journal entry is posted, and progress and revenue do not change."
+msgstr "يسجّل هذا نصيب كل مشروع من المصاريف الإدارية للتحليل. لا يُرحَّل قيد، ولا يتغير الإنجاز أو الإيراد."
+
+#. module: mizan_contracting
 #: model_terms:ir.actions.act_window,help:mizan_contracting.action_mizan_wip
 msgid "This schedule sets what each client has been billed against what\n                the work has actually earned. The difference is either a\n                liability to the client or money you have not yet asked for."
 msgstr "يقابل هذا الجدول ما فُوتر على كل عميل بما كسبته الأعمال فعلاً. والفرق إما التزام تجاه العميل وإما مال لم تطلبه بعد."
@@ -3071,6 +3336,8 @@ msgstr "المتبقّي للاعتراف"
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_bond_list
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_overhead_allocation_form
+#: model_terms:ir.ui.view,arch_db:mizan_contracting.view_overhead_allocation_list
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_plant_form
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_subcontract_form
 msgid "Total"
@@ -3213,6 +3480,7 @@ msgstr "مُتنازل عنه"
 #. module: mizan_contracting
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract__website_message_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_contract_variation__website_message_ids
+#: model:ir.model.fields,field_description:mizan_contracting.field_mizan_overhead_allocation__website_message_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_progress_claim__website_message_ids
 #: model:ir.model.fields,field_description:mizan_contracting.field_mizan_subcontract__website_message_ids
 msgid "Website Messages"
@@ -3221,6 +3489,7 @@ msgstr "رسائل الموقع"
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__website_message_ids
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract_variation__website_message_ids
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_overhead_allocation__website_message_ids
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__website_message_ids
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_subcontract__website_message_ids
 msgid "Website communication history"
@@ -3230,6 +3499,11 @@ msgstr "سجل التواصل عبر الموقع"
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_plant__internal_rate
 msgid "What a job is charged for using this machine. Set it from what the machine costs to own and run, not from the market hire rate — the point is to recover cost, not to make a margin on yourself."
 msgstr "ما يُحمَّل على المشروع مقابل استعمال هذه الآلة. اضبطه من تكلفة تملّكها وتشغيلها، لا من سعر الاستئجار في السوق — فالغاية استرداد التكلفة لا تحقيق هامش على نفسك."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_overhead_allocation__basis
+msgid "What each job's share is proportional to. Direct cost is the usual choice: a job that kept the office busy carries more of the office. Cost TO DATE is the default because one month's cost is lumpy — a quiet month on one site would hand the whole office to the other."
+msgstr "ما تتناسب معه حصة كل مشروع. التكلفة المباشرة هي الاختيار المعتاد: المشروع الذي شغل المكتب أكثر يحمل أكثر. والافتراضي «حتى تاريخه» لأن تكلفة شهر واحد متقلبة — شهر هادئ في موقع يحمّل المكتب كله على الآخر."
 
 #. module: mizan_contracting
 #: model_terms:ir.ui.view,arch_db:mizan_contracting.view_variation_form
@@ -3260,6 +3534,11 @@ msgstr "ما سيدفعه العميل مقابل هذا التغيير. سال�
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_progress_claim__certified_amount
 msgid "What the consultant actually certified, when it differs from what was claimed. The difference is what the next claim has to argue about, so it is recorded rather than overwritten."
 msgstr "ما اعتمده الاستشاري فعلاً حين يختلف عمّا طُولب به. والفرق هو ما سيُناقش في المستخلص التالي، فيُسجَّل ولا يُطمس."
+
+#. module: mizan_contracting
+#: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__margin_after_overhead
+msgid "What the job has really contributed once it carries its share of the office. The figure to price the next tender from."
+msgstr "ما ساهم به المشروع فعلاً بعد أن يحمل نصيبه من المكتب. وهو الرقم الذي تُسعَّر عليه المناقصة القادمة."
 
 #. module: mizan_contracting
 #: model:ir.model.fields,help:mizan_contracting.field_mizan_contract__cost_to_complete
