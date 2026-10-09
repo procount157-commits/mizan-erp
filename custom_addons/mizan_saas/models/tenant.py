@@ -337,7 +337,7 @@ class MizanTenant(models.Model):
             [("login", "=", login)], limit=1)
         if not user:
             user = env["res.users"].sudo().create({
-                "name": "ProAccount Support",
+                "name": "Miqyas Support",
                 "login": login,
                 "password": secrets.token_urlsafe(18),
                 "groups_id": [(6, 0, [env.ref("base.group_system").id])],

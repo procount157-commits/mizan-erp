@@ -19,7 +19,7 @@ class MizanWebManifest(WebManifest):
     def _get_webmanifest(self):
         manifest = super()._get_webmanifest()
         params = request.env["ir.config_parameter"].sudo()
-        manifest["name"] = params.get_param("web.web_app_name") or _("ProAccount")
+        manifest["name"] = params.get_param("web.web_app_name") or _("Miqyas")
         manifest["short_name"] = params.get_param(
             "mizan_core.web_app_short_name") or manifest["name"]
         manifest["background_color"] = self.BRAND_COLOR

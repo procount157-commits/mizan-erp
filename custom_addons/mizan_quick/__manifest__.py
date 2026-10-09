@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    "name": "ProAccount Quick Access",
+    "name": "Miqyas Quick Access",
     "version": "1.0",
     "category": "Accounting/Accounting",
     "summary": "Every destination that matters, with the one figure that says "

@@ -1,5 +1,5 @@
 {
-    "name": "ProAccount Cheques",
+    "name": "Miqyas Cheques",
     "version": "1.0",
     "category": "Accounting/Accounting",
     "summary": "Post-dated cheque register with clearing, bouncing and bank entries",

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    "name": "ProAccount Alerts",
+    "name": "Miqyas Alerts",
     "version": "1.0",
     "category": "Accounting/Accounting",
     "summary": "Tell somebody before it costs money, instead of reporting it afterwards",

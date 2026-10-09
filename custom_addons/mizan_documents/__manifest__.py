@@ -1,5 +1,5 @@
 {
-    "name": "ProAccount Documents",
+    "name": "Miqyas Documents",
     "version": "1.0",
     "category": "Accounting/Accounting",
     "summary": "Stamp, signature and bank details on quotations, invoices and vouchers",

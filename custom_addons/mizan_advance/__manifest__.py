@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    "name": "ProAccount Employee Advances",
+    "name": "Miqyas Employee Advances",
     "version": "1.0",
     "category": "Accounting/Accounting",
     "summary": "Advance to an employee, tracked from request to settlement",

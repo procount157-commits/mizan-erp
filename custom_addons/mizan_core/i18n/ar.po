@@ -428,8 +428,8 @@ msgstr "إدارة المنصة"
 #. module: mizan_core
 #. odoo-python
 #: code:addons/mizan_core/controllers/webmanifest.py:0
-msgid "ProAccount"
-msgstr "برو أكاونت"
+msgid "Miqyas"
+msgstr "مقياس"
 
 #. module: mizan_core
 #: model:ir.actions.act_window,name:mizan_core.action_profit_loss

@@ -1,10 +1,10 @@
 {
-    "name": "ProAccount Operations Console",
+    "name": "Miqyas Operations Console",
     "version": "1.0",
     "category": "Administration",
     "summary": "Provision, monitor, back up and suspend client deployments",
     "description": """
-Every ProAccount client runs in its own database, which is what keeps one
+Every Miqyas client runs in its own database, which is what keeps one
 client's ledger structurally unreachable from another's. The cost of that
 isolation is that nothing inside Odoo can see across the databases: backups,
 disk growth, user counts and renewals all have to be checked one deployment at

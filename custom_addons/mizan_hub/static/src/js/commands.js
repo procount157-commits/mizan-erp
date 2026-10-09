@@ -1,5 +1,5 @@
 /**
- * Register ProAccount's own screens in the command palette.
+ * Register Miqyas's own screens in the command palette.
  *
  * Odoo 18 already ships the palette, and Ctrl+K already finds menus by name.
  * What it does not do is put the handful of things a finance manager opens
@@ -60,6 +60,6 @@ registry.category("command_provider").add("mizan_hub.screens", {
 
 registry.category("command_categories").add(
     "mizan",
-    { namespace: "default", name: _t("ProAccount") },
+    { namespace: "default", name: _t("Miqyas") },
     { sequence: 5 }
 );

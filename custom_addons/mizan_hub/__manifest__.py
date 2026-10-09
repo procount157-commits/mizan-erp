@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    "name": "ProAccount Hub — Work Inbox, Project Health, Data Quality",
+    "name": "Miqyas Hub — Work Inbox, Project Health, Data Quality",
     "version": "1.0",
     "category": "Accounting/Accounting",
     "summary": "One screen answering what is waiting for me, why, and what happens next",

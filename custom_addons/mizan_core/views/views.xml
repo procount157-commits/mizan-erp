@@ -128,7 +128,7 @@
          Rebuilt to be Odoo's navigation, not a second one beside it.
 
          The first version grouped everything by business process, Zoho Books
-         style, under a single "ProAccount" app. It read well on paper and
+         style, under a single "Miqyas" app. It read well on paper and
          failed with the person it mattered to: an accountant who knows Odoo
          opened the system, found fifteen apps of which one was a complete
          duplicate of the others, and concluded it was not Odoo at all. He was

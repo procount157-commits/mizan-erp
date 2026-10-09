@@ -1,5 +1,5 @@
 {
-    "name": "ProAccount WPS",
+    "name": "Miqyas WPS",
     "version": "1.0",
     "category": "Human Resources/Payroll",
     "summary": "UAE Wage Protection System salary file (SIF) from posted payslips",

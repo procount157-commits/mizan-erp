@@ -8,8 +8,8 @@
              them. So the group implies the READ-level accounting group and
              project user, and never the manager groups. -->
         <record id="module_category_proaccount" model="ir.module.category">
-            <field name="name">ProAccount</field>
-            <field name="description">Roles specific to ProAccount.</field>
+            <field name="name">Miqyas</field>
+            <field name="description">Roles specific to Miqyas.</field>
             <field name="sequence">20</field>
         </record>
 

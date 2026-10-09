@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    "name": "ProAccount Month-End Close",
+    "name": "Miqyas Month-End Close",
     "version": "1.0",
     "category": "Accounting/Accounting",
     "summary": "A guided month-end close: every check, the records behind it, and the lock",

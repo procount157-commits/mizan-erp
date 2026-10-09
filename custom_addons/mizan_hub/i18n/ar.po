@@ -1352,8 +1352,8 @@ msgstr "الأولوية"
 #. odoo-javascript
 #: code:addons/mizan_hub/static/src/js/commands.js:0
 #: model:ir.module.category,name:mizan_hub.module_category_proaccount
-msgid "ProAccount"
-msgstr "برو أكاونت"
+msgid "Miqyas"
+msgstr "مقياس"
 
 #. module: mizan_hub
 #: model:ir.model,name:mizan_hub.model_mizan_progress_claim
@@ -1535,8 +1535,8 @@ msgstr "مراجعة"
 
 #. module: mizan_hub
 #: model:ir.module.category,description:mizan_hub.module_category_proaccount
-msgid "Roles specific to ProAccount."
-msgstr "أدوار خاصة ببرو أكاونت."
+msgid "Roles specific to Miqyas."
+msgstr "أدوار خاصة بمقياس."
 
 #. module: mizan_hub
 #: model:ir.model,name:mizan_hub.model_mizan_find_result

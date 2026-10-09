@@ -1,5 +1,5 @@
 {
-    "name": "ProAccount Contracting",
+    "name": "Miqyas Contracting",
     "version": "1.0",
     "category": "Accounting/Accounting",
     "summary": "Percentage-of-completion revenue recognition and retention for contractors",

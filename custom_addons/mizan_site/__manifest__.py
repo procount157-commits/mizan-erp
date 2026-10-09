@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    "name": "ProAccount Site",
+    "name": "Miqyas Site",
     "version": "1.0",
     "category": "Project",
     "summary": "The engineer's screen: his jobs, the daily report, and the four things he raises",

@@ -1,5 +1,5 @@
 {
-    "name": "ProAccount UAE e-Invoicing (Peppol PINT AE)",
+    "name": "Miqyas UAE e-Invoicing (Peppol PINT AE)",
     "version": "1.0",
     "category": "Accounting/Localizations/EDI",
     "summary": "Generate and check UAE Peppol PINT invoices ahead of the mandate",

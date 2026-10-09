@@ -72,7 +72,7 @@ day it stays uninvoiced is a day of financing it for them.</field>
         </record>
 
         <record id="cron_alerts" model="ir.cron">
-            <field name="name">ProAccount: check the alert rules</field>
+            <field name="name">Miqyas: check the alert rules</field>
             <field name="model_id" ref="model_mizan_alert_rule"/>
             <field name="state">code</field>
             <field name="code">model.cron_run_alerts()</field>

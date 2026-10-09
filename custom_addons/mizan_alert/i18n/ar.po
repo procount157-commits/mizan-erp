@@ -390,7 +390,7 @@ msgstr "صُرفت في %(date)s ولم تُسوَّ بعد."
 
 #. module: mizan_alert
 #: model:ir.actions.server,name:mizan_alert.cron_alerts_ir_actions_server
-msgid "ProAccount: check the alert rules"
+msgid "Miqyas: check the alert rules"
 msgstr ""
 
 #. module: mizan_alert

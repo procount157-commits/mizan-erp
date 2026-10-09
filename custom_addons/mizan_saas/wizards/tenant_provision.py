@@ -261,7 +261,7 @@ class MizanTenantProvision(models.TransientModel):
                 if platform:
                     groups.append(platform.id)
                 support = env["res.users"].create({
-                    "name": "ProAccount Support",
+                    "name": "Miqyas Support",
                     "login": support_login,
                     "password": secrets.token_urlsafe(18),
                     "groups_id": [(6, 0, groups)],

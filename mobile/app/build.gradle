@@ -1,0 +1,35 @@
+// Miqyas for Android: a Trusted Web Activity. The app is the web system
+// itself running in Chrome's engine — which is what gives it push
+// notifications and the camera for free — without a browser bar around it.
+plugins { id "com.android.application" }
+
+def twa = new Properties()
+file("../twa.properties").withInputStream { twa.load(it) }
+def host = twa.getProperty("host")
+
+android {
+    namespace "ae.miqyas.app"
+    compileSdk 34
+    defaultConfig {
+        applicationId "ae.miqyas.app"
+        minSdk 23
+        targetSdk 34
+        versionCode Integer.parseInt(System.getenv("VERSION_CODE") ?: "1")
+        versionName "1.0." + (System.getenv("VERSION_CODE") ?: "1")
+        manifestPlaceholders = [hostName: host, launchUrl: "https://" + host + "/odoo"]
+        resValue "string", "asset_statements",
+            '[{"relation":["delegate_permission/common.handle_all_urls"],"target":{"namespace":"web","site":"https://' + host + '"}}]'
+    }
+    signingConfigs {
+        release {
+            storeFile file(System.getenv("KEYSTORE_PATH") ?: "release.jks")
+            storePassword System.getenv("KEYSTORE_PASSWORD")
+            keyAlias "proaccount"
+            keyPassword System.getenv("KEYSTORE_PASSWORD")
+        }
+    }
+    buildTypes { release { minifyEnabled false; signingConfig signingConfigs.release } }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}
+
+dependencies { implementation "com.google.androidbrowserhelper:androidbrowserhelper:2.5.0" }
