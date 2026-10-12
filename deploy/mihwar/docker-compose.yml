@@ -1,0 +1,43 @@
+# Miqyas on the shared Mihwar server (/root/mihwar/miqyas).
+#
+# The server's door (ports 80/443) belongs to the Caddy in /root/floret; it
+# reaches this stack through host.docker.internal on ports bound to the
+# docker0 address 172.17.0.1 — reachable from containers on this machine,
+# never from the internet. No Docker network is shared with Floret.
+name: miqyas
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  odoo:
+    build: ./image
+    image: miqyas-odoo:prod
+    restart: unless-stopped
+    depends_on: [db]
+    # The official image's entrypoint appends --db_host/--db_user/--db_password
+    # from HOST/USER/PASSWORD (default "odoo") AFTER any command-line flags, so
+    # the credentials go here or they are silently overridden.
+    command: odoo --config=/etc/odoo/odoo.conf
+    environment:
+      HOST: db
+      USER: odoo
+      PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "172.17.0.1:18069:8069"
+      - "172.17.0.1:18072:8072"
+    volumes:
+      - ./odoo.conf:/etc/odoo/odoo.conf:ro
+      - ./custom_addons:/mnt/custom_addons:ro
+      - ./oca_addons:/mnt/oca_addons:ro
+      - filestore:/var/lib/odoo
+
+volumes:
+  pgdata:
+  filestore:

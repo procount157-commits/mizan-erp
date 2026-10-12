@@ -7,6 +7,6 @@
 //                   alamana.<domain>.
 MIQYAS_BUNDLE_ID = ae.miqyas.app
 MIQYAS_TEAM_ID =
-MIQYAS_DOMAIN = miqyas.example.com
+MIQYAS_DOMAIN = miqyas.getmihwar.com
 MIQYAS_VERSION = 1.0.0
 MIQYAS_BUILD = 1

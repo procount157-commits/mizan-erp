@@ -1,0 +1,22 @@
+# The Flow Hub family on the shared Mihwar server. Each app's own nginx
+# (static files + /api) listens on the host at 172.17.0.1:<port>.
+flow.getmihwar.com {
+	encode zstd gzip
+	reverse_proxy host.docker.internal:18101
+}
+clinic.getmihwar.com {
+	encode zstd gzip
+	reverse_proxy host.docker.internal:18102
+}
+menu.getmihwar.com {
+	encode zstd gzip
+	reverse_proxy host.docker.internal:18103
+}
+
+# Job Hunter's engine runs on the owner's Mac (it drives a signed-in browser);
+# only its public page lives here.
+jobs.getmihwar.com {
+	encode zstd gzip
+	root * /etc/caddy/sites/jobs
+	file_server
+}

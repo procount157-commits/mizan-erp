@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# The only thing the GitHub deploy key can run (forced command in
+# authorized_keys). $SSH_ORIGINAL_COMMAND names the project; nothing else is
+# accepted. Static pages arrive on stdin; apps are pulled from GitHub here.
+set -uo pipefail
+app="${SSH_ORIGINAL_COMMAND:-}"
+log=/root/mihwar/logs/deploy-$app.log
+mkdir -p /root/mihwar/logs
+case "$app" in
+  landing|jobs)
+    dir=/root/mihwar/sites/$([ "$app" = landing ] && echo mihwar || echo jobs)
+    tmp=$(mktemp); cat > "$tmp"
+    if [ -s "$tmp" ] && grep -qiE "<(!doctype|html|head|title|body)" "$tmp"; then
+      install -m 644 "$tmp" "$dir/index.html"; rm -f "$tmp"; echo "$app page updated"; exit 0
+    fi
+    rm -f "$tmp"; echo "refused: not an HTML page"; exit 1 ;;
+  flowhub|doctorhub|menufor)
+    exec 9>/root/mihwar/logs/$app.lock; flock -n 9 || { echo "a deploy of $app is already running"; exit 1; }
+    cd /root/mihwar/$app || exit 1
+    { echo "=== $(date -Is)"; git fetch -q origin main && git reset -q --hard origin/main && git log -1 --format="%h %s" && set -a && . ./.env && set +a && ./deploy/deploy.sh; } >> "$log" 2>&1
+    rc=$?; tail -15 "$log"; exit $rc ;;
+  miqyas)
+    exec 9>/root/mihwar/logs/miqyas.lock; flock -n 9 || { echo "a deploy of miqyas is already running"; exit 1; }
+    /root/mihwar/bin/deploy-miqyas >> "$log" 2>&1; rc=$?; tail -15 "$log"; exit $rc ;;
+  *) echo "unknown project: $app"; exit 2 ;;
+esac

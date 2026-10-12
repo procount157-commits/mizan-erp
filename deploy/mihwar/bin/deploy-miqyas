@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# Update Miqyas on the Mihwar server from GitHub (branch development): the new
+# custom_addons, the modules that changed upgraded in every client database,
+# Odoo restarted and checked. Run by deploy-hook; logs to logs/deploy-miqyas.log.
+set -euo pipefail
+cd /root/mihwar/miqyas
+echo "=== $(date -Is)"
+
+old=$(git -C src rev-parse HEAD)
+git -C src fetch -q --depth 30 origin development
+git -C src checkout -q --detach FETCH_HEAD
+new=$(git -C src rev-parse HEAD)
+git -C src log -1 --format="%h %s"
+
+mods=""
+if [ "$old" != "$new" ]; then
+  mods=$(git -C src diff --name-only "$old" "$new" -- custom_addons | cut -d/ -f2 | sort -u | paste -sd, -)
+fi
+rsync -a --delete --exclude __pycache__ --exclude "*.pyc" src/custom_addons/ custom_addons/
+
+if [ -n "$mods" ]; then
+  echo "upgrading: $mods"
+  dbs=$(docker compose exec -T db psql -U odoo -d postgres -Atc \
+        "select datname from pg_database where not datistemplate and datname <> 'postgres'")
+  docker compose stop odoo
+  for db in $dbs; do
+    echo "-- $db"
+    docker compose run --rm -T odoo odoo --config=/etc/odoo/odoo.conf -d "$db" -u "$mods" \
+      --stop-after-init --no-http 2>&1 | grep -E "ERROR|CRITICAL|Traceback" | head -20 || true
+  done
+fi
+docker compose up -d odoo
+
+for i in $(seq 1 40); do
+  code=$(curl -s -o /dev/null -w "%{http_code}" -H "Host: alamana.miqyas.getmihwar.com" \
+         http://172.17.0.1:18069/web/login || true)
+  if [ "$code" = 200 ]; then echo "healthy"; exit 0; fi
+  sleep 3
+done
+echo "Odoo did not come back healthy"
+docker compose logs --tail 30 odoo
+exit 1

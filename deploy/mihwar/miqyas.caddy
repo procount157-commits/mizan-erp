@@ -1,0 +1,14 @@
+# Miqyas: one address per client company, <code>.miqyas.getmihwar.com, each
+# opening the database of the same name (dbfilter ^%d$). Listed one by one:
+# a wildcard certificate would need DNS-provider access Caddy does not have.
+# A new client = one more name on the first line, then reload Caddy.
+alamana.miqyas.getmihwar.com {
+	encode zstd gzip
+	@websocket path /websocket*
+	reverse_proxy @websocket host.docker.internal:18072
+	reverse_proxy host.docker.internal:18069
+}
+
+# The bare miqyas.getmihwar.com needs its own DNS A record ("miqyas"): the
+# "*.miqyas" record makes the name exist, so the apex "*" no longer covers
+# it. Add the record, then a redirect block here.
