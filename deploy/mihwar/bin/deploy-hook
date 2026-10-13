@@ -1,17 +1,28 @@
 #!/usr/bin/env bash
 # The only thing the GitHub deploy key can run (forced command in
 # authorized_keys). $SSH_ORIGINAL_COMMAND names the project; nothing else is
-# accepted. Static pages arrive on stdin; apps are pulled from GitHub here.
+# accepted. Static sites arrive on stdin; apps are pulled from GitHub here.
 set -uo pipefail
 app="${SSH_ORIGINAL_COMMAND:-}"
 log=/root/mihwar/logs/deploy-$app.log
 mkdir -p /root/mihwar/logs
 case "$app" in
-  landing|jobs)
-    dir=/root/mihwar/sites/$([ "$app" = landing ] && echo mihwar || echo jobs)
+  landing)
+    # The whole getmihwar.com site (pages, logos, styles) as a .tar.gz on
+    # stdin. Unpacked into a fresh folder first — GNU tar refuses absolute
+    # and ../ paths — and swapped in only if it has a home page.
+    tmp=$(mktemp -d)
+    if tar -xzf - -C "$tmp" --no-same-owner --no-same-permissions 2>/dev/null && [ -f "$tmp/index.html" ]; then
+      chmod -R a+rX "$tmp"
+      rsync -a --delete "$tmp"/ /root/mihwar/sites/mihwar/
+      rm -rf "$tmp"; echo "landing site updated: $(find /root/mihwar/sites/mihwar -type f | wc -l) files"; exit 0
+    fi
+    rm -rf "$tmp"; echo "refused: not a site bundle with index.html"; exit 1 ;;
+  jobs)
+    dir=/root/mihwar/sites/jobs
     tmp=$(mktemp); cat > "$tmp"
     if [ -s "$tmp" ] && grep -qiE "<(!doctype|html|head|title|body)" "$tmp"; then
-      install -m 644 "$tmp" "$dir/index.html"; rm -f "$tmp"; echo "$app page updated"; exit 0
+      install -m 644 "$tmp" "$dir/index.html"; rm -f "$tmp"; echo "jobs page updated"; exit 0
     fi
     rm -f "$tmp"; echo "refused: not an HTML page"; exit 1 ;;
   flowhub|doctorhub|menufor)

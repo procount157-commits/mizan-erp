@@ -23,6 +23,7 @@
         "views/banking.xml",
         "views/reporting.xml",
         "views/views.xml",
+        "views/branding.xml",
         "report/mizan_invoice_template.xml",
         # Last: it refers to the Platform menu that views.xml creates.
         "data/repair_icons.xml",
@@ -32,6 +33,10 @@
             "mizan_core/static/src/scss/mizan.scss",
             "mizan_core/static/src/js/quick_create.js",
             "mizan_core/static/src/xml/quick_create.xml",
+            "mizan_core/static/src/js/brand_title.js",
+        ],
+        "web.assets_frontend": [
+            "mizan_core/static/src/scss/login.scss",
         ],
     },
 }

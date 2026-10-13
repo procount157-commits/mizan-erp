@@ -1,0 +1,13 @@
+// The sign-in page in Miqyas's own colours (the Mihwar family green).
+.o_miqyas_login {
+    .o_miqyas_mark { width: 64px; height: 64px; margin: 0 auto 10px; display: block; }
+    .o_miqyas_name { font-weight: 800; font-size: 1.5rem; color: #0f3d24; line-height: 1.2; }
+    .o_miqyas_tag { color: #6b7686; font-size: .85rem; }
+}
+.oe_login_form .btn-primary,
+.oe_reset_password_form .btn-primary,
+.oe_signup_form .btn-primary {
+    background-color: #1BAE5A; border-color: #1BAE5A;
+    &:hover, &:focus { background-color: #168f4a; border-color: #168f4a; }
+}
+.oe_login_form a, .o_miqyas_login a { color: #168f4a; }
