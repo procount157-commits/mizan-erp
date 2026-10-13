@@ -71,18 +71,21 @@ class MizanHome(models.AbstractModel):
         if self._resolves(xmlid):
             action = self.env["ir.actions.actions"]._for_xml_id(xmlid)
         elif link.get("model") and link["model"] in self.env:
+            # The web client's doAction reads action.views, so a hand-built
+            # action must carry it; view_mode alone is not enough.
             action = {
                 "type": "ir.actions.act_window",
                 "name": link.get("label") or link["model"],
                 "res_model": link["model"],
                 "view_mode": "list,form",
+                "views": [[False, "list"], [False, "form"]],
             }
         if not action:
             return False
         if link.get("domain"):
             action["domain"] = link["domain"]
         if link.get("creates"):
-            action["views"] = [(False, "form")]
+            action["views"] = [[False, "form"]]
             action["view_mode"] = "form"
             action["res_id"] = False
             action.pop("domain", None)
@@ -116,9 +119,22 @@ class MizanHome(models.AbstractModel):
         month_start = today.replace(day=1)
         sections = []
 
+        def readable(model_name):
+            """A link to records the person cannot read is a link to an error."""
+            if not model_name or model_name not in env:
+                return False
+            try:
+                return env[model_name].has_access("read")
+            except Exception:
+                return False
+
         def link(label, xmlid=None, model=None, icon="fa-angle-left",
                  domain=None, context=None, creates=False, count=None, tone=None):
-            if not self._resolves(xmlid) and not (model and model in env):
+            if self._resolves(xmlid):
+                target = env.ref(xmlid)
+                if target._name == "ir.actions.act_window" and not readable(target.res_model):
+                    return None
+            elif not readable(model):
                 return None
             return {"label": label, "xmlid": xmlid if self._resolves(xmlid) else None,
                     "model": model, "icon": icon, "domain": domain or [],
