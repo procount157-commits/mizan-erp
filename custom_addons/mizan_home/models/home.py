@@ -49,10 +49,21 @@ class MizanHome(models.AbstractModel):
         except Exception:
             return None
 
+    ARABIC_SYMBOLS = {"AED": "د.إ", "SAR": "ر.س", "QAR": "ر.ق", "KWD": "د.ك",
+                      "OMR": "ر.ع", "BHD": "د.ب", "EGP": "ج.م", "USD": "$", "EUR": "€"}
+
     @api.model
     def _money(self, amount):
-        return "%s %s" % ("{:,.0f}".format(amount or 0.0),
-                          self.env.company.currency_id.name)
+        """Number first, then the unit — the way an Arabic reader expects it.
+
+        A no-break space keeps the two together on a narrow tile, and the
+        template isolates the whole value so right-to-left text around it
+        cannot reorder the digits and the unit."""
+        currency = self.env.company.currency_id
+        lang = (self.env.context.get("lang") or self.env.user.lang or "")
+        unit = self.ARABIC_SYMBOLS.get(currency.name, currency.symbol) if lang.startswith("ar") \
+            else (currency.symbol or currency.name)
+        return "%s %s" % ("{:,.0f}".format(amount or 0.0), unit)
 
     @api.model
     def _resolves(self, xmlid):

@@ -22,7 +22,7 @@
                     <div class="o_mh_chips">
                         <button t-foreach="state.data.waiting" t-as="w" t-key="w.label"
                                 class="o_mh_chip" type="button" t-on-click="() => this.open(w.link)">
-                            <b t-esc="w.count"/>
+                            <b><bdi t-esc="w.count"/></b>
                             <span t-esc="w.label"/>
                             <i class="fa fa-angle-left" role="img" aria-label="Open"/>
                         </button>
@@ -47,7 +47,7 @@
                             <button t-foreach="s.figures" t-as="f" t-key="f.label" type="button"
                                     t-attf-class="o_mh_fig o_mh_tone_#{f.tone} #{f.link ? '' : 'o_mh_fig_static'}"
                                     t-on-click="() => this.open(f.link)" t-att-disabled="!f.link">
-                                <b t-esc="f.value"/>
+                                <b><bdi t-esc="f.value"/></b>
                                 <span t-esc="f.label"/>
                             </button>
                         </div>
