@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">مقياس</string>
-    <string name="tagline">محاسبة المقاولات والمشاريع</string>
+    <string name="tagline">المحاسبة المتقدمة ومحاسبة التكاليف</string>
     <string name="company_label">رمز الشركة</string>
     <string name="company_placeholder">alamana</string>
     <string name="company_hint">اكتب رمز شركتك كما أعطاك إياه المسؤول، أو عنوان السيرفر كاملاً. الرمز وحده يعني ‎%1$s‎</string>

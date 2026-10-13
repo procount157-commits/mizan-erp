@@ -48,7 +48,7 @@ final class CompanyViewController: UIViewController, UITextFieldDelegate {
         stack.addArrangedSubview(logo)
 
         stack.addArrangedSubview(label("مقياس", size: 30, weight: .bold, color: .brand, center: true))
-        stack.addArrangedSubview(label("محاسبة المقاولات والمشاريع", size: 15, color: .secondaryLabel, center: true))
+        stack.addArrangedSubview(label("المحاسبة المتقدمة ومحاسبة التكاليف", size: 15, color: .secondaryLabel, center: true))
         stack.setCustomSpacing(36, after: stack.arrangedSubviews.last!)
 
         stack.addArrangedSubview(label("رمز الشركة", size: 16, weight: .semibold, color: .label))
