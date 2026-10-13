@@ -131,7 +131,9 @@ class MizanHome(models.AbstractModel):
         def link(label, xmlid=None, model=None, icon="fa-angle-left",
                  domain=None, context=None, creates=False, count=None, tone=None):
             if self._resolves(xmlid):
-                target = env.ref(xmlid)
+                # sudo: reading an action's definition needs Settings rights,
+                # and this only asks which model it opens.
+                target = env.ref(xmlid).sudo()
                 if target._name == "ir.actions.act_window" and not readable(target.res_model):
                     return None
             elif not readable(model):
