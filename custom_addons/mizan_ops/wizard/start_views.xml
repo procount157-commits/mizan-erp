@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_start_form" model="ir.ui.view">
+        <field name="name">mizan.workflow.start.form</field>
+        <field name="model">mizan.workflow.start</field>
+        <field name="arch" type="xml">
+            <form string="Start a Workflow">
+                <group>
+                    <field name="template_id" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="partner_id"/>
+                    <field name="name"/>
+                    <field name="responsible_id" widget="many2one_avatar_user"/>
+                    <field name="date_start"/>
+                    <field name="project_id" options="{'no_create': True}" groups="project.group_project_manager"/>
+                    <field name="note" placeholder="Anything the team should know before they start."/>
+                </group>
+                <div class="text-muted" invisible="not template_id">
+                    <field name="step_count" class="fw-bold"/> steps · about <field name="days_total" class="fw-bold"/> days from start to finish.
+                </div>
+                <footer>
+                    <button name="action_start" type="object" string="Start" class="btn-primary btn-lg"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ops_start" model="ir.actions.act_window">
+        <field name="name">Start a Workflow</field>
+        <field name="res_model">mizan.workflow.start</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

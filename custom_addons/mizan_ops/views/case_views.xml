@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_case_search" model="ir.ui.view">
+        <field name="name">mizan.workflow.case.search</field>
+        <field name="model">mizan.workflow.case</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="template_id"/>
+                <field name="responsible_id"/>
+                <filter name="open" string="In progress" domain="[('state', '=', 'open')]"/>
+                <filter name="late" string="Running late" domain="[('is_late', '=', True)]"/>
+                <filter name="mine" string="I own" domain="[('responsible_id', '=', uid)]"/>
+                <filter name="done" string="Done" domain="[('state', '=', 'done')]"/>
+                <group expand="0" string="Group by">
+                    <filter name="group_template" string="Workflow" context="{'group_by': 'template_id'}"/>
+                    <filter name="group_partner" string="Client" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_owner" string="Owner" context="{'group_by': 'responsible_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_case_list" model="ir.ui.view">
+        <field name="name">mizan.workflow.case.list</field>
+        <field name="model">mizan.workflow.case</field>
+        <field name="arch" type="xml">
+            <list string="Workflows in Progress" decoration-danger="is_late" decoration-muted="state != 'open'">
+                <field name="name"/>
+                <field name="partner_id" optional="show"/>
+                <field name="template_id" optional="show"/>
+                <field name="responsible_id" widget="many2one_avatar_user"/>
+                <field name="next_step"/>
+                <field name="date_due" widget="remaining_days"/>
+                <field name="progress" widget="progressbar"/>
+                <field name="attachment_count" string="Files" optional="show"/>
+                <field name="missing_files" optional="hide"/>
+                <field name="is_late" column_invisible="1"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'" decoration-info="state == 'open'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_case_kanban" model="ir.ui.view">
+        <field name="name">mizan.workflow.case.kanban</field>
+        <field name="model">mizan.workflow.case</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" quick_create="false" class="o_kanban_small_column">
+                <field name="is_late"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex flex-column gap-1 p-1">
+                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                <strong class="o_kanban_record_title"><field name="name"/></strong>
+                                <field name="responsible_id" widget="many2one_avatar_user"/>
+                            </div>
+                            <div class="text-muted small"><field name="partner_id"/></div>
+                            <field name="progress" widget="progressbar"/>
+                            <div class="small" t-if="record.next_step.raw_value">
+                                <i class="fa fa-arrow-circle-left me-1 text-success" title="Next step"/><field name="next_step"/>
+                            </div>
+                            <div class="d-flex justify-content-between small">
+                                <field name="date_due" widget="remaining_days"/>
+                                <span title="Files"><i class="fa fa-paperclip"/> <field name="attachment_count"/></span>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_case_form" model="ir.ui.view">
+        <field name="name">mizan.workflow.case.form</field>
+        <field name="model">mizan.workflow.case</field>
+        <field name="arch" type="xml">
+            <form string="Workflow in Progress">
+                <header>
+                    <button name="action_upload" type="object" string="Upload a file" icon="fa-cloud-upload" class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_add_step" type="object" string="Add a step" icon="fa-plus" invisible="state != 'open'"/>
+                    <button name="action_done" type="object" string="Mark done" invisible="state != 'open'"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state != 'open'" confirm="Cancel this file and its open steps?"/>
+                    <button name="action_reopen" type="object" string="Reopen" invisible="state == 'open'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_tasks" type="object" class="oe_stat_button" icon="fa-tasks">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value"><field name="task_done"/>/<field name="task_count"/></span>
+                                <span class="o_stat_text">Steps done</span>
+                            </div>
+                        </button>
+                        <button name="action_view_files" type="object" class="oe_stat_button" icon="fa-paperclip">
+                            <field name="attachment_count" widget="statinfo" string="Files"/>
+                        </button>
+                    </div>
+                    <div class="alert alert-warning mb-3" role="alert" invisible="missing_files == 0">
+                        <field name="missing_files" class="fw-bold"/> step(s) were finished without the file they need.
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="e.g. Licence renewal — Al Amana"/></h1>
+                    </div>
+                    <field name="progress" widget="progressbar" class="mb-3"/>
+                    <group>
+                        <group>
+                            <field name="template_id" options="{'no_create': True}"/>
+                            <field name="partner_id"/>
+                            <field name="responsible_id" widget="many2one_avatar_user"/>
+                        </group>
+                        <group>
+                            <field name="date_start"/>
+                            <field name="date_due"/>
+                            <field name="project_id" options="{'no_create': True}" groups="project.group_project_manager"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Steps" name="steps">
+                            <field name="task_ids" context="{'default_project_id': project_id, 'default_partner_id': partner_id, 'default_mizan_case_id': id}">
+                                <list editable="bottom" decoration-success="state == '1_done'" decoration-muted="state == '1_canceled'">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="user_ids" widget="many2many_avatar_user"/>
+                                    <field name="date_deadline" widget="remaining_days"/>
+                                    <field name="mizan_requires_file" string="File" widget="boolean_toggle"/>
+                                    <field name="mizan_has_file" string="Has file" widget="boolean"/>
+                                    <field name="mizan_needs_client" string="Client" widget="boolean_toggle"/>
+                                    <field name="state" widget="project_task_state_selection"/>
+                                    <field name="project_id" column_invisible="1"/>
+                                    <button name="action_mizan_upload" type="object" icon="fa-cloud-upload" title="Upload a file"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note" placeholder="Anything the next person should know about this file."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ops_case" model="ir.actions.act_window">
+        <field name="name">Workflows in Progress</field>
+        <field name="res_model">mizan.workflow.case</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context">{'search_default_open': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing in progress</p>
+            <p>Start a workflow for a client or a project: every step becomes a task, assigned and dated, and this is where the whole file is followed.</p>
+        </field>
+    </record>
+</odoo>

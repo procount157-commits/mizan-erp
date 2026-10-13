@@ -1,0 +1,869 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_home
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-13 06:45+0000\n"
+"PO-Revision-Date: 2026-10-13 06:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Accounting"
+msgstr "المحاسبة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Administration"
+msgstr "الإدارة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Advances & top-ups"
+msgstr "العهد والتعويضات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Aged receivables & payables"
+msgstr "أعمار الذمم"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Alert log"
+msgstr "سجل التنبيهات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Alert rules"
+msgstr "قواعد التنبيه"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Approved, to post"
+msgstr "معتمدة بانتظار الترحيل"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Ask for a top-up"
+msgstr "طلب تعويض العهدة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Attendance"
+msgstr "الحضور"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Balance sheet"
+msgstr "الميزانية"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Bank lines unexplained"
+msgstr "حركات بنكية غير مفسّرة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Bank reconciliation"
+msgstr "المطابقة البنكية"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Bank statements"
+msgstr "كشوف البنك"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Bounced & under claim"
+msgstr "مرتجعة وتحت المطالبة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Budgets"
+msgstr "الموازنات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Cash & banks"
+msgstr "النقد والبنوك"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Cash out on site"
+msgstr "نقد العهد في المواقع"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Certified, not yet invoiced"
+msgstr "معتمدة ولم تُفوتر"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Chart of accounts"
+msgstr "دليل الحسابات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Cheques & banks"
+msgstr "الشيكات والبنوك"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Cheques due"
+msgstr "شيكات مستحقة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Cheques due within a week"
+msgstr "شيكات تستحق خلال أسبوع"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Cheques issued"
+msgstr "شيكات صادرة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Cheques received"
+msgstr "شيكات مستلمة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Cheques to collect this week"
+msgstr "شيكات للتحصيل هذا الأسبوع"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Claims to invoice"
+msgstr "مستخلصات للفوترة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Company"
+msgstr "الشركة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Contracts"
+msgstr "العقود"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Contracts over budget"
+msgstr "عقود تجاوزت الموازنة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Customer invoices"
+msgstr "فواتير العملاء"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Customers"
+msgstr "العملاء"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Customers without a TRN"
+msgstr "عملاء بلا رقم ضريبي"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Daily report"
+msgstr "التقرير اليومي"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Dashboard"
+msgstr "لوحة المعلومات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Data quality"
+msgstr "جودة البيانات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Documents"
+msgstr "المستندات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Draft invoices and bills"
+msgstr "فواتير مسودّة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Drafts"
+msgstr "مسودّات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "E-invoicing readiness"
+msgstr "جاهزية الفاتورة الإلكترونية"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Employee advances"
+msgstr "سُلف الموظفين"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Employees"
+msgstr "الموظفون"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Every report in Arabic and English, to Excel or PDF"
+msgstr "كل التقارير بالعربية والإنجليزية، إلى إكسل أو PDF"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Expense claims"
+msgstr "المصروفات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Filed"
+msgstr "مرفوع"
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/js/home.js:0
+msgid "Find an invoice, a cheque, a customer, a project…"
+msgstr "ابحث عن فاتورة أو شيك أو عميل أو مشروع…"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Form 201 due"
+msgstr "موعد إقرار ٢٠١"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "General ledger"
+msgstr "دفتر الأستاذ"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Good afternoon"
+msgstr "مساء الخير"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Good evening"
+msgstr "مساء الخير"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Good morning"
+msgstr "صباح الخير"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Guarantees & bonds"
+msgstr "الضمانات والكفالات"
+
+#. module: mizan_home
+#: model:ir.actions.client,name:mizan_home.action_home
+#: model:ir.model,name:mizan_home.model_mizan_home
+#: model:ir.ui.menu,name:mizan_home.menu_home_root
+msgid "Home"
+msgstr "الرئيسية"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "In your work inbox"
+msgstr "في صندوق أعمالك"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Invoices, bills, payments and the ledger"
+msgstr "الفواتير والمدفوعات والدفاتر"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Journal entries"
+msgstr "القيود اليومية"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Late tasks"
+msgstr "مهام متأخرة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Leave requests"
+msgstr "طلبات الإجازة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Leave requests to approve"
+msgstr "طلبات إجازة للاعتماد"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Month-end close"
+msgstr "الإقفال الشهري"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "My activities"
+msgstr "أنشطتي"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "My open tasks"
+msgstr "مهامي المفتوحة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "My petty cash"
+msgstr "عهدتي"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "My projects"
+msgstr "مشاريعي"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "My site"
+msgstr "موقعي"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "My tasks"
+msgstr "مهامي"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Net VAT this quarter"
+msgstr "صافي الضريبة هذا الربع"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "New bill"
+msgstr "فاتورة مورد جديدة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "New customer"
+msgstr "عميل جديد"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "New invoice"
+msgstr "فاتورة جديدة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "New progress claim"
+msgstr "مستخلص جديد"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "New task"
+msgstr "مهمة جديدة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Not yet"
+msgstr "ليس بعد"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Of it overdue"
+msgstr "منها متأخر"
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/xml/home.xml:0
+msgid "Open"
+msgstr "فتح"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Open alerts"
+msgstr "تنبيهات مفتوحة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Open bills"
+msgstr "فواتير موردين مفتوحة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Open invoices"
+msgstr "فواتير مفتوحة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Open opportunities"
+msgstr "فرص مفتوحة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Operations & tasks"
+msgstr "العمليات والمهام"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Our cheques due this week"
+msgstr "شيكاتنا المستحقة هذا الأسبوع"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Over budget"
+msgstr "تجاوز الموازنة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Overhead allocation"
+msgstr "توزيع المصاريف الإدارية"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Owed to us"
+msgstr "ما لنا"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Past their deadline"
+msgstr "تجاوزت موعدها"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Payments"
+msgstr "المدفوعات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Payslips"
+msgstr "قسائم الرواتب"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Payslips in draft this month"
+msgstr "رواتب مسودّة هذا الشهر"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "People & payroll"
+msgstr "الموظفون والرواتب"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Petty cash & expenses"
+msgstr "العهدة والمصروفات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Petty cash available"
+msgstr "المتاح من العهدة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Phones with the app"
+msgstr "الجوالات المثبّت عليها التطبيق"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Photograph a bill"
+msgstr "صوّر فاتورة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Pipeline"
+msgstr "الفرص"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Pipeline value"
+msgstr "قيمة الفرص"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Plant & equipment"
+msgstr "المعدات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Profit & loss"
+msgstr "قائمة الدخل"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Progress claims"
+msgstr "المستخلصات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Project health"
+msgstr "صحة المشاريع"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Projects"
+msgstr "المشاريع"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Projects & claims"
+msgstr "المشاريع والمستخلصات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Purchase orders"
+msgstr "أوامر الشراء"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Quotations"
+msgstr "عروض الأسعار"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Quotations awaiting"
+msgstr "عروض أسعار معلّقة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Receipts to approve"
+msgstr "إيصالات للاعتماد"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Receipts to post"
+msgstr "إيصالات للترحيل"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Receipts waiting for you"
+msgstr "إيصالات بانتظارك"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Receipts waiting for your approval"
+msgstr "إيصالات بانتظار اعتمادك"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Reports"
+msgstr "التقارير"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Retention held by clients"
+msgstr "محتجزات لدى العملاء"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Revenue recognition"
+msgstr "الاعتراف بالإيراد"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Running contracts"
+msgstr "عقود قائمة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Sales & customers"
+msgstr "المبيعات والعملاء"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Sales orders"
+msgstr "أوامر البيع"
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/xml/home.xml:0
+msgid "Search"
+msgstr "بحث"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Site reports"
+msgstr "تقارير الموقع"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Start a workflow"
+msgstr "ابدأ سير عمل"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Subcontracts"
+msgstr "المقاولون من الباطن"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Tasks past their deadline"
+msgstr "مهام تجاوزت موعدها"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Tax entries this quarter"
+msgstr "قيود الضريبة هذا الربع"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Taxes"
+msgstr "الضرائب"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "The return is due 28 days after the quarter ends"
+msgstr "الإقرار مستحق بعد ٢٨ يوماً من نهاية الربع"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "To do today"
+msgstr "المطلوب اليوم"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Today's report"
+msgstr "تقرير اليوم"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Trial balance"
+msgstr "ميزان المراجعة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Upload a file"
+msgstr "ارفع ملفاً"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Users & rights"
+msgstr "المستخدمون والصلاحيات"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "VAT"
+msgstr "الضريبة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "VAT return"
+msgstr "إقرار الضريبة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "VAT return (Form 201)"
+msgstr "إقرار الضريبة (نموذج ٢٠١)"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Variation orders"
+msgstr "أوامر التغيير"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Vendor bills"
+msgstr "فواتير الموردين"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "WPS salary file"
+msgstr "ملف الرواتب WPS"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "We owe"
+msgstr "ما علينا"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Who holds cash"
+msgstr "من يحمل عهدة"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Work Inbox"
+msgstr "صندوق الأعمال"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Work inbox"
+msgstr "صندوق الأعمال"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Workflow templates"
+msgstr "قوالب سير العمل"
+
+#. module: mizan_home
+#. odoo-python
+#: code:addons/mizan_home/models/home.py:0
+msgid "Workflows in progress"
+msgstr "ملفات جارية"
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/xml/home.xml:0
+msgid "بحث"
+msgstr ""
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/xml/home.xml:0
+msgid "تعذّر تحميل الصفحة. حدّث المتصفح، وإذا تكرر الأمر أخبر المسؤول."
+msgstr ""
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/xml/home.xml:0
+msgid "لا شيء ينتظرك الآن."
+msgstr ""
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/xml/home.xml:0
+msgid "ينتظرك الآن"
+msgstr ""

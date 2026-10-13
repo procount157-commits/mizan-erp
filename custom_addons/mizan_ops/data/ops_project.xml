@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- The stages every operations task moves through. Few on purpose:
+             a phone screen shows three columns, and "waiting on the client"
+             is the one that explains most delays. -->
+        <record id="stage_new" model="project.task.type">
+            <field name="name">To do</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="stage_doing" model="project.task.type">
+            <field name="name">In progress</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="stage_client" model="project.task.type">
+            <field name="name">Waiting on the client</field>
+            <field name="sequence">3</field>
+        </record>
+        <record id="stage_done" model="project.task.type">
+            <field name="name">Done</field>
+            <field name="sequence">4</field>
+            <field name="fold" eval="True"/>
+        </record>
+
+        <!-- Where workflow steps live unless a template says otherwise.
+             Visible to every employee: the point is that the team sees the
+             same list. -->
+        <record id="project_ops" model="project.project">
+            <field name="name">Operations</field>
+            <field name="privacy_visibility">employees</field>
+            <field name="allow_milestones" eval="False"/>
+            <field name="type_ids" eval="[(6, 0, [ref('stage_new'), ref('stage_doing'), ref('stage_client'), ref('stage_done')])]"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+</odoo>

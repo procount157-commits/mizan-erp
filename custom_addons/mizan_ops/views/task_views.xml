@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- The task form: which file it belongs to, whether it needs a document,
+         and the two things done from a phone — upload, and done. -->
+    <record id="view_task_form_ops" model="ir.ui.view">
+        <field name="name">project.task.form.ops</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/header" position="inside">
+                <button name="action_mizan_upload" type="object" string="Upload a file" icon="fa-cloud-upload" class="btn-primary"/>
+                <button name="action_mizan_done" type="object" string="Done" icon="fa-check" invisible="is_closed"/>
+            </xpath>
+            <xpath expr="//field[@name='user_ids']" position="after">
+                <field name="mizan_case_id" options="{'no_create': True}"/>
+                <field name="mizan_requires_file" invisible="not mizan_case_id and not mizan_requires_file"/>
+                <field name="mizan_needs_client" invisible="not mizan_case_id and not mizan_needs_client"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_task_list_ops" model="ir.ui.view">
+        <field name="name">project.task.list.ops</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='project_id']" position="after">
+                <field name="mizan_case_id" optional="hide"/>
+                <field name="mizan_file_missing" optional="hide" string="File missing"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_task_search_ops" model="ir.ui.view">
+        <field name="name">project.task.search.ops</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_tasks']" position="after">
+                <filter name="file_missing" string="File still missing" domain="[('mizan_file_missing', '=', True)]"/>
+                <filter name="waits_client" string="Waits on the client" domain="[('mizan_needs_client', '=', True), ('is_closed', '=', False)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- My tasks: what is mine and not finished, newest deadline first. -->
+    <record id="action_ops_my_tasks" model="ir.actions.act_window">
+        <field name="name">My Tasks</field>
+        <field name="res_model">project.task</field>
+        <field name="view_mode">kanban,list,form,calendar</field>
+        <field name="domain">[('user_ids', 'in', uid), ('is_closed', '=', False)]</field>
+        <field name="context">{'default_user_ids': [(6, 0, [uid])], 'default_project_id': %(project_ops)d}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing on your plate</p>
+            <p>Tasks assigned to you appear here: from a workflow, or added by a colleague.</p>
+        </field>
+    </record>
+
+    <record id="action_ops_new_task" model="ir.actions.act_window">
+        <field name="name">New Task</field>
+        <field name="res_model">project.task</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="context">{'default_user_ids': [(6, 0, [uid])], 'default_project_id': %(project_ops)d}</field>
+    </record>
+
+    <record id="action_ops_all_tasks" model="ir.actions.act_window">
+        <field name="name">All Tasks</field>
+        <field name="res_model">project.task</field>
+        <field name="view_mode">list,kanban,form,calendar</field>
+        <field name="context">{'search_default_open_tasks': 1, 'default_project_id': %(project_ops)d}</field>
+    </record>
+
+    <!-- Documents: every file on a task or a workflow, with a thumbnail. -->
+    <record id="view_ops_attachment_kanban" model="ir.ui.view">
+        <field name="name">ir.attachment.kanban.ops</field>
+        <field name="model">ir.attachment</field>
+        <field name="arch" type="xml">
+            <kanban create="false">
+                <field name="mimetype"/>
+                <field name="res_model"/>
+                <field name="res_id"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex gap-2 p-1 align-items-center">
+                            <t t-if="record.mimetype.raw_value and record.mimetype.raw_value.indexOf('image') === 0">
+                                <img t-attf-src="/web/image/#{record.id.raw_value}?height=96" class="rounded" style="width:72px;height:72px;object-fit:cover" alt="Preview"/>
+                            </t>
+                            <t t-else="">
+                                <div class="d-flex align-items-center justify-content-center rounded bg-light" style="width:72px;height:72px">
+                                    <i class="fa fa-file-o fa-2x text-muted" title="File"/>
+                                </div>
+                            </t>
+                            <div class="min-w-0 flex-grow-1">
+                                <strong class="d-block text-truncate"><field name="name"/></strong>
+                                <div class="text-muted small"><field name="res_name"/></div>
+                                <div class="text-muted small"><field name="create_date" widget="date"/> · <field name="create_uid"/></div>
+                            </div>
+                            <a t-attf-href="/web/content/#{record.id.raw_value}?download=true" class="btn btn-link" role="button" title="Download"><i class="fa fa-download"/></a>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_ops_files" model="ir.actions.act_window">
+        <field name="name">Documents</field>
+        <field name="res_model">ir.attachment</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain">[('res_model', 'in', ['project.task', 'mizan.workflow.case'])]</field>
+        <field name="context">{'search_default_group_res_model': 0}</field>
+    </record>
+    <record id="action_ops_files_kanban" model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="action_ops_files"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="view_ops_attachment_kanban"/>
+        <field name="sequence">1</field>
+    </record>
+</odoo>

@@ -18,17 +18,30 @@ if [ "$old" != "$new" ]; then
 fi
 rsync -a --delete --exclude __pycache__ --exclude "*.pyc" src/custom_addons/ custom_addons/
 
-if [ -n "$mods" ]; then
-  echo "upgrading: $mods"
-  dbs=$(docker compose exec -T db psql -U odoo -d postgres -Atc \
-        "select datname from pg_database where not datistemplate and datname <> 'postgres'")
-  docker compose stop odoo
-  for db in $dbs; do
-    echo "-- $db"
-    docker compose run --rm -T odoo odoo --config=/etc/odoo/odoo.conf -d "$db" -u "$mods" \
-      --stop-after-init --no-http 2>&1 | grep -E "ERROR|CRITICAL|Traceback" | head -20 || true
+dbs=$(docker compose exec -T db psql -U odoo -d postgres -Atc \
+      "select datname from pg_database where not datistemplate and datname <> 'postgres'")
+# Modules the product requires everywhere (deploy/mihwar/miqyas-modules.txt):
+# a new one is installed in each database that lacks it.
+wanted=$(grep -vE '^\s*(#|$)' src/deploy/mihwar/miqyas-modules.txt 2>/dev/null | paste -sd' ' -)
+stopped=0
+for db in $dbs; do
+  missing=""
+  for m in $wanted; do
+    state=$(docker compose exec -T db psql -U odoo -d "$db" -Atc \
+            "select state from ir_module_module where name='$m'")
+    [ "$state" = "installed" ] || missing="$missing,$m"
   done
-fi
+  missing=${missing#,}
+  if [ -n "$missing$mods" ]; then
+    [ $stopped = 1 ] || { docker compose stop odoo; stopped=1; }
+    echo "-- $db: install [$missing] upgrade [$mods]"
+    args=""
+    [ -n "$missing" ] && args="$args -i $missing"
+    [ -n "$mods" ] && args="$args -u $mods"
+    docker compose run --rm -T odoo odoo --config=/etc/odoo/odoo.conf -d "$db" $args \
+      --stop-after-init --no-http 2>&1 | grep -E "ERROR|CRITICAL|Traceback" | head -20 || true
+  fi
+done
 docker compose up -d odoo
 
 for i in $(seq 1 40); do

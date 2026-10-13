@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_ops_root" name="Operations" sequence="5"
+              web_icon="mizan_ops,static/description/icon.png"
+              groups="project.group_project_user"/>
+
+    <menuitem id="menu_ops_my_tasks" name="My Tasks" parent="menu_ops_root"
+              action="action_ops_my_tasks" sequence="10"/>
+    <menuitem id="menu_ops_cases" name="Workflows in Progress" parent="menu_ops_root"
+              action="action_ops_case" sequence="20"/>
+    <menuitem id="menu_ops_start" name="Start a Workflow" parent="menu_ops_root"
+              action="action_ops_start" sequence="30"/>
+    <menuitem id="menu_ops_upload" name="Upload a File" parent="menu_ops_root"
+              action="action_ops_upload" sequence="40"/>
+    <menuitem id="menu_ops_new_task" name="New Task" parent="menu_ops_root"
+              action="action_ops_new_task" sequence="50"/>
+    <menuitem id="menu_ops_files" name="Documents" parent="menu_ops_root"
+              action="action_ops_files" sequence="60"/>
+    <menuitem id="menu_ops_all_tasks" name="All Tasks" parent="menu_ops_root"
+              action="action_ops_all_tasks" sequence="70"
+              groups="project.group_project_manager"/>
+    <menuitem id="menu_ops_templates" name="Workflow Templates" parent="menu_ops_root"
+              action="action_ops_template" sequence="80"
+              groups="project.group_project_manager"/>
+</odoo>

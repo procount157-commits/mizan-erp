@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Starting templates: the jobs an accounting office and a contractor
+         repeat. noupdate, so a client's edits survive upgrades. -->
+    <data noupdate="1">
+
+        <record id="tpl_company_setup" model="mizan.workflow.template">
+            <field name="name">Company formation / new licence</field>
+            <field name="category">client</field>
+            <field name="sequence">10</field>
+            <field name="description">From the client's first papers to a licence, a bank account and a tax registration.</field>
+        </record>
+        <record id="tpl_company_setup_1" model="mizan.workflow.step"><field name="template_id" ref="tpl_company_setup"/><field name="sequence">1</field><field name="name">Collect the client's documents</field><field name="days">1</field><field name="requires_file" eval="True"/><field name="needs_client" eval="True"/><field name="instructions">Passport, Emirates ID, visa page, and the proposed activities. Attach each one here.</field></record>
+        <record id="tpl_company_setup_2" model="mizan.workflow.step"><field name="template_id" ref="tpl_company_setup"/><field name="sequence">2</field><field name="name">Reserve the trade name</field><field name="days">2</field><field name="requires_file" eval="True"/></record>
+        <record id="tpl_company_setup_3" model="mizan.workflow.step"><field name="template_id" ref="tpl_company_setup"/><field name="sequence">3</field><field name="name">Initial approval</field><field name="days">5</field><field name="requires_file" eval="True"/></record>
+        <record id="tpl_company_setup_4" model="mizan.workflow.step"><field name="template_id" ref="tpl_company_setup"/><field name="sequence">4</field><field name="name">Memorandum and notarisation</field><field name="days">8</field><field name="requires_file" eval="True"/><field name="needs_client" eval="True"/></record>
+        <record id="tpl_company_setup_5" model="mizan.workflow.step"><field name="template_id" ref="tpl_company_setup"/><field name="sequence">5</field><field name="name">Issue the licence</field><field name="days">12</field><field name="requires_file" eval="True"/></record>
+        <record id="tpl_company_setup_6" model="mizan.workflow.step"><field name="template_id" ref="tpl_company_setup"/><field name="sequence">6</field><field name="name">Open the bank account</field><field name="days">16</field><field name="needs_client" eval="True"/></record>
+        <record id="tpl_company_setup_7" model="mizan.workflow.step"><field name="template_id" ref="tpl_company_setup"/><field name="sequence">7</field><field name="name">VAT registration</field><field name="days">20</field><field name="requires_file" eval="True"/></record>
+
+        <record id="tpl_licence_renewal" model="mizan.workflow.template">
+            <field name="name">Trade licence renewal</field>
+            <field name="category">client</field>
+            <field name="sequence">20</field>
+            <field name="description">Start a month before expiry. Ends with the renewed licence in the client's hands and on file here.</field>
+        </record>
+        <record id="tpl_licence_renewal_1" model="mizan.workflow.step"><field name="template_id" ref="tpl_licence_renewal"/><field name="sequence">1</field><field name="name">Remind the client what is needed</field><field name="days">0</field><field name="needs_client" eval="True"/></record>
+        <record id="tpl_licence_renewal_2" model="mizan.workflow.step"><field name="template_id" ref="tpl_licence_renewal"/><field name="sequence">2</field><field name="name">Collect tenancy contract and documents</field><field name="days">3</field><field name="requires_file" eval="True"/><field name="needs_client" eval="True"/></record>
+        <record id="tpl_licence_renewal_3" model="mizan.workflow.step"><field name="template_id" ref="tpl_licence_renewal"/><field name="sequence">3</field><field name="name">Pay the renewal fees</field><field name="days">5</field><field name="requires_file" eval="True"/><field name="instructions">Attach the payment receipt. The amount goes on the client's statement.</field></record>
+        <record id="tpl_licence_renewal_4" model="mizan.workflow.step"><field name="template_id" ref="tpl_licence_renewal"/><field name="sequence">4</field><field name="name">Receive the renewed licence and send it to the client</field><field name="days">7</field><field name="requires_file" eval="True"/></record>
+
+        <record id="tpl_vat_return" model="mizan.workflow.template">
+            <field name="name">Quarterly VAT return</field>
+            <field name="category">finance</field>
+            <field name="sequence">30</field>
+            <field name="description">Due 28 days after the quarter ends. Start on the first day of the month after the quarter.</field>
+        </record>
+        <record id="tpl_vat_return_1" model="mizan.workflow.step"><field name="template_id" ref="tpl_vat_return"/><field name="sequence">1</field><field name="name">Collect sales and purchase invoices</field><field name="days">5</field><field name="requires_file" eval="True"/><field name="needs_client" eval="True"/></record>
+        <record id="tpl_vat_return_2" model="mizan.workflow.step"><field name="template_id" ref="tpl_vat_return"/><field name="sequence">2</field><field name="name">Check the invoices and reconcile the bank</field><field name="days">10</field></record>
+        <record id="tpl_vat_return_3" model="mizan.workflow.step"><field name="template_id" ref="tpl_vat_return"/><field name="sequence">3</field><field name="name">Prepare the return</field><field name="days">15</field><field name="requires_file" eval="True"/></record>
+        <record id="tpl_vat_return_4" model="mizan.workflow.step"><field name="template_id" ref="tpl_vat_return"/><field name="sequence">4</field><field name="name">Client approval</field><field name="days">18</field><field name="needs_client" eval="True"/></record>
+        <record id="tpl_vat_return_5" model="mizan.workflow.step"><field name="template_id" ref="tpl_vat_return"/><field name="sequence">5</field><field name="name">File the return and pay the tax</field><field name="days">25</field><field name="requires_file" eval="True"/><field name="instructions">Attach the FTA acknowledgement and the payment confirmation.</field></record>
+
+        <record id="tpl_month_close" model="mizan.workflow.template">
+            <field name="name">Monthly close for a client</field>
+            <field name="category">finance</field>
+            <field name="sequence">40</field>
+            <field name="description">The month's books closed and a report in the client's inbox by the 10th.</field>
+        </record>
+        <record id="tpl_month_close_1" model="mizan.workflow.step"><field name="template_id" ref="tpl_month_close"/><field name="sequence">1</field><field name="name">Collect bank statements</field><field name="days">3</field><field name="requires_file" eval="True"/><field name="needs_client" eval="True"/></record>
+        <record id="tpl_month_close_2" model="mizan.workflow.step"><field name="template_id" ref="tpl_month_close"/><field name="sequence">2</field><field name="name">Record expenses and invoices</field><field name="days">6</field></record>
+        <record id="tpl_month_close_3" model="mizan.workflow.step"><field name="template_id" ref="tpl_month_close"/><field name="sequence">3</field><field name="name">Bank reconciliation</field><field name="days">8</field></record>
+        <record id="tpl_month_close_4" model="mizan.workflow.step"><field name="template_id" ref="tpl_month_close"/><field name="sequence">4</field><field name="name">Review receivables and payables</field><field name="days">9</field></record>
+        <record id="tpl_month_close_5" model="mizan.workflow.step"><field name="template_id" ref="tpl_month_close"/><field name="sequence">5</field><field name="name">Monthly report to the client</field><field name="days">10</field><field name="requires_file" eval="True"/></record>
+
+        <record id="tpl_handover" model="mizan.workflow.template">
+            <field name="name">Project handover</field>
+            <field name="category">project</field>
+            <field name="sequence">50</field>
+            <field name="description">From the inspection to the final claim and the retention after the maintenance period.</field>
+        </record>
+        <record id="tpl_handover_1" model="mizan.workflow.step"><field name="template_id" ref="tpl_handover"/><field name="sequence">1</field><field name="name">Joint inspection of the works</field><field name="days">0</field></record>
+        <record id="tpl_handover_2" model="mizan.workflow.step"><field name="template_id" ref="tpl_handover"/><field name="sequence">2</field><field name="name">Snag list agreed with the consultant</field><field name="days">3</field><field name="requires_file" eval="True"/></record>
+        <record id="tpl_handover_3" model="mizan.workflow.step"><field name="template_id" ref="tpl_handover"/><field name="sequence">3</field><field name="name">Close the snags</field><field name="days">10</field></record>
+        <record id="tpl_handover_4" model="mizan.workflow.step"><field name="template_id" ref="tpl_handover"/><field name="sequence">4</field><field name="name">Taking-over certificate</field><field name="days">12</field><field name="requires_file" eval="True"/><field name="needs_client" eval="True"/></record>
+        <record id="tpl_handover_5" model="mizan.workflow.step"><field name="template_id" ref="tpl_handover"/><field name="sequence">5</field><field name="name">Final progress claim</field><field name="days">15</field></record>
+        <record id="tpl_handover_6" model="mizan.workflow.step"><field name="template_id" ref="tpl_handover"/><field name="sequence">6</field><field name="name">Release of retention after the maintenance period</field><field name="days">380</field><field name="requires_file" eval="True"/></record>
+
+    </data>
+</odoo>

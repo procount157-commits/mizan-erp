@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_template_user,mizan.workflow.template.user,model_mizan_workflow_template,project.group_project_user,1,0,0,0
+access_template_manager,mizan.workflow.template.manager,model_mizan_workflow_template,project.group_project_manager,1,1,1,1
+access_step_user,mizan.workflow.step.user,model_mizan_workflow_step,project.group_project_user,1,0,0,0
+access_step_manager,mizan.workflow.step.manager,model_mizan_workflow_step,project.group_project_manager,1,1,1,1
+access_case_user,mizan.workflow.case.user,model_mizan_workflow_case,project.group_project_user,1,1,1,0
+access_case_manager,mizan.workflow.case.manager,model_mizan_workflow_case,project.group_project_manager,1,1,1,1
+access_start_user,mizan.workflow.start.user,model_mizan_workflow_start,project.group_project_user,1,1,1,1
+access_upload_user,mizan.ops.upload.user,model_mizan_ops_upload,base.group_user,1,1,1,1

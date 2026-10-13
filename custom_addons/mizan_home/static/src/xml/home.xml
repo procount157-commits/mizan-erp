@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="mizan_home.Home">
+        <div class="o_mizan_home o_action">
+            <t t-if="state.data">
+                <header class="o_mh_head">
+                    <div class="o_mh_who">
+                        <h1 t-esc="state.data.greeting"/>
+                        <p><span t-esc="state.data.company"/> · <span t-esc="state.data.date"/></p>
+                    </div>
+                    <form class="o_mh_search" t-on-submit="search" role="search">
+                        <i class="fa fa-search" role="img" aria-label="Search"/>
+                        <input type="search" t-model="state.query" t-att-placeholder="placeholder"
+                               autocomplete="off" enterkeyhint="search"/>
+                        <button type="submit" class="btn btn-primary">بحث</button>
+                    </form>
+                </header>
+
+                <section class="o_mh_waiting" t-if="state.data.waiting.length">
+                    <h2>ينتظرك الآن</h2>
+                    <div class="o_mh_chips">
+                        <button t-foreach="state.data.waiting" t-as="w" t-key="w.label"
+                                class="o_mh_chip" type="button" t-on-click="() => this.open(w.link)">
+                            <b t-esc="w.count"/>
+                            <span t-esc="w.label"/>
+                            <i class="fa fa-angle-left" role="img" aria-label="Open"/>
+                        </button>
+                    </div>
+                </section>
+                <section class="o_mh_waiting o_mh_clear" t-else="">
+                    <i class="fa fa-check-circle text-success"/> لا شيء ينتظرك الآن.
+                </section>
+
+                <div class="o_mh_grid">
+                    <article t-foreach="state.data.sections" t-as="s" t-key="s.key"
+                             t-attf-class="o_mh_card o_mh_card_#{s.key}">
+                        <div class="o_mh_card_head">
+                            <span class="o_mh_ico"><i t-attf-class="fa #{s.icon}" role="img"/></span>
+                            <div>
+                                <h3 t-esc="s.title"/>
+                                <small t-if="s.hint" t-esc="s.hint"/>
+                            </div>
+                        </div>
+
+                        <div class="o_mh_figs" t-if="s.figures.length">
+                            <button t-foreach="s.figures" t-as="f" t-key="f.label" type="button"
+                                    t-attf-class="o_mh_fig o_mh_tone_#{f.tone} #{f.link ? '' : 'o_mh_fig_static'}"
+                                    t-on-click="() => this.open(f.link)" t-att-disabled="!f.link">
+                                <b t-esc="f.value"/>
+                                <span t-esc="f.label"/>
+                            </button>
+                        </div>
+
+                        <div class="o_mh_links">
+                            <button t-foreach="s.links" t-as="l" t-key="l.label" type="button"
+                                    t-attf-class="o_mh_link #{l.creates ? 'o_mh_link_new' : ''}"
+                                    t-on-click="() => this.open(l)">
+                                <i t-attf-class="fa #{l.icon}" role="img"/>
+                                <span t-esc="l.label"/>
+                                <em t-if="l.count" t-attf-class="o_mh_badge o_mh_tone_#{l.tone}" t-esc="l.count"/>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </t>
+            <div t-elif="state.failed" class="o_mh_empty">
+                <i class="fa fa-exclamation-triangle"/> تعذّر تحميل الصفحة. حدّث المتصفح، وإذا تكرر الأمر أخبر المسؤول.
+            </div>
+            <div t-else="" class="o_mh_empty"><i class="fa fa-circle-o-notch fa-spin"/></div>
+        </div>
+    </t>
+
+</templates>

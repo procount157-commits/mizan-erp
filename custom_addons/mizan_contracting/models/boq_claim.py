@@ -243,7 +243,8 @@ class MizanProgressClaim(models.Model):
 
     @api.depends("line_ids.this_amount", "line_ids.cumulative_amount",
                  "materials_on_site", "retention_percent", "sequence_no",
-                 "contract_id", "state")
+                 "contract_id", "state", "invoice_id.mizan_retention_amount",
+                 "invoice_id.mizan_retention_move_id")
     def _compute_totals(self):
         for claim in self:
             cumulative = sum(claim.line_ids.mapped("cumulative_amount"))
@@ -261,16 +262,28 @@ class MizanProgressClaim(models.Model):
             # that is correct ends up not matching the document that made it.
             retention_to_date = claim.currency_id.round(gross * pct / 100.0) \
                 if claim.currency_id else gross * pct / 100.0
-            prior_retention = max(
-                previous.mapped("retention_to_date") or [0.0])
+            # What is already held is read from the ledger, not recomputed:
+            # once a previous claim's retention is posted, that posted figure
+            # is the truth, whatever a later edit to its lines would say. The
+            # claim being computed then absorbs any fils of drift, so the
+            # claims and the retention account keep agreeing to the fils.
+            prior_retention = sum(
+                p.invoice_id.mizan_retention_amount
+                if p.invoice_id.mizan_retention_move_id else p.retention_amount
+                for p in previous)
 
             claim.work_done_to_date = cumulative
             claim.gross_to_date = gross
             claim.previous_certified = prior_gross
             this_period = gross - prior_gross
             claim.amount_this_period = this_period
-            claim.retention_to_date = retention_to_date
-            claim.retention_amount = retention_to_date - prior_retention
+            if claim.invoice_id.mizan_retention_move_id:
+                # Posted: the document says what the ledger says, full stop.
+                claim.retention_amount = claim.invoice_id.mizan_retention_amount
+                claim.retention_to_date = prior_retention + claim.retention_amount
+            else:
+                claim.retention_to_date = retention_to_date
+                claim.retention_amount = retention_to_date - prior_retention
 
             contract = claim.contract_id
             recovery = 0.0

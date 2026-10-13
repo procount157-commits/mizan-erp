@@ -1,0 +1,108 @@
+// The home page: the product's green on Odoo's light backend, one card per
+// department, readable on a phone first.
+$mh-green: #1BAE5A;
+$mh-green-dark: #168f4a;
+$mh-ink: #1c2430;
+$mh-muted: #6b7686;
+$mh-line: #e4e9ef;
+
+.o_mizan_home {
+    background: #f4f6fa;
+    min-height: 100%;
+    overflow: auto;
+    padding: 20px 20px 48px;
+    font-size: 15px;
+
+    h1, h2, h3 { margin: 0; font-weight: 800; color: $mh-ink; }
+    button { font: inherit; }
+
+    .o_mh_head {
+        display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+        margin: 0 auto 18px; max-width: 1280px;
+        h1 { font-size: 26px; }
+        p { margin: 2px 0 0; color: $mh-muted; }
+    }
+    .o_mh_search {
+        display: flex; align-items: center; gap: 8px; flex: 1 1 360px; max-width: 560px;
+        background: #fff; border: 1px solid $mh-line; border-radius: 14px; padding: 6px 6px 6px 14px;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
+        &:focus-within { border-color: $mh-green; box-shadow: 0 0 0 3px rgba(27, 174, 90, .15); }
+        i { color: $mh-muted; }
+        input { flex: 1; border: 0; outline: 0; background: transparent; min-width: 0; font-size: 15px; }
+        .btn { background: $mh-green; border-color: $mh-green; border-radius: 10px; font-weight: 700; padding: 6px 16px;
+               &:hover { background: $mh-green-dark; border-color: $mh-green-dark; } }
+    }
+
+    .o_mh_waiting {
+        max-width: 1280px; margin: 0 auto 22px;
+        h2 { font-size: 13px; letter-spacing: .08em; color: $mh-muted; font-weight: 700; margin-bottom: 8px; }
+        &.o_mh_clear { color: $mh-muted; font-weight: 600; }
+    }
+    .o_mh_chips { display: flex; gap: 10px; flex-wrap: wrap; }
+    .o_mh_chip {
+        display: inline-flex; align-items: center; gap: 10px; border: 1px solid $mh-line; background: #fff;
+        border-radius: 999px; padding: 8px 14px 8px 8px; color: $mh-ink; font-weight: 600; cursor: pointer;
+        transition: border-color .15s, transform .15s;
+        b { display: inline-grid; place-items: center; min-width: 30px; height: 30px; padding: 0 8px;
+            border-radius: 999px; background: #fff3e0; color: #b45309; font-weight: 800; }
+        i { color: $mh-muted; }
+        &:hover { border-color: $mh-green; transform: translateY(-1px); }
+    }
+
+    .o_mh_grid {
+        display: grid; gap: 16px; max-width: 1280px; margin: 0 auto;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    }
+    .o_mh_card {
+        background: #fff; border: 1px solid $mh-line; border-radius: 18px; padding: 18px;
+        display: flex; flex-direction: column; gap: 14px;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
+    }
+    .o_mh_card_head {
+        display: flex; align-items: center; gap: 12px;
+        h3 { font-size: 18px; }
+        small { color: $mh-muted; display: block; margin-top: 2px; }
+    }
+    .o_mh_ico {
+        width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; flex: none;
+        background: rgba(27, 174, 90, .12); color: $mh-green-dark; font-size: 18px;
+    }
+
+    .o_mh_figs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .o_mh_fig {
+        text-align: start; border: 1px solid $mh-line; background: #f8fafc; border-radius: 12px; padding: 10px 12px;
+        cursor: pointer; display: flex; flex-direction: column; gap: 2px; min-width: 0;
+        b { font-size: 18px; font-weight: 800; color: $mh-ink; line-height: 1.25; overflow-wrap: anywhere; }
+        span { font-size: 12.5px; color: $mh-muted; }
+        &:hover:not(:disabled) { border-color: $mh-green; background: #fff; }
+        &.o_mh_fig_static { cursor: default; }
+        &.o_mh_tone_good b { color: $mh-green-dark; }
+        &.o_mh_tone_watch b { color: #b45309; }
+        &.o_mh_tone_bad b { color: #c0392b; }
+        &.o_mh_tone_bad { background: #fff5f5; border-color: #f5c6c6; }
+    }
+
+    .o_mh_links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-top: auto; }
+    .o_mh_link {
+        display: flex; align-items: center; gap: 9px; border: 0; background: transparent; border-radius: 10px;
+        padding: 8px 10px; color: $mh-ink; text-align: start; cursor: pointer; min-width: 0;
+        i { width: 18px; text-align: center; color: $mh-green-dark; flex: none; }
+        span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        &:hover { background: rgba(27, 174, 90, .08); }
+        &.o_mh_link_new { font-weight: 700; i { color: #fff; background: $mh-green; border-radius: 6px; padding: 3px 0; } }
+    }
+    .o_mh_badge {
+        margin-inline-start: auto; font-style: normal; font-size: 12px; font-weight: 800; border-radius: 999px;
+        padding: 1px 8px; background: #fff3e0; color: #b45309;
+        &.o_mh_tone_bad { background: #fdecea; color: #c0392b; }
+    }
+
+    .o_mh_empty { text-align: center; color: $mh-muted; padding: 60px 0; font-size: 18px; }
+
+    @media (max-width: 600px) {
+        padding: 14px 12px 40px;
+        .o_mh_head h1 { font-size: 22px; }
+        .o_mh_grid { grid-template-columns: 1fr; }
+        .o_mh_fig b { font-size: 18px; }
+    }
+}

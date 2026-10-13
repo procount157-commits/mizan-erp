@@ -1,0 +1,1129 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_ops
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-13 06:45+0000\n"
+"PO-Revision-Date: 2026-10-13 06:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/wizard/upload.py:0
+msgid "%(file)s is on %(where)s."
+msgstr "حُفظ %(file)s على %(where)s."
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/models/case.py:0
+msgid "%(n)s step(s) are still open on %(name)s: %(steps)s. Finish or cancel them first."
+msgstr "ما زالت %(n)s خطوة مفتوحة في %(name)s: %(steps)s. أنهِها أو ألغِها أولاً."
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/models/dashboard.py:0
+msgid "%s running late"
+msgstr "%s متأخرة"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_kanban
+msgid "<i class=\"fa fa-arrow-circle-left me-1 text-success\" title=\"Next step\"/>"
+msgstr ""
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_ops_attachment_kanban
+msgid "<i class=\"fa fa-file-o fa-2x text-muted\" title=\"File\"/>"
+msgstr ""
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+msgid "<span class=\"o_stat_text\">Steps done</span>"
+msgstr "<span class=\\"o_stat_text\\">خطوات منجزة</span>"
+
+#. module: mizan_ops
+#: model_terms:ir.actions.act_window,help:mizan_ops.action_ops_template
+msgid "A licence renewal, a VAT return, a handover: its steps, who does each one, how many days it gets, and whether it needs a file. Starting it later is one tap."
+msgstr "تجديد رخصة، إقرار ضريبي، تسليم مشروع: خطواته، ومن ينفّذ كل خطوة، وكم يوماً لها، وهل تحتاج ملفاً. وبعدها يبدأ بضغطة واحدة."
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+msgid "Add a step"
+msgstr "أضف خطوة"
+
+#. module: mizan_ops
+#: model:ir.actions.act_window,name:mizan_ops.action_ops_all_tasks
+#: model:ir.ui.menu,name:mizan_ops.menu_ops_all_tasks
+msgid "All Tasks"
+msgstr "كل المهام"
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/models/dashboard.py:0
+msgid "All on time"
+msgstr "كلها في موعدها"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_ops_upload__mark_done
+msgid "And mark the step done"
+msgstr "واعتبر الخطوة منجزة"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+msgid "Anything the next person should know about this file."
+msgstr "أي شيء يجب أن يعرفه من يتابع هذا الملف بعدك."
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_start_form
+msgid "Anything the team should know before they start."
+msgstr "أي شيء يجب أن يعرفه الفريق قبل البدء."
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_template_form
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: mizan_ops
+#: model_terms:mizan.workflow.step,instructions:mizan_ops.tpl_vat_return_5
+msgid "Attach the FTA acknowledgement and the payment confirmation."
+msgstr "أرفق إشعار الهيئة الاتحادية للضرائب وتأكيد السداد."
+
+#. module: mizan_ops
+#: model_terms:mizan.workflow.step,instructions:mizan_ops.tpl_licence_renewal_3
+msgid "Attach the payment receipt. The amount goes on the client's statement."
+msgstr "أرفق إيصال الدفع. المبلغ يُسجَّل على كشف حساب العميل."
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__attachment_count
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد الملفات"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_month_close_3
+msgid "Bank reconciliation"
+msgstr "المطابقة البنكية"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+msgid "Cancel this file and its open steps?"
+msgstr "إلغاء هذا الملف وخطواته المفتوحة؟"
+
+#. module: mizan_ops
+#: model:ir.model.fields.selection,name:mizan_ops.selection__mizan_workflow_case__state__cancel
+msgid "Cancelled"
+msgstr "ملغى"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__case_count
+msgid "Case Count"
+msgstr "عدد الملفات"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__category
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__category
+msgid "Category"
+msgstr "الفئة"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_vat_return_2
+msgid "Check the invoices and reconcile the bank"
+msgstr "مراجعة الفواتير والمطابقة البنكية"
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/wizard/upload.py:0
+msgid "Choose the step or the file this document belongs to."
+msgstr "اختر الخطوة أو الملف الذي يخصه هذا المستند."
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__partner_id
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__partner_id
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_search
+msgid "Client"
+msgstr "العميل"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_vat_return_4
+msgid "Client approval"
+msgstr "اعتماد العميل"
+
+#. module: mizan_ops
+#: model:ir.model.fields.selection,name:mizan_ops.selection__mizan_workflow_template__category__client
+msgid "Client service"
+msgstr "خدمة العملاء"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_start_form
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_upload_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_handover_3
+msgid "Close the snags"
+msgstr "إغلاق الملاحظات"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_month_close_1
+msgid "Collect bank statements"
+msgstr "استلام كشوف البنك"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_vat_return_1
+msgid "Collect sales and purchase invoices"
+msgstr "استلام فواتير المبيعات والمشتريات"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_licence_renewal_2
+msgid "Collect tenancy contract and documents"
+msgstr "استلام عقد الإيجار والمستندات"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_company_setup_1
+msgid "Collect the client's documents"
+msgstr "استلام مستندات العميل"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__company_id
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: mizan_ops
+#: model:mizan.workflow.template,name:mizan_ops.tpl_company_setup
+msgid "Company formation / new licence"
+msgstr "تأسيس شركة / رخصة جديدة"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_ops_upload__create_uid
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__create_uid
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__create_uid
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_step__create_uid
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_ops_upload__create_date
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__create_date
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__create_date
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_step__create_date
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model,name:mizan_ops.model_mizan_dashboard_tile
+msgid "Dashboard"
+msgstr "لوحة المعلومات"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__date_start
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__date_start
+msgid "Date Start"
+msgstr "تاريخ البدء"
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_step__days
+msgid "Days after the workflow starts by which this step is due."
+msgstr "عدد الأيام بعد بدء سير العمل التي تستحق فيها هذه الخطوة."
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__days_total
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__days_total
+msgid "Days, start to finish"
+msgstr "الأيام من البداية للنهاية"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__responsible_id
+msgid "Default owner"
+msgstr "المسؤول الافتراضي"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_ops_upload__display_name
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__display_name
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__display_name
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_step__display_name
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.actions.act_window,name:mizan_ops.action_ops_files
+#: model:ir.ui.menu,name:mizan_ops.menu_ops_files
+msgid "Documents"
+msgstr "المستندات"
+
+#. module: mizan_ops
+#: model:ir.model.fields.selection,name:mizan_ops.selection__mizan_workflow_case__state__done
+#: model:project.task.type,name:mizan_ops.stage_done
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_search
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_task_form_ops
+msgid "Done"
+msgstr "منجز"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_ops_attachment_kanban
+msgid "Download"
+msgstr "تنزيل"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__date_due
+msgid "Due"
+msgstr "الاستحقاق"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_step__days
+msgid "Due after (days)"
+msgstr "يستحق بعد (أيام)"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_ops_upload__file
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__name
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+msgid "File"
+msgstr "ملف"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_task_list_ops
+msgid "File missing"
+msgstr "الملف ناقص"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__name
+msgid "File name"
+msgstr "اسم الملف"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_project_task__mizan_file_missing
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_task_search_ops
+msgid "File still missing"
+msgstr "الملف ما زال ناقصاً"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_vat_return_5
+msgid "File the return and pay the tax"
+msgstr "تقديم الإقرار وسداد الضريبة"
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/wizard/upload.py:0
+msgid "File uploaded"
+msgstr "تم رفع ملف"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_ops_upload__filename
+msgid "Filename"
+msgstr "اسم الملف"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_kanban
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_list
+msgid "Files"
+msgstr "الملفات"
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/models/case.py:0
+msgid "Files — %s"
+msgstr "الملفات — %s"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_handover_5
+msgid "Final progress claim"
+msgstr "المستخلص النهائي"
+
+#. module: mizan_ops
+#: model:ir.model.fields.selection,name:mizan_ops.selection__mizan_workflow_template__category__finance
+msgid "Finance & tax"
+msgstr "المالية والضرائب"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_case__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_search
+msgid "Group by"
+msgstr "تجميع حسب"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_project_task__mizan_has_file
+msgid "Has a file"
+msgstr "له ملف"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+msgid "Has file"
+msgstr "له ملف"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_search
+msgid "I own"
+msgstr "أنا مسؤوله"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_ops_upload__id
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__id
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__id
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_step__id
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__id
+msgid "ID"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_case__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_case__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_case__message_has_error
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_case__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields.selection,name:mizan_ops.selection__mizan_workflow_case__state__open
+#: model:project.task.type,name:mizan_ops.stage_doing
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_search
+msgid "In progress"
+msgstr "قيد التنفيذ"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_company_setup_3
+msgid "Initial approval"
+msgstr "الموافقة المبدئية"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_step__instructions
+msgid "Instructions"
+msgstr "التعليمات"
+
+#. module: mizan_ops
+#: model:ir.model.fields.selection,name:mizan_ops.selection__mizan_workflow_template__category__internal
+msgid "Internal"
+msgstr "داخلي"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__is_late
+msgid "Is Late"
+msgstr "متأخر"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_company_setup_5
+msgid "Issue the licence"
+msgstr "إصدار الرخصة"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_handover_1
+msgid "Joint inspection of the works"
+msgstr "الفحص المشترك للأعمال"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_ops_upload__write_uid
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__write_uid
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__write_uid
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_step__write_uid
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_ops_upload__write_date
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__write_date
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__write_date
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_step__write_date
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_step__assignee_id
+msgid "Left empty, the step goes to whoever owns the file."
+msgstr "إن تُركت فارغة، تذهب الخطوة لمسؤول الملف."
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+msgid "Mark done"
+msgstr "اعتبره منجزاً"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_company_setup_4
+msgid "Memorandum and notarisation"
+msgstr "عقد التأسيس والتوثيق"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: mizan_ops
+#: model:mizan.workflow.template,name:mizan_ops.tpl_month_close
+msgid "Monthly close for a client"
+msgstr "إقفال شهري لعميل"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_month_close_5
+msgid "Monthly report to the client"
+msgstr "التقرير الشهري للعميل"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.actions.act_window,name:mizan_ops.action_ops_my_tasks
+#: model:ir.ui.menu,name:mizan_ops.menu_ops_my_tasks
+msgid "My Tasks"
+msgstr "مهامي"
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/models/dashboard.py:0
+msgid "My work"
+msgstr "أعمالي"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_step__requires_file
+#: model:ir.model.fields,field_description:mizan_ops.field_project_task__mizan_requires_file
+msgid "Needs a file"
+msgstr "يحتاج ملفاً"
+
+#. module: mizan_ops
+#: model:ir.actions.act_window,name:mizan_ops.action_ops_new_task
+#: model:ir.ui.menu,name:mizan_ops.menu_ops_new_task
+msgid "New Task"
+msgstr "مهمة جديدة"
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/models/case.py:0
+msgid "New step"
+msgstr "خطوة جديدة"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__next_step
+msgid "Next step"
+msgstr "الخطوة التالية"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__note
+msgid "Note for the team"
+msgstr "ملاحظة للفريق"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__note
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: mizan_ops
+#: model_terms:ir.actions.act_window,help:mizan_ops.action_ops_case
+msgid "Nothing in progress"
+msgstr "لا ملفات جارية"
+
+#. module: mizan_ops
+#: model_terms:ir.actions.act_window,help:mizan_ops.action_ops_my_tasks
+msgid "Nothing on your plate"
+msgstr "لا مهام عليك"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_case__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_case__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_company_setup_6
+msgid "Open the bank account"
+msgstr "فتح الحساب البنكي"
+
+#. module: mizan_ops
+#: model:ir.ui.menu,name:mizan_ops.menu_ops_root
+#: model:project.project,name:mizan_ops.project_ops
+msgid "Operations"
+msgstr "العمليات"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__responsible_id
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__responsible_id
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_search
+msgid "Owner"
+msgstr "المسؤول"
+
+#. module: mizan_ops
+#: model_terms:mizan.workflow.step,instructions:mizan_ops.tpl_company_setup_1
+msgid "Passport, Emirates ID, visa page, and the proposed activities. Attach each one here."
+msgstr "جواز السفر، والهوية الإماراتية، وصفحة التأشيرة، والأنشطة المقترحة. أرفق كل واحد هنا."
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_licence_renewal_3
+msgid "Pay the renewal fees"
+msgstr "دفع رسوم التجديد"
+
+#. module: mizan_ops
+#: model:ir.model.fields.selection,name:mizan_ops.selection__mizan_workflow_template__category__hr
+msgid "People"
+msgstr "الموظفون"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_vat_return_3
+msgid "Prepare the return"
+msgstr "إعداد الإقرار"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_ops_attachment_kanban
+msgid "Preview"
+msgstr "معاينة"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__progress
+msgid "Progress"
+msgstr "الإنجاز"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__project_id
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__project_id
+msgid "Project"
+msgstr "المشروع"
+
+#. module: mizan_ops
+#: model:mizan.workflow.template,name:mizan_ops.tpl_handover
+msgid "Project handover"
+msgstr "تسليم مشروع"
+
+#. module: mizan_ops
+#: model:ir.model.fields.selection,name:mizan_ops.selection__mizan_workflow_template__category__project
+msgid "Projects & sites"
+msgstr "المشاريع والمواقع"
+
+#. module: mizan_ops
+#: model:mizan.workflow.template,name:mizan_ops.tpl_vat_return
+msgid "Quarterly VAT return"
+msgstr "إقرار ضريبة القيمة المضافة الربع سنوي"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_licence_renewal_4
+msgid "Receive the renewed licence and send it to the client"
+msgstr "استلام الرخصة المجدّدة وإرسالها للعميل"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_month_close_2
+msgid "Record expenses and invoices"
+msgstr "تسجيل المصروفات والفواتير"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_handover_6
+msgid "Release of retention after the maintenance period"
+msgstr "استرداد المحتجزات بعد فترة الصيانة"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_licence_renewal_1
+msgid "Remind the client what is needed"
+msgstr "تذكير العميل بالمطلوب"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+msgid "Reopen"
+msgstr "إعادة فتح"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_company_setup_2
+msgid "Reserve the trade name"
+msgstr "حجز الاسم التجاري"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__activity_user_id
+msgid "Responsible User"
+msgstr "المسؤول"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_month_close_4
+msgid "Review receivables and payables"
+msgstr "مراجعة الذمم المدينة والدائنة"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_search
+msgid "Running late"
+msgstr "متأخرة"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_step__sequence
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__sequence
+msgid "Sequence"
+msgstr "الترتيب"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_handover_2
+msgid "Snag list agreed with the consultant"
+msgstr "قائمة الملاحظات المعتمدة من الاستشاري"
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_step__needs_client
+msgid "Something the client has to send or sign. Shown so the office chases them rather than waiting."
+msgstr "شيء يجب أن يرسله العميل أو يوقّعه. يظهر حتى يتابعه المكتب بدل الانتظار."
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_start_form
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_template_list
+msgid "Start"
+msgstr "ابدأ"
+
+#. module: mizan_ops
+#: model:ir.actions.act_window,name:mizan_ops.action_ops_start
+#: model:ir.model,name:mizan_ops.model_mizan_workflow_start
+#: model:ir.ui.menu,name:mizan_ops.menu_ops_start
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_start_form
+msgid "Start a Workflow"
+msgstr "ابدأ سير عمل"
+
+#. module: mizan_ops
+#: model_terms:ir.actions.act_window,help:mizan_ops.action_ops_case
+msgid "Start a workflow for a client or a project: every step becomes a task, assigned and dated, and this is where the whole file is followed."
+msgstr "ابدأ سير عمل لعميل أو مشروع: كل خطوة تصبح مهمة مسنَدة ومؤرَّخة، ومن هنا يُتابَع الملف كله."
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_template_form
+msgid "Start this workflow"
+msgstr "ابدأ سير العمل هذا"
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/models/template.py:0
+msgid "Start: %s"
+msgstr "بدء: %s"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_template_form
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_template_list
+msgid "Started"
+msgstr "بُدئ"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_search
+msgid "Status"
+msgstr "الحالة"
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_case__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_ops_upload__task_id
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_step__name
+msgid "Step"
+msgstr "الخطوة"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__step_count
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__step_count
+msgid "Step Count"
+msgstr "عدد الخطوات"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__task_ids
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__step_ids
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_template_form
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_template_list
+msgid "Steps"
+msgstr "الخطوات"
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_case__missing_files
+msgid "Steps marked as needing a document and finished without one."
+msgstr "خطوات تحتاج مستنداً وأُنهيت بدونه."
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__missing_files
+msgid "Steps needing a file"
+msgstr "خطوات ينقصها ملف"
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/models/case.py:0
+msgid "Steps — %s"
+msgstr "الخطوات — %s"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_handover_4
+msgid "Taking-over certificate"
+msgstr "شهادة التسليم الابتدائي"
+
+#. module: mizan_ops
+#: model:ir.model,name:mizan_ops.model_project_task
+msgid "Task"
+msgstr "المهمة"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__task_count
+msgid "Task Count"
+msgstr "عدد المهام"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__task_done
+msgid "Task Done"
+msgstr "المهام المنجزة"
+
+#. module: mizan_ops
+#: model:project.project,label_tasks:mizan_ops.project_ops
+msgid "Tasks"
+msgstr "المهام"
+
+#. module: mizan_ops
+#: model_terms:ir.actions.act_window,help:mizan_ops.action_ops_my_tasks
+msgid "Tasks assigned to you appear here: from a workflow, or added by a colleague."
+msgstr "المهام المسنَدة إليك تظهر هنا: من سير عمل، أو أضافها زميل."
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_template__project_id
+msgid "Tasks go to project"
+msgstr "تُنشأ المهام في مشروع"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_step__template_id
+msgid "Template"
+msgstr "القالب"
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_step__requires_file
+msgid "The step is not done until a document is attached: a licence, a receipt, a signed form."
+msgstr "لا تُعتبر الخطوة منجزة حتى يُرفق مستند: رخصة، إيصال، نموذج موقّع."
+
+#. module: mizan_ops
+#: model:project.task.type,name:mizan_ops.stage_new
+msgid "To do"
+msgstr "للتنفيذ"
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_ops_upload__note
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_upload_form
+msgid "Trade licence 2026, signed contract, receipt…"
+msgstr "الرخصة التجارية 2026، عقد موقّع، إيصال…"
+
+#. module: mizan_ops
+#: model:mizan.workflow.template,name:mizan_ops.tpl_licence_renewal
+msgid "Trade licence renewal"
+msgstr "تجديد رخصة تجارية"
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_case__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_upload_form
+msgid "Upload"
+msgstr "رفع"
+
+#. module: mizan_ops
+#: model:ir.actions.act_window,name:mizan_ops.action_ops_upload
+#: model:ir.model,name:mizan_ops.model_mizan_ops_upload
+#: model:ir.ui.menu,name:mizan_ops.menu_ops_upload
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_upload_form
+msgid "Upload a File"
+msgstr "ارفع ملفاً"
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/models/case.py:0
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_task_form_ops
+msgid "Upload a file"
+msgstr "ارفع ملفاً"
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/wizard/upload.py:0
+msgid "Uploaded"
+msgstr "تم الرفع"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_step__assignee_id
+msgid "Usually done by"
+msgstr "ينفّذها عادةً"
+
+#. module: mizan_ops
+#: model:mizan.workflow.step,name:mizan_ops.tpl_company_setup_7
+msgid "VAT registration"
+msgstr "التسجيل الضريبي"
+
+#. module: mizan_ops
+#: model:project.task.type,name:mizan_ops.stage_client
+msgid "Waiting on the client"
+msgstr "بانتظار العميل"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_step__needs_client
+#: model:ir.model.fields,field_description:mizan_ops.field_project_task__mizan_needs_client
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_task_search_ops
+msgid "Waits on the client"
+msgstr "ينتظر العميل"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_case__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_step__instructions
+msgid "What exactly is done, where, and what the result looks like. Written for the person doing it for the first time."
+msgstr "ما الذي يُنفَّذ بالضبط، وأين، وكيف تبدو النتيجة. مكتوب لمن ينفّذه لأول مرة."
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_ops_upload__note
+msgid "What it is"
+msgstr "ما هو"
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_template__description
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_template_form
+msgid "When this workflow is used, and what the result should be."
+msgstr "متى يُستخدم سير العمل هذا، وما النتيجة المطلوبة."
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_template__project_id
+msgid "Where the steps are created. Empty means the Operations project."
+msgstr "أين تُنشأ الخطوات. فارغاً يعني مشروع العمليات."
+
+#. module: mizan_ops
+#: model:ir.model.fields,help:mizan_ops.field_mizan_workflow_template__responsible_id
+msgid "Who owns a file started from this template, unless changed at the start."
+msgstr "مسؤول الملف الذي يبدأ من هذا القالب، ما لم يتغير عند البدء."
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_case__template_id
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_workflow_start__template_id
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_search
+msgid "Workflow"
+msgstr "سير العمل"
+
+#. module: mizan_ops
+#: model:ir.model,name:mizan_ops.model_mizan_workflow_step
+msgid "Workflow Step"
+msgstr "خطوة سير عمل"
+
+#. module: mizan_ops
+#: model:ir.model,name:mizan_ops.model_mizan_workflow_template
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_template_form
+msgid "Workflow Template"
+msgstr "قالب سير عمل"
+
+#. module: mizan_ops
+#: model:ir.actions.act_window,name:mizan_ops.action_ops_template
+#: model:ir.ui.menu,name:mizan_ops.menu_ops_templates
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_template_list
+msgid "Workflow Templates"
+msgstr "قوالب سير العمل"
+
+#. module: mizan_ops
+#: model:ir.model.fields,field_description:mizan_ops.field_mizan_ops_upload__case_id
+#: model:ir.model.fields,field_description:mizan_ops.field_project_task__mizan_case_id
+msgid "Workflow file"
+msgstr "ملف سير العمل"
+
+#. module: mizan_ops
+#: model:ir.model,name:mizan_ops.model_mizan_workflow_case
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+msgid "Workflow in Progress"
+msgstr "ملف جارٍ"
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/models/dashboard.py:0
+msgid "Workflows I own"
+msgstr "ملفات أنا مسؤولها"
+
+#. module: mizan_ops
+#: model:ir.actions.act_window,name:mizan_ops.action_ops_case
+#: model:ir.ui.menu,name:mizan_ops.menu_ops_cases
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_list
+msgid "Workflows in Progress"
+msgstr "الملفات الجارية"
+
+#. module: mizan_ops
+#: model_terms:ir.actions.act_window,help:mizan_ops.action_ops_template
+msgid "Write down how a recurring job is done"
+msgstr "اكتب كيف يُنجَز عمل متكرر"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_start_form
+msgid "days from start to finish."
+msgstr "يوماً من البداية للنهاية."
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/wizard/upload.py:0
+msgid "document"
+msgstr "مستند"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+msgid "e.g. Licence renewal — Al Amana"
+msgstr "مثلاً: تجديد رخصة — الأمانة"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_template_form
+msgid "e.g. Trade licence renewal"
+msgstr "مثلاً: تجديد رخصة تجارية"
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_case_form
+msgid "step(s) were finished without the file they need."
+msgstr "خطوة أُنهيت بدون الملف المطلوب."
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_start_form
+msgid "steps · about"
+msgstr "خطوات · نحو"
