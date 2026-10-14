@@ -8,8 +8,14 @@ $mh-line: #e4e9ef;
 
 .o_mizan_home {
     background: #f4f6fa;
-    min-height: 100%;
-    overflow: auto;
+    // The action manager does not scroll; its child must. min-height let the
+    // page grow past the window and be clipped, so nothing below the first
+    // screen could be reached.
+    height: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     padding: 20px 20px 48px;
     font-size: 15px;
 
@@ -50,12 +56,13 @@ $mh-line: #e4e9ef;
     }
 
     .o_mh_grid {
-        display: grid; gap: 16px; max-width: 1280px; margin: 0 auto; align-items: start;
-        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        max-width: 1280px; margin: 0 auto;
+        columns: 340px; column-gap: 16px;
     }
     .o_mh_card {
         background: #fff; border: 1px solid $mh-line; border-radius: 18px; padding: 18px;
-        display: flex; flex-direction: column; gap: 14px; align-self: start;
+        display: inline-flex; width: 100%; flex-direction: column; gap: 14px;
+        break-inside: avoid; margin-bottom: 16px;
         box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
     }
     .o_mh_card_head {
@@ -72,7 +79,7 @@ $mh-line: #e4e9ef;
     .o_mh_fig {
         text-align: start; border: 1px solid $mh-line; background: #f8fafc; border-radius: 12px; padding: 10px 12px;
         cursor: pointer; display: flex; flex-direction: column; gap: 2px; min-width: 0;
-        b { font-size: 18px; font-weight: 800; color: $mh-ink; line-height: 1.25; overflow-wrap: anywhere; unicode-bidi: plaintext; direction: ltr; text-align: start; }
+        b { font-size: 18px; font-weight: 800; color: $mh-ink; line-height: 1.25; overflow-wrap: anywhere; text-align: start; }
         bdi { unicode-bidi: isolate; }
         span { font-size: 12.5px; color: $mh-muted; line-height: 1.35; }
         &:hover:not(:disabled) { border-color: $mh-green; background: #fff; }
@@ -104,7 +111,7 @@ $mh-line: #e4e9ef;
     @media (max-width: 600px) {
         padding: 14px 12px 40px;
         .o_mh_head h1 { font-size: 22px; }
-        .o_mh_grid { grid-template-columns: 1fr; }
+        .o_mh_grid { columns: 1; }
         .o_mh_fig b { font-size: 18px; }
     }
 }

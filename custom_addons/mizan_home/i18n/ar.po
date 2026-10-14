@@ -289,7 +289,7 @@ msgstr "ابحث عن فاتورة أو شيك أو عميل أو مشروع…"
 #. odoo-python
 #: code:addons/mizan_home/models/home.py:0
 msgid "Form 201 due"
-msgstr "موعد إقرار ٢٠١"
+msgstr "موعد إقرار 201"
 
 #. module: mizan_home
 #. odoo-python
@@ -740,7 +740,7 @@ msgstr "الضرائب"
 #. odoo-python
 #: code:addons/mizan_home/models/home.py:0
 msgid "The return is due 28 days after the quarter ends"
-msgstr "الإقرار مستحق بعد ٢٨ يوماً من نهاية الربع"
+msgstr "الإقرار مستحق بعد 28 يوماً من نهاية الربع"
 
 #. module: mizan_home
 #. odoo-python
@@ -788,7 +788,7 @@ msgstr "إقرار الضريبة"
 #. odoo-python
 #: code:addons/mizan_home/models/home.py:0
 msgid "VAT return (Form 201)"
-msgstr "إقرار الضريبة (نموذج ٢٠١)"
+msgstr "إقرار الضريبة (نموذج 201)"
 
 #. module: mizan_home
 #. odoo-python
