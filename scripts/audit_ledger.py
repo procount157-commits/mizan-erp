@@ -207,9 +207,13 @@ check("nothing measured beyond the bill of quantities", not over_measured,
 # --------------------------------------------------------------- ODDITIES
 heading("ODDITIES — not wrong, but somebody should look once")
 
+# By record and by name: a second contact typed in with the company's own name
+# is how a test invoice to yourself gets past a check that only compares ids.
 own_partners = (company.partner_id | company.partner_id.child_ids)
+own_name = (company.name or "").strip()
 self_billed = (sales | bills).filtered(
-    lambda mv: mv.commercial_partner_id in own_partners.mapped("commercial_partner_id"))
+    lambda mv: mv.commercial_partner_id in own_partners.mapped("commercial_partner_id")
+    or (own_name and (mv.commercial_partner_id.name or "").strip() == own_name))
 check("no invoice issued to the company itself", not self_billed,
       "; ".join("%s %s" % (mv.name, m(mv.amount_total)) for mv in self_billed[:3])
       or "none", warn=True)
