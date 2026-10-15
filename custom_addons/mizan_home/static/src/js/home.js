@@ -1,7 +1,7 @@
 /** @odoo-module **/
 // The home page. The server decides what it shows (models/home.py); this
 // only draws it and opens what is tapped.
-import { Component, onWillStart, useState } from "@odoo/owl";
+import { Component, onMounted, useState } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import { _t } from "@web/core/l10n/translation";
@@ -14,7 +14,9 @@ export class MizanHome extends Component {
         this.orm = useService("orm");
         this.action = useService("action");
         this.state = useState({ data: null, query: "", busy: false, failed: false });
-        onWillStart(() => this.load());
+        // Drawn first, filled after: waiting in onWillStart left the whole
+        // screen blank for as long as the figures took on a slow phone.
+        onMounted(() => this.load());
     }
 
     async load() {
@@ -23,7 +25,7 @@ export class MizanHome extends Component {
             this.state.failed = false;
         } catch (e) {
             this.state.failed = true;
-            throw e;
+            console.error(e);
         }
     }
 

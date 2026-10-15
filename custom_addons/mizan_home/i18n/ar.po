@@ -867,3 +867,13 @@ msgstr ""
 #: code:addons/mizan_home/static/src/xml/home.xml:0
 msgid "ينتظرك الآن"
 msgstr ""
+
+#. module: mizan_home
+#: code:addons/mizan_home/models/home.py:0
+msgid "Customers without email"
+msgstr "عملاء بلا بريد إلكتروني"
+
+#. module: mizan_home
+#: code:addons/mizan_home/models/home.py:0
+msgid "Email setup"
+msgstr "إعداد البريد"

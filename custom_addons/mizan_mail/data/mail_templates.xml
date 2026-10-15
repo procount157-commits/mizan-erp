@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- The invoice email: Arabic first, English under it, the figures a
+             customer needs before opening the PDF, and the link to view and
+             pay. The PDF rides along. -->
+        <record id="mail_template_invoice" model="mail.template">
+            <field name="name">Miqyas: invoice</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.partner_id.id }}</field>
+            <field name="subject">فاتورة {{ object.name or '' }} من {{ object.company_id.name }} | Invoice {{ object.name or '' }}</field>
+            <field name="report_template_ids" eval="[(4, ref('account.account_invoices'))]"/>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+<div style="font-family: Tahoma, Arial, sans-serif; font-size: 14px; color: #1c2430; line-height: 1.7;">
+    <div dir="rtl" style="text-align: right;">
+        <p>السادة <t t-out="object.partner_id.name or ''"/>،</p>
+        <p>تحية طيبة، مرفق لكم الفاتورة <strong t-out="object.name or ''"/>
+            بتاريخ <t t-out="format_date(object.invoice_date) or ''"/>.</p>
+        <table style="border-collapse: collapse; margin: 12px 0;">
+            <tr><td style="padding: 6px 12px; color: #6b7686;">المبلغ الإجمالي</td>
+                <td style="padding: 6px 12px; font-weight: bold;" t-out="format_amount(object.amount_total, object.currency_id) or ''"/></tr>
+            <tr t-if="object.amount_residual != object.amount_total"><td style="padding: 6px 12px; color: #6b7686;">المتبقي</td>
+                <td style="padding: 6px 12px; font-weight: bold;" t-out="format_amount(object.amount_residual, object.currency_id) or ''"/></tr>
+            <tr t-if="object.invoice_date_due"><td style="padding: 6px 12px; color: #6b7686;">تاريخ الاستحقاق</td>
+                <td style="padding: 6px 12px; font-weight: bold;" t-out="format_date(object.invoice_date_due) or ''"/></tr>
+            <tr t-if="object.payment_reference"><td style="padding: 6px 12px; color: #6b7686;">مرجع الدفع</td>
+                <td style="padding: 6px 12px;" t-out="object.payment_reference or ''"/></tr>
+        </table>
+        <p t-if="object.get_portal_url()">
+            <a t-att-href="object.get_base_url() + object.get_portal_url()"
+               style="display: inline-block; background: #1BAE5A; color: #ffffff; padding: 10px 22px; border-radius: 8px; text-decoration: none; font-weight: bold;">عرض الفاتورة</a>
+        </p>
+        <p>لأي استفسار يسعدنا تواصلكم بالرد على هذه الرسالة.<br/>مع خالص التحية،<br/><t t-out="object.company_id.name or ''"/></p>
+    </div>
+    <hr style="border: 0; border-top: 1px solid #e4e9ef; margin: 18px 0;"/>
+    <div dir="ltr" style="text-align: left; color: #4b5563;">
+        <p>Dear <t t-out="object.partner_id.name or ''"/>,</p>
+        <p>Please find attached invoice <strong t-out="object.name or ''"/>
+            of <strong t-out="format_amount(object.amount_total, object.currency_id) or ''"/><t t-if="object.invoice_date_due">,
+            due on <t t-out="format_date(object.invoice_date_due) or ''"/></t>.</p>
+        <p>Kind regards,<br/><t t-out="object.company_id.name or ''"/></p>
+    </div>
+</div>
+            </field>
+        </record>
+
+        <!-- The reminder: polite, the open amount and how late it is, the
+             invoice attached again so nobody has to look for it. -->
+        <record id="mail_template_reminder" model="mail.template">
+            <field name="name">Miqyas: payment reminder</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.partner_id.id }}</field>
+            <field name="subject">تذكير بالدفع: {{ object.name or '' }} | Payment reminder</field>
+            <field name="report_template_ids" eval="[(4, ref('account.account_invoices'))]"/>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+<div style="font-family: Tahoma, Arial, sans-serif; font-size: 14px; color: #1c2430; line-height: 1.7;">
+    <div dir="rtl" style="text-align: right;">
+        <p>السادة <t t-out="object.partner_id.name or ''"/>،</p>
+        <p>نود تذكيركم بأن الفاتورة <strong t-out="object.name or ''"/>
+            استحقت بتاريخ <strong t-out="format_date(object.invoice_date_due) or ''"/>،
+            والمبلغ المتبقي عليها <strong t-out="format_amount(object.amount_residual, object.currency_id) or ''"/>.</p>
+        <p>إذا كنتم قد سددتم المبلغ فنرجو تجاهل هذه الرسالة وإرسال إشعار التحويل بالرد عليها.</p>
+        <p t-if="object.get_portal_url()">
+            <a t-att-href="object.get_base_url() + object.get_portal_url()"
+               style="display: inline-block; background: #1BAE5A; color: #ffffff; padding: 10px 22px; border-radius: 8px; text-decoration: none; font-weight: bold;">عرض الفاتورة</a>
+        </p>
+        <p>مع خالص التحية،<br/><t t-out="object.company_id.name or ''"/></p>
+    </div>
+    <hr style="border: 0; border-top: 1px solid #e4e9ef; margin: 18px 0;"/>
+    <div dir="ltr" style="text-align: left; color: #4b5563;">
+        <p>Dear <t t-out="object.partner_id.name or ''"/>,</p>
+        <p>This is a reminder that invoice <strong t-out="object.name or ''"/> was due on
+            <t t-out="format_date(object.invoice_date_due) or ''"/>, with
+            <strong t-out="format_amount(object.amount_residual, object.currency_id) or ''"/> still open.
+            If you have already paid, please ignore this message and reply with the transfer advice.</p>
+        <p>Kind regards,<br/><t t-out="object.company_id.name or ''"/></p>
+    </div>
+</div>
+            </field>
+        </record>
+    </data>
+</odoo>

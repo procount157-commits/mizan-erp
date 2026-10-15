@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mail_setup_form" model="ir.ui.view">
+        <field name="name">mizan.mail.setup.form</field>
+        <field name="model">mizan.mail.setup</field>
+        <field name="arch" type="xml">
+            <form string="Email setup">
+                <div class="alert alert-success" role="status" invisible="not status or not server_id">
+                    <field name="status"/>
+                </div>
+                <div class="alert alert-info" role="status">
+                    Invoices, reminders and receipts are sent from this address. You type the password here yourself; it is kept on the server and never shown again.
+                </div>
+                <group>
+                    <field name="provider" widget="radio"/>
+                    <field name="email" placeholder="invoices@yourcompany.ae" widget="email"/>
+                    <field name="password" password="True" placeholder="Leave empty to keep the saved one"/>
+                    <field name="server_id" invisible="1"/>
+                </group>
+                <div class="text-muted small" invisible="provider not in ('gmail', 'outlook')">
+                    Gmail and Microsoft 365 need an <b>app password</b>: turn on two-step verification on the account, then create an app password in its security settings and paste it here.
+                </div>
+                <group string="Server" invisible="provider != 'custom'">
+                    <field name="host" placeholder="mail.yourcompany.ae"/>
+                    <field name="port"/>
+                    <field name="encryption"/>
+                </group>
+                <footer>
+                    <button name="action_save" type="object" string="Save" class="btn-primary btn-lg"/>
+                    <button name="action_test" type="object" string="Test connection" icon="fa-plug"/>
+                    <button name="action_remove" type="object" string="Remove" class="btn-link text-danger"
+                            invisible="not server_id" confirm="Stop sending email from this address?"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mail_setup" model="ir.actions.server">
+        <field name="name">Email setup</field>
+        <field name="model_id" ref="model_mizan_mail_setup"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open()</field>
+    </record>
+</odoo>

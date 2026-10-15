@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mail_setup_admin,mizan.mail.setup.admin,model_mizan_mail_setup,base.group_system,1,1,1,1
+access_mail_setup_account,mizan.mail.setup.account,model_mizan_mail_setup,account.group_account_manager,1,1,1,1

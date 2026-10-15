@@ -2,3 +2,4 @@
 # deploy-miqyas installs any of these that a database lacks, on every deploy.
 mizan_home
 mizan_ops
+mizan_mail

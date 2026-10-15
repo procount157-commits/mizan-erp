@@ -257,6 +257,10 @@ class MizanHome(models.AbstractModel):
             payable = self._sum("account.move", [("move_type", "=", "in_invoice"), ("state", "=", "posted"),
                                                 ("payment_state", "in", ("not_paid", "partial"))], "amount_residual")
             drafts = self._count("account.move", [("state", "=", "draft"), ("move_type", "!=", "entry")])
+            # Customers we have invoiced and cannot email: the send fails for them.
+            no_email = self._count("res.partner", [
+                ("customer_rank", ">", 0), "|", ("email", "=", False), ("email", "=", "")]) \
+                if self._resolves("mizan_mail.action_customers_no_email") else None
             section("accounting", _("Accounting"), "fa-book", [
                 fig(_("Owed to us"), self._money(receivable),
                     "watch" if (overdue or 0) > 0 else "plain",
@@ -267,6 +271,9 @@ class MizanHome(models.AbstractModel):
                     link(_("Open bills"), "account.action_move_in_invoice_type",
                          domain=[("payment_state", "in", ("not_paid", "partial")), ("state", "=", "posted")])),
                 fig(_("Drafts"), str(drafts or 0), "watch" if drafts else "good"),
+                fig(_("Customers without email"), str(no_email or 0), "watch" if no_email else "good",
+                    link(_("Customers without email"), "mizan_mail.action_customers_no_email",
+                         model="res.partner")) if no_email is not None else None,
             ], [
                 link(_("New invoice"), "account.action_move_out_invoice_type", icon="fa-plus",
                      creates=True, context={"default_move_type": "out_invoice"}) if accountant else None,
@@ -504,6 +511,7 @@ class MizanHome(models.AbstractModel):
                 fig(_("Open alerts"), str(alerts) if alerts is not None else None,
                     "watch" if alerts else "good", link(_("Alert log"), "mizan_alert.action_alert_log")),
             ], [
+                link(_("Email setup"), "mizan_mail.action_mail_setup", icon="fa-envelope"),
                 link(_("Users & rights"), "base.action_res_users", model="res.users", icon="fa-user"),
                 link(_("Company"), "base.action_res_company_form", model="res.company", icon="fa-building-o"),
                 link(_("Alert rules"), "mizan_alert.action_alert_rules", icon="fa-bell-o"),

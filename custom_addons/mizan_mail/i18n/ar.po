@@ -1,0 +1,550 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_mail
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-15 11:55+0000\n"
+"PO-Revision-Date: 2026-10-15 11:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/models/account_move.py:0
+msgid "%(n)s reminder(s) sent."
+msgstr "أُرسل %(n)s تذكير."
+
+#. module: mizan_mail
+#: model:mail.template,body_html:mizan_mail.mail_template_invoice
+msgid ""
+"<div style=\"font-family: Tahoma, Arial, sans-serif; font-size: 14px; color: #1c2430; line-height: 1.7;\">\n"
+"    <div dir=\"rtl\" style=\"text-align: right;\">\n"
+"        <p>السادة <t t-out=\"object.partner_id.name or ''\"/>،</p>\n"
+"        <p>تحية طيبة، مرفق لكم الفاتورة <strong t-out=\"object.name or ''\"/>\n"
+"            بتاريخ <t t-out=\"format_date(object.invoice_date) or ''\"/>.</p>\n"
+"        <table style=\"border-collapse: collapse; margin: 12px 0;\">\n"
+"            <tr><td style=\"padding: 6px 12px; color: #6b7686;\">المبلغ الإجمالي</td>\n"
+"                <td style=\"padding: 6px 12px; font-weight: bold;\" t-out=\"format_amount(object.amount_total, object.currency_id) or ''\"/></tr>\n"
+"            <tr t-if=\"object.amount_residual != object.amount_total\"><td style=\"padding: 6px 12px; color: #6b7686;\">المتبقي</td>\n"
+"                <td style=\"padding: 6px 12px; font-weight: bold;\" t-out=\"format_amount(object.amount_residual, object.currency_id) or ''\"/></tr>\n"
+"            <tr t-if=\"object.invoice_date_due\"><td style=\"padding: 6px 12px; color: #6b7686;\">تاريخ الاستحقاق</td>\n"
+"                <td style=\"padding: 6px 12px; font-weight: bold;\" t-out=\"format_date(object.invoice_date_due) or ''\"/></tr>\n"
+"            <tr t-if=\"object.payment_reference\"><td style=\"padding: 6px 12px; color: #6b7686;\">مرجع الدفع</td>\n"
+"                <td style=\"padding: 6px 12px;\" t-out=\"object.payment_reference or ''\"/></tr>\n"
+"        </table>\n"
+"        <p t-if=\"object.get_portal_url()\">\n"
+"            <a t-att-href=\"object.get_base_url() + object.get_portal_url()\" style=\"display: inline-block; background: #1BAE5A; color: #ffffff; padding: 10px 22px; border-radius: 8px; text-decoration: none; font-weight: bold;\">عرض الفاتورة</a>\n"
+"        </p>\n"
+"        <p>لأي استفسار يسعدنا تواصلكم بالرد على هذه الرسالة.<br/>مع خالص التحية،<br/><t t-out=\"object.company_id.name or ''\"/></p>\n"
+"    </div>\n"
+"    <hr style=\"border: 0; border-top: 1px solid #e4e9ef; margin: 18px 0;\"/>\n"
+"    <div dir=\"ltr\" style=\"text-align: left; color: #4b5563;\">\n"
+"        <p>Dear <t t-out=\"object.partner_id.name or ''\"/>,</p>\n"
+"        <p>Please find attached invoice <strong t-out=\"object.name or ''\"/>\n"
+"            of <strong t-out=\"format_amount(object.amount_total, object.currency_id) or ''\"/><t t-if=\"object.invoice_date_due\">,\n"
+"            due on <t t-out=\"format_date(object.invoice_date_due) or ''\"/></t>.</p>\n"
+"        <p>Kind regards,<br/><t t-out=\"object.company_id.name or ''\"/></p>\n"
+"    </div>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: mizan_mail
+#: model:mail.template,body_html:mizan_mail.mail_template_reminder
+msgid ""
+"<div style=\"font-family: Tahoma, Arial, sans-serif; font-size: 14px; color: #1c2430; line-height: 1.7;\">\n"
+"    <div dir=\"rtl\" style=\"text-align: right;\">\n"
+"        <p>السادة <t t-out=\"object.partner_id.name or ''\"/>،</p>\n"
+"        <p>نود تذكيركم بأن الفاتورة <strong t-out=\"object.name or ''\"/>\n"
+"            استحقت بتاريخ <strong t-out=\"format_date(object.invoice_date_due) or ''\"/>،\n"
+"            والمبلغ المتبقي عليها <strong t-out=\"format_amount(object.amount_residual, object.currency_id) or ''\"/>.</p>\n"
+"        <p>إذا كنتم قد سددتم المبلغ فنرجو تجاهل هذه الرسالة وإرسال إشعار التحويل بالرد عليها.</p>\n"
+"        <p t-if=\"object.get_portal_url()\">\n"
+"            <a t-att-href=\"object.get_base_url() + object.get_portal_url()\" style=\"display: inline-block; background: #1BAE5A; color: #ffffff; padding: 10px 22px; border-radius: 8px; text-decoration: none; font-weight: bold;\">عرض الفاتورة</a>\n"
+"        </p>\n"
+"        <p>مع خالص التحية،<br/><t t-out=\"object.company_id.name or ''\"/></p>\n"
+"    </div>\n"
+"    <hr style=\"border: 0; border-top: 1px solid #e4e9ef; margin: 18px 0;\"/>\n"
+"    <div dir=\"ltr\" style=\"text-align: left; color: #4b5563;\">\n"
+"        <p>Dear <t t-out=\"object.partner_id.name or ''\"/>,</p>\n"
+"        <p>This is a reminder that invoice <strong t-out=\"object.name or ''\"/> was due on\n"
+"            <t t-out=\"format_date(object.invoice_date_due) or ''\"/>, with\n"
+"            <strong t-out=\"format_amount(object.amount_residual, object.currency_id) or ''\"/> still open.\n"
+"            If you have already paid, please ignore this message and reply with the transfer advice.</p>\n"
+"        <p>Kind regards,<br/><t t-out=\"object.company_id.name or ''\"/></p>\n"
+"    </div>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_settings_mail
+msgid "<i class=\"fa fa-check-circle\" title=\"Connected\"/>"
+msgstr ""
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_settings_mail
+msgid ""
+"<i class=\"fa fa-exclamation-circle\" title=\"Not set up\"/> Not set up: "
+"nothing can be emailed yet."
+msgstr ""
+
+#. module: mizan_mail
+#: model:ir.model.fields,help:mizan_mail.field_res_company__mizan_auto_send_invoice
+#: model:ir.model.fields,help:mizan_mail.field_res_config_settings__mizan_auto_send_invoice
+msgid "A customer invoice is emailed to the customer the moment it is confirmed, if the customer has an email address."
+msgstr "تُرسل فاتورة العميل إليه بالبريد لحظة تأكيدها، إذا كان له بريد إلكتروني."
+
+#. module: mizan_mail
+#: model:ir.model.fields,help:mizan_mail.field_res_company__mizan_reminder_max
+#: model:ir.model.fields,help:mizan_mail.field_res_config_settings__mizan_reminder_max
+msgid "After this many reminders the invoice is left to a person: a fourth automatic email rarely gets paid and often annoys."
+msgstr "بعد هذا العدد من التذكيرات تُترك الفاتورة لمتابعة شخصية: البريد الآلي الرابع نادراً ما يُدفع وغالباً ما يزعج."
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_mail_setup_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: mizan_mail
+#: model:ir.model,name:mizan_mail.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: mizan_mail
+#: model:ir.model,name:mizan_mail.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات "
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/wizard/mail_setup.py:0
+msgid "Connected: emails go out from %s."
+msgstr "متصل: الرسائل تُرسل من %s."
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/wizard/mail_setup.py:0
+msgid "Connection works. Press Save to send from %s."
+msgstr "الاتصال يعمل. اضغط حفظ لتبدأ الإرسال من %s."
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_mizan_mail_setup__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_mizan_mail_setup__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: mizan_mail
+#: model:ir.actions.act_window,name:mizan_mail.action_customers_no_email
+#: model:ir.ui.menu,name:mizan_mail.menu_customers_no_email
+msgid "Customers without email"
+msgstr "عملاء بلا بريد إلكتروني"
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_mizan_mail_setup__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_settings_mail
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#. module: mizan_mail
+#: model:ir.model,name:mizan_mail.model_mizan_mail_setup
+msgid "Email Setup"
+msgstr "إعداد البريد"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_settings_mail
+msgid "Email a customer invoice the moment it is confirmed."
+msgstr "أرسل فاتورة العميل بالبريد لحظة تأكيدها."
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_mizan_mail_setup__email
+msgid "Email address"
+msgstr "عنوان البريد"
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_res_company__mizan_auto_send_invoice
+#: model:ir.model.fields,field_description:mizan_mail.field_res_config_settings__mizan_auto_send_invoice
+msgid "Email invoices when confirmed"
+msgstr "أرسل الفواتير بالبريد عند تأكيدها"
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/models/account_move.py:0
+msgid "Email is not set up yet. Open Settings → Email and connect the address invoices are sent from."
+msgstr "البريد غير مُعدّ بعد. افتح الإعدادات ← البريد الإلكتروني واربط العنوان الذي تُرسل منه الفواتير."
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/wizard/mail_setup.py:0
+msgid "Email is set up"
+msgstr "تم إعداد البريد"
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/wizard/mail_setup.py:0
+#: model:ir.actions.server,name:mizan_mail.action_mail_setup
+#: model:ir.ui.menu,name:mizan_mail.menu_mail_setup
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_mail_setup_form
+msgid "Email setup"
+msgstr "إعداد البريد"
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_mizan_mail_setup__encryption
+msgid "Encryption"
+msgstr "التشفير"
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/wizard/mail_setup.py:0
+msgid "Enter the email server and its port."
+msgstr "أدخل خادم البريد ومنفذه."
+
+#. module: mizan_mail
+#: model_terms:ir.actions.act_window,help:mizan_mail.action_customers_no_email
+msgid "Every customer has an email address"
+msgstr "كل العملاء لهم بريد إلكتروني"
+
+#. module: mizan_mail
+#: model:ir.model.fields,help:mizan_mail.field_res_company__mizan_reminder_enabled
+#: model:ir.model.fields,help:mizan_mail.field_res_config_settings__mizan_reminder_enabled
+msgid "Every day, overdue invoices get a reminder by email, on the schedule below."
+msgstr "كل يوم تُرسل تذكيرات بالفواتير المتأخرة حسب الجدول أدناه."
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_res_company__mizan_reminder_first_days
+#: model:ir.model.fields,field_description:mizan_mail.field_res_config_settings__mizan_reminder_first_days
+msgid "First reminder after (days overdue)"
+msgstr "أول تذكير بعد (أيام تأخير)"
+
+#. module: mizan_mail
+#: model:ir.model.fields,help:mizan_mail.field_mizan_mail_setup__password
+msgid "For Gmail and Microsoft 365 this is an app password, not the normal one: create it in the account's security settings (two-step verification must be on)."
+msgstr "في Gmail وMicrosoft 365 هذه كلمة مرور تطبيق وليست كلمة المرور العادية: أنشئها من إعدادات أمان الحساب (يجب تفعيل التحقق بخطوتين)."
+
+#. module: mizan_mail
+#: model:ir.model.fields.selection,name:mizan_mail.selection__mizan_mail_setup__provider__gmail
+msgid "Gmail / Google Workspace"
+msgstr "Gmail / Google Workspace"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_mail_setup_form
+msgid "Gmail and Microsoft 365 need an <b>app password</b>: turn on two-step verification on the account, then create an app password in its security settings and paste it here."
+msgstr "يحتاج Gmail وMicrosoft 365 إلى <b>كلمة مرور تطبيق</b>: فعّل التحقق بخطوتين على الحساب، ثم أنشئ كلمة مرور تطبيق من إعدادات الأمان والصقها هنا."
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_mizan_mail_setup__host
+msgid "Host"
+msgstr "الخادم"
+
+#. module: mizan_mail
+#: model:ir.model.fields.selection,name:mizan_mail.selection__mizan_mail_setup__provider__hostinger
+msgid "Hostinger email"
+msgstr "بريد Hostinger"
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_mizan_mail_setup__id
+msgid "ID"
+msgstr ""
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/wizard/mail_setup.py:0
+msgid "Invoices and reminders now go out from %s."
+msgstr "الفواتير والتذكيرات تُرسل الآن من %s."
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_mail_setup_form
+msgid "Invoices, reminders and receipts are sent from this address. You type the password here yourself; it is kept on the server and never shown again."
+msgstr "الفواتير والتذكيرات والسندات تُرسل من هذا العنوان. أنت تكتب كلمة المرور هنا بنفسك، وتُحفظ على الخادم ولا تُعرض مرة أخرى."
+
+#. module: mizan_mail
+#: model:ir.model,name:mizan_mail.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_mizan_mail_setup__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_mizan_mail_setup__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_account_bank_statement_line__mizan_last_reminder
+#: model:ir.model.fields,field_description:mizan_mail.field_account_move__mizan_last_reminder
+msgid "Last reminder"
+msgstr "آخر تذكير"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_mail_setup_form
+msgid "Leave empty to keep the saved one"
+msgstr "اتركها فارغة للإبقاء على المحفوظة"
+
+#. module: mizan_mail
+#: model:mail.template,name:mizan_mail.mail_template_invoice
+msgid "Miqyas: invoice"
+msgstr "مقياس: الفاتورة"
+
+#. module: mizan_mail
+#: model:mail.template,name:mizan_mail.mail_template_reminder
+msgid "Miqyas: payment reminder"
+msgstr "مقياس: تذكير بالدفع"
+
+#. module: mizan_mail
+#: model:ir.actions.server,name:mizan_mail.cron_payment_reminders_ir_actions_server
+msgid "Miqyas: payment reminders"
+msgstr "مقياس: تذكيرات الدفع"
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_res_config_settings__mizan_mail_server_label
+msgid "Mizan Mail Server Label"
+msgstr ""
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_res_config_settings__mizan_mail_server_ok
+msgid "Mizan Mail Server Ok"
+msgstr ""
+
+#. module: mizan_mail
+#: model:ir.model.fields.selection,name:mizan_mail.selection__mizan_mail_setup__encryption__none
+msgid "None"
+msgstr "بدون"
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/models/account_move.py:0
+msgid "None of the selected invoices is overdue and unpaid."
+msgstr "لا توجد فاتورة متأخرة وغير مدفوعة بين المحدد."
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/wizard/mail_setup.py:0
+msgid "Not connected: %s"
+msgstr "غير متصل: %s"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_invoice_filter_mail
+msgid "Not sent yet"
+msgstr "لم تُرسل بعد"
+
+#. module: mizan_mail
+#: model:ir.model.fields.selection,name:mizan_mail.selection__mizan_mail_setup__provider__custom
+msgid "Other (enter the server)"
+msgstr "أخرى (أدخل الخادم)"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_settings_mail
+msgid "Outgoing email"
+msgstr "البريد الصادر"
+
+#. module: mizan_mail
+#: model:ir.model.fields.selection,name:mizan_mail.selection__mizan_mail_setup__provider__outlook
+msgid "Outlook / Microsoft 365"
+msgstr "Outlook / Microsoft 365"
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_account_bank_statement_line__mizan_is_overdue
+#: model:ir.model.fields,field_description:mizan_mail.field_account_move__mizan_is_overdue
+msgid "Overdue"
+msgstr "متأخرة"
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_mizan_mail_setup__password
+msgid "Password"
+msgstr "كلمة المرور"
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/models/account_move.py:0
+msgid "Payment reminders"
+msgstr "تذكيرات الدفع"
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_mizan_mail_setup__port
+msgid "Port"
+msgstr "المنفذ"
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_mizan_mail_setup__provider
+msgid "Provider"
+msgstr "مزوّد البريد"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_settings_mail
+msgid "Remind overdue customers by email, every day, on this schedule."
+msgstr "ذكّر العملاء المتأخرين بالبريد كل يوم حسب هذا الجدول."
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_invoice_filter_mail
+msgid "Reminded"
+msgstr "تم تذكيرها"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_out_invoice_tree_mail
+msgid "Reminders"
+msgstr "التذكيرات"
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_account_bank_statement_line__mizan_reminder_count
+#: model:ir.model.fields,field_description:mizan_mail.field_account_move__mizan_reminder_count
+msgid "Reminders sent"
+msgstr "التذكيرات المرسلة"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_mail_setup_form
+msgid "Remove"
+msgstr "إزالة"
+
+#. module: mizan_mail
+#: model:ir.model.fields.selection,name:mizan_mail.selection__mizan_mail_setup__encryption__ssl
+msgid "SSL/TLS"
+msgstr "SSL/TLS"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_mail_setup_form
+msgid "Save"
+msgstr "حفظ"
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_res_company__mizan_reminder_enabled
+#: model:ir.model.fields,field_description:mizan_mail.field_res_config_settings__mizan_reminder_enabled
+msgid "Send payment reminders by themselves"
+msgstr "أرسل تذكيرات الدفع تلقائياً"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_move_form_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_out_invoice_tree_mail
+msgid "Send reminder"
+msgstr "أرسل تذكيراً"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_settings_mail
+msgid "Sending invoices by email"
+msgstr "إرسال الفواتير بالبريد"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_out_invoice_tree_mail
+msgid "Sent"
+msgstr "أُرسلت"
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_mizan_mail_setup__server_id
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_mail_setup_form
+msgid "Server"
+msgstr "الخادم"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_settings_mail
+msgid "Set up email"
+msgstr "إعداد البريد"
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/models/account_move.py:0
+msgid "Skipped, no email address: %s."
+msgstr "تم تجاوز (بلا بريد): %s."
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_mizan_mail_setup__status
+msgid "Status"
+msgstr "الحالة"
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_res_company__mizan_reminder_max
+#: model:ir.model.fields,field_description:mizan_mail.field_res_config_settings__mizan_reminder_max
+msgid "Stop after (reminders)"
+msgstr "توقف بعد (تذكيرات)"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_mail_setup_form
+msgid "Stop sending email from this address?"
+msgstr "إيقاف الإرسال من هذا العنوان؟"
+
+#. module: mizan_mail
+#: model:ir.model.fields.selection,name:mizan_mail.selection__mizan_mail_setup__encryption__starttls
+msgid "TLS (STARTTLS)"
+msgstr "TLS (STARTTLS)"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_mail_setup_form
+msgid "Test connection"
+msgstr "اختبر الاتصال"
+
+#. module: mizan_mail
+#: model:ir.model.fields,help:mizan_mail.field_mizan_mail_setup__email
+msgid "The address customers see invoices come from."
+msgstr "العنوان الذي يرى العملاء الفواتير قادمة منه."
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_settings_mail
+msgid "The address invoices, reminders and receipts come from."
+msgstr "العنوان الذي تُرسل منه الفواتير والتذكيرات والسندات."
+
+#. module: mizan_mail
+#: model:ir.model.fields,field_description:mizan_mail.field_res_company__mizan_reminder_every_days
+#: model:ir.model.fields,field_description:mizan_mail.field_res_config_settings__mizan_reminder_every_days
+msgid "Then every (days)"
+msgstr "ثم كل (أيام)"
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/models/account_move.py:0
+msgid "These customers have no email address: %s. Add one on the customer first."
+msgstr "هؤلاء العملاء بلا بريد إلكتروني: %s. أضفه للعميل أولاً."
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/wizard/mail_setup.py:0
+msgid "Type a full email address, for example invoices@yourcompany.ae."
+msgstr "اكتب عنوان بريد كاملاً، مثلاً invoices@yourcompany.ae."
+
+#. module: mizan_mail
+#. odoo-python
+#: code:addons/mizan_mail/wizard/mail_setup.py:0
+msgid "Type the password for %s."
+msgstr "اكتب كلمة المرور لـ %s."
+
+#. module: mizan_mail
+#: model:ir.model.fields.selection,name:mizan_mail.selection__mizan_mail_setup__provider__zoho
+msgid "Zoho Mail"
+msgstr "Zoho Mail"
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_mail_setup_form
+msgid "invoices@yourcompany.ae"
+msgstr ""
+
+#. module: mizan_mail
+#: model_terms:ir.ui.view,arch_db:mizan_mail.view_mail_setup_form
+msgid "mail.yourcompany.ae"
+msgstr ""
+
+#. module: mizan_mail
+#: model:mail.template,subject:mizan_mail.mail_template_reminder
+msgid "تذكير بالدفع: {{ object.name or '' }} | Payment reminder"
+msgstr ""
+
+#. module: mizan_mail
+#: model:mail.template,subject:mizan_mail.mail_template_invoice
+msgid ""
+"فاتورة {{ object.name or '' }} من {{ object.company_id.name }} | Invoice {{ "
+"object.name or '' }}"
+msgstr ""

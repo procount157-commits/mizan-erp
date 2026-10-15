@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_settings_mail" model="ir.ui.view">
+        <field name="name">res.config.settings.mizan.mail</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="Email" name="mizan_mail" groups="account.group_account_manager">
+                    <block title="Sending invoices by email">
+                        <setting string="Outgoing email" help="The address invoices, reminders and receipts come from.">
+                            <div invisible="not mizan_mail_server_ok" class="text-success">
+                                <i class="fa fa-check-circle" title="Connected"/> <field name="mizan_mail_server_label" class="d-inline"/>
+                            </div>
+                            <div invisible="mizan_mail_server_ok" class="text-danger">
+                                <i class="fa fa-exclamation-circle" title="Not set up"/> Not set up: nothing can be emailed yet.
+                            </div>
+                            <button name="action_mizan_mail_setup" type="object" string="Set up email" icon="fa-envelope" class="btn-link"/>
+                            <field name="mizan_mail_server_ok" invisible="1"/>
+                        </setting>
+                        <setting help="Email a customer invoice the moment it is confirmed.">
+                            <field name="mizan_auto_send_invoice"/>
+                        </setting>
+                        <setting help="Remind overdue customers by email, every day, on this schedule.">
+                            <field name="mizan_reminder_enabled"/>
+                            <div class="mt-2" invisible="not mizan_reminder_enabled">
+                                <div class="row"><label for="mizan_reminder_first_days" class="col-lg-7"/><field name="mizan_reminder_first_days" class="col-lg-3"/></div>
+                                <div class="row"><label for="mizan_reminder_every_days" class="col-lg-7"/><field name="mizan_reminder_every_days" class="col-lg-3"/></div>
+                                <div class="row"><label for="mizan_reminder_max" class="col-lg-7"/><field name="mizan_reminder_max" class="col-lg-3"/></div>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>
