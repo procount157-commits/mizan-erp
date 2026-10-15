@@ -6,6 +6,15 @@ $mh-ink: #1c2430;
 $mh-muted: #6b7686;
 $mh-line: #e4e9ef;
 
+// Odoo sets overflow: hidden on every action root with a selector of four
+// parts, and turns it back to auto only below 768px. A bare .o_mizan_home
+// loses that contest, so the page scrolled on a phone and froze on every
+// computer: the overflow-y below was right and never applied. Spelled the way
+// Odoo spells it, plus this class, so it wins at every width.
+html .o_web_client > .o_action_manager > .o_action.o_mizan_home {
+    overflow-y: auto;
+}
+
 .o_mizan_home {
     background: #f4f6fa;
     // The action manager does not scroll; its child must. min-height let the

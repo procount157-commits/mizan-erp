@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- On install and on every update: the one-click statements open with
+         the instance in their context, or the report widget has nothing to
+         read and the screen dies before it draws. -->
+    <function model="ir.actions.act_window" name="_mizan_fix_statement_actions"/>
+</odoo>

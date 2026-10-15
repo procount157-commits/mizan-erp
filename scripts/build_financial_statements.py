@@ -154,6 +154,11 @@ def surface(instance, label_en, label_ar, key, sequence):
         "view_mode": "form",
         "view_id": result_view.id,
         "target": "current",
+        # Preview gets this from the button click without asking. The report
+        # widget finds its instance only here on Odoo 17+, so without it the
+        # statement opens on nothing and dies on "Invalid ids list".
+        "context": "{'active_model': 'mis.report.instance', 'active_id': %d}"
+                   % instance.id,
     }
     action = Data.search([("module", "=", "mizan_core"),
                           ("name", "=", "action_%s" % key)], limit=1)
