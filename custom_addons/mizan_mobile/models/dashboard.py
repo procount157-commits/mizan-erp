@@ -4,6 +4,8 @@ am following. Petty cash and the jobs are already there; these were the two
 things a person still opened an app to find."""
 
 from odoo import api, fields, models, _
+
+from odoo.addons.mizan_hub.models.plain_domain import plain_domain
 from odoo.exceptions import AccessError
 
 
@@ -21,7 +23,7 @@ class MizanDashboardTile(models.TransientModel):
         def tile(name, value, sublabel="", tone="plain", model=False, domain=None):
             extra.append({"sequence": 0, "section": section, "name": name,
                           "value": value, "sublabel": sublabel, "tone": tone,
-                          "res_model": model, "domain": repr(domain or []),
+                          "res_model": model, "domain": plain_domain(domain),
                           "action_xmlid": ""})
 
         try:

@@ -127,7 +127,7 @@ class MizanSubcontract(models.Model):
             if record.retention_held > 0:
                 raise UserError(_(
                     "%s still holds %s of retention. Release it before closing.",
-                    record.code, record.retention_held))
+                    record.code, "{:,.2f}".format(record.retention_held)))
         self.write({"state": "closed"})
 
     def action_view_bills(self):

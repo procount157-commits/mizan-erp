@@ -4,9 +4,9 @@
     <t t-name="mizan_core.QuickCreate">
         <div class="o_mizan_quick_create">
             <Dropdown menuClass="'o_mizan_quick_menu'">
-                <button class="o_mizan_quick_btn" title="إضافة سريعة">
+                <button class="o_mizan_quick_btn" title="Quick add">
                     <i class="fa fa-plus" role="img" aria-label="Quick create"/>
-                    <span>جديد</span>
+                    <span>New</span>
                 </button>
                 <t t-set-slot="content">
                     <t t-foreach="entries" t-as="entry" t-key="entry.label">

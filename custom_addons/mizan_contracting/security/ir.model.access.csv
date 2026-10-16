@@ -46,3 +46,15 @@ access_overhead_alloc_manager,mizan.overhead.allocation.manager,model_mizan_over
 access_overhead_alloc_ro,mizan.overhead.allocation.readonly,model_mizan_overhead_allocation,account.group_account_readonly,1,0,0,0
 access_overhead_line_manager,mizan.overhead.allocation.line.manager,model_mizan_overhead_allocation_line,account.group_account_manager,1,1,1,1
 access_overhead_line_ro,mizan.overhead.allocation.line.readonly,model_mizan_overhead_allocation_line,account.group_account_readonly,1,0,0,0
+access_mizan_progress_claim_readonly,mizan.progress.claim read-only,model_mizan_progress_claim,account.group_account_readonly,1,0,0,0
+access_mizan_subcontract_readonly,mizan.subcontract read-only,model_mizan_subcontract,account.group_account_readonly,1,0,0,0
+access_mizan_contract_variation_readonly,mizan.contract.variation read-only,model_mizan_contract_variation,account.group_account_readonly,1,0,0,0
+access_mizan_subcontract_backcharge_readonly,mizan.subcontract.backcharge read-only,model_mizan_subcontract_backcharge,account.group_account_readonly,1,0,0,0
+access_mizan_contract_boq_line_readonly,mizan.contract.boq.line read-only,model_mizan_contract_boq_line,account.group_account_readonly,1,0,0,0
+access_mizan_contract_budget_line_readonly,mizan.contract.budget.line read-only,model_mizan_contract_budget_line,account.group_account_readonly,1,0,0,0
+access_mizan_contract_recognition_readonly,mizan.contract.recognition read-only,model_mizan_contract_recognition,account.group_account_readonly,1,0,0,0
+access_mizan_contract_bond_readonly,mizan.contract.bond read-only,model_mizan_contract_bond,account.group_account_readonly,1,0,0,0
+access_mizan_plant_charge_readonly,mizan.plant.charge read-only,model_mizan_plant_charge,account.group_account_readonly,1,0,0,0
+access_mizan_progress_claim_line_readonly,mizan.progress.claim.line read-only,model_mizan_progress_claim_line,account.group_account_readonly,1,0,0,0
+access_mizan_subcontract_variation_readonly,mizan.subcontract.variation read-only,model_mizan_subcontract_variation,account.group_account_readonly,1,0,0,0
+access_mizan_contract_variation_line_readonly,mizan.contract.variation.line read-only,model_mizan_contract_variation_line,account.group_account_readonly,1,0,0,0

@@ -13,12 +13,12 @@
                         <i class="fa fa-search" role="img" aria-label="Search"/>
                         <input type="search" t-model="state.query" t-att-placeholder="placeholder"
                                autocomplete="off" enterkeyhint="search"/>
-                        <button type="submit" class="btn btn-primary">بحث</button>
+                        <button type="submit" class="btn btn-primary">Search</button>
                     </form>
                 </header>
 
                 <section class="o_mh_waiting" t-if="state.data.waiting.length">
-                    <h2>ينتظرك الآن</h2>
+                    <h2>Waiting for you</h2>
                     <div class="o_mh_chips">
                         <button t-foreach="state.data.waiting" t-as="w" t-key="w.label"
                                 class="o_mh_chip" type="button" t-on-click="() => this.open(w.link)">
@@ -29,7 +29,7 @@
                     </div>
                 </section>
                 <section class="o_mh_waiting o_mh_clear" t-else="">
-                    <i class="fa fa-check-circle text-success"/> لا شيء ينتظرك الآن.
+                    <i class="fa fa-check-circle text-success"/> Nothing is waiting for you.
                 </section>
 
                 <div class="o_mh_grid">
@@ -65,7 +65,7 @@
                 </div>
             </t>
             <div t-elif="state.failed" class="o_mh_empty">
-                <i class="fa fa-exclamation-triangle"/> تعذّر تحميل الصفحة. حدّث المتصفح، وإذا تكرر الأمر أخبر المسؤول.
+                <i class="fa fa-exclamation-triangle"/> The page could not be loaded. Refresh the browser, and if it happens again tell the administrator.
             </div>
             <div t-else="" class="o_mh_empty"><i class="fa fa-circle-o-notch fa-spin"/></div>
         </div>

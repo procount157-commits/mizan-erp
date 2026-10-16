@@ -221,7 +221,7 @@ class MizanCheque(models.Model):
             if cheque.state != "bounced":
                 raise UserError(_(
                     "Only a bounced cheque can be claimed. %s is %s.",
-                    cheque.name, cheque.state))
+                    cheque.name, dict(cheque._fields["state"]._description_selection(cheque.env)).get(cheque.state, cheque.state)))
             cheque.write({
                 "state": "claimed",
                 "claim_date": cheque.claim_date or fields.Date.context_today(cheque),
@@ -258,7 +258,7 @@ class MizanCheque(models.Model):
             if cheque.state != "claimed":
                 raise UserError(_(
                     "Write off a claim, not a cheque still in play. %s is %s.",
-                    cheque.name, cheque.state))
+                    cheque.name, dict(cheque._fields["state"]._description_selection(cheque.env)).get(cheque.state, cheque.state)))
             account = cheque.company_id.mizan_cheque_writeoff_account_id
             if not account:
                 raise UserError(_(

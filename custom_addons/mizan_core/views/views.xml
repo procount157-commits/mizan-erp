@@ -67,7 +67,7 @@
                         </div>
                         <div class="row mb-2">
                             <div class="col-7 text-muted">
-                                <i class="fa fa-user me-1" title="الموظف"/><field name="employee_id"/>
+                                <i class="fa fa-user me-1" title="Employee"/><field name="employee_id"/>
                             </div>
                             <div class="col-5 text-end">
                                 <field name="state" widget="badge"
@@ -79,13 +79,13 @@
                             <div class="col-6">
                                 <button name="action_approve_expense_sheets" type="object"
                                         class="btn btn-success w-100">
-                                    <i class="fa fa-check me-1" title="اعتماد"/>اعتماد
+                                    <i class="fa fa-check me-1" title="Approve"/>Approve
                                 </button>
                             </div>
                             <div class="col-6">
                                 <button name="action_refuse_expense_sheets" type="object"
                                         class="btn btn-outline-danger w-100">
-                                    <i class="fa fa-times me-1" title="رفض"/>رفض
+                                    <i class="fa fa-times me-1" title="Reject"/>Reject
                                 </button>
                             </div>
                         </div>

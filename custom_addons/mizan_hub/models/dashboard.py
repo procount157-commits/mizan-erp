@@ -23,6 +23,8 @@ twice.
 from ast import literal_eval
 
 from odoo import api, fields, models, _
+
+from .plain_domain import plain_domain
 from odoo.exceptions import AccessError
 
 
@@ -78,7 +80,7 @@ class MizanDashboardTile(models.TransientModel):
             rows.append({
                 "sequence": len(rows) * 10, "section": section, "name": name,
                 "value": value, "sublabel": sublabel, "tone": tone,
-                "res_model": model, "domain": repr(domain or []),
+                "res_model": model, "domain": plain_domain(domain),
                 "action_xmlid": xmlid or "",
             })
 
@@ -249,7 +251,7 @@ class MizanDashboardTile(models.TransientModel):
                 "sequence": (tile_start + len(rows)) * 10,
                 "section": _("My site"), "name": name, "value": value,
                 "sublabel": sublabel, "tone": tone, "res_model": model,
-                "domain": repr(domain or []), "action_xmlid": "",
+                "domain": plain_domain(domain), "action_xmlid": "",
             })
 
         if "mizan.site.report" in self.env:

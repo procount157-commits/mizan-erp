@@ -1,0 +1,105 @@
+# Translation of Odoo Server.
+# 	* mizan_documents
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "Dear %s,"
+msgstr "السادة %s المحترمون،"
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "Receipt voucher"
+msgstr "سند قبض"
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "Payment voucher"
+msgstr "سند صرف"
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "Send Receipt Voucher"
+msgstr "إرسال سند القبض"
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "Send Payment Voucher"
+msgstr "إرسال سند الصرف"
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "%s has a local number (%s) but no country, so the international dialling code cannot be worked out. Set the country on their contact record."
+msgstr "لدى %s رقم محلي (%s) بلا دولة، فلا يمكن معرفة مفتاح الاتصال الدولي. حدّد الدولة في بطاقة جهة الاتصال."
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "Quotation %(number)s for %(amount)s."
+msgstr "عرض السعر %(number)s بمبلغ %(amount)s."
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "View or accept: %s%s"
+msgstr "للاطلاع أو القبول: %s%s"
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "Choose the customer first: there is nobody to send this to on WhatsApp."
+msgstr "اختر العميل أولاً: لا يوجد من نرسل له عبر واتساب."
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "Due on %s."
+msgstr "تاريخ الاستحقاق %s."
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "Valid until %s."
+msgstr "صالح حتى %s."
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "%(kind)s %(number)s for %(amount)s dated %(date)s."
+msgstr "%(kind)s رقم %(number)s بمبلغ %(amount)s بتاريخ %(date)s."
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "Invoice %(name)s already carries a number.\n\nDeleting it would leave a gap in the sequence, which the FTA treats as a missing invoice. Cancel it instead — a cancelled invoice keeps its number and stays auditable."
+msgstr "الفاتورة %(name)s تحمل رقماً بالفعل.\n\nحذفها يترك فجوة في التسلسل تعدّها الهيئة الاتحادية للضرائب فاتورة مفقودة. ألغِها بدلاً من ذلك — فالفاتورة الملغاة تحتفظ برقمها وتبقى قابلة للتدقيق."
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "Invoice %(number)s dated %(date)s for %(amount)s."
+msgstr "الفاتورة %(number)s بتاريخ %(date)s بمبلغ %(amount)s."
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "View or download: %s%s"
+msgstr "للاطلاع أو التنزيل: %s%s"
+
+#. module: mizan_documents
+#. odoo-python
+#: code:addons/mizan_documents/models/whatsapp_share.py:0
+msgid "%s has no mobile or phone number, so there is nobody to open WhatsApp with. Add one on their contact record."
+msgstr "لا يوجد رقم جوال أو هاتف لـ %s، فلا يمكن فتح واتساب. أضف رقماً في بطاقة جهة الاتصال."

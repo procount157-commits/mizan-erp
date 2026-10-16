@@ -6,6 +6,9 @@
         <field name="arch" type="xml">
             <form string="Upload a File">
                 <group>
+                    <div class="alert alert-info mb-2" role="status" colspan="2" invisible="case_id or task_id">
+                        Not linked to a step? Upload anyway: the file goes to the Operations documents.
+                    </div>
                     <field name="case_id" options="{'no_create': True, 'no_open': True}"/>
                     <field name="task_id" options="{'no_create': True, 'no_open': True}"/>
                     <field name="file" filename="filename" widget="binary"/>

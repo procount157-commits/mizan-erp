@@ -359,18 +359,6 @@ class MizanEmployeeAdvance(models.Model):
             })
             move.action_post()
             advance.move_settle_ids = [(4, move.id)]
-            # Match the settlement against the claims it pays, so the claims
-            # read as paid. Left open, every claim settled from an advance
-            # still said "to pay", and the next payment run paid it in cash.
-            claims = advance.expense_sheet_ids.filtered(
-                lambda sheet: sheet.state in ("post", "done"))
-            open_lines = claims.account_move_ids.line_ids.filtered(
-                lambda line: line.account_id == payable
-                and line.parent_state == "posted" and not line.reconciled)
-            settle_line = move.line_ids.filtered(
-                lambda line: line.account_id == payable)
-            if open_lines and payable.reconcile:
-                (settle_line | open_lines).reconcile()
             advance.amount_returned += balance
             advance.state = "settled"
         return True

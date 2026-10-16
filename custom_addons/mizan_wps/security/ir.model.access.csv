@@ -3,3 +3,5 @@ access_mizan_wps_file_user,mizan.wps.file.user,model_mizan_wps_file,hr.group_hr_
 access_mizan_wps_file_manager,mizan.wps.file.manager,model_mizan_wps_file,hr.group_hr_manager,1,1,1,1
 access_mizan_wps_line_user,mizan.wps.line.user,model_mizan_wps_line,hr.group_hr_user,1,1,1,0
 access_mizan_wps_line_manager,mizan.wps.line.manager,model_mizan_wps_line,hr.group_hr_manager,1,1,1,1
+access_mizan_wps_file_readonly,mizan.wps.file read-only,model_mizan_wps_file,account.group_account_readonly,1,0,0,0
+access_mizan_wps_line_readonly,mizan.wps.line read-only,model_mizan_wps_line,account.group_account_readonly,1,0,0,0

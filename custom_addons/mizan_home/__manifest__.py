@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Miqyas Home",
-    "version": "1.0",
+    "version": "1.1",
     "category": "Productivity",
     "summary": "The front door: every department, its key figures and its screens, on one page",
     "description": """Twenty-nine apps on the home screen is not access, it is a search problem.
@@ -22,6 +22,8 @@ role: a site engineer sees their site, cash and tasks, not the ledger.
             "mizan_home/static/src/scss/home.scss",
             "mizan_home/static/src/xml/home.xml",
             "mizan_home/static/src/js/home.js",
+            "mizan_home/static/src/lang/lang_switch.xml",
+            "mizan_home/static/src/lang/lang_switch.js",
         ],
     },
     "post_init_hook": "post_init_hook",

@@ -26,12 +26,26 @@ a manager's behalf; if a client later needs September reopened for a genuine
 correction, that has to remain possible.
 """
 
-from ast import literal_eval
+import datetime
 from dateutil.relativedelta import relativedelta
 
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
+from odoo.tools.safe_eval import safe_eval, datetime as safe_datetime
 
+
+
+def _plain_domain(domain):
+    """Dates as ISO text: the stored domain must read back with plain literals,
+    and the ORM compares a date field to "2026-09-30" exactly as to a date."""
+    def plain(value):
+        if isinstance(value, (datetime.date, datetime.datetime)):
+            return fields.Datetime.to_string(value) if isinstance(value, datetime.datetime) \
+                else fields.Date.to_string(value)
+        if isinstance(value, (list, tuple)):
+            return type(value)(plain(v) for v in value)
+        return value
+    return [plain(leaf) for leaf in domain]
 
 class MizanMonthClose(models.Model):
     _name = "mizan.month.close"
@@ -276,7 +290,7 @@ class MizanMonthClose(models.Model):
                     "passed": not count,
                     "note": spec["note"],
                     "res_model": spec["model"],
-                    "domain": repr(domain),
+                    "domain": repr(_plain_domain(domain)),
                 })
             record.check_ids = [(0, 0, row) for row in rows]
             record.checked_on = fields.Datetime.now()
@@ -355,7 +369,7 @@ class MizanMonthCloseCheck(models.Model):
             "type": "ir.actions.act_window",
             "name": self.name,
             "res_model": self.res_model,
-            "domain": literal_eval(self.domain or "[]"),
+            "domain": safe_eval(self.domain or "[]", {"datetime": safe_datetime}),
             "view_mode": "list,form",
             "target": "current",
         }

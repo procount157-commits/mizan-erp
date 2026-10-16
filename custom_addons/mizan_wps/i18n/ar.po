@@ -138,3 +138,51 @@ msgstr "صافي المدفوع"
 #: model:ir.model.fields,field_description:mizan_wps.field_mizan_wps_line__payslip_id
 msgid "Payslip"
 msgstr "مسيّر الراتب"
+
+#. module: mizan_wps
+#. odoo-python
+#: code:addons/mizan_wps/models/wps.py:0
+msgid "%s has a net salary of zero."
+msgstr "صافي راتب %s صفر."
+
+#. module: mizan_wps
+#. odoo-python
+#: code:addons/mizan_wps/models/wps.py:0
+msgid "%s has no bank account on their record."
+msgstr "لا يوجد حساب بنكي في سجل %s."
+
+#. module: mizan_wps
+#. odoo-python
+#: code:addons/mizan_wps/models/wps.py:0
+msgid "%s has no Emirates ID / labour card number."
+msgstr "لا يوجد رقم هوية إماراتية / بطاقة عمل لـ %s."
+
+#. module: mizan_wps
+#. odoo-python
+#: code:addons/mizan_wps/models/wps.py:0
+msgid "%s: their bank has no SWIFT/BIC code — set it on the bank record, the file is rejected without it."
+msgstr "%s: البنك بلا رمز SWIFT/BIC — حدّده في سجل البنك، فالملف يُرفض بدونه."
+
+#. module: mizan_wps
+#. odoo-python
+#: code:addons/mizan_wps/models/wps.py:0
+msgid "New"
+msgstr "جديد"
+
+#. module: mizan_wps
+#. odoo-python
+#: code:addons/mizan_wps/models/wps.py:0
+msgid "No confirmed payslips found between %(start)s and %(end)s. Confirm the payslips first — a WPS file built from drafts would not match the ledger."
+msgstr "لا توجد قسائم رواتب مؤكدة بين %(start)s و%(end)s. أكّد القسائم أولاً — فملف WPS المبني من مسودات لن يطابق الدفاتر."
+
+#. module: mizan_wps
+#. odoo-python
+#: code:addons/mizan_wps/models/wps.py:0
+msgid "No employee records — collect the payslips first."
+msgstr "لا توجد سجلات موظفين — اجمع قسائم الرواتب أولاً."
+
+#. module: mizan_wps
+#. odoo-python
+#: code:addons/mizan_wps/models/wps.py:0
+msgid "The bank would reject this file:\n\n• %s"
+msgstr "سيرفض البنك هذا الملف:\n\n• %s"

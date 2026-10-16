@@ -1127,3 +1127,14 @@ msgstr "خطوة أُنهيت بدون الملف المطلوب."
 #: model_terms:ir.ui.view,arch_db:mizan_ops.view_start_form
 msgid "steps · about"
 msgstr "خطوات · نحو"
+
+#. module: mizan_ops
+#. odoo-python
+#: code:addons/mizan_ops/wizard/upload.py:0
+msgid "Choose the file to upload first."
+msgstr "اختر الملف المراد رفعه أولاً."
+
+#. module: mizan_ops
+#: model_terms:ir.ui.view,arch_db:mizan_ops.view_upload_form
+msgid "Not linked to a step? Upload anyway: the file goes to the Operations documents."
+msgstr "الملف غير مرتبط بخطوة؟ ارفعه على أي حال: سيُحفظ في مستندات العمليات."

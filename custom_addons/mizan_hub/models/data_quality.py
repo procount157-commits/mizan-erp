@@ -20,6 +20,8 @@ from ast import literal_eval
 
 from odoo import api, fields, models, _
 
+from .plain_domain import plain_domain
+
 
 class MizanDataQuality(models.TransientModel):
     _name = "mizan.data.quality"
@@ -98,7 +100,7 @@ class MizanDataQuality(models.TransientModel):
                 checks.append({
                     "name": name, "category": category, "severity": severity,
                     "count": count, "note": note, "res_model": model,
-                    "domain": repr(domain), "fix_method": fix_method or "",
+                    "domain": plain_domain(domain), "fix_method": fix_method or "",
                     "fixable": bool(fix_method),
                 })
 

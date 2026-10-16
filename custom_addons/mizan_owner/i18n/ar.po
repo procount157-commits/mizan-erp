@@ -546,3 +546,27 @@ msgstr ""
 #: code:addons/mizan_owner/static/src/xml/owner.xml:0
 msgid "مرحباً"
 msgstr ""
+
+#. module: mizan_owner
+#. odoo-javascript
+#: code:addons/mizan_owner/static/src/xml/owner.xml:0
+msgid "Hello"
+msgstr "مرحباً"
+
+#. module: mizan_owner
+#. odoo-javascript
+#: code:addons/mizan_owner/static/src/xml/owner.xml:0
+msgid "Projects"
+msgstr "المشاريع"
+
+#. module: mizan_owner
+#. odoo-javascript
+#: code:addons/mizan_owner/static/src/xml/owner.xml:0
+msgid "Latest activity"
+msgstr "آخر الحركات"
+
+#. module: mizan_owner
+#. odoo-javascript
+#: code:addons/mizan_owner/static/src/xml/owner.xml:0
+msgid "The page could not be loaded. Refresh the browser."
+msgstr "تعذّر تحميل الصفحة. حدّث المتصفح."

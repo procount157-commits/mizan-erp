@@ -17,7 +17,7 @@ class MizanOpsUpload(models.TransientModel):
                               domain=[("state", "=", "open")])
     task_id = fields.Many2one(
         "project.task", string="Step",
-        domain="[('mizan_case_id', '=', case_id)] if case_id else [('is_closed', '=', False), ('user_ids', 'in', uid)]")
+        domain="[('mizan_case_id', '=', case_id)] if case_id else [('is_closed', '=', False)]")
     file = fields.Binary(string="File", required=True, attachment=False)
     filename = fields.Char()
     note = fields.Char(string="What it is", help="Trade licence 2026, signed contract, receipt…")
@@ -30,16 +30,23 @@ class MizanOpsUpload(models.TransientModel):
 
     def action_upload(self):
         self.ensure_one()
-        target = self.task_id or self.case_id
-        if not target:
-            raise UserError(_("Choose the step or the file this document belongs to."))
-        attachment = self.env["ir.attachment"].create({
+        # Neither chosen: the document still goes somewhere everybody finds
+        # it — the Operations project — instead of refusing the upload.
+        target = self.task_id or self.case_id or self.env.ref("mizan_ops.project_ops")
+        if not self.file:
+            raise UserError(_("Choose the file to upload first."))
+        # The shared project is managers-only for writing; anyone with
+        # Operations access may still leave a document there, under their name.
+        shared = target._name == "project.project"
+        Attachment = self.env["ir.attachment"].sudo() if shared else self.env["ir.attachment"]
+        attachment = Attachment.create({
             "name": self.filename or (self.note or _("document")),
             "datas": self.file,
             "res_model": target._name,
             "res_id": target.id,
         })
-        target.message_post(
+        (target.sudo() if shared else target).message_post(
+            author_id=self.env.user.partner_id.id,
             body=self.note or _("File uploaded"),
             attachment_ids=[attachment.id],
             message_type="comment", subtype_xmlid="mail.mt_comment")

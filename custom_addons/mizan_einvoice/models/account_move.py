@@ -108,36 +108,36 @@ class AccountMove(models.Model):
         if self.mizan_einvoice_state == "na":
             raise UserError(_(
                 "e-invoicing applies to customer invoices issued by a UAE "
-                "company. %s is neither.", self.name))
+                "company. %s is neither.", self.display_name))
         if self.mizan_einvoice_issues:
             raise UserError(_(
                 "%(name)s cannot be issued as an e-invoice yet:\n\n%(issues)s",
-                name=self.name, issues=self.mizan_einvoice_issues))
+                name=self.display_name, issues=self.mizan_einvoice_issues))
         raise UserError(_(
-            "%s carries everything the UAE profile requires.", self.name))
+            "%s carries everything the UAE profile requires.", self.display_name))
 
     def action_mizan_generate_einvoice(self):
         """Build the UBL document and keep it on the invoice."""
         for move in self:
             if move.state != "posted":
                 raise UserError(_("Post %s before building its e-invoice.",
-                                  move.name))
+                                  move.display_name))
             if not move._mizan_einvoice_applies():
                 raise UserError(_(
                     "e-invoicing applies to customer invoices issued by a UAE "
-                    "company. %s is neither.", move.name))
+                    "company. %s is neither.", move.display_name))
             issues = move._mizan_einvoice_check()
             if issues:
                 raise UserError(_(
                     "%(name)s cannot be issued as an e-invoice yet:\n\n%(issues)s",
-                    name=move.name,
+                    name=move.display_name,
                     issues="\n".join("• %s" % issue for issue in issues)))
             builder = self.env["account.edi.xml.pint_ae"]
             xml_content, build_errors = builder._export_invoice(move)
             if build_errors:
                 raise UserError(_(
                     "The UAE profile rejected %(name)s:\n\n%(errors)s",
-                    name=move.name,
+                    name=move.display_name,
                     errors="\n".join("• %s" % e for e in build_errors)))
             attachment = self.env["ir.attachment"].create({
                 "name": builder._export_invoice_filename(move),

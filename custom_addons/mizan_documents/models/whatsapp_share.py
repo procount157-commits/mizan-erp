@@ -24,6 +24,8 @@ class MizanWhatsappMixin(models.AbstractModel):
 
     def _mizan_whatsapp_number(self, partner):
         """Return the partner's number as wa.me expects it: digits only."""
+        if not partner:
+            raise UserError(_("Choose the customer first: there is nobody to send this to on WhatsApp."))
         raw = partner.mobile or partner.phone or ""
         digits = "".join(ch for ch in raw if ch.isdigit())
         if not digits:

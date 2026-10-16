@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="mizan_home.LangSwitch">
+        <div class="o_mizan_lang">
+            <button type="button" class="btn btn-link o_nav_entry fw-bold px-2"
+                    t-on-click="toggle"
+                    t-att-title="isArabic ? 'Switch to English' : 'التبديل إلى العربية'"
+                    t-esc="isArabic ? 'EN' : 'ع'"/>
+        </div>
+    </t>
+</templates>

@@ -887,3 +887,27 @@ msgstr "ارفع كشف البنك"
 #: code:addons/mizan_home/models/home.py:0
 msgid "Owner's view"
 msgstr "صفحة المالك"
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/xml/home.xml:0
+msgid "Search"
+msgstr "بحث"
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/xml/home.xml:0
+msgid "Waiting for you"
+msgstr "ينتظرك الآن"
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/xml/home.xml:0
+msgid "Nothing is waiting for you."
+msgstr "لا شيء ينتظرك الآن."
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/xml/home.xml:0
+msgid "The page could not be loaded. Refresh the browser, and if it happens again tell the administrator."
+msgstr "تعذّر تحميل الصفحة. حدّث المتصفح، وإذا تكرر الأمر أخبر المسؤول."

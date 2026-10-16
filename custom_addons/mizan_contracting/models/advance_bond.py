@@ -139,7 +139,7 @@ class AccountMove(models.Model):
         for move in self:
             contract = move.mizan_contract_id
             if not contract:
-                raise UserError(_("Set the contract on %s first.", move.name))
+                raise UserError(_("Set the contract on %s first.", move.display_name))
             if move.mizan_advance_move_id:
                 raise UserError(_("Advance already recovered on %s.", move.name))
             if contract.advance_outstanding <= 0:

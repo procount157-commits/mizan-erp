@@ -108,7 +108,7 @@
         <field name="name">Documents</field>
         <field name="res_model">ir.attachment</field>
         <field name="view_mode">kanban,list,form</field>
-        <field name="domain">[('res_model', 'in', ['project.task', 'mizan.workflow.case'])]</field>
+        <field name="domain">[('res_model', 'in', ['project.task', 'mizan.workflow.case', 'project.project'])]</field>
         <field name="context">{'search_default_group_res_model': 0}</field>
     </record>
     <record id="action_ops_files_kanban" model="ir.actions.act_window.view">

@@ -688,3 +688,60 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mizan_core.report_mizan_invoice_document
 msgid "هذه فاتورة ضريبية صادرة وفق المرسوم بقانون اتحادي رقم (٨) لسنة ٢٠١٧\n                    بشأن ضريبة القيمة المضافة.<br/>\n                    This is a tax invoice issued under UAE Federal Decree-Law No. 8 of 2017."
 msgstr "هذه فاتورة ضريبية صادرة وفق المرسوم بقانون اتحادي رقم (٨) لسنة ٢٠١٧\n                    بشأن ضريبة القيمة المضافة.<br/>\n                    This is a tax invoice issued under UAE Federal Decree-Law No. 8 of 2017."
+
+#. module: mizan_core
+#. odoo-javascript
+#: code:addons/mizan_core/static/src/xml/quick_create.xml:0
+msgid "Quick add"
+msgstr "إضافة سريعة"
+
+#. module: mizan_core
+#. odoo-javascript
+#: code:addons/mizan_core/static/src/xml/quick_create.xml:0
+msgid "New"
+msgstr "جديد"
+
+#. module: mizan_core
+#: model_terms:ir.ui.view,arch_db:mizan_core.view_mizan_petty_approve_kanban
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: mizan_core
+#: model_terms:ir.ui.view,arch_db:mizan_core.view_mizan_petty_approve_kanban
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: mizan_core
+#: model_terms:ir.ui.view,arch_db:mizan_core.view_mizan_petty_approve_kanban
+msgid "Reject"
+msgstr "رفض"
+
+#. module: mizan_core
+#. odoo-python
+#: code:addons/mizan_core/models/res_company.py:0
+msgid "This document"
+msgstr "هذا المستند"
+
+#. module: mizan_core
+#. odoo-python
+#: code:addons/mizan_core/models/res_company.py:0
+msgid "App Icons"
+msgstr "أيقونات التطبيقات"
+
+#. module: mizan_core
+#. odoo-python
+#: code:addons/mizan_core/models/res_company.py:0
+msgid "Re-attached %(count)s icon(s). Reload the page with Ctrl+Shift+R — the browser keeps the old menu for a year."
+msgstr "أُعيد ربط %(count)s أيقونة. أعد تحميل الصفحة بـ Ctrl+Shift+R — فالمتصفح يحتفظ بالقائمة القديمة طويلاً."
+
+#. module: mizan_core
+#. odoo-python
+#: code:addons/mizan_core/models/res_company.py:0
+msgid "Every icon is already attached, but %(count)s menu(s) name a file that is not installed."
+msgstr "كل الأيقونات مربوطة، لكن %(count)s قائمة تشير إلى ملف غير مثبت."
+
+#. module: mizan_core
+#. odoo-python
+#: code:addons/mizan_core/models/res_company.py:0
+msgid "Every app icon is already attached and current."
+msgstr "كل أيقونات التطبيقات مربوطة ومحدّثة."
