@@ -20,10 +20,12 @@ html .o_web_client > .o_action_manager > .o_action.o_mizan_home {
     // The action manager does not scroll; its child must. min-height let the
     // page grow past the window and be clipped, so nothing below the first
     // screen could be reached.
+    display: block !important;
     height: 100%;
     flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     padding: 20px 20px 48px;
     font-size: 15px;

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Sees everything, changes nothing: the general manager's read-only
+         view of the books, plus the owner page and its notifications. -->
+    <record id="group_owner" model="res.groups">
+        <field name="name">Owner</field>
+        <field name="category_id" ref="mizan_hub.module_category_proaccount"/>
+        <field name="implied_ids" eval="[(4, ref('mizan_hub.group_general_manager'))]"/>
+        <field name="comment">Reads the books and the owner page; receives notifications when money moves. Cannot post or change anything.</field>
+    </record>
+</odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="mizan_owner.Page">
+        <div class="o_mizan_owner o_action">
+            <t t-if="state.data">
+                <header class="o_mo_head">
+                    <h1>مرحباً <t t-esc="state.data.name"/></h1>
+                    <p><t t-esc="state.data.company"/> · <t t-esc="state.data.date"/></p>
+                </header>
+                <div t-attf-class="o_mo_headline o_mo_#{state.data.mood}">
+                    <i t-attf-class="fa #{state.data.mood == 'good' ? 'fa-check-circle' : 'fa-exclamation-circle'}" role="img" title="status"/>
+                    <span t-esc="state.data.headline"/>
+                </div>
+                <div class="o_mo_cards">
+                    <button t-foreach="state.data.cards" t-as="c" t-key="c.key" type="button"
+                            t-attf-class="o_mo_card o_mo_tone_#{c.tone}" t-on-click="() => this.open(c.action)">
+                        <span class="o_mo_title" t-esc="c.title"/>
+                        <b class="o_mo_value"><bdi t-esc="c.value"/></b>
+                        <ul><li t-foreach="c.lines" t-as="l" t-key="l_index"><bdi t-esc="l"/></li></ul>
+                        <i class="fa fa-angle-left o_mo_more" role="img" title="details"/>
+                    </button>
+                </div>
+                <section class="o_mo_block" t-if="state.data.projects.length">
+                    <h2>المشاريع</h2>
+                    <button t-foreach="state.data.projects" t-as="p" t-key="p.name" type="button"
+                            class="o_mo_project" t-on-click="() => this.open(p.action)">
+                        <span t-attf-class="o_mo_dot o_mo_dot_#{p.tone}"/>
+                        <span class="o_mo_pname" t-esc="p.name"/>
+                        <span class="o_mo_pline" t-esc="p.line"/>
+                        <span class="o_mo_bar"><i t-attf-style="width: #{p.progress}%"/></span>
+                    </button>
+                </section>
+                <section class="o_mo_block" t-if="state.data.events.length">
+                    <h2>آخر الحركات</h2>
+                    <div t-foreach="state.data.events" t-as="e" t-key="e_index" class="o_mo_event">
+                        <i t-attf-class="fa #{e.icon}" role="img" title="event"/>
+                        <span t-esc="e.text"/>
+                        <small t-esc="e.date"/>
+                    </div>
+                </section>
+            </t>
+            <div t-elif="state.failed" class="o_mo_empty">تعذّر تحميل الصفحة. حدّث المتصفح.</div>
+            <div t-else="" class="o_mo_empty"><i class="fa fa-circle-o-notch fa-spin" role="img" title="loading"/></div>
+        </div>
+    </t>
+</templates>

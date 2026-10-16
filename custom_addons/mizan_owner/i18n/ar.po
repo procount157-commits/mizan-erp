@@ -1,0 +1,548 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_owner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-16 02:59+0000\n"
+"PO-Revision-Date: 2026-10-16 02:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/notify.py:0
+msgid "%(p)s paid %(a)s."
+msgstr "%(p)s دفع %(a)s."
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "%(p)s: %(a)s"
+msgstr "%(p)s: %(a)s"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "%(pct)s%% %(dir)s than last month"
+msgstr "%(dir)s من الشهر الماضي بـ %(pct)s%%"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "%s of it is over a month late"
+msgstr "منها %s متأخرة أكثر من شهر"
+
+#. module: mizan_owner
+#: model_terms:ir.ui.view,arch_db:mizan_owner.view_settings_owner
+msgid "A deposit, a withdrawal or a supplier bill at or above this amount notifies the owner at once."
+msgstr "إيداع أو سحب أو فاتورة مورد بهذا المبلغ أو أكثر يرسل إشعاراً فورياً للمالك."
+
+#. module: mizan_owner
+#: model:ir.model.fields,help:mizan_owner.field_res_company__mizan_owner_alert_amount
+#: model:ir.model.fields,help:mizan_owner.field_res_config_settings__mizan_owner_alert_amount
+msgid "A deposit, a withdrawal or a supplier bill at or above this amount sends the owner a notification at once."
+msgstr "إيداع أو سحب أو فاتورة مورد بهذا المبلغ أو أكثر يرسل إشعاراً فورياً للمالك."
+
+#. module: mizan_owner
+#: model_terms:ir.ui.view,arch_db:mizan_owner.view_settings_owner
+msgid "A notification for every sales invoice confirmed."
+msgstr "إشعار بكل فاتورة مبيعات تُؤكَّد."
+
+#. module: mizan_owner
+#: model_terms:ir.ui.view,arch_db:mizan_owner.view_settings_owner
+msgid "At 8 in the evening: cash, the day's money in and out, profit, what is owed and due."
+msgstr "الساعة 8 مساءً: النقد، وما دخل وخرج اليوم، والربح، وما لك وما عليك."
+
+#. module: mizan_owner
+#: model:ir.model,name:mizan_owner.model_account_bank_statement_line
+msgid "Bank Statement Line"
+msgstr "سطر كشف بنكي"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/notify.py:0
+msgid "Bank: %(i)s in, %(o)s out"
+msgstr "البنك: دخل %(i)s، خرج %(o)s"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/notify.py:0
+msgid "Bill %(n)s from %(p)s for %(a)s, due %(d)s."
+msgstr "فاتورة %(n)s من %(p)s بمبلغ %(a)s، تستحق %(d)s."
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Came in today: %s"
+msgstr "دخل اليوم: %s"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Cash and banks"
+msgstr "النقد والبنوك"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Cash in the banks"
+msgstr "النقد في البنوك"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Cash is short: it covers about %s weeks of spending."
+msgstr "النقد قليل: يكفي نحو %s أسابيع من المصاريف."
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/notify.py:0
+msgid "Cheque %(n)s from %(p)s for %(a)s was returned unpaid."
+msgstr "الشيك %(n)s من %(p)s بمبلغ %(a)s رُدّ بدون صرف."
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/notify.py:0
+msgid "Cheque bounced: %s"
+msgstr "شيك مرتجع: %s"
+
+#. module: mizan_owner
+#: model_terms:ir.ui.view,arch_db:mizan_owner.view_create_owner_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: mizan_owner
+#: model:ir.model,name:mizan_owner.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: mizan_owner
+#: model:ir.model,name:mizan_owner.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات "
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Covers about %s months of spending"
+msgstr "يكفي نحو %s أشهر من المصاريف"
+
+#. module: mizan_owner
+#: model_terms:ir.ui.view,arch_db:mizan_owner.view_create_owner_form
+msgid "Create and set the password"
+msgstr "أنشئ الحساب وحدّد كلمة المرور"
+
+#. module: mizan_owner
+#: model:ir.model,name:mizan_owner.model_mizan_owner_create
+#: model_terms:ir.ui.view,arch_db:mizan_owner.view_create_owner_form
+#: model_terms:ir.ui.view,arch_db:mizan_owner.view_settings_owner
+msgid "Create the owner's account"
+msgstr "إنشاء حساب المالك"
+
+#. module: mizan_owner
+#: model:ir.model.fields,field_description:mizan_owner.field_mizan_owner_create__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: mizan_owner
+#: model:ir.model.fields,field_description:mizan_owner.field_mizan_owner_create__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Customers owe you"
+msgstr "لك عند العملاء"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/notify.py:0
+msgid "Deposit in the bank: %s"
+msgstr "إيداع في البنك: %s"
+
+#. module: mizan_owner
+#: model:ir.model.fields,field_description:mizan_owner.field_mizan_owner_create__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Due from you this week"
+msgstr "عليك هذا الأسبوع"
+
+#. module: mizan_owner
+#: model:ir.model.fields,field_description:mizan_owner.field_mizan_owner_create__login
+msgid "Email (used to sign in)"
+msgstr "البريد (اسم الدخول)"
+
+#. module: mizan_owner
+#: model:ir.model.fields,field_description:mizan_owner.field_res_company__mizan_owner_daily_digest
+#: model:ir.model.fields,field_description:mizan_owner.field_res_config_settings__mizan_owner_daily_digest
+msgid "Evening summary"
+msgstr "ملخص المساء"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Everything you owe: %s"
+msgstr "كل ما عليك: %s"
+
+#. module: mizan_owner
+#: model:ir.model.fields,field_description:mizan_owner.field_mizan_owner_create__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/notify.py:0
+msgid "Invoice %(n)s to %(p)s for %(a)s."
+msgstr "فاتورة %(n)s إلى %(p)s بمبلغ %(a)s."
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Invoice %(n)s to %(p)s — %(a)s"
+msgstr "فاتورة %(n)s إلى %(p)s — %(a)s"
+
+#. module: mizan_owner
+#: model:ir.model,name:mizan_owner.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/notify.py:0
+msgid "Large supplier bill: %s"
+msgstr "فاتورة مورد كبيرة: %s"
+
+#. module: mizan_owner
+#: model:ir.model.fields,field_description:mizan_owner.field_mizan_owner_create__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: mizan_owner
+#: model:ir.model.fields,field_description:mizan_owner.field_mizan_owner_create__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Losing money: costs will pass the contract value"
+msgstr "خسارة: التكاليف ستتجاوز قيمة العقد"
+
+#. module: mizan_owner
+#: model:ir.actions.server,name:mizan_owner.cron_daily_digest_ir_actions_server
+msgid "Miqyas: owner's evening summary"
+msgstr "مقياس: ملخص المالك المسائي"
+
+#. module: mizan_owner
+#: model:ir.actions.server,name:mizan_owner.cron_weekly_digest_ir_actions_server
+msgid "Miqyas: owner's weekly summary"
+msgstr "مقياس: ملخص المالك الأسبوعي"
+
+#. module: mizan_owner
+#: model:ir.model.fields,field_description:mizan_owner.field_mizan_owner_create__mobile
+msgid "Mobile"
+msgstr "الجوال"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Most of what customers owe is more than a month late."
+msgstr "أغلب ما لك عند العملاء متأخر أكثر من شهر."
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/notify.py:0
+msgid "New invoice: %s"
+msgstr "فاتورة جديدة: %s"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "No sales or costs recorded yet this month"
+msgstr "لا مبيعات ولا تكاليف مسجلة بعد هذا الشهر"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Nothing over a month late"
+msgstr "لا شيء متأخر أكثر من شهر"
+
+#. module: mizan_owner
+#: model:ir.model.fields,field_description:mizan_owner.field_res_company__mizan_owner_notify_invoices
+#: model:ir.model.fields,field_description:mizan_owner.field_res_config_settings__mizan_owner_notify_invoices
+msgid "Notify every new sales invoice"
+msgstr "أشعر بكل فاتورة مبيعات جديدة"
+
+#. module: mizan_owner
+#: model:ir.model.fields,field_description:mizan_owner.field_res_company__mizan_owner_alert_amount
+#: model:ir.model.fields,field_description:mizan_owner.field_res_config_settings__mizan_owner_alert_amount
+msgid "Notify the owner from"
+msgstr "أشعر المالك ابتداءً من"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "On track: %s%% margin"
+msgstr "جيد: هامش %s%%"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Our cheques: %s"
+msgstr "شيكاتنا: %s"
+
+#. module: mizan_owner
+#: model:ir.actions.client,name:mizan_owner.action_owner_page
+#: model:ir.ui.menu,name:mizan_owner.menu_owner_root
+#: model:res.groups,name:mizan_owner.group_owner
+#: model_terms:ir.ui.view,arch_db:mizan_owner.view_settings_owner
+msgid "Owner"
+msgstr "المالك"
+
+#. module: mizan_owner
+#: model:ir.model,name:mizan_owner.model_mizan_owner
+msgid "Owner page"
+msgstr "صفحة المالك"
+
+#. module: mizan_owner
+#: model_terms:ir.ui.view,arch_db:mizan_owner.view_settings_owner
+msgid "Owner's account"
+msgstr "حساب المالك"
+
+#. module: mizan_owner
+#: model:ir.model.fields,field_description:mizan_owner.field_mizan_owner_create__name
+msgid "Owner's name"
+msgstr "اسم المالك"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Payment from %(p)s — %(a)s"
+msgstr "دفعة من %(p)s — %(a)s"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/notify.py:0
+msgid "Payment received: %s"
+msgstr "دفعة واردة: %s"
+
+#. module: mizan_owner
+#: model:ir.model,name:mizan_owner.model_account_payment
+msgid "Payments"
+msgstr "الدفعات"
+
+#. module: mizan_owner
+#: model:ir.model,name:mizan_owner.model_mizan_cheque
+msgid "Post-Dated Cheque"
+msgstr "شيك آجل"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Profit this month"
+msgstr "الربح هذا الشهر"
+
+#. module: mizan_owner
+#: model_terms:ir.ui.view,arch_db:mizan_owner.view_settings_owner
+msgid "Read-only on the books; opens on the owner page and receives notifications."
+msgstr "قراءة فقط في الدفاتر، يفتح على صفحة المالك ويستقبل الإشعارات."
+
+#. module: mizan_owner
+#: model:res.groups,comment:mizan_owner.group_owner
+msgid "Reads the books and the owner page; receives notifications when money moves. Cannot post or change anything."
+msgstr "يقرأ الدفاتر وصفحة المالك، ويستقبل الإشعارات عند حركة المال. لا يستطيع ترحيل أو تعديل أي شيء."
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Sales %(i)s · costs %(e)s"
+msgstr "مبيعات %(i)s · تكاليف %(e)s"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/wizard/create_owner.py:0
+msgid "Set the owner's password"
+msgstr "حدّد كلمة مرور المالك"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Since January: %s"
+msgstr "منذ يناير: %s"
+
+#. module: mizan_owner
+#: model_terms:ir.ui.view,arch_db:mizan_owner.view_settings_owner
+msgid "Sunday morning: the same, for the week."
+msgstr "صباح الأحد: نفس الملخص للأسبوع."
+
+#. module: mizan_owner
+#: model:ir.model.fields,field_description:mizan_owner.field_res_company__mizan_owner_weekly_digest
+#: model:ir.model.fields,field_description:mizan_owner.field_res_config_settings__mizan_owner_weekly_digest
+msgid "Sunday summary"
+msgstr "ملخص الأحد"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Supplier bills: %s"
+msgstr "فواتير الموردين: %s"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "The company is in good shape."
+msgstr "الشركة في وضع جيد."
+
+#. module: mizan_owner
+#: model_terms:ir.ui.view,arch_db:mizan_owner.view_create_owner_form
+msgid "The owner reads everything and changes nothing. Next you set the password yourself, then hand it to the owner."
+msgstr "المالك يقرأ كل شيء ولا يعدّل شيئاً. بعدها تحدد كلمة المرور بنفسك وتسلّمها للمالك."
+
+#. module: mizan_owner
+#: model_terms:ir.ui.view,arch_db:mizan_owner.view_settings_owner
+msgid "The owner's phone"
+msgstr "جوال المالك"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Thin margin: %s%%"
+msgstr "هامش ضعيف: %s%%"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "This month is at a loss so far."
+msgstr "هذا الشهر خاسر حتى الآن."
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/notify.py:0
+msgid "This week at %s"
+msgstr "هذا الأسبوع في %s"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/notify.py:0
+msgid "Today at %s"
+msgstr "اليوم في %s"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/wizard/create_owner.py:0
+msgid "Type the owner's email address; it is the sign-in name."
+msgstr "اكتب بريد المالك، فهو اسم الدخول."
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "Went out today: %s"
+msgstr "خرج اليوم: %s"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "What customers owe"
+msgstr "ما لك عند العملاء"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "What you owe"
+msgstr "ما عليك"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/notify.py:0
+msgid "Withdrawal from the bank: %s"
+msgstr "سحب من البنك: %s"
+
+#. module: mizan_owner
+#. odoo-javascript
+#: code:addons/mizan_owner/static/src/xml/owner.xml:0
+msgid "details"
+msgstr "التفاصيل"
+
+#. module: mizan_owner
+#. odoo-javascript
+#: code:addons/mizan_owner/static/src/xml/owner.xml:0
+msgid "event"
+msgstr "حركة"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "last month: %s"
+msgstr "الشهر الماضي: %s"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "less"
+msgstr "أقل"
+
+#. module: mizan_owner
+#. odoo-javascript
+#: code:addons/mizan_owner/static/src/xml/owner.xml:0
+msgid "loading"
+msgstr "جارٍ التحميل"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "million"
+msgstr "مليون"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "more"
+msgstr "أكثر"
+
+#. module: mizan_owner
+#. odoo-javascript
+#: code:addons/mizan_owner/static/src/xml/owner.xml:0
+msgid "status"
+msgstr "الحالة"
+
+#. module: mizan_owner
+#. odoo-python
+#: code:addons/mizan_owner/models/owner.py:0
+msgid "thousand"
+msgstr "ألف"
+
+#. module: mizan_owner
+#. odoo-javascript
+#: code:addons/mizan_owner/static/src/xml/owner.xml:0
+msgid "آخر الحركات"
+msgstr ""
+
+#. module: mizan_owner
+#. odoo-javascript
+#: code:addons/mizan_owner/static/src/xml/owner.xml:0
+msgid "المشاريع"
+msgstr ""
+
+#. module: mizan_owner
+#. odoo-javascript
+#: code:addons/mizan_owner/static/src/xml/owner.xml:0
+msgid "تعذّر تحميل الصفحة. حدّث المتصفح."
+msgstr ""
+
+#. module: mizan_owner
+#. odoo-javascript
+#: code:addons/mizan_owner/static/src/xml/owner.xml:0
+msgid "مرحباً"
+msgstr ""

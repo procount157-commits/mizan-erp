@@ -3,3 +3,5 @@
 mizan_home
 mizan_ops
 mizan_mail
+mizan_bank_pdf
+mizan_owner

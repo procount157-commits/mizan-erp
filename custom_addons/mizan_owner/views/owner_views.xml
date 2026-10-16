@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_owner_page" model="ir.actions.client">
+        <field name="name">Owner</field>
+        <field name="tag">mizan_owner</field>
+    </record>
+
+    <menuitem id="menu_owner_root" name="Owner" sequence="0"
+              web_icon="mizan_owner,static/description/icon.png"
+              action="action_owner_page"
+              groups="mizan_owner.group_owner,mizan_hub.group_general_manager,account.group_account_manager"/>
+
+    <record id="view_settings_owner" model="ir.ui.view">
+        <field name="name">res.config.settings.mizan.owner</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="Owner" name="mizan_owner" groups="base.group_system">
+                    <block title="The owner's phone">
+                        <setting string="Owner's account" help="Read-only on the books; opens on the owner page and receives notifications.">
+                            <button name="action_mizan_create_owner" type="object" string="Create the owner's account" icon="fa-user-plus" class="btn-link"/>
+                        </setting>
+                        <setting help="A deposit, a withdrawal or a supplier bill at or above this amount notifies the owner at once.">
+                            <field name="mizan_owner_alert_amount"/>
+                        </setting>
+                        <setting help="A notification for every sales invoice confirmed.">
+                            <field name="mizan_owner_notify_invoices"/>
+                        </setting>
+                        <setting help="At 8 in the evening: cash, the day's money in and out, profit, what is owed and due.">
+                            <field name="mizan_owner_daily_digest"/>
+                        </setting>
+                        <setting help="Sunday morning: the same, for the week.">
+                            <field name="mizan_owner_weekly_digest"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

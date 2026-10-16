@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 16:00 UTC = 20:00 in the UAE: the day is over, the owner is home. -->
+    <record id="cron_daily_digest" model="ir.cron">
+        <field name="name">Miqyas: owner's evening summary</field>
+        <field name="model_id" ref="model_mizan_owner"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_digest("day")</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="nextcall" eval="(DateTime.now().replace(hour=16, minute=0, second=0)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="cron_weekly_digest" model="ir.cron">
+        <field name="name">Miqyas: owner's weekly summary</field>
+        <field name="model_id" ref="model_mizan_owner"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_digest("week")</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">weeks</field>
+        <field name="nextcall" eval="(DateTime.now() + relativedelta(weekday=6)).replace(hour=5, minute=0, second=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+</odoo>

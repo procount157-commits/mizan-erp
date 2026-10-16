@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Say on the upload screen what now happens to the file. -->
+    <record id="view_statement_import_form_pdf" model="ir.ui.view">
+        <field name="name">account.statement.import.form.pdf</field>
+        <field name="model">account.statement.import</field>
+        <field name="inherit_id" ref="account_statement_import_file.account_statement_import_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//ul[@id='statement_format']" position="inside">
+                <li>PDF statement from the bank (any bank that prints a running balance)</li>
+            </xpath>
+            <xpath expr="//field[@name='statement_file']" position="before">
+                <div class="alert alert-info" role="status">
+                    <b>PDF statements are read too.</b> Upload the statement as the bank gives it — PDF, Excel, CSV or CAMT.
+                    It is imported only if every row adds up to the bank's own balance, then reconciled automatically:
+                    what is certain is matched at once, the rest waits for your review with a proposal.
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <menuitem id="menu_upload_statement" name="Upload Bank Statement"
+              parent="account.menu_finance_entries" sequence="1"
+              action="account_statement_import_file.account_statement_import_action"
+              groups="account.group_account_invoice"/>
+</odoo>

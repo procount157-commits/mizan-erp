@@ -877,3 +877,13 @@ msgstr "عملاء بلا بريد إلكتروني"
 #: code:addons/mizan_home/models/home.py:0
 msgid "Email setup"
 msgstr "إعداد البريد"
+
+#. module: mizan_home
+#: code:addons/mizan_home/models/home.py:0
+msgid "Upload a bank statement"
+msgstr "ارفع كشف البنك"
+
+#. module: mizan_home
+#: code:addons/mizan_home/models/home.py:0
+msgid "Owner's view"
+msgstr "صفحة المالك"

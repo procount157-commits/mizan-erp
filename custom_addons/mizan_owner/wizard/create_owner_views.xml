@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_create_owner_form" model="ir.ui.view">
+        <field name="name">mizan.owner.create.form</field>
+        <field name="model">mizan.owner.create</field>
+        <field name="arch" type="xml">
+            <form string="Create the owner's account">
+                <div class="alert alert-info" role="status">
+                    The owner reads everything and changes nothing. Next you set the password yourself, then hand it to the owner.
+                </div>
+                <group>
+                    <field name="name"/>
+                    <field name="login" widget="email"/>
+                    <field name="mobile" widget="phone"/>
+                </group>
+                <footer>
+                    <button name="action_create" type="object" string="Create and set the password" class="btn-primary"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

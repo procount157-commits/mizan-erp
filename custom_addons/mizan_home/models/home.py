@@ -347,6 +347,8 @@ class MizanHome(models.AbstractModel):
                 fig(_("Bank lines unexplained"), str(open_lines or 0), "watch" if open_lines else "good",
                     link(_("Bank reconciliation"), "mizan_core.action_mizan_bank_reconcile")),
             ], [
+                link(_("Upload a bank statement"), "account_statement_import_file.account_statement_import_action",
+                     icon="fa-cloud-upload") if accountant else None,
                 link(_("Cheques received"), "mizan_cheque.action_mizan_cheque_received", icon="fa-arrow-circle-down"),
                 link(_("Cheques issued"), "mizan_cheque.action_mizan_cheque_issued", icon="fa-arrow-circle-up"),
                 link(_("Bounced & under claim"), "mizan_cheque.action_mizan_cheque_claims", icon="fa-exclamation-circle",
@@ -492,6 +494,7 @@ class MizanHome(models.AbstractModel):
         # ------------------------------------------------- reports
         if reads_books:
             section("reports", _("Reports"), "fa-bar-chart", [], [
+                link(_("Owner's view"), "mizan_owner.action_owner_page", icon="fa-mobile"),
                 link(_("Dashboard"), "mizan_hub.action_dashboard", icon="fa-tachometer"),
                 link(_("Profit & loss"), "mizan_core.action_profit_loss", icon="fa-line-chart"),
                 link(_("Balance sheet"), "mizan_core.action_balance_sheet", icon="fa-balance-scale"),

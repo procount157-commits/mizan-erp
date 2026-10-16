@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_create_owner_admin,mizan.owner.create.admin,model_mizan_owner_create,base.group_system,1,1,1,1
+access_cheque_owner,mizan.cheque.owner,mizan_cheque.model_mizan_cheque,mizan_owner.group_owner,1,0,0,0
+access_contract_owner,mizan.contract.owner,mizan_contracting.model_mizan_contract,mizan_owner.group_owner,1,0,0,0

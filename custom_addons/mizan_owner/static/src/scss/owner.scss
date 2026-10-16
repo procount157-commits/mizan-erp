@@ -1,0 +1,56 @@
+// The owner page: big, calm, read at a glance on a phone.
+$mo-green: #1BAE5A; $mo-dark: #0f3d24; $mo-ink: #1c2430; $mo-muted: #6b7686; $mo-line: #e4e9ef;
+
+.o_mizan_owner {
+    // A block, not the flex box Odoo gives .o_action: as a flex item the card
+    // grid sized itself to two cards and ran off the edge of a phone.
+    display: block !important;
+    height: 100%; flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    background: #f4f6fa; padding: 18px 16px 48px; font-size: 15px;
+    > * { max-width: 760px; margin-inline: auto; }
+    h1, h2 { margin: 0; color: $mo-ink; font-weight: 800; }
+    button { font: inherit; text-align: start; }
+
+    .o_mo_head { margin-bottom: 12px; h1 { font-size: 24px; } p { margin: 2px 0 0; color: $mo-muted; } }
+    .o_mo_headline {
+        display: flex; align-items: center; gap: 10px; border-radius: 14px; padding: 12px 14px;
+        font-weight: 700; margin-bottom: 14px; font-size: 16px;
+        &.o_mo_good { background: #e8f7ee; color: $mo-dark; i { color: $mo-green; } }
+        &.o_mo_watch { background: #fff6e5; color: #8a4b00; }
+        &.o_mo_bad { background: #fdecea; color: #a12a1f; }
+    }
+    .o_mo_cards { display: grid; gap: 12px; grid-template-columns: 1fr;
+        @media (min-width: 680px) { grid-template-columns: 1fr 1fr; } }
+    .o_mo_card {
+        position: relative; display: flex; flex-direction: column; gap: 4px; border: 1px solid $mo-line;
+        background: #fff; border-radius: 18px; padding: 16px 18px; cursor: pointer;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, .04); transition: transform .15s;
+        &:active { transform: scale(.99); }
+        .o_mo_title { color: $mo-muted; font-weight: 700; font-size: 14px; }
+        .o_mo_value { font-size: 28px; font-weight: 800; color: $mo-ink; line-height: 1.2; }
+        ul { list-style: none; padding: 0; margin: 6px 0 0; color: #4b5563; font-size: 14px;
+             li { padding: 2px 0; } li + li { border-top: 1px dashed $mo-line; } }
+        .o_mo_more { position: absolute; top: 18px; inset-inline-end: 16px; color: $mo-muted; }
+        &.o_mo_tone_hero { background: linear-gradient(160deg, #0f3d24, #168f4a); border: 0;
+            .o_mo_title, ul, .o_mo_more { color: rgba(255, 255, 255, .8); } .o_mo_value { color: #fff; font-size: 32px; }
+            li + li { border-color: rgba(255, 255, 255, .2); } }
+        &.o_mo_tone_good .o_mo_value { color: #168f4a; }
+        &.o_mo_tone_bad .o_mo_value { color: #c0392b; }
+        &.o_mo_tone_watch .o_mo_value { color: #b45309; }
+    }
+    .o_mo_block { margin-top: 18px; background: #fff; border: 1px solid $mo-line; border-radius: 18px; padding: 14px 16px;
+        h2 { font-size: 16px; margin-bottom: 8px; } }
+    .o_mo_project {
+        display: grid; grid-template-columns: 14px 1fr; gap: 2px 10px; width: 100%; border: 0; background: transparent;
+        padding: 10px 0; border-top: 1px solid $mo-line; cursor: pointer;
+        &:first-of-type { border-top: 0; }
+        .o_mo_dot { width: 12px; height: 12px; border-radius: 50%; margin-top: 6px; grid-row: span 3; }
+        .o_mo_dot_good { background: $mo-green; } .o_mo_dot_watch { background: #f5a524; } .o_mo_dot_bad { background: #e5484d; }
+        .o_mo_pname { font-weight: 700; color: $mo-ink; } .o_mo_pline { color: $mo-muted; font-size: 13.5px; }
+        .o_mo_bar { height: 6px; background: #eef1f5; border-radius: 9px; overflow: hidden; i { display: block; height: 100%; background: $mo-green; } }
+    }
+    .o_mo_event { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-top: 1px solid $mo-line;
+        &:first-of-type { border-top: 0; } i { color: $mo-green; width: 16px; } span { flex: 1; } small { color: $mo-muted; } }
+    .o_mo_empty { text-align: center; color: $mo-muted; padding: 60px 0; font-size: 18px; }
+}
