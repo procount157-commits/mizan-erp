@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_reset_form" model="ir.ui.view">
+        <field name="name">mizan.reset.data.form</field>
+        <field name="model">mizan.reset.data</field>
+        <field name="arch" type="xml">
+            <form string="Clean test data">
+                <div class="alert alert-danger" role="alert" invisible="result">
+                    Deletes every document and test record: entries, invoices, payments, bank lines,
+                    contracts, claims, subcontracts, plant, projects, tasks, expenses, orders, contacts,
+                    products and test employees. The chart of accounts, taxes, journals and the set-up stay.
+                    A full backup is taken first.
+                </div>
+                <group invisible="result">
+                    <field name="company_name"/>
+                    <field name="confirm" placeholder="Type the company name"/>
+                    <field name="archive_role_users"/>
+                    <field name="create_tester"/>
+                </group>
+                <div invisible="not result">
+                    <h3>Done</h3>
+                    <field name="result" nolabel="1"/>
+                </div>
+                <footer>
+                    <button name="action_reset" type="object" string="Delete the test data" class="btn-danger"
+                            invisible="result" confirm="This cannot be undone except from the backup. Continue?"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_reset" model="ir.actions.act_window">
+        <field name="name">Clean test data</field>
+        <field name="res_model">mizan.reset.data</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_reset" name="Clean test data" parent="base.menu_administration"
+              action="action_reset" sequence="99" groups="base.group_system"/>
+</odoo>

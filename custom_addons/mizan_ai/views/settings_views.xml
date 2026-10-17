@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_settings_ai" model="ir.ui.view">
+        <field name="name">res.config.settings.mizan.ai</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="AI" name="mizan_ai" groups="base.group_system">
+                    <block title="Reading supplier invoices">
+                        <setting string="AI service" help="Any OpenAI-compatible service. OpenRouter gives one key for many models, free ones included.">
+                            <field name="mizan_ai_provider"/>
+                            <div class="mt-2" invisible="mizan_ai_provider != 'custom'">
+                                <label for="mizan_ai_base_url"/> <field name="mizan_ai_base_url" placeholder="https://…/v1"/>
+                            </div>
+                            <div class="mt-2">
+                                <label for="mizan_ai_invoice_model"/> <field name="mizan_ai_invoice_model" placeholder="google/gemma-4-31b-it:free"/>
+                            </div>
+                        </setting>
+                        <setting string="API key" help="Typed here once, kept on the server, never shown again. Saved when you press Save.">
+                            <div invisible="not mizan_ai_key_set" class="text-success">
+                                <i class="fa fa-check-circle" title="Saved"/> A key is saved.
+                            </div>
+                            <div invisible="mizan_ai_key_set" class="text-danger">
+                                <i class="fa fa-exclamation-circle" title="Missing"/> No key yet.
+                            </div>
+                            <field name="mizan_ai_new_key" password="True"/>
+                            <field name="mizan_ai_key_set" invisible="1"/>
+                            <div class="mt-2">
+                                <button name="action_mizan_ai_test" type="object" string="Save and test" icon="fa-plug" class="btn-link"/>
+                                <button name="action_mizan_ai_forget_key" type="object" string="Remove the key" icon="fa-trash" class="btn-link text-danger"
+                                        invisible="not mizan_ai_key_set" confirm="Remove the saved AI key?"/>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

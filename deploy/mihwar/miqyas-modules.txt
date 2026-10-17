@@ -5,3 +5,5 @@ mizan_ops
 mizan_mail
 mizan_bank_pdf
 mizan_owner
+mizan_ai
+mizan_reset

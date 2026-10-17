@@ -1,0 +1,258 @@
+# Translation of Odoo Server.
+# 	* mizan_ai
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "No AI key yet. An administrator types it in Settings → AI."
+msgstr "لا يوجد مفتاح ذكاء اصطناعي بعد. يكتبه المسؤول في الإعدادات ← الذكاء الاصطناعي."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "Choose the AI service and model in Settings → AI."
+msgstr "اختر خدمة الذكاء الاصطناعي والنموذج في الإعدادات ← الذكاء الاصطناعي."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "The AI service could not be reached: %s"
+msgstr "تعذّر الوصول إلى خدمة الذكاء الاصطناعي: %s"
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "The AI service refused the key. Check it in Settings → AI."
+msgstr "رفضت خدمة الذكاء الاصطناعي المفتاح. راجعه في الإعدادات ← الذكاء الاصطناعي."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "The AI service's limit is reached for now (free models allow only so many requests). Try again in a minute."
+msgstr "بلغت خدمة الذكاء الاصطناعي حدّها حالياً (النماذج المجانية تسمح بعدد محدود من الطلبات). أعد المحاولة بعد دقيقة."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "The AI service answered with an error (%(code)s): %(text)s"
+msgstr "ردّت خدمة الذكاء الاصطناعي بخطأ (%(code)s): %(text)s"
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "The AI service sent an answer that could not be read."
+msgstr "أرسلت خدمة الذكاء الاصطناعي رداً تعذّرت قراءته."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "The AI did not return the invoice details. Try again, or another model."
+msgstr "لم يُرجع الذكاء الاصطناعي بيانات الفاتورة. أعد المحاولة أو جرّب نموذجاً آخر."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "AI connected"
+msgstr "تم الاتصال بالذكاء الاصطناعي"
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "The model answered: %s"
+msgstr "ردّ النموذج: %s"
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "Attach the supplier's invoice (PDF or photo) to the bill first."
+msgstr "أرفق فاتورة المورد (PDF أو صورة) بالفاتورة أولاً."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "The attachment is %s; attach a PDF or a photo of the invoice."
+msgstr "المرفق من نوع %s؛ أرفق ملف PDF أو صورة للفاتورة."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "AI reading is for supplier bills."
+msgstr "القراءة بالذكاء الاصطناعي لفواتير الموردين فقط."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "Reset %s to draft before reading it again."
+msgstr "أعِد %s إلى مسودة قبل قراءتها مرة أخرى."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "Supplier not found: %(name)s, TRN %(trn)s. Choose or create the supplier."
+msgstr "لم يُعثر على المورد: %(name)s، الرقم الضريبي %(trn)s. اختر المورد أو أنشئه."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "Lines add up to %(a)s; the invoice's subtotal is %(b)s."
+msgstr "مجموع البنود %(a)s؛ والمجموع قبل الضريبة في الفاتورة %(b)s."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "Subtotal %(s)s + VAT %(v)s = %(t)s; the invoice says %(i)s."
+msgstr "المجموع %(s)s + الضريبة %(v)s = %(t)s؛ والفاتورة تقول %(i)s."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "5%% of %(s)s is %(e)s; the invoice shows VAT %(v)s."
+msgstr "5%% من %(s)s تساوي %(e)s؛ والفاتورة تُظهر ضريبة %(v)s."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "The draft bill totals %(m)s; the invoice says %(i)s."
+msgstr "إجمالي المسودة %(m)s؛ والفاتورة تقول %(i)s."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "Supplier TRN %(trn)s has %(n)s digits (a UAE TRN has 15)."
+msgstr "الرقم الضريبي للمورد %(trn)s من %(n)s رقماً (الرقم الضريبي الإماراتي 15 رقماً)."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "Invoice %(ref)s from this supplier is already entered as %(twin)s."
+msgstr "الفاتورة %(ref)s من هذا المورد مُدخلة بالفعل في %(twin)s."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "No invoice lines were read. Enter them by hand."
+msgstr "لم تُقرأ أي بنود. أدخلها يدوياً."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "Read by AI. All checks passed — review and confirm."
+msgstr "قُرئت بالذكاء الاصطناعي. نجحت كل الفحوصات — راجعها ثم أكّدها."
+
+#. module: mizan_ai
+#. odoo-python
+#: code:addons/mizan_ai/models/account_move.py:0
+msgid "Read by AI. %s check(s) need attention before confirming."
+msgstr "قُرئت بالذكاء الاصطناعي. %s فحص يحتاج انتباهاً قبل التأكيد."
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_settings_ai
+msgid "AI"
+msgstr "الذكاء الاصطناعي"
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_settings_ai
+msgid "Reading supplier invoices"
+msgstr "قراءة فواتير الموردين"
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_settings_ai
+msgid "AI service"
+msgstr "خدمة الذكاء الاصطناعي"
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_settings_ai
+msgid "Any OpenAI-compatible service. OpenRouter gives one key for many models, free ones included."
+msgstr "أي خدمة متوافقة مع OpenAI. يعطيك OpenRouter مفتاحاً واحداً لنماذج كثيرة، منها مجانية."
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_settings_ai
+msgid "API key"
+msgstr "مفتاح API"
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_settings_ai
+msgid "Typed here once, kept on the server, never shown again. Saved when you press Save."
+msgstr "يُكتب هنا مرة واحدة، ويُحفظ على الخادم، ولا يظهر مرة أخرى. يُحفظ عند الضغط على حفظ."
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_settings_ai
+msgid "A key is saved."
+msgstr "يوجد مفتاح محفوظ."
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_settings_ai
+msgid "No key yet."
+msgstr "لا يوجد مفتاح بعد."
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_settings_ai
+msgid "Save and test"
+msgstr "احفظ واختبر"
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_settings_ai
+msgid "Remove the key"
+msgstr "احذف المفتاح"
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_settings_ai
+msgid "Remove the saved AI key?"
+msgstr "حذف مفتاح الذكاء الاصطناعي المحفوظ؟"
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_settings_ai
+msgid "Saved"
+msgstr "محفوظ"
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_settings_ai
+msgid "Missing"
+msgstr "غير موجود"
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_move_form_ai
+msgid "Read the invoice (AI)"
+msgstr "اقرأ الفاتورة (ذكاء اصطناعي)"
+
+#. module: mizan_ai
+#: model_terms:ir.ui.view,arch_db:mizan_ai.view_move_form_ai
+msgid "Read by AI"
+msgstr "قُرئت بالذكاء الاصطناعي"
+
+#. module: mizan_ai
+#: model:ir.model.fields,field_description:mizan_ai.field_res_config_settings__mizan_ai_provider
+msgid "AI service"
+msgstr "خدمة الذكاء الاصطناعي"
+
+#. module: mizan_ai
+#: model:ir.model.fields,field_description:mizan_ai.field_res_config_settings__mizan_ai_base_url
+msgid "Service address"
+msgstr "عنوان الخدمة"
+
+#. module: mizan_ai
+#: model:ir.model.fields,field_description:mizan_ai.field_res_config_settings__mizan_ai_invoice_model
+msgid "Model"
+msgstr "النموذج"
+
+#. module: mizan_ai
+#: model:ir.model.fields,field_description:mizan_ai.field_res_config_settings__mizan_ai_new_key
+msgid "New API key"
+msgstr "مفتاح API جديد"
+
+#. module: mizan_ai
+#: model:ir.model.fields,field_description:mizan_ai.field_account_move__mizan_ai_data
+msgid "What the AI read"
+msgstr "ما قرأه الذكاء الاصطناعي"
+
+#. module: mizan_ai
+#: model:ir.model.fields,field_description:mizan_ai.field_account_move__mizan_ai_checked
+msgid "Read by AI"
+msgstr "قُرئت بالذكاء الاصطناعي"

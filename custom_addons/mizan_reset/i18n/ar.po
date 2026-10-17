@@ -1,0 +1,102 @@
+# Translation of Odoo Server.
+# 	* mizan_reset
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+
+#. module: mizan_reset
+#: model:ir.actions.act_window,name:mizan_reset.action_reset
+#: model:ir.ui.menu,name:mizan_reset.menu_reset
+#: model_terms:ir.ui.view,arch_db:mizan_reset.view_reset_form
+msgid "Clean test data"
+msgstr "مسح البيانات التجريبية"
+
+#. module: mizan_reset
+#: model_terms:ir.ui.view,arch_db:mizan_reset.view_reset_form
+msgid "Deletes every document and test record: entries, invoices, payments, bank lines,\n                    contracts, claims, subcontracts, plant, projects, tasks, expenses, orders, contacts,\n                    products and test employees. The chart of accounts, taxes, journals and the set-up stay.\n                    A full backup is taken first."
+msgstr "يحذف كل المستندات والسجلات التجريبية: القيود، الفواتير، المدفوعات، حركات البنك، العقود، المستخلصات، مقاولي الباطن، الآليات، المشاريع، المهام، المصروفات، الأوامر، جهات الاتصال، المنتجات والموظفين التجريبيين. يبقى دليل الحسابات والضرائب والدفاتر والإعدادات. تؤخذ نسخة احتياطية كاملة أولاً."
+
+#. module: mizan_reset
+#: model_terms:ir.ui.view,arch_db:mizan_reset.view_reset_form
+msgid "Type the company name"
+msgstr "اكتب اسم الشركة"
+
+#. module: mizan_reset
+#: model_terms:ir.ui.view,arch_db:mizan_reset.view_reset_form
+msgid "Done"
+msgstr "تم"
+
+#. module: mizan_reset
+#: model_terms:ir.ui.view,arch_db:mizan_reset.view_reset_form
+msgid "Delete the test data"
+msgstr "احذف البيانات التجريبية"
+
+#. module: mizan_reset
+#: model_terms:ir.ui.view,arch_db:mizan_reset.view_reset_form
+msgid "This cannot be undone except from the backup. Continue?"
+msgstr "لا يمكن التراجع عن هذا إلا من النسخة الاحتياطية. متابعة؟"
+
+#. module: mizan_reset
+#: model_terms:ir.ui.view,arch_db:mizan_reset.view_reset_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: mizan_reset
+#: model:ir.model.fields,field_description:mizan_reset.field_mizan_reset_data__company_name
+msgid "Company Name"
+msgstr "اسم الشركة"
+
+#. module: mizan_reset
+#: model:ir.model.fields,field_description:mizan_reset.field_mizan_reset_data__confirm
+msgid "Type the company name to confirm"
+msgstr "اكتب اسم الشركة للتأكيد"
+
+#. module: mizan_reset
+#: model:ir.model.fields,field_description:mizan_reset.field_mizan_reset_data__archive_role_users
+msgid "Archive the test users (engineers, accountant, manager…)"
+msgstr "أرشفة المستخدمين التجريبيين (المهندسون، المحاسب، المدير…)"
+
+#. module: mizan_reset
+#: model:ir.model.fields,field_description:mizan_reset.field_mizan_reset_data__create_tester
+msgid "Create the full-access test account (test@alamana.ae)"
+msgstr "إنشاء حساب الاختبار بكل الصلاحيات (test@alamana.ae)"
+
+#. module: mizan_reset
+#. odoo-python
+#: code:addons/mizan_reset/wizard.py:0
+msgid "Only an administrator can clean the data."
+msgstr "المسؤول وحده يستطيع مسح البيانات."
+
+#. module: mizan_reset
+#. odoo-python
+#: code:addons/mizan_reset/wizard.py:0
+msgid "Type the company name exactly as shown to confirm."
+msgstr "اكتب اسم الشركة كما هو ظاهر تماماً للتأكيد."
+
+#. module: mizan_reset
+#. odoo-python
+#: code:addons/mizan_reset/wizard.py:0
+msgid "The backup failed, so nothing was deleted: %s"
+msgstr "فشلت النسخة الاحتياطية، فلم يُحذف شيء: %s"
+
+#. module: mizan_reset
+#. odoo-python
+#: code:addons/mizan_reset/wizard.py:0
+msgid "The backup came out empty, so nothing was deleted."
+msgstr "خرجت النسخة الاحتياطية فارغة، فلم يُحذف شيء."
+
+#. module: mizan_reset
+#. odoo-python
+#: code:addons/mizan_reset/wizard.py:0
+msgid "Backup: %s"
+msgstr "النسخة الاحتياطية: %s"
+
+#. module: mizan_reset
+#. odoo-python
+#: code:addons/mizan_reset/wizard.py:0
+msgid "Set the test account's password"
+msgstr "حدّد كلمة مرور حساب الاختبار"

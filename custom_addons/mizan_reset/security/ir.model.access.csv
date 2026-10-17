@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mizan_reset_data_admin,mizan.reset.data.admin,model_mizan_reset_data,base.group_system,1,1,1,1
