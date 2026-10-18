@@ -10,6 +10,7 @@ whether every other active user should get the same password. Nothing is
 printed or stored except Odoo's own password hash.
 """
 import getpass
+import os
 import sys
 
 import odoo
@@ -33,7 +34,15 @@ def ask(prompt):
 
 
 def main():
-    odoo.tools.config.parse_config(["--config=/etc/odoo/odoo.conf"])
+    # The image's entrypoint passes the database login from HOST/USER/PASSWORD
+    # (POSTGRES_* locally); run directly, this script has to do the same.
+    args = ["--config=/etc/odoo/odoo.conf"]
+    for flag, names in (("--db_host", ("HOST",)), ("--db_user", ("USER", "POSTGRES_USER")),
+                        ("--db_password", ("PASSWORD", "POSTGRES_PASSWORD"))):
+        value = next((os.environ[n] for n in names if os.environ.get(n)), None)
+        if value and not (flag == "--db_user" and value == "root"):
+            args.append("%s=%s" % (flag, value))
+    odoo.tools.config.parse_config(args)
     with Registry(DB).cursor() as cr:
         env = api.Environment(cr, SUPERUSER_ID, {"active_test": False})
         Users = env["res.users"]
