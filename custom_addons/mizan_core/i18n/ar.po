@@ -745,3 +745,18 @@ msgstr "كل الأيقونات مربوطة، لكن %(count)s قائمة تش�
 #: code:addons/mizan_core/models/res_company.py:0
 msgid "Every app icon is already attached and current."
 msgstr "كل أيقونات التطبيقات مربوطة ومحدّثة."
+
+#. module: mizan_core
+#: model_terms:ir.ui.view,arch_db:mizan_core.view_mizan_petty_approve_kanban
+msgid "<i class=\"fa fa-check me-1\" title=\"Approve\"/>Approve"
+msgstr "<i class=\"fa fa-check me-1\" title=\"اعتماد\"/>اعتماد"
+
+#. module: mizan_core
+#: model_terms:ir.ui.view,arch_db:mizan_core.view_mizan_petty_approve_kanban
+msgid "<i class=\"fa fa-times me-1\" title=\"Reject\"/>Reject"
+msgstr "<i class=\"fa fa-times me-1\" title=\"رفض\"/>رفض"
+
+#. module: mizan_core
+#: model_terms:ir.ui.view,arch_db:mizan_core.view_mizan_petty_approve_kanban
+msgid "<i class=\"fa fa-user me-1\" title=\"Employee\"/>"
+msgstr "<i class=\"fa fa-user me-1\" title=\"الموظف\"/>"

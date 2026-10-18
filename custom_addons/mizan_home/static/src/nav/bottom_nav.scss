@@ -1,0 +1,59 @@
+// The phone's bottom bar and camera button. Only below Odoo's small
+// breakpoint; the component itself draws nothing on a computer.
+$mbn-green: #1BAE5A;
+$mbn-muted: #6b7686;
+$mbn-line: #e4e9ef;
+$mbn-height: 60px;
+
+.o_mizan_bottom_nav {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    height: calc(#{$mbn-height} + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
+    display: flex;
+    background: #fff;
+    border-top: 1px solid $mbn-line;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+
+    .o_mbn_item {
+        flex: 1 1 0;
+        min-width: 0;
+        border: 0;
+        background: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        padding: 6px 2px;
+        font-size: 11px;
+        color: $mbn-muted;
+        i { font-size: 21px; }
+        span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+        &.active { color: $mbn-green; font-weight: 700; }
+        &:active { background: #f1f5f3; }
+    }
+}
+
+.o_mizan_camera_fab {
+    position: fixed;
+    bottom: calc(#{$mbn-height} + 16px + env(safe-area-inset-bottom));
+    inset-inline-end: 16px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 0;
+    background: $mbn-green;
+    color: #fff;
+    font-size: 24px;
+    box-shadow: 0 6px 16px rgba(27, 174, 90, 0.4);
+    z-index: 1000;
+    &:active { transform: scale(0.96); }
+}
+
+// Room under the content so the last row is never hidden behind the bar.
+@media (max-width: 767.98px) {
+    .o_web_client .o_action_manager { padding-bottom: calc(#{$mbn-height} + env(safe-area-inset-bottom)); }
+}

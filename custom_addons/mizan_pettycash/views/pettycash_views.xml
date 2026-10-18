@@ -94,11 +94,92 @@
         </field>
     </record>
 
+    <!-- On a phone Odoo opens these as cards, not rows: the photograph,
+         the amount and the approval all on the card. -->
+    <record id="view_receipt_kanban" model="ir.ui.view">
+        <field name="name">hr.expense.sheet.petty.cash.kanban</field>
+        <field name="model">hr.expense.sheet</field>
+        <field name="priority">90</field>
+        <field name="arch" type="xml">
+            <kanban create="0" class="o_kanban_mobile o_mizan_receipt_kanban" default_order="create_date desc">
+                <field name="state"/>
+                <field name="currency_id"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex gap-3 align-items-start">
+                            <field name="mizan_photo" widget="image" options="{'size': [72, 72], 'zoom': true}"/>
+                            <div class="flex-grow-1 min-w-0">
+                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                    <strong class="text-truncate"><field name="name"/></strong>
+                                    <field name="state" widget="badge"
+                                           decoration-info="state == 'submit'"
+                                           decoration-success="state in ('approve', 'post', 'done')"
+                                           decoration-danger="state == 'cancel'"/>
+                                </div>
+                                <div class="text-muted small">
+                                    <field name="employee_id"/> · <field name="mizan_date"/>
+                                </div>
+                                <div class="fs-4 fw-bold mt-1"><field name="total_amount" widget="monetary"/></div>
+                                <div t-if="record.state.raw_value == 'submit'" class="d-flex gap-2 mt-2"
+                                     groups="hr_expense.group_hr_expense_team_approver">
+                                    <button name="action_mizan_approve" type="object" class="btn btn-success flex-fill">
+                                        <i class="fa fa-check me-1" title="Approve"/>Approve
+                                    </button>
+                                    <button name="action_refuse_expense_sheets" type="object" class="btn btn-outline-danger flex-fill">
+                                        <i class="fa fa-times me-1" title="Refuse"/>Refuse
+                                    </button>
+                                </div>
+                                <div t-if="record.state.raw_value == 'approve'" class="mt-2"
+                                     groups="account.group_account_invoice">
+                                    <button name="action_mizan_post" type="object" class="btn btn-primary w-100">
+                                        <i class="fa fa-book me-1" title="Post"/>Post
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_balance_kanban" model="ir.ui.view">
+        <field name="name">mizan.petty.cash.balance.kanban</field>
+        <field name="model">mizan.petty.cash.balance</field>
+        <field name="arch" type="xml">
+            <kanban create="0" class="o_kanban_mobile">
+                <field name="tone"/>
+                <field name="currency_id"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <strong><field name="employee_id" widget="many2one_avatar_employee"/></strong>
+                            <span t-attf-class="badge rounded-pill text-bg-{{ record.tone.raw_value == 'bad' ? 'danger' : (record.tone.raw_value == 'watch' ? 'warning' : 'success') }}">
+                                <field name="available" widget="monetary"/>
+                            </span>
+                        </div>
+                        <div class="text-muted small mt-1">
+                            <span>Holding <field name="held" widget="monetary"/></span> ·
+                            <span><field name="waiting_count"/> waiting (<field name="waiting" widget="monetary"/>)</span>
+                        </div>
+                        <div class="text-muted small">Last top-up: <field name="last_paid"/></div>
+                        <button name="action_open_receipts" type="object" class="btn btn-link p-0 mt-1">
+                            <i class="fa fa-list me-1" title="Receipts"/>Receipts
+                        </button>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="action_my_receipts" model="ir.actions.act_window">
         <field name="name">My Petty Cash</field>
         <field name="res_model">hr.expense.sheet</field>
-        <field name="view_mode">list,form</field>
-        <field name="view_id" ref="view_receipt_list"/>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_receipt_list')}),
+            (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_receipt_kanban')}),
+            (0, 0, {'view_mode': 'form', 'view_id': False})]"/>
         <field name="domain">[('employee_id.user_id', '=', uid), ('mizan_advance_id', '!=', False)]</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">No receipts yet</p>
@@ -109,8 +190,11 @@
     <record id="action_approve_receipts" model="ir.actions.act_window">
         <field name="name">Receipts to Approve</field>
         <field name="res_model">hr.expense.sheet</field>
-        <field name="view_mode">list,form</field>
-        <field name="view_id" ref="view_receipt_list"/>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_receipt_list')}),
+            (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_receipt_kanban')}),
+            (0, 0, {'view_mode': 'form', 'view_id': False})]"/>
         <field name="domain">[('state', '=', 'submit'), ('mizan_advance_id', '!=', False)]</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Nothing waiting for you</p>
@@ -120,8 +204,11 @@
     <record id="action_post_receipts" model="ir.actions.act_window">
         <field name="name">Receipts to Post</field>
         <field name="res_model">hr.expense.sheet</field>
-        <field name="view_mode">list,form</field>
-        <field name="view_id" ref="view_receipt_list"/>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_receipt_list')}),
+            (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_receipt_kanban')}),
+            (0, 0, {'view_mode': 'form', 'view_id': False})]"/>
         <field name="domain">[('state', '=', 'approve'), ('mizan_advance_id', '!=', False)]</field>
     </record>
 

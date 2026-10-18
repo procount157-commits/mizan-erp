@@ -2,7 +2,7 @@
 <templates xml:space="preserve">
 
     <t t-name="mizan_core.QuickCreate">
-        <div class="o_mizan_quick_create">
+        <div class="o_mizan_quick_create" t-if="!state.hidden">
             <Dropdown menuClass="'o_mizan_quick_menu'">
                 <button class="o_mizan_quick_btn" title="Quick add">
                     <i class="fa fa-plus" role="img" aria-label="Quick create"/>

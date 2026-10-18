@@ -911,3 +911,51 @@ msgstr "لا شيء ينتظرك الآن."
 #: code:addons/mizan_home/static/src/xml/home.xml:0
 msgid "The page could not be loaded. Refresh the browser, and if it happens again tell the administrator."
 msgstr "تعذّر تحميل الصفحة. حدّث المتصفح، وإذا تكرر الأمر أخبر المسؤول."
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/nav/bottom_nav.js:0
+msgid "Owner"
+msgstr "المالك"
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/nav/bottom_nav.js:0
+msgid "Home"
+msgstr "الرئيسية"
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/nav/bottom_nav.js:0
+msgid "Petty cash"
+msgstr "العهدة"
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/nav/bottom_nav.js:0
+msgid "Operations"
+msgstr "العمليات"
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/nav/bottom_nav.js:0
+msgid "My work"
+msgstr "عملي"
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/nav/bottom_nav.js:0
+msgid "Chat"
+msgstr "المحادثة"
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/nav/bottom_nav.xml:0
+msgid "More"
+msgstr "المزيد"
+
+#. module: mizan_home
+#. odoo-javascript
+#: code:addons/mizan_home/static/src/nav/bottom_nav.xml:0
+msgid "Photograph a receipt"
+msgstr "صوّر إيصالاً"

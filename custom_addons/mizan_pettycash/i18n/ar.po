@@ -550,3 +550,63 @@ msgstr "تعويض عهدة"
 #: code:addons/mizan_pettycash/models/advance.py:0
 msgid "an advance"
 msgstr "سلفة"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_receipt_kanban
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_receipt_kanban
+msgid "Refuse"
+msgstr "رفض"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_receipt_kanban
+msgid "Post"
+msgstr "ترحيل"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_balance_kanban
+msgid "Holding"
+msgstr "في العهدة"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_balance_kanban
+msgid "waiting ("
+msgstr "قيد الاعتماد ("
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_balance_kanban
+msgid "Last top-up:"
+msgstr "آخر تعويض:"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_balance_kanban
+msgid "Receipts"
+msgstr "الإيصالات"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_receipt_kanban
+msgid "<i class=\"fa fa-check me-1\" title=\"Approve\"/>Approve"
+msgstr "<i class=\"fa fa-check me-1\" title=\"اعتماد\"/>اعتماد"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_receipt_kanban
+msgid "<i class=\"fa fa-times me-1\" title=\"Refuse\"/>Refuse"
+msgstr "<i class=\"fa fa-times me-1\" title=\"رفض\"/>رفض"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_receipt_kanban
+msgid "<i class=\"fa fa-book me-1\" title=\"Post\"/>Post"
+msgstr "<i class=\"fa fa-book me-1\" title=\"ترحيل\"/>ترحيل"
+
+#. module: mizan_pettycash
+#: model_terms:ir.ui.view,arch_db:mizan_pettycash.view_balance_kanban
+msgid "<i class=\"fa fa-list me-1\" title=\"Receipts\"/>Receipts"
+msgstr "<i class=\"fa fa-list me-1\" title=\"الإيصالات\"/>الإيصالات"
+
+#. module: mizan_pettycash
+#: model:ir.model.fields,field_description:mizan_pettycash.field_hr_expense_sheet__mizan_date
+msgid "Date"
+msgstr "التاريخ"

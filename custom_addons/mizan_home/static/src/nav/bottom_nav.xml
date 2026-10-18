@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="mizan_home.BottomNav">
+        <nav t-if="ui.isSmall and items.length" class="o_mizan_bottom_nav d-print-none" role="navigation">
+            <t t-foreach="items" t-as="item" t-key="item.xmlid">
+                <button type="button" class="o_mbn_item" t-att-class="{ active: item.xmlid === current }"
+                        t-on-click="() => this.open(item)">
+                    <i t-attf-class="fa {{ item.icon }}" role="img" t-att-aria-label="item.label"/>
+                    <span t-esc="item.label"/>
+                </button>
+            </t>
+            <button type="button" class="o_mbn_item" t-on-click="more">
+                <i class="fa fa-th" role="img" aria-label="More"/>
+                <span>More</span>
+            </button>
+        </nav>
+        <button t-if="ui.isSmall and state.camera" type="button" class="o_mizan_camera_fab"
+                t-on-click="camera" title="Photograph a receipt">
+            <i class="fa fa-camera" role="img" aria-label="Photograph a receipt"/>
+        </button>
+    </t>
+</templates>

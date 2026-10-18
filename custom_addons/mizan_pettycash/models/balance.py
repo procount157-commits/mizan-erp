@@ -49,11 +49,16 @@ class MizanPettyCashBalance(models.TransientModel):
     def action_refresh(self):
         self.search([("create_uid", "=", self.env.uid)]).unlink()
         self.create(self._rows())
+        # Cards on a phone, rows on a computer: Odoo picks the kanban when
+        # the screen is small and it is in the list.
         return {
             "type": "ir.actions.act_window",
             "name": _("Petty Cash Balances"),
             "res_model": self._name,
-            "view_mode": "list",
+            "view_mode": "list,kanban",
+            "views": [[self.env.ref("mizan_pettycash.view_balance_list").id, "list"],
+                      [self.env.ref("mizan_pettycash.view_balance_kanban").id, "kanban"]],
+            "mobile_view_mode": "kanban",
             "target": "current",
             "domain": [("create_uid", "=", self.env.uid)],
         }
@@ -64,7 +69,11 @@ class MizanPettyCashBalance(models.TransientModel):
             "type": "ir.actions.act_window",
             "name": self.employee_id.name,
             "res_model": "hr.expense.sheet",
-            "view_mode": "list,form",
+            "view_mode": "list,kanban,form",
+            "views": [[self.env.ref("mizan_pettycash.view_receipt_list").id, "list"],
+                      [self.env.ref("mizan_pettycash.view_receipt_kanban").id, "kanban"],
+                      [False, "form"]],
+            "mobile_view_mode": "kanban",
             "domain": [("employee_id", "=", self.employee_id.id),
                        ("mizan_advance_id", "!=", False)],
         }

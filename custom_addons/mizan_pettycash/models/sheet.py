@@ -11,12 +11,21 @@ class HrExpenseSheet(models.Model):
         help="The photograph, on the approval list itself: the manager "
              "approves what he can see, without opening each claim.")
 
+    mizan_date = fields.Date(
+        string="Date", compute="_compute_mizan_date",
+        help="The receipt's date, as a date: a claim has none of its own.")
+
     def _compute_mizan_photo(self):
         for sheet in self:
             attachment = sheet.expense_line_ids[:1].message_main_attachment_id
             sheet.mizan_photo = (attachment.datas if attachment
                                  and (attachment.mimetype or "").startswith("image/")
                                  else False)
+
+    def _compute_mizan_date(self):
+        for sheet in self:
+            line = sheet.expense_line_ids[:1]
+            sheet.mizan_date = line.date or (sheet.create_date and sheet.create_date.date()) or False
 
     def action_sheet_move_post(self):
         """Posting a claim made against an advance also settles the advance.

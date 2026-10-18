@@ -1,8 +1,9 @@
 /** @odoo-module **/
 
-import { Component } from "@odoo/owl";
+import { Component, onWillStart, useState } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
+import { user } from "@web/core/user";
 import { Dropdown } from "@web/core/dropdown/dropdown";
 import { DropdownItem } from "@web/core/dropdown/dropdown_item";
 import { _t } from "@web/core/l10n/translation";
@@ -50,6 +51,12 @@ export class MizanQuickCreate extends Component {
     setup() {
         this.action = useService("action");
         this.entries = ENTRIES;
+        this.state = useState({ hidden: false });
+        // An owner reads the books; a button that creates documents only
+        // gets in the way on a phone's top bar.
+        onWillStart(async () => {
+            this.state.hidden = await user.hasGroup("mizan_owner.group_owner");
+        });
     }
 
     onSelect(entry) {
