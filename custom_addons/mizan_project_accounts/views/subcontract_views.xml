@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_subcontract_form_accounts" model="ir.ui.view">
+        <field name="name">mizan.subcontract.form.accounts</field>
+        <field name="model">mizan.subcontract</field>
+        <field name="inherit_id" ref="mizan_contracting.view_subcontract_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_pay" type="object" string="Pay" icon="fa-money" class="btn-primary"
+                        groups="account.group_account_invoice"/>
+                <button name="action_release_retention" type="object" string="Release retention" icon="fa-unlock"
+                        invisible="retention_held &lt;= 0" groups="account.group_account_invoice"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_form_subcontractor" model="ir.ui.view">
+        <field name="name">res.partner.form.subcontractor</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <field name="property_account_payable_id" position="before">
+                <field name="mizan_is_subcontractor"/>
+                <field name="mizan_sc_payable_account_id" invisible="not mizan_sc_payable_account_id"/>
+                <field name="mizan_sc_retention_account_id" invisible="not mizan_sc_retention_account_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_subcontract_payment_form" model="ir.ui.view">
+        <field name="name">mizan.subcontract.payment.form</field>
+        <field name="model">mizan.subcontract.payment</field>
+        <field name="arch" type="xml">
+            <form string="Pay a subcontractor">
+                <div class="alert alert-info" role="status">
+                    The subcontractor's account is debited with the bills settled; the bank takes what was paid
+                    and the subcontractor's retention account takes what is held back.
+                </div>
+                <group>
+                    <group>
+                        <field name="subcontract_id" options="{'no_create': True}"/>
+                        <field name="partner_id"/>
+                        <field name="contract_id"/>
+                        <field name="bill_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="bills_due"/>
+                    </group>
+                    <group>
+                        <field name="date"/>
+                        <field name="journal_id" options="{'no_create': True}"/>
+                        <field name="amount"/>
+                        <field name="retention_amount"/>
+                        <field name="total"/>
+                        <field name="reference"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_pay" type="object" string="Pay" class="btn-primary"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_subcontract_payment" model="ir.actions.act_window">
+        <field name="name">Pay a subcontractor</field>
+        <field name="res_model">mizan.subcontract.payment</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="view_subcontract_release_form" model="ir.ui.view">
+        <field name="name">mizan.subcontract.release.form</field>
+        <field name="model">mizan.subcontract.release</field>
+        <field name="arch" type="xml">
+            <form string="Release subcontractor retention">
+                <group>
+                    <field name="subcontract_id" options="{'no_create': True}"/>
+                    <field name="partner_id"/>
+                    <field name="held"/>
+                    <field name="amount"/>
+                    <field name="date"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="company_id" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="action_release" type="object" string="Release" class="btn-primary"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_subcontract_release" model="ir.actions.act_window">
+        <field name="name">Release subcontractor retention</field>
+        <field name="res_model">mizan.subcontract.release</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_sc_retention_register" model="ir.actions.act_window">
+        <field name="name">Retention held from subcontractors</field>
+        <field name="res_model">account.move.line</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_project_ledger_list"/>
+        <field name="domain">[('account_id.code', '=like', '2041%'), ('parent_state', '=', 'posted')]</field>
+        <field name="context">{'search_default_group_by_account': 1, 'create': 0}</field>
+    </record>
+
+    <menuitem id="menu_sc_money" name="Subcontractor Money" parent="mizan_core.menu_mizan_root"
+              sequence="16" groups="account.group_account_invoice"/>
+    <menuitem id="menu_sc_payment" name="Pay a Subcontractor" parent="menu_sc_money"
+              action="action_subcontract_payment" sequence="10"/>
+    <menuitem id="menu_sc_release" name="Release Retention" parent="menu_sc_money"
+              action="action_subcontract_release" sequence="20"/>
+    <menuitem id="menu_sc_retention_register" name="Retention Held" parent="menu_sc_money"
+              action="action_sc_retention_register" sequence="30"/>
+</odoo>

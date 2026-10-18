@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_progress_statement" model="ir.actions.report">
+        <field name="name">Progress Statement</field>
+        <field name="model">mizan.progress.claim</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">mizan_project_accounts.progress_statement</field>
+        <field name="report_file">mizan_project_accounts.progress_statement</field>
+        <field name="print_report_name">'Progress statement — %s' % object.name</field>
+        <field name="binding_model_id" ref="mizan_contracting.model_mizan_progress_claim"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- The cumulative statement: the contract as a whole, what was certified
+         before, what this claim adds, and what the client is asked for. -->
+    <template id="progress_statement">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="claim">
+                <t t-call="web.external_layout">
+                    <div class="page" dir="rtl" style="font-family: 'Cairo', 'Noto Naskh Arabic', sans-serif;">
+                        <h2 class="mb-1">كشف المستخلص / Progress Statement <span t-field="claim.name"/></h2>
+                        <table class="table table-sm table-borderless mb-3" style="width:100%">
+                            <tr>
+                                <td><strong>العقد / Contract:</strong> <span t-field="claim.contract_id.code"/> — <span t-field="claim.contract_id.name"/></td>
+                                <td><strong>العميل / Client:</strong> <span t-field="claim.partner_id.name"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>التاريخ / Date:</strong> <span t-field="claim.date"/></td>
+                                <td><strong>الفترة / Period:</strong> <span t-field="claim.period_start"/> – <span t-field="claim.period_end"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>قيمة العقد / Contract value:</strong> <span t-field="claim.contract_id.contract_value" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td>
+                                <td><strong>نسبة الإنجاز / % complete:</strong> <span t-esc="'%.1f%%' % claim.percent_complete"/></td>
+                            </tr>
+                        </table>
+
+                        <table class="table table-sm table-bordered" style="width:100%; font-size: 11px;">
+                            <thead>
+                                <tr class="table-light">
+                                    <th>البند</th>
+                                    <th>الوصف</th>
+                                    <th>الوحدة</th>
+                                    <th class="text-end">كمية العقد</th>
+                                    <th class="text-end">السعر</th>
+                                    <th class="text-end">سابق</th>
+                                    <th class="text-end">هذه الفترة</th>
+                                    <th class="text-end">تراكمي</th>
+                                    <th class="text-end">قيمة التراكمي</th>
+                                    <th class="text-end">%</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="claim.line_ids" t-as="line">
+                                    <td><span t-field="line.item_no"/></td>
+                                    <td><span t-field="line.name"/></td>
+                                    <td><span t-field="line.unit"/></td>
+                                    <td class="text-end"><span t-field="line.quantity"/></td>
+                                    <td class="text-end"><span t-field="line.rate" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td>
+                                    <td class="text-end"><span t-field="line.previous_qty"/></td>
+                                    <td class="text-end"><span t-field="line.this_qty"/></td>
+                                    <td class="text-end"><span t-field="line.cumulative_qty"/></td>
+                                    <td class="text-end"><span t-field="line.cumulative_amount" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td>
+                                    <td class="text-end"><span t-esc="'%.1f' % line.percent_complete"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table table-sm mt-3" style="width: 60%; margin-inline-start: auto;">
+                            <tr><td>قيمة الأعمال المنفذة حتى تاريخه / Work done to date</td><td class="text-end"><span t-field="claim.work_done_to_date" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
+                            <tr><td>مواد بالموقع / Materials on site</td><td class="text-end"><span t-field="claim.materials_on_site" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
+                            <tr class="fw-bold"><td>الإجمالي التراكمي / Gross to date</td><td class="text-end"><span t-field="claim.gross_to_date" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
+                            <tr><td>ناقص: المعتمد سابقاً / Less previously certified</td><td class="text-end"><span t-field="claim.previous_certified" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
+                            <tr class="fw-bold"><td>قيمة هذه الفترة / This period</td><td class="text-end"><span t-field="claim.amount_this_period" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
+                            <tr><td>ناقص: المحتجزات <span t-esc="'%.0f%%' % claim.retention_percent"/> / Less retention</td><td class="text-end"><span t-field="claim.retention_amount" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
+                            <tr><td>ناقص: استرداد الدفعة المقدمة / Less advance recovery</td><td class="text-end"><span t-field="claim.advance_recovery" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
+                            <tr class="fw-bold table-light"><td>صافي المستحق قبل الضريبة / Net payable before VAT</td><td class="text-end"><span t-field="claim.net_payable" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
+                        </table>
+
+                        <t t-set="all_claims" t-value="claim.contract_id.claim_ids.filtered(lambda c: c.state not in ('draft', 'cancel')).sorted('sequence_no')"/>
+                        <h4 class="mt-4">سجل المستخلصات / Claims to date</h4>
+                        <table class="table table-sm table-bordered" style="width:100%; font-size: 11px;">
+                            <thead><tr class="table-light"><th>المستخلص</th><th>التاريخ</th><th class="text-end">تراكمي</th><th class="text-end">هذه الفترة</th><th class="text-end">%</th><th>الحالة</th></tr></thead>
+                            <tbody>
+                                <tr t-foreach="all_claims" t-as="c" t-att-class="'fw-bold' if c.id == claim.id else ''">
+                                    <td><span t-field="c.name"/></td>
+                                    <td><span t-field="c.date"/></td>
+                                    <td class="text-end"><span t-field="c.gross_to_date" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td>
+                                    <td class="text-end"><span t-field="c.amount_this_period" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td>
+                                    <td class="text-end"><span t-esc="'%.1f' % c.percent_complete"/></td>
+                                    <td><span t-field="c.state"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="mt-4 small text-muted">
+                            اعتمده / Certified by: <span t-field="claim.certified_by"/> — <span t-field="claim.certified_date"/>
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

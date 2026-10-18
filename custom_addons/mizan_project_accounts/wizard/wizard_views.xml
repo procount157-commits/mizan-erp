@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_customer_advance_form" model="ir.ui.view">
+        <field name="name">mizan.customer.advance.form</field>
+        <field name="model">mizan.customer.advance</field>
+        <field name="arch" type="xml">
+            <form string="Receive a customer advance">
+                <div class="alert alert-info" role="status">
+                    Two entries are posted: the advance credited to the client's project account through the
+                    clearing account, and the money into the bank. The client's credit offsets the claims that follow.
+                </div>
+                <group>
+                    <group>
+                        <field name="contract_id" options="{'no_create': True}"/>
+                        <field name="partner_id"/>
+                        <field name="date"/>
+                        <field name="journal_id" options="{'no_create': True}"/>
+                    </group>
+                    <group>
+                        <field name="suggested_amount" string="Per the contract"/>
+                        <field name="amount"/>
+                        <field name="reference"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_receive" type="object" string="Receive the advance" class="btn-primary"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_customer_advance" model="ir.actions.act_window">
+        <field name="name">Receive a customer advance</field>
+        <field name="res_model">mizan.customer.advance</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="view_customer_payment_form" model="ir.ui.view">
+        <field name="name">mizan.customer.payment.form</field>
+        <field name="model">mizan.customer.payment</field>
+        <field name="arch" type="xml">
+            <form string="Record a customer payment">
+                <div class="alert alert-info" role="status">
+                    The client pays part and keeps the retention: the bank takes what was received, the project's
+                    retention account takes what the client holds, and the client's account is credited with both.
+                </div>
+                <group>
+                    <group>
+                        <field name="contract_id" options="{'no_create': True}"/>
+                        <field name="partner_id"/>
+                        <field name="invoice_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="invoices_due"/>
+                    </group>
+                    <group>
+                        <field name="date"/>
+                        <field name="journal_id" options="{'no_create': True}"/>
+                        <field name="amount"/>
+                        <field name="retention_amount"/>
+                        <field name="total"/>
+                        <field name="reference"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_record" type="object" string="Record the payment" class="btn-primary"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_customer_payment" model="ir.actions.act_window">
+        <field name="name">Record a customer payment</field>
+        <field name="res_model">mizan.customer.payment</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="view_retention_release_form" model="ir.ui.view">
+        <field name="name">mizan.retention.release.form</field>
+        <field name="model">mizan.retention.release</field>
+        <field name="arch" type="xml">
+            <form string="Release of client retention">
+                <group>
+                    <field name="contract_id" options="{'no_create': True}"/>
+                    <field name="partner_id"/>
+                    <field name="held"/>
+                    <field name="amount"/>
+                    <field name="date"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="company_id" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="action_release" type="object" string="Release" class="btn-primary"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_retention_release" model="ir.actions.act_window">
+        <field name="name">Release of client retention</field>
+        <field name="res_model">mizan.retention.release</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- The advance register: what each client financed, per project. -->
+    <record id="action_advance_register" model="ir.actions.act_window">
+        <field name="name">Advances received</field>
+        <field name="res_model">account.move.line</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_project_ledger_list"/>
+        <field name="domain">[('move_id.mizan_source_kind', '=', 'advance'), ('account_id.account_type', '=', 'asset_receivable'), ('parent_state', '=', 'posted')]</field>
+        <field name="context">{'search_default_group_by_partner': 1, 'create': 0}</field>
+    </record>
+    <!-- The retention register: what each client still holds. -->
+    <record id="action_retention_register" model="ir.actions.act_window">
+        <field name="name">Client retention held</field>
+        <field name="res_model">account.move.line</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_project_ledger_list"/>
+        <field name="domain">[('account_id.code', '=like', '1073%'), ('parent_state', '=', 'posted')]</field>
+        <field name="context">{'search_default_group_by_account': 1, 'create': 0}</field>
+    </record>
+</odoo>

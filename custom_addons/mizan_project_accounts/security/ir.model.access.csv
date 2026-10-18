@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_customer_advance,mizan.customer.advance,model_mizan_customer_advance,account.group_account_invoice,1,1,1,1
+access_customer_payment,mizan.customer.payment,model_mizan_customer_payment,account.group_account_invoice,1,1,1,1
+access_retention_release,mizan.retention.release,model_mizan_retention_release,account.group_account_invoice,1,1,1,1
+access_subcontract_payment,mizan.subcontract.payment,model_mizan_subcontract_payment,account.group_account_invoice,1,1,1,1
+access_subcontract_release,mizan.subcontract.release,model_mizan_subcontract_release,account.group_account_invoice,1,1,1,1
+access_labour_card_user,mizan.labour.card.user,model_mizan_labour_card,mizan_site.group_site_engineer,1,1,1,0
+access_labour_card_account,mizan.labour.card.account,model_mizan_labour_card,account.group_account_invoice,1,1,1,1
+access_labour_day_user,mizan.labour.day.user,model_mizan_labour_day,mizan_site.group_site_engineer,1,1,1,1
+access_labour_day_account,mizan.labour.day.account,model_mizan_labour_day,account.group_account_invoice,1,1,1,1
+access_stock_issue_user,mizan.stock.issue.user,model_mizan_stock_issue,stock.group_stock_user,1,1,1,1
+access_stock_issue_eng,mizan.stock.issue.eng,model_mizan_stock_issue,mizan_site.group_site_engineer,1,1,1,1
+access_stock_issue_line_user,mizan.stock.issue.line.user,model_mizan_stock_issue_line,stock.group_stock_user,1,1,1,1
+access_stock_issue_line_eng,mizan.stock.issue.line.eng,model_mizan_stock_issue_line,mizan_site.group_site_engineer,1,1,1,1

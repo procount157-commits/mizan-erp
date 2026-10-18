@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- The project ledger: every line on the project's accounts, with where
+         it came from, so the CFO reads the job without asking anyone. -->
+    <record id="view_project_ledger_list" model="ir.ui.view">
+        <field name="name">account.move.line.project.ledger</field>
+        <field name="model">account.move.line</field>
+        <field name="priority">95</field>
+        <field name="arch" type="xml">
+            <list string="Project ledger" create="0" edit="0" default_order="date desc, id desc"
+                  decoration-muted="parent_state != 'posted'">
+                <field name="date"/>
+                <field name="move_name" string="Entry"/>
+                <field name="mizan_source"/>
+                <field name="account_id"/>
+                <field name="name"/>
+                <field name="partner_id" optional="show"/>
+                <field name="mizan_cost_code_id" optional="show"/>
+                <field name="debit" sum="Debit"/>
+                <field name="credit" sum="Credit"/>
+                <field name="balance" sum="Balance" optional="hide"/>
+                <field name="parent_state" column_invisible="1"/>
+                <field name="company_currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+</odoo>

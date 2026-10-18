@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_labour_card_list" model="ir.ui.view">
+        <field name="name">mizan.labour.card.list</field>
+        <field name="model">mizan.labour.card</field>
+        <field name="arch" type="xml">
+            <list string="Labour cards" editable="bottom">
+                <field name="employee_id"/>
+                <field name="trade"/>
+                <field name="daily_wage"/>
+                <field name="days_month"/>
+                <field name="cost_month"/>
+                <field name="currency_id" column_invisible="1"/>
+                <button name="action_open_days" type="object" string="Days" icon="fa-calendar"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_labour_card" model="ir.actions.act_window">
+        <field name="name">Labour cards</field>
+        <field name="res_model">mizan.labour.card</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No labour cards yet</p>
+            <p>One card per worker with the daily wage; the days are recorded on the daily labour screen.</p>
+        </field>
+    </record>
+
+    <record id="view_labour_day_list" model="ir.ui.view">
+        <field name="name">mizan.labour.day.list</field>
+        <field name="model">mizan.labour.day</field>
+        <field name="arch" type="xml">
+            <list string="Daily labour" editable="bottom" decoration-muted="state == 'posted'">
+                <header>
+                    <button name="action_post" type="object" string="Post to the projects" class="btn-primary"
+                            groups="account.group_account_invoice"/>
+                </header>
+                <field name="date"/>
+                <field name="card_id" options="{'no_create': True}"/>
+                <field name="contract_id" options="{'no_create': True}"/>
+                <field name="fraction"/>
+                <field name="daily_wage" optional="hide"/>
+                <field name="cost" sum="Total"/>
+                <field name="note" optional="show"/>
+                <field name="state" widget="badge" decoration-success="state == 'posted'"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_labour_day_kanban" model="ir.ui.view">
+        <field name="name">mizan.labour.day.kanban</field>
+        <field name="model">mizan.labour.day</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" quick_create="false">
+                <field name="state"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex justify-content-between">
+                            <strong><field name="card_id"/></strong>
+                            <field name="state" widget="badge" decoration-success="state == 'posted'"/>
+                        </div>
+                        <div class="text-muted small"><field name="date"/> · <field name="contract_id"/> · <field name="fraction"/></div>
+                        <div class="fw-bold"><field name="cost" widget="monetary"/></div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="view_labour_day_search" model="ir.ui.view">
+        <field name="name">mizan.labour.day.search</field>
+        <field name="model">mizan.labour.day</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="card_id"/>
+                <field name="contract_id"/>
+                <filter name="today" string="Today" domain="[('date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter name="to_post" string="To post" domain="[('state', '=', 'draft')]"/>
+                <group expand="0" string="Group by">
+                    <filter name="group_date" string="Day" context="{'group_by': 'date:day'}"/>
+                    <filter name="group_contract" string="Project" context="{'group_by': 'contract_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_labour_day" model="ir.actions.act_window">
+        <field name="name">Daily labour</field>
+        <field name="res_model">mizan.labour.day</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="context">{'search_default_today': 1, 'search_default_group_contract': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nobody recorded yet today</p>
+            <p>Add a line per worker: who, which project, how much of the day. Posting costs the project the same day.</p>
+        </field>
+    </record>
+
+    <record id="cron_labour_post" model="ir.cron">
+        <field name="name">Labour cards: post yesterday's days</field>
+        <field name="model_id" ref="model_mizan_labour_day"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_post_yesterday()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>

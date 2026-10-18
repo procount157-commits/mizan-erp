@@ -7,3 +7,4 @@ mizan_bank_pdf
 mizan_owner
 mizan_ai
 mizan_reset
+mizan_project_accounts

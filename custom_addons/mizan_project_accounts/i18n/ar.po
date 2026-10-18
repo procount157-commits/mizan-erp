@@ -1,0 +1,1419 @@
+# Translation of Odoo Server.
+# 	* mizan_project_accounts
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__receivable_account_id
+msgid "Client account"
+msgstr "حساب العميل"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__billing_account_id
+msgid "Billing account"
+msgstr "حساب الفوترة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__wip_account_id
+msgid "Work-in-progress account"
+msgstr "حساب التكاليف تحت التنفيذ"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__retention_account_id
+msgid "Client retention account"
+msgstr "حساب محتجزات العميل"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__cost_account_id
+msgid "Contract cost account"
+msgstr "حساب تكلفة العقد"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__stock_location_id
+msgid "Site location"
+msgstr "موقع المخزون بالمشروع"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__billing_mode
+msgid "Billing"
+msgstr "طريقة الفوترة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_contract__billing_mode__progress
+msgid "Progress claims (cumulative work)"
+msgstr "مستخلصات بنسبة الإنجاز (تراكمي)"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_contract__billing_mode__schedule
+msgid "Payment schedule (progress typed separately)"
+msgstr "دفعات حسب الجدول (نسبة الإنجاز تُدخل على حدة)"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__wip_balance
+msgid "WIP not yet recognised"
+msgstr "تكاليف تحت التنفيذ لم يُعترف بها"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__cost_recognised
+msgid "Cost recognised"
+msgstr "التكلفة المعترف بها"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__billed_net
+msgid "Billed (net of VAT)"
+msgstr "المفوتر (قبل الضريبة)"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__billing_balance
+msgid "Billing account balance"
+msgstr "رصيد حساب الفوترة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__client_balance
+msgid "Client owes"
+msgstr "المستحق على العميل"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__retention_balance
+msgid "Client holds (retention)"
+msgstr "محتجز لدى العميل"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_res_company__mizan_advance_clearing_account_id
+msgid "Customer advance clearing account"
+msgstr "حساب وسيط الدفعات المقدمة من العملاء"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_res_company__mizan_site_wages_account_id
+msgid "Accrued site wages account"
+msgstr "حساب أجور عمال المواقع المستحقة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_account_move_line__mizan_source
+msgid "Source"
+msgstr "المصدر"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move_line__mizan_source__bill
+msgid "Supplier bill"
+msgstr "فاتورة مورد"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move_line__mizan_source__subcontract
+msgid "Subcontractor bill"
+msgstr "فاتورة مقاول باطن"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move_line__mizan_source__petty
+msgid "Petty cash"
+msgstr "عهدة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move_line__mizan_source__expense
+msgid "Employee expense"
+msgstr "مصروف موظف"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move_line__mizan_source__payroll
+msgid "Payroll"
+msgstr "رواتب"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move_line__mizan_source__labour
+msgid "Labour card"
+msgstr "كارت عمال"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move_line__mizan_source__stock
+msgid "Stock issue"
+msgstr "صرف مخزون"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move_line__mizan_source__claim
+msgid "Progress claim"
+msgstr "مستخلص"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move_line__mizan_source__recognition
+msgid "Revenue recognition"
+msgstr "اعتراف بالإيراد"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move_line__mizan_source__advance
+msgid "Customer advance"
+msgstr "دفعة مقدمة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move_line__mizan_source__payment
+msgid "Payment"
+msgstr "سداد"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move_line__mizan_source__retention
+msgid "Retention"
+msgstr "محتجزات"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move_line__mizan_source__entry
+msgid "Journal entry"
+msgstr "قيد مباشر"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract_recognition__source
+msgid "Source"
+msgstr "المصدر"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_contract_recognition__source__cost
+msgid "By cost incurred (cost-to-cost)"
+msgstr "بنسبة التكلفة المنفقة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_contract_recognition__source__claim
+msgid "By progress claim"
+msgstr "بالمستخلص"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_contract_recognition__source__measured
+msgid "Measured progress (typed)"
+msgstr "نسبة إنجاز مُدخلة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract_recognition__measured_percent
+msgid "% complete to date"
+msgstr "نسبة الإنجاز حتى تاريخه"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract_recognition__claim_id
+msgid "Progress claim"
+msgstr "المستخلص"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract_recognition__cost_amount
+msgid "Cost recognised"
+msgstr "التكلفة المعترف بها"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract_recognition__revenue_reversed
+msgid "Revenue reduced"
+msgstr "تم تخفيض الإيراد"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.act_window,name:mizan_project_accounts.action_project_cards
+#: model:ir.ui.menu,name:mizan_project_accounts.menu_project_cards
+msgid "Projects"
+msgstr "المشاريع"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.report,name:mizan_project_accounts.report_progress_statement
+msgid "Progress Statement"
+msgstr "كشف المستخلص"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_contract_form_accounts
+msgid "Progress to date"
+msgstr "نسبة الإنجاز"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_recognition_progress_form
+msgid "Progress to date"
+msgstr "نسبة الإنجاز حتى تاريخه"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_contract_form_accounts
+msgid "Create project accounts"
+msgstr "إنشاء حسابات المشروع"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_contract_form_accounts
+msgid "Project accounts"
+msgstr "حسابات المشروع"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_contract_form_accounts
+msgid "Accounts"
+msgstr "الحسابات"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_contract_form_accounts
+msgid "From the ledger"
+msgstr "من الدفاتر"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_contract_form_accounts
+msgid "Project ledger"
+msgstr "دفتر المشروع"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_contract_form_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Costs"
+msgstr "التكاليف"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_contract_form_accounts
+msgid "Billing"
+msgstr "الفوترة"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_contract_form_accounts
+msgid "Client account"
+msgstr "حساب العميل"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_contract_form_accounts
+msgid "Retention"
+msgstr "المحتجزات"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Billed"
+msgstr "المفوتر"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Cost to date"
+msgstr "التكلفة حتى تاريخه"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Client owes"
+msgstr "على العميل"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Client holds"
+msgstr "محتجز لدى العميل"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Contract value"
+msgstr "قيمة العقد"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Revenue recognised"
+msgstr "الإيراد المعترف به"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "No project accounts yet. Open the contract and press \"Create project accounts\"."
+msgstr "لا توجد حسابات للمشروع بعد. افتح العقد واضغط «إنشاء حسابات المشروع»."
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "<i class=\"fa fa-book me-1\" title=\"Ledger\"/>Ledger"
+msgstr "<i class=\"fa fa-book me-1\" title=\"الدفتر\"/>الدفتر"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "<i class=\"fa fa-percent me-1\" title=\"Progress\"/>Progress"
+msgstr "<i class=\"fa fa-percent me-1\" title=\"نسبة الإنجاز\"/>نسبة الإنجاز"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "No running project yet"
+msgstr "لا يوجد مشروع جارٍ بعد"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Start a contract and its accounts, cost centre, project and site location are created for it."
+msgstr "ابدأ عقداً وتُنشأ له حساباته ومركز تكلفته ومشروعه وموقع مخزونه تلقائياً."
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_ledger_list
+msgid "Entry"
+msgstr "القيد"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_recognition_progress_form
+msgid "Type the percent of the contract completed to date. The entry books the revenue\n                    earned up to that percent (billing → contract revenue) and moves the cost sitting\n                    in work in progress to contract cost."
+msgstr "اكتب نسبة إنجاز العقد حتى تاريخه. يُسجَّل الإيراد المكتسب حتى هذه النسبة (من الفوترة إلى إيراد العقود) وتُنقل التكاليف من «تحت التنفيذ» إلى تكلفة العقد."
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_recognition_progress_form
+msgid "Post the progress"
+msgstr "ترحيل نسبة الإنجاز"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_recognition_progress_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/accounts.py:0
+msgid "All 99 project account numbers are used; extend the chart."
+msgstr "استُخدمت أرقام حسابات المشاريع التسعة والتسعون كلها؛ وسّع دليل الحسابات."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/accounts.py:0
+msgid "Project accounts created: %s"
+msgstr "أُنشئت حسابات المشروع: %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/accounts.py:0
+msgid "Project ledger — %s"
+msgstr "دفتر المشروع — %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/accounts.py:0
+msgid "Costs — %s"
+msgstr "التكاليف — %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/accounts.py:0
+msgid "Billing — %s"
+msgstr "الفوترة — %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/accounts.py:0
+msgid "Client account — %s"
+msgstr "حساب العميل — %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/accounts.py:0
+msgid "Retention — %s"
+msgstr "المحتجزات — %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/recognition.py:0
+msgid "Set the journal before posting."
+msgstr "حدّد الدفتر قبل الترحيل."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/recognition.py:0
+msgid "The percent complete must be between 0 and 100."
+msgstr "نسبة الإنجاز يجب أن تكون بين 0 و100."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/recognition.py:0
+msgid "Nothing to recognise: revenue for %(p).1f%% is already booked and WIP is empty."
+msgstr "لا شيء للاعتراف به: إيراد نسبة %(p).1f%% مسجّل بالفعل ولا توجد تكاليف تحت التنفيذ."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/recognition.py:0
+msgid "Revenue earned to %(p).1f%%"
+msgstr "الإيراد المكتسب حتى %(p).1f%%"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/recognition.py:0
+msgid "Contract revenue — %s"
+msgstr "إيراد العقد — %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/recognition.py:0
+msgid "Cost of work — %s"
+msgstr "تكلفة الأعمال — %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/recognition.py:0
+msgid "Transferred from work in progress"
+msgstr "محوّل من التكاليف تحت التنفيذ"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/recognition.py:0
+msgid "Recognition %(pct).1f%% — %(contract)s"
+msgstr "اعتراف %(pct).1f%% — %(contract)s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/recognition.py:0
+msgid "Progress to date"
+msgstr "نسبة الإنجاز حتى تاريخه"
+
+#. module: mizan_project_accounts
+#: model:ir.ui.menu,name:mizan_project_accounts.menu_labour_day
+msgid "Daily Labour"
+msgstr "العمالة اليومية"
+
+#. module: mizan_project_accounts
+#: model:ir.ui.menu,name:mizan_project_accounts.menu_labour_card
+msgid "Labour Cards"
+msgstr "كروت العمال"
+
+#. module: mizan_project_accounts
+#: model:ir.ui.menu,name:mizan_project_accounts.menu_stock_issue
+msgid "Stock Issues"
+msgstr "صرف المخزون"
+
+#. module: mizan_project_accounts
+#: model:ir.ui.menu,name:mizan_project_accounts.menu_client_money
+msgid "Client Money"
+msgstr "أموال العملاء"
+
+#. module: mizan_project_accounts
+#: model:ir.ui.menu,name:mizan_project_accounts.menu_customer_advance
+msgid "Receive an Advance"
+msgstr "استلام دفعة مقدمة"
+
+#. module: mizan_project_accounts
+#: model:ir.ui.menu,name:mizan_project_accounts.menu_customer_payment
+msgid "Record a Payment"
+msgstr "تسجيل سداد"
+
+#. module: mizan_project_accounts
+#: model:ir.ui.menu,name:mizan_project_accounts.menu_retention_release
+msgid "Release Retention"
+msgstr "إفراج عن محتجزات"
+
+#. module: mizan_project_accounts
+#: model:ir.ui.menu,name:mizan_project_accounts.menu_advance_register
+msgid "Advances Received"
+msgstr "الدفعات المقدمة المستلمة"
+
+#. module: mizan_project_accounts
+#: model:ir.ui.menu,name:mizan_project_accounts.menu_retention_register
+msgid "Retention Held by Clients"
+msgstr "محتجزات لدى العملاء"
+
+#. module: mizan_project_accounts
+#: model:ir.ui.menu,name:mizan_project_accounts.menu_sc_money
+msgid "Subcontractor Money"
+msgstr "أموال مقاولي الباطن"
+
+#. module: mizan_project_accounts
+#: model:ir.ui.menu,name:mizan_project_accounts.menu_sc_payment
+msgid "Pay a Subcontractor"
+msgstr "سداد مقاول باطن"
+
+#. module: mizan_project_accounts
+#: model:ir.ui.menu,name:mizan_project_accounts.menu_sc_release
+msgid "Release Retention"
+msgstr "إفراج عن محتجزات"
+
+#. module: mizan_project_accounts
+#: model:ir.ui.menu,name:mizan_project_accounts.menu_sc_retention_register
+msgid "Retention Held"
+msgstr "المحتجزات المحتفظ بها"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.act_window,name:mizan_project_accounts.action_labour_day
+msgid "Daily labour"
+msgstr "العمالة اليومية"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.act_window,name:mizan_project_accounts.action_labour_card
+msgid "Labour cards"
+msgstr "كروت العمال"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.act_window,name:mizan_project_accounts.action_stock_issue
+msgid "Stock issues"
+msgstr "صرف المخزون"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.act_window,name:mizan_project_accounts.action_customer_advance
+msgid "Receive a customer advance"
+msgstr "استلام دفعة مقدمة من عميل"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.act_window,name:mizan_project_accounts.action_customer_payment
+msgid "Record a customer payment"
+msgstr "تسجيل سداد عميل"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.act_window,name:mizan_project_accounts.action_retention_release
+msgid "Release of client retention"
+msgstr "إفراج عن محتجزات العميل"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.act_window,name:mizan_project_accounts.action_advance_register
+msgid "Advances received"
+msgstr "الدفعات المقدمة المستلمة"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.act_window,name:mizan_project_accounts.action_retention_register
+msgid "Client retention held"
+msgstr "محتجزات لدى العملاء"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.act_window,name:mizan_project_accounts.action_subcontract_payment
+msgid "Pay a subcontractor"
+msgstr "سداد مقاول باطن"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.act_window,name:mizan_project_accounts.action_subcontract_release
+msgid "Release subcontractor retention"
+msgstr "إفراج عن محتجزات مقاول باطن"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.act_window,name:mizan_project_accounts.action_sc_retention_register
+msgid "Retention held from subcontractors"
+msgstr "محتجزات مقاولي الباطن"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.report,name:mizan_project_accounts.report_stock_issue
+msgid "Stock issue voucher"
+msgstr "سند صرف مخزون"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_labour_card__employee_id
+msgid "Employee"
+msgstr "العامل"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_labour_card__daily_wage
+msgid "Daily wage"
+msgstr "الأجر اليومي"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_labour_card__trade
+msgid "Trade"
+msgstr "المهنة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_labour_card__days_month
+msgid "Days this month"
+msgstr "أيام هذا الشهر"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_labour_card__cost_month
+msgid "Cost this month"
+msgstr "تكلفة هذا الشهر"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_labour_card__day_ids
+msgid "Days"
+msgstr "الأيام"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_labour_day__card_id
+msgid "Worker"
+msgstr "العامل"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_labour_day__contract_id
+msgid "Project"
+msgstr "المشروع"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_labour_day__fraction
+msgid "Worked"
+msgstr "العمل"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_labour_day__cost
+msgid "Cost"
+msgstr "التكلفة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_labour_day__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_labour_day__move_id
+msgid "Entry"
+msgstr "القيد"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_labour_day__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_labour_day__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_stock_issue__contract_id
+msgid "Project"
+msgstr "المشروع"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_stock_issue__responsible_id
+msgid "Issued by"
+msgstr "أمين المخزن / المسؤول"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_stock_issue__received_by
+msgid "Received on site by"
+msgstr "المستلم بالموقع"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_stock_issue__line_ids
+msgid "Items"
+msgstr "الأصناف"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_stock_issue__picking_id
+msgid "Transfer"
+msgstr "حركة المخزون"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_stock_issue__move_id
+msgid "Entry"
+msgstr "القيد"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_stock_issue__value
+msgid "Value issued"
+msgstr "قيمة المصروف"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_stock_issue__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_stock_issue__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_stock_issue__note
+msgid "Note"
+msgstr "ملاحظات"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_stock_issue_line__product_id
+msgid "Product"
+msgstr "الصنف"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_stock_issue_line__quantity
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_stock_issue_line__on_hand
+msgid "On hand"
+msgstr "المتاح"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_stock_issue_line__value
+msgid "Value"
+msgstr "القيمة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_res_partner__mizan_is_subcontractor
+msgid "Subcontractor"
+msgstr "مقاول باطن"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_res_partner__mizan_sc_payable_account_id
+msgid "Subcontractor payable account"
+msgstr "حساب دائنية مقاول الباطن"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_res_partner__mizan_sc_retention_account_id
+msgid "Subcontractor retention account"
+msgstr "حساب محتجزات مقاول الباطن"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_advance__contract_id
+msgid "Contract"
+msgstr "العقد"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_advance__journal_id
+msgid "Received in"
+msgstr "مستلمة في"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_advance__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_advance__suggested_amount
+msgid "Suggested Amount"
+msgstr "المبلغ حسب العقد"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_advance__reference
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_advance__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_payment__contract_id
+msgid "Contract"
+msgstr "العقد"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_payment__invoice_ids
+msgid "Invoices paid"
+msgstr "الفواتير المسددة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_payment__journal_id
+msgid "Received in"
+msgstr "مستلم في"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_payment__invoices_due
+msgid "Open on the invoices"
+msgstr "المتبقي على الفواتير"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_payment__retention_amount
+msgid "Retention withheld by the client"
+msgstr "المحتجز لدى العميل"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_payment__amount
+msgid "Amount received"
+msgstr "المبلغ المستلم"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_payment__total
+msgid "Credited to the client"
+msgstr "المقيّد لحساب العميل"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_payment__reference
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_customer_payment__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_retention_release__contract_id
+msgid "Contract"
+msgstr "العقد"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_retention_release__held
+msgid "Held by the client"
+msgstr "لدى العميل"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_retention_release__amount
+msgid "Released"
+msgstr "المُفرج عنه"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_retention_release__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_subcontract_payment__subcontract_id
+msgid "Subcontract"
+msgstr "عقد الباطن"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_subcontract_payment__bill_ids
+msgid "Bills paid"
+msgstr "الفواتير المسددة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_subcontract_payment__bills_due
+msgid "Open on the bills"
+msgstr "المتبقي على الفواتير"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_subcontract_payment__retention_amount
+msgid "Retention withheld"
+msgstr "المحتجز"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_subcontract_payment__amount
+msgid "Amount paid"
+msgstr "المبلغ المدفوع"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_subcontract_payment__total
+msgid "Debited to the subcontractor"
+msgstr "المقيّد على مقاول الباطن"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_subcontract_payment__journal_id
+msgid "Paid from"
+msgstr "مدفوع من"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_subcontract_payment__reference
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_subcontract_payment__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_subcontract_release__subcontract_id
+msgid "Subcontract"
+msgstr "عقد الباطن"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_subcontract_release__held
+msgid "Held"
+msgstr "المحتجز"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_subcontract_release__amount
+msgid "Released"
+msgstr "المُفرج عنه"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_subcontract_release__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_account_move__mizan_source_kind
+msgid "Created by"
+msgstr "أُنشئ بواسطة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_labour_day__fraction__1
+msgid "Full day"
+msgstr "يوم كامل"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_labour_day__fraction__0.5
+msgid "Half day"
+msgstr "نصف يوم"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_labour_day__fraction__1.5
+msgid "Day and a half (overtime)"
+msgstr "يوم ونصف (إضافي)"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_labour_day__fraction__2
+msgid "Two shifts"
+msgstr "ورديتان"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_labour_day__state__draft
+msgid "To post"
+msgstr "للترحيل"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_labour_day__state__posted
+msgid "Posted"
+msgstr "مرحّل"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_stock_issue__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_stock_issue__state__done
+msgid "Issued"
+msgstr "مصروف"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_stock_issue__state__cancel
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move__mizan_source_kind__advance
+msgid "Customer advance"
+msgstr "دفعة مقدمة"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move__mizan_source_kind__payment
+msgid "Customer payment"
+msgstr "سداد عميل"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move__mizan_source_kind__sc_payment
+msgid "Subcontractor payment"
+msgstr "سداد مقاول باطن"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move__mizan_source_kind__retention
+msgid "Retention release"
+msgstr "إفراج عن محتجزات"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move__mizan_source_kind__labour
+msgid "Labour card"
+msgstr "كارت عمال"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields.selection,name:mizan_project_accounts.selection__account_move__mizan_source_kind__stock
+msgid "Stock issue"
+msgstr "صرف مخزون"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_labour_card_list
+msgid "Labour cards"
+msgstr "كروت العمال"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_labour_card_list
+msgid "Days"
+msgstr "الأيام"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_labour_day_list
+msgid "Daily labour"
+msgstr "العمالة اليومية"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_labour_day_list
+msgid "Post to the projects"
+msgstr "ترحيل على المشاريع"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_labour_day_search
+msgid "Today"
+msgstr "اليوم"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_labour_day_search
+msgid "To post"
+msgstr "للترحيل"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_labour_day_search
+msgid "Group by"
+msgstr "تجميع حسب"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_labour_day_search
+msgid "Day"
+msgstr "اليوم"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_labour_day_search
+msgid "Project"
+msgstr "المشروع"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.action_labour_card
+msgid "No labour cards yet"
+msgstr "لا توجد كروت عمال بعد"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.action_labour_card
+msgid "One card per worker with the daily wage; the days are recorded on the daily labour screen."
+msgstr "كارت لكل عامل بأجره اليومي؛ والأيام تُسجَّل في شاشة العمالة اليومية."
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.action_labour_day
+msgid "Nobody recorded yet today"
+msgstr "لم يُسجَّل أحد اليوم بعد"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.action_labour_day
+msgid "Add a line per worker: who, which project, how much of the day. Posting costs the project the same day."
+msgstr "أضف سطراً لكل عامل: من، وأي مشروع، وكم من اليوم. الترحيل يحمّل المشروع التكلفة في اليوم نفسه."
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_stock_issue_form
+msgid "Stock issue"
+msgstr "سند صرف مخزون"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_stock_issue_form
+msgid "Issue to the project"
+msgstr "صرف للمشروع"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_stock_issue_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_stock_issue_form
+msgid "Notes…"
+msgstr "ملاحظات…"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_stock_issue_list
+msgid "Stock issues"
+msgstr "سندات صرف المخزون"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.action_stock_issue
+msgid "No stock issued to a project yet"
+msgstr "لم يُصرف مخزون لمشروع بعد"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.action_stock_issue
+msgid "An issue voucher moves materials from the warehouse to the site and costs the project."
+msgstr "سند الصرف ينقل المواد من المخزن إلى الموقع ويحمّل المشروع تكلفتها."
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_customer_advance_form
+msgid "Receive a customer advance"
+msgstr "استلام دفعة مقدمة من عميل"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_customer_advance_form
+msgid ""
+"Two entries are posted: the advance credited to the client's project account through the\n"
+"                    clearing account, and the money into the bank. The client's credit offsets the claims that follow."
+msgstr "يُرحَّل قيدان: الدفعة لحساب العميل في المشروع عبر الحساب الوسيط، والمبلغ إلى البنك. ويُخصم رصيد العميل الدائن من المستخلصات التالية."
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_customer_advance_form
+msgid "Per the contract"
+msgstr "حسب العقد"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_customer_advance_form
+msgid "Receive the advance"
+msgstr "استلام الدفعة"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_customer_advance_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_customer_payment_form
+msgid "Record a customer payment"
+msgstr "تسجيل سداد عميل"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_customer_payment_form
+msgid ""
+"The client pays part and keeps the retention: the bank takes what was received, the project's\n"
+"                    retention account takes what the client holds, and the client's account is credited with both."
+msgstr "يدفع العميل جزءاً ويحتفظ بالمحتجزات: يأخذ البنك المستلم، ويأخذ حساب محتجزات المشروع ما احتفظ به العميل، ويُقيَّد المجموع لحساب العميل."
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_customer_payment_form
+msgid "Record the payment"
+msgstr "تسجيل السداد"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_customer_payment_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_retention_release_form
+msgid "Release of client retention"
+msgstr "إفراج عن محتجزات العميل"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_retention_release_form
+msgid "Release"
+msgstr "إفراج"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_retention_release_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_subcontract_payment_form
+msgid "Pay a subcontractor"
+msgstr "سداد مقاول باطن"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_subcontract_payment_form
+msgid ""
+"The subcontractor's account is debited with the bills settled; the bank takes what was paid\n"
+"                    and the subcontractor's retention account takes what is held back."
+msgstr "يُقيَّد على حساب مقاول الباطن ما سُدِّد من فواتيره؛ يأخذ البنك المدفوع، ويأخذ حساب محتجزاته ما احتُجز."
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_subcontract_payment_form
+msgid "Pay"
+msgstr "سداد"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_subcontract_payment_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_subcontract_release_form
+msgid "Release subcontractor retention"
+msgstr "إفراج عن محتجزات مقاول باطن"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_subcontract_release_form
+msgid "Release"
+msgstr "إفراج"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_subcontract_release_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_subcontract_form_accounts
+msgid "Pay"
+msgstr "سداد"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_subcontract_form_accounts
+msgid "Release retention"
+msgstr "إفراج عن المحتجزات"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_advance.py:0
+msgid "Type the amount received."
+msgstr "اكتب المبلغ المستلم."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_advance.py:0
+msgid "Advance from %(client)s — %(contract)s %(ref)s"
+msgstr "دفعة مقدمة من %(client)s — %(contract)s %(ref)s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_advance.py:0
+msgid "Advance received"
+msgstr "دفعة مقدمة مستلمة"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_advance.py:0
+msgid "Advance banked"
+msgstr "إيداع الدفعة المقدمة"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_advance.py:0
+msgid "Advance of %(a)s received on %(d)s (%(j)s)."
+msgstr "استُلمت دفعة مقدمة %(a)s بتاريخ %(d)s (%(j)s)."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_advance.py:0
+msgid "%(a)s credited to %(client)s on %(contract)s."
+msgstr "قُيِّد %(a)s لحساب %(client)s على %(contract)s."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_payment.py:0
+msgid "Type the amount received and the retention withheld."
+msgstr "اكتب المبلغ المستلم والمحتجز."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_payment.py:0
+msgid "%s has no retention account; create the project accounts first."
+msgstr "لا يوجد حساب محتجزات لـ %s؛ أنشئ حسابات المشروع أولاً."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_payment.py:0
+msgid "Payment from %s"
+msgstr "سداد من %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_payment.py:0
+msgid "Retention withheld by %s"
+msgstr "محتجزات لدى %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_payment.py:0
+msgid "Settlement — %s"
+msgstr "تسوية — %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_payment.py:0
+msgid "Payment %(ref)s — %(contract)s"
+msgstr "سداد %(ref)s — %(contract)s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_payment.py:0
+msgid "Payment recorded"
+msgstr "تم تسجيل السداد"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_payment.py:0
+msgid "%(a)s received, %(r)s held as retention, on %(contract)s."
+msgstr "استُلم %(a)s واحتُجز %(r)s على %(contract)s."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_payment.py:0
+msgid "The release cannot exceed what the client holds (%s)."
+msgstr "لا يمكن أن يتجاوز الإفراج ما لدى العميل (%s)."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_payment.py:0
+msgid "Retention released — %s"
+msgstr "إفراج عن محتجزات — %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/customer_payment.py:0
+msgid "Retention released by %s"
+msgstr "محتجزات أفرج عنها %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/subcontract_payment.py:0
+msgid "Type the amount paid and the retention withheld."
+msgstr "اكتب المبلغ المدفوع والمحتجز."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/subcontract_payment.py:0
+msgid "Payment to %s"
+msgstr "سداد إلى %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/subcontract_payment.py:0
+msgid "Retention withheld from %s"
+msgstr "محتجزات من %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/subcontract_payment.py:0
+msgid "Subcontractor payment %(ref)s — %(sc)s"
+msgstr "سداد مقاول باطن %(ref)s — %(sc)s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/subcontract_payment.py:0
+msgid "Subcontractor paid"
+msgstr "تم سداد مقاول الباطن"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/subcontract_payment.py:0
+msgid "%(a)s paid, %(r)s held as retention, on %(sc)s."
+msgstr "دُفع %(a)s واحتُجز %(r)s على %(sc)s."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/subcontract_payment.py:0
+msgid "The release cannot exceed what is held (%s)."
+msgstr "لا يمكن أن يتجاوز الإفراج المحتجز (%s)."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/subcontract_payment.py:0
+msgid "Retention released — %s"
+msgstr "إفراج عن محتجزات — %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/wizard/subcontract_payment.py:0
+msgid "Retention released to %s"
+msgstr "محتجزات أُفرج عنها لـ %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/subcontract.py:0
+msgid "All 99 subcontractor account numbers are used; extend the chart."
+msgstr "استُخدمت أرقام حسابات مقاولي الباطن كلها؛ وسّع دليل الحسابات."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/subcontract.py:0
+msgid "Pay a subcontractor"
+msgstr "سداد مقاول باطن"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/subcontract.py:0
+msgid "Release subcontractor retention"
+msgstr "إفراج عن محتجزات مقاول باطن"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/labour.py:0
+msgid "A posted labour day cannot be changed; reverse its entry instead."
+msgstr "لا يمكن تعديل يوم عمل مرحّل؛ اعكس قيده بدلاً من ذلك."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/labour.py:0
+msgid "A posted labour day cannot be deleted."
+msgstr "لا يمكن حذف يوم عمل مرحّل."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/labour.py:0
+msgid "Site labour %(d)s — %(c)s"
+msgstr "عمالة موقع %(d)s — %(c)s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/labour.py:0
+msgid "Labour %(d)s — %(c)s"
+msgstr "عمالة %(d)s — %(c)s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/stock_issue.py:0
+msgid "No warehouse in %s."
+msgstr "لا يوجد مستودع في %s."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/stock_issue.py:0
+msgid "Set the stock valuation account on the product category %s first."
+msgstr "حدّد حساب تقييم المخزون على فئة المنتج %s أولاً."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/stock_issue.py:0
+msgid "Add the items to issue."
+msgstr "أضف الأصناف المراد صرفها."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/stock_issue.py:0
+msgid "The transfer could not be completed: %s"
+msgstr "تعذّر إتمام حركة المخزون: %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/stock_issue.py:0
+msgid "Materials issued — %s"
+msgstr "مواد مصروفة — %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/stock_issue.py:0
+msgid "Stock issue %(n)s — %(c)s"
+msgstr "صرف مخزون %(n)s — %(c)s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/stock_issue.py:0
+msgid "%s is issued; return the materials with a new transfer instead."
+msgstr "%s مصروف بالفعل؛ أعد المواد بحركة جديدة."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/billing.py:0
+msgid "Raise the invoice for %s first."
+msgstr "أصدر فاتورة %s أولاً."

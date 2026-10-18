@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_stock_issue" model="ir.sequence">
+        <field name="name">Stock issue</field>
+        <field name="code">mizan.stock.issue</field>
+        <field name="prefix">ISS/%(year)s/</field>
+        <field name="padding">4</field>
+    </record>
+
+    <record id="view_stock_issue_form" model="ir.ui.view">
+        <field name="name">mizan.stock.issue.form</field>
+        <field name="model">mizan.stock.issue</field>
+        <field name="arch" type="xml">
+            <form string="Stock issue">
+                <header>
+                    <button name="action_issue" type="object" string="Issue to the project" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state != 'draft'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <h1><field name="name" readonly="1"/></h1>
+                    <group>
+                        <group>
+                            <field name="contract_id" options="{'no_create': True}" readonly="state != 'draft'"/>
+                            <field name="date" readonly="state != 'draft'"/>
+                            <field name="responsible_id" readonly="state != 'draft'"/>
+                            <field name="received_by" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="value"/>
+                            <field name="picking_id"/>
+                            <field name="move_id" groups="account.group_account_invoice"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <field name="line_ids" readonly="state != 'draft'">
+                        <list editable="bottom">
+                            <field name="product_id" options="{'no_create': True}"/>
+                            <field name="on_hand"/>
+                            <field name="quantity"/>
+                            <field name="uom_id"/>
+                            <field name="value"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                    <field name="note" placeholder="Notes…"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_stock_issue_list" model="ir.ui.view">
+        <field name="name">mizan.stock.issue.list</field>
+        <field name="model">mizan.stock.issue</field>
+        <field name="arch" type="xml">
+            <list string="Stock issues">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="contract_id"/>
+                <field name="responsible_id"/>
+                <field name="value" sum="Total"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_stock_issue" model="ir.actions.act_window">
+        <field name="name">Stock issues</field>
+        <field name="res_model">mizan.stock.issue</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No stock issued to a project yet</p>
+            <p>An issue voucher moves materials from the warehouse to the site and costs the project.</p>
+        </field>
+    </record>
+
+    <record id="report_stock_issue" model="ir.actions.report">
+        <field name="name">Stock issue voucher</field>
+        <field name="model">mizan.stock.issue</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">mizan_project_accounts.stock_issue_voucher</field>
+        <field name="report_file">mizan_project_accounts.stock_issue_voucher</field>
+        <field name="binding_model_id" ref="model_mizan_stock_issue"/>
+        <field name="binding_type">report</field>
+    </record>
+    <template id="stock_issue_voucher">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="issue">
+                <t t-call="web.external_layout">
+                    <div class="page" dir="rtl">
+                        <h2>سند صرف مخزون / Stock Issue Voucher <span t-field="issue.name"/></h2>
+                        <table class="table table-sm table-borderless" style="width:100%">
+                            <tr><td><strong>المشروع / Project:</strong> <span t-field="issue.contract_id.name"/></td>
+                                <td><strong>التاريخ / Date:</strong> <span t-field="issue.date"/></td></tr>
+                            <tr><td><strong>أمين المخزن / Issued by:</strong> <span t-field="issue.responsible_id.name"/></td>
+                                <td><strong>المستلم / Received by:</strong> <span t-field="issue.received_by"/></td></tr>
+                        </table>
+                        <table class="table table-sm table-bordered" style="width:100%">
+                            <thead><tr class="table-light"><th>الصنف</th><th class="text-end">الكمية</th><th>الوحدة</th><th class="text-end">القيمة</th></tr></thead>
+                            <tbody>
+                                <tr t-foreach="issue.line_ids" t-as="line">
+                                    <td><span t-field="line.product_id.display_name"/></td>
+                                    <td class="text-end"><span t-field="line.quantity"/></td>
+                                    <td><span t-field="line.uom_id.name"/></td>
+                                    <td class="text-end"><span t-field="line.value" t-options="{'widget': 'monetary', 'display_currency': issue.currency_id}"/></td>
+                                </tr>
+                            </tbody>
+                            <tfoot><tr class="fw-bold"><td colspan="3">الإجمالي / Total</td><td class="text-end"><span t-field="issue.value" t-options="{'widget': 'monetary', 'display_currency': issue.currency_id}"/></td></tr></tfoot>
+                        </table>
+                        <p t-if="issue.note"><span t-field="issue.note"/></p>
+                        <div class="row mt-5"><div class="col-6">توقيع أمين المخزن: ______________</div><div class="col-6">توقيع المستلم: ______________</div></div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

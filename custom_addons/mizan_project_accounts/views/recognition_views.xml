@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- The progress window: the percent reached, typed; the entry follows. -->
+    <record id="view_recognition_progress_form" model="ir.ui.view">
+        <field name="name">mizan.contract.recognition.progress</field>
+        <field name="model">mizan.contract.recognition</field>
+        <field name="priority">90</field>
+        <field name="arch" type="xml">
+            <form string="Progress to date">
+                <div class="alert alert-info" role="status">
+                    Type the percent of the contract completed to date. The entry books the revenue
+                    earned up to that percent (billing → contract revenue) and moves the cost sitting
+                    in work in progress to contract cost.
+                </div>
+                <group>
+                    <field name="contract_id" readonly="1" options="{'no_open': True}"/>
+                    <field name="date"/>
+                    <field name="measured_percent"/>
+                    <field name="source" invisible="1"/>
+                    <field name="journal_id" groups="account.group_account_manager"/>
+                    <field name="revenue_account_id" groups="account.group_account_manager"/>
+                    <field name="amount" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="action_post" type="object" string="Post the progress" class="btn-primary"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_recognition_form_accounts" model="ir.ui.view">
+        <field name="name">mizan.contract.recognition.form.accounts</field>
+        <field name="model">mizan.contract.recognition</field>
+        <field name="inherit_id" ref="mizan_contracting.view_mizan_recognition_form"/>
+        <field name="arch" type="xml">
+            <field name="amount" position="before">
+                <field name="source"/>
+                <field name="measured_percent" invisible="source == 'cost'"/>
+                <field name="claim_id" invisible="not claim_id"/>
+            </field>
+            <field name="amount" position="after">
+                <field name="cost_amount"/>
+                <field name="revenue_reversed" invisible="not revenue_reversed"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_recognition_list_accounts" model="ir.ui.view">
+        <field name="name">mizan.contract.recognition.list.accounts</field>
+        <field name="model">mizan.contract.recognition</field>
+        <field name="inherit_id" ref="mizan_contracting.view_mizan_recognition_list"/>
+        <field name="arch" type="xml">
+            <field name="amount" position="after">
+                <field name="cost_amount" optional="show"/>
+                <field name="source" optional="show"/>
+            </field>
+        </field>
+    </record>
+</odoo>
