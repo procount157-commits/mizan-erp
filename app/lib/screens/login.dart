@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../api.dart';
+import '../push.dart';
 import '../theme.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -46,6 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
       await Api.instance.login(_company.text, _email.text, _password.text);
       final p = await SharedPreferences.getInstance();
       await p.setString('email', _email.text.trim());
+      Push.register();
       if (mounted) Navigator.of(context).pushNamedAndRemoveUntil('/home', (_) => false);
     } catch (e) {
       setState(() => _error = e is ApiError ? e.message : 'تعذّر الاتصال. تأكد من الإنترنت.');

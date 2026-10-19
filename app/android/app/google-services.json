@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "709720510358",
+    "project_id": "miqyas-de71d",
+    "storage_bucket": "miqyas-de71d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709720510358:android:064c6f8ff18477c7f657b7",
+        "android_client_info": {
+          "package_name": "ae.miqyas.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq5XLnJkxzIVCoiZ7xWXKzamk2FAvJpxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

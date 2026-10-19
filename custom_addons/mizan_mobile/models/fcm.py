@@ -67,7 +67,7 @@ def send(account, tokens, title, body, data=None):
             "token": token,
             "notification": {"title": title[:120], "body": body[:400]},
             "data": {k: str(v) for k, v in (data or {}).items()},
-            "android": {"priority": "high", "notification": {"channel_id": "miqyas", "sound": "default"}},
+            "android": {"priority": "high", "notification": {"sound": "default"}},
         }}
         try:
             r = requests.post(url, json=message, headers={"Authorization": "Bearer %s" % auth}, timeout=20)

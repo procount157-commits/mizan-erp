@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../api.dart';
+import '../push.dart';
 import '../theme.dart';
 import 'alerts.dart';
 import 'approvals.dart';
@@ -36,6 +37,17 @@ class _ShellState extends State<Shell> {
   void initState() {
     super.initState();
     counts = Map<String, dynamic>.from(Api.instance.me?['counts'] ?? {});
+    // A notification while the app is open: show it and refresh the badges.
+    Push.onForeground((m) {
+      refreshCounts();
+      final n = m.notification;
+      if (n != null && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Text('${n.title ?? ''}\n${n.body ?? ''}'.trim()),
+        ));
+      }
+    });
   }
 
   Future<void> refreshCounts() async {

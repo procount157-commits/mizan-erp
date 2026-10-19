@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'api.dart';
+import 'push.dart';
 import 'screens/login.dart';
 import 'screens/shell.dart';
 import 'theme.dart';
@@ -27,7 +28,9 @@ Future<void> main() async {
       me = null;
     }
   }
+  await Push.init();
   runApp(MiqyasApp(signedIn: me != null));
+  if (me != null) Push.register();
 }
 
 class MiqyasApp extends StatelessWidget {

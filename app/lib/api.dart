@@ -55,6 +55,8 @@ class Api {
     }
   }
 
+  Future<dynamic> post(String path, Map<String, dynamic> params) => _post(path, params);
+
   Future<dynamic> _post(String path, Map<String, dynamic> params) async {
     final res = await http
         .post(Uri.parse('$base$path'),
