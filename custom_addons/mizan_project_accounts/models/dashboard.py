@@ -36,6 +36,11 @@ class MizanContract(models.Model):
         contracts.action_create_project_accounts()
         return contracts
 
+    def action_open_dashboard(self):
+        self.ensure_one()
+        return {"type": "ir.actions.client", "tag": "mizan_project_dashboard",
+                "name": self.name, "params": {"contract_id": self.id}}
+
     # ------------------------------------------------------------ the icons
     @api.model
     def get_project_grid(self):

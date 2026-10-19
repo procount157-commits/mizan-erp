@@ -111,3 +111,15 @@ html .o_web_client > .o_action_manager > .o_action.o_mizan_project {
                        payment: #4F46E5, retention: #DC2626, payroll: #0E7490) {
     .o_mpd_src_#{$key} { &.o_mpd_dot { background: $color; } &.o_mpd_badge { background: rgba($color, 0.12); color: darken($color, 8%); } }
 }
+
+// The same icons when the projects are shown as an Odoo kanban.
+.o_mizan_icon_kanban.o_kanban_view .o_kanban_renderer, .o_mizan_icon_kanban .o_kanban_renderer {
+    display: grid !important; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 22px 12px;
+    padding: 24px 20px; background: #f4f6fa;
+}
+.o_mizan_icon_kanban .o_kanban_record {
+    width: auto !important; min-width: 0 !important; margin: 0 !important; flex: none !important;
+    border: 0 !important; background: transparent !important; box-shadow: none !important; padding: 0 !important;
+    &::after { display: none; }
+}
+.o_mizan_icon_kanban .o_kanban_ghost { display: none !important; }

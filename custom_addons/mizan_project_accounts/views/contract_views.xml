@@ -67,71 +67,25 @@
         </field>
     </record>
 
-    <!-- The project cards: one per running contract, the figures that matter,
-         each one a door into its lines. -->
+    <!-- The projects as small square icons, like the app menu; the figures
+         live behind the icon, on the project's page. -->
     <record id="view_project_card_kanban" model="ir.ui.view">
         <field name="name">mizan.contract.project.kanban</field>
         <field name="model">mizan.contract</field>
         <field name="arch" type="xml">
-            <kanban class="o_kanban_mobile o_mizan_project_cards" create="0" default_order="code">
-                <field name="state"/>
-                <field name="currency_id"/>
-                <field name="has_project_accounts"/>
+            <kanban class="o_mizan_icon_kanban" create="0" default_order="code"
+                    action="action_open_dashboard" type="object">
+                <field name="completion_percent"/>
+                <field name="id"/>
                 <templates>
                     <t t-name="card">
-                        <div class="d-flex justify-content-between align-items-start gap-2">
-                            <div class="min-w-0">
-                                <strong class="fs-5 text-truncate d-block"><field name="name"/></strong>
-                                <div class="text-muted small"><field name="code"/> · <field name="partner_id"/></div>
-                            </div>
-                            <span class="badge rounded-pill text-bg-success"><field name="completion_percent" digits="[5,1]"/>%</span>
-                        </div>
-                        <div class="progress my-2" style="height:6px">
-                            <div class="progress-bar bg-success" t-attf-style="width: {{ record.completion_percent.raw_value }}%"/>
-                        </div>
-                        <div class="row g-2 small" t-if="record.has_project_accounts.raw_value">
-                            <div class="col-6">
-                                <div class="text-muted">Billed</div>
-                                <button name="action_ledger_billing" type="object" class="btn btn-link p-0 fw-bold"><field name="billed_net" widget="monetary"/></button>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-muted">Cost to date</div>
-                                <button name="action_ledger_cost" type="object" class="btn btn-link p-0 fw-bold"><field name="cost_incurred" widget="monetary"/></button>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-muted">Client owes</div>
-                                <button name="action_ledger_client" type="object" class="btn btn-link p-0 fw-bold"><field name="client_balance" widget="monetary"/></button>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-muted">Client holds</div>
-                                <button name="action_ledger_retention" type="object" class="btn btn-link p-0 fw-bold"><field name="retention_balance" widget="monetary"/></button>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-muted">Contract value</div>
-                                <div class="fw-bold"><field name="contract_value" widget="monetary"/></div>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-muted">Revenue recognised</div>
-                                <div class="fw-bold"><field name="revenue_recognised" widget="monetary"/></div>
-                            </div>
-                        </div>
-                        <div class="small mt-2 pt-2 border-top" t-if="record.has_project_accounts.raw_value">
-                            <div class="text-muted mb-1">Where the cost came from</div>
-                            <div class="d-flex flex-wrap gap-1">
-                                <span class="badge text-bg-light" t-if="record.cost_bills.raw_value">Supplier bills <field name="cost_bills" widget="monetary"/></span>
-                                <span class="badge text-bg-light" t-if="record.cost_subcontract.raw_value">Subcontractors <field name="cost_subcontract" widget="monetary"/></span>
-                                <span class="badge text-bg-light" t-if="record.cost_petty.raw_value">Petty cash <field name="cost_petty" widget="monetary"/></span>
-                                <span class="badge text-bg-light" t-if="record.cost_labour.raw_value">Labour <field name="cost_labour" widget="monetary"/></span>
-                                <span class="badge text-bg-light" t-if="record.cost_stock.raw_value">Stock <field name="cost_stock" widget="monetary"/></span>
-                                <span class="badge text-bg-light" t-if="record.cost_other.raw_value">Entries <field name="cost_other" widget="monetary"/></span>
-                            </div>
-                        </div>
-                        <div t-else="" class="alert alert-warning py-1 px-2 small mb-0" role="status">
-                            No project accounts yet. Open the contract and press "Create project accounts".
-                        </div>
-                        <div class="mt-2 d-flex gap-2">
-                            <button name="action_ledger_all" type="object" class="btn btn-secondary btn-sm flex-fill"><i class="fa fa-book me-1" title="Ledger"/>Ledger</button>
-                            <button name="action_progress_window" type="object" class="btn btn-primary btn-sm flex-fill" t-if="record.has_project_accounts.raw_value"><i class="fa fa-percent me-1" title="Progress"/>Progress</button>
+                        <div class="o_mp_tile">
+                            <span class="o_mp_icon" t-attf-style="background: {{ ['#1BAE5A','#2563EB','#D97706','#7C3AED','#DC2626','#0891B2','#DB2777','#65A30D','#4F46E5','#0F766E'][record.id.raw_value % 10] }}">
+                                <i class="fa fa-building o_mp_glyph" title="Project"/>
+                                <span class="o_mp_pct"><t t-esc="Math.round(record.completion_percent.raw_value)"/>%</span>
+                            </span>
+                            <span class="o_mp_name"><field name="name"/></span>
+                            <span class="o_mp_sub"><field name="code"/></span>
                         </div>
                     </t>
                 </templates>
