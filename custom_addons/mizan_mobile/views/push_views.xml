@@ -28,6 +28,16 @@
         <field name="arch" type="xml">
             <xpath expr="//form" position="inside">
                 <app string="Phone Apps" name="mizan_mobile" groups="base.group_system">
+                    <block title="Android notifications"
+                           help="Firebase console → Project settings → Service accounts → Generate new private key. Upload the file here and press Save.">
+                        <setting string="Firebase key">
+                            <div invisible="not mizan_fcm_project" class="text-success">
+                                <i class="fa fa-check-circle" title="Connected"/> Connected to <field name="mizan_fcm_project" class="d-inline"/>
+                            </div>
+                            <field name="mizan_fcm_file" filename="mizan_fcm_filename"/>
+                            <field name="mizan_fcm_filename" invisible="1"/>
+                        </setting>
+                    </block>
                     <block title="iPhone notifications"
                            help="From the Apple developer account that publishes the app: Certificates, Identifiers &amp; Profiles → Keys → a key with Apple Push Notifications.">
                         <setting string="Apple account">

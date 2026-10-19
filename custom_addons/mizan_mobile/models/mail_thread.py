@@ -3,7 +3,7 @@ import logging
 
 from odoo import api, models, SUPERUSER_ID
 
-from . import apns
+from . import apns, fcm
 
 _logger = logging.getLogger(__name__)
 
@@ -28,6 +28,7 @@ class MailThread(models.AbstractModel):
         partner_ids = self._extract_partner_ids_for_notifications(message, dict(msg_vals), recipients_data)
         if not partner_ids:
             return
+        self._mizan_android_push(message, partner_ids, msg_vals)
         devices = self.env["mizan.native.device"].sudo().search(
             [("partner_id", "in", partner_ids), ("platform", "=", "ios")])
         if not devices:
@@ -49,6 +50,33 @@ class MailThread(models.AbstractModel):
 
         def send():
             dead = apns.send(config, tokens, title, body, url)
+            if dead:
+                from odoo.modules.registry import Registry
+                with Registry(dbname).cursor() as cr:
+                    env = api.Environment(cr, SUPERUSER_ID, {})
+                    env["mizan.native.device"].search([("token", "in", dead)]).unlink()
+
+        self.env.cr.postcommit.add(send)
+
+    def _mizan_android_push(self, message, partner_ids, msg_vals):
+        """The Android app, through Firebase, after the transaction commits."""
+        devices = self.env["mizan.native.device"].sudo().search(
+            [("partner_id", "in", partner_ids), ("platform", "=", "android")])
+        if not devices:
+            return
+        account = self.env["res.config.settings"]._mizan_fcm_account()
+        if not account:
+            return
+        payload = self._notify_by_web_push_prepare_payload(message, msg_vals=dict(msg_vals))
+        title = payload.get("title") or ""
+        body = payload["options"].get("body") or ""
+        data = {"model": payload["options"]["data"].get("model") or "",
+                "res_id": payload["options"]["data"].get("res_id") or ""}
+        tokens = devices.mapped("token")
+        dbname = self.env.cr.dbname
+
+        def send():
+            dead = fcm.send(account, tokens, title, body, data)
             if dead:
                 from odoo.modules.registry import Registry
                 with Registry(dbname).cursor() as cr:

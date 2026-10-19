@@ -46,6 +46,11 @@ android {
 
     buildTypes {
         release {
+            // R8 removed methods shared_preferences calls by reflection, and the
+            // app died on its first line on real phones. The app is small; it
+            // ships unshrunk.
+            isMinifyEnabled = false
+            isShrinkResources = false
             signingConfig = if (System.getenv("KEYSTORE_PATH") != null)
                 signingConfigs.getByName("release") else signingConfigs.getByName("debug")
         }

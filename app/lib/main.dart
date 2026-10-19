@@ -14,7 +14,10 @@ Future<void> main() async {
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.dark,
   ));
-  await Api.instance.restore();
+  // Nothing here may stop the first screen from appearing.
+  try {
+    await Api.instance.restore();
+  } catch (_) {}
   Map<String, dynamic>? me;
   if (Api.instance.hasSession) {
     try {

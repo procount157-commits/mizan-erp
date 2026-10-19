@@ -41,7 +41,12 @@ class Api {
   }
 
   Future<void> _save() async {
-    final p = await SharedPreferences.getInstance();
+    final SharedPreferences p;
+    try {
+      p = await SharedPreferences.getInstance();
+    } catch (_) {
+      return; // the session then lasts until the app closes
+    }
     if (host != null) await p.setString('host', host!);
     if (_cookie != null) {
       await p.setString('cookie', _cookie!);
