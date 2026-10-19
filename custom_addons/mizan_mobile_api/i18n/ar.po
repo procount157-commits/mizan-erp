@@ -267,3 +267,45 @@ msgstr "ينتظرك"
 #: code:addons/mizan_mobile_api/models/insights.py:0
 msgid "%s request(s) wait for your approval."
 msgstr "%s طلب بانتظار اعتمادك."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/accountant.py:0
+msgid "This tab is for accounts."
+msgstr "هذا التبويب للمحاسبين."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/accountant.py:0
+msgid "%s days late"
+msgstr "متأخرة %s يوماً"
+
+#. module: mizan_mobile_api
+#: model:ir.model.fields,field_description:mizan_mobile_api.field_res_users__mizan_app_role
+msgid "Phone app role"
+msgstr "دور تطبيق الجوال"
+
+#. module: mizan_mobile_api
+#: model:ir.model.fields.selection,name:mizan_mobile_api.selection__res_users__mizan_app_role__auto
+msgid "Automatic (from the user's rights)"
+msgstr "تلقائي (من صلاحيات المستخدم)"
+
+#. module: mizan_mobile_api
+#: model:ir.model.fields.selection,name:mizan_mobile_api.selection__res_users__mizan_app_role__manager
+msgid "Manager: figures, insights, approvals, projects"
+msgstr "مدير: الأرقام والتحليلات والاعتمادات والمشاريع"
+
+#. module: mizan_mobile_api
+#: model:ir.model.fields.selection,name:mizan_mobile_api.selection__res_users__mizan_app_role__accountant
+msgid "Accountant: posting, receivables, payables, bank"
+msgstr "محاسب: الترحيل والمستحقات والمدفوعات والبنك"
+
+#. module: mizan_mobile_api
+#: model:ir.model.fields.selection,name:mizan_mobile_api.selection__res_users__mizan_app_role__engineer
+msgid "Site engineer: crew and petty cash"
+msgstr "مهندس موقع: العمّال والعهدة"
+
+#. module: mizan_mobile_api
+#: model:ir.model.fields.selection,name:mizan_mobile_api.selection__res_users__mizan_app_role__staff
+msgid "Staff: petty cash only"
+msgstr "موظف: العهدة فقط"

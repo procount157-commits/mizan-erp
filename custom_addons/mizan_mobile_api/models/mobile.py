@@ -31,6 +31,11 @@ class MizanMobile(models.AbstractModel):
     @api.model
     def _roles(self):
         user = self.env.user
+        chosen = user.mizan_app_role
+        if chosen and chosen != "auto":
+            # Set by the administrator on the user: exactly these screens.
+            return {"manager": ["manager", "approver"], "accountant": ["accountant"],
+                    "engineer": ["engineer"], "staff": ["staff"]}[chosen]
         roles = []
         if _is_manager(self.env):
             roles.append("manager")
@@ -40,8 +45,14 @@ class MizanMobile(models.AbstractModel):
             roles.append("engineer")
         if user.has_group("account.group_account_invoice"):
             roles.append("accountant")
-        if self._employee() and "engineer" not in roles:
-            roles.append("staff")  # anyone with petty cash of their own
+        employee = self._employee()
+        if employee and "engineer" not in roles:
+            # The petty-cash tab for staff who actually hold company cash,
+            # or for staff who have no other tab.
+            holds = self.env["mizan.employee.advance"].sudo().search_count(
+                [("employee_id", "=", employee.id), ("state", "in", ("paid", "submitted", "approved"))])
+            if holds or not roles:
+                roles.append("staff")
         return roles
 
     # ------------------------------------------------------------ who

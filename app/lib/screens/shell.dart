@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../api.dart';
 import '../push.dart';
 import '../theme.dart';
+import 'accountant.dart';
 import 'alerts.dart';
 import 'approvals.dart';
 import 'cash.dart';
@@ -63,10 +64,15 @@ class _ShellState extends State<Shell> {
     if (roles.contains('manager')) {
       t.add(_Tab('الرئيسية', Icons.space_dashboard_outlined, Icons.space_dashboard_rounded, const OverviewScreen()));
     }
+    final accounts = _Tab('المحاسبة', Icons.receipt_long_outlined, Icons.receipt_long_rounded, const AccountantScreen());
+    // An accountant opens on their own work; a manager on the figures.
+    final accountantFirst = roles.contains('accountant') && !roles.contains('manager');
+    if (accountantFirst) t.add(accounts);
     if (roles.contains('manager') || roles.contains('approver')) {
       t.add(_Tab('الاعتمادات', Icons.fact_check_outlined, Icons.fact_check_rounded,
           ApprovalsScreen(onChanged: refreshCounts), badge: '${counts['approvals'] ?? 0}'));
     }
+    if (roles.contains('accountant') && !accountantFirst) t.add(accounts);
     if (roles.contains('manager') || roles.contains('accountant')) {
       t.add(_Tab('المشاريع', Icons.apartment_outlined, Icons.apartment_rounded, const ProjectsScreen()));
     }
@@ -86,9 +92,20 @@ class _ShellState extends State<Shell> {
     if (mounted) Navigator.of(context).pushNamedAndRemoveUntil('/login', (_) => false);
   }
 
+  /// Five fit at the bottom; beyond that the fifth opens the rest.
+  List<_Tab> get visibleTabs {
+    final all = tabs;
+    if (all.length <= 5) return all;
+    final rest = all.sublist(4);
+    return [
+      ...all.sublist(0, 4),
+      _Tab('المزيد', Icons.apps_rounded, Icons.apps_rounded, _MoreTabs(tabs: rest)),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
-    final t = tabs;
+    final t = visibleTabs;
     if (_index >= t.length) _index = 0;
     final me = Api.instance.me ?? {};
     return Scaffold(
@@ -133,4 +150,24 @@ class _ShellState extends State<Shell> {
       ),
     );
   }
+}
+
+class _MoreTabs extends StatelessWidget {
+  final List<_Tab> tabs;
+  const _MoreTabs({required this.tabs});
+  @override
+  Widget build(BuildContext context) => ListView(padding: const EdgeInsets.all(16), children: [
+        ...tabs.map((t) => Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Card(
+                child: ListTile(
+                  leading: CircleAvatar(backgroundColor: Brand.green.withValues(alpha: 0.12), child: Icon(t.selected, color: Brand.greenDark)),
+                  title: Text(t.label, style: const TextStyle(fontWeight: FontWeight.w700)),
+                  trailing: Badge(isLabelVisible: (t.badge ?? '0') != '0', label: Text(t.badge ?? ''), child: const Icon(Icons.chevron_left_rounded)),
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) => Scaffold(appBar: AppBar(title: Text(t.label)), body: t.page))),
+                ),
+              ),
+            )),
+      ]);
 }

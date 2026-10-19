@@ -23,6 +23,19 @@
         </field>
     </record>
 
+    <record id="view_users_form_app_role" model="ir.ui.view">
+        <field name="name">res.users.form.mizan.app.role</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="before">
+                <group>
+                    <field name="mizan_app_role"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
     <record id="view_payment_request_list" model="ir.ui.view">
         <field name="name">mizan.payment.request.list</field>
         <field name="model">mizan.payment.request</field>

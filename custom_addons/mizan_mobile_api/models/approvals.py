@@ -29,9 +29,14 @@ class ResConfigSettings(models.TransientModel):
 
 
 def _is_manager(env):
+    """The owner and the general manager: the people who approve. An
+    accountant with full accounting rights is still an accountant."""
     user = env.user
-    return (user.has_group("mizan_owner.group_owner") or user.has_group("mizan_hub.group_general_manager")
-            or user.has_group("account.group_account_manager"))
+    if user.mizan_app_role == "manager":
+        return True
+    if user.mizan_app_role in ("accountant", "engineer", "staff"):
+        return False
+    return user.has_group("mizan_owner.group_owner") or user.has_group("mizan_hub.group_general_manager")
 
 
 class AccountMove(models.Model):
