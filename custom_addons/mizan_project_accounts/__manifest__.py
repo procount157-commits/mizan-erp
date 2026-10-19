@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Miqyas Project Accounts",
-    "version": "1.1",
+    "version": "1.2",
     "category": "Accounting/Accounting",
     "summary": "Every project readable from the chart of accounts: its own client, billing, cost, retention and WIP accounts, fed by the entry screens",
     "description": """The CFO's way of keeping contract books (docs/superpowers/specs/
@@ -35,8 +35,16 @@
         "views/subcontract_views.xml",
         "views/labour_views.xml",
         "views/stock_issue_views.xml",
+        "views/project_grid_views.xml",
         "views/menus.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "mizan_project_accounts/static/src/projects.scss",
+            "mizan_project_accounts/static/src/projects.xml",
+            "mizan_project_accounts/static/src/projects.js",
+        ],
+    },
     "post_init_hook": "post_init_hook",
     "installable": True,
     "application": False,

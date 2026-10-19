@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="mizan_project_accounts.ProjectGrid">
+        <div class="o_action o_mizan_projects">
+            <header class="o_mp_head">
+                <h1>Projects</h1>
+                <input type="search" class="form-control o_mp_search" t-model="state.query"
+                       placeholder="Find a project, client or number…"/>
+            </header>
+            <div t-if="state.data" class="o_mp_grid">
+                <button t-if="state.data.can_create" type="button" class="o_mp_tile o_mp_new" t-on-click="create">
+                    <span class="o_mp_icon"><i class="fa fa-plus" role="img" aria-label="New project"/></span>
+                    <span class="o_mp_name">New project</span>
+                    <span class="o_mp_sub">Accounts are opened by themselves</span>
+                </button>
+                <button t-foreach="projects" t-as="p" t-key="p.id" type="button" class="o_mp_tile"
+                        t-on-click="() => this.open(p)">
+                    <span class="o_mp_icon" t-attf-style="background: {{ p.color }}">
+                        <i class="fa fa-building o_mp_glyph" role="img" aria-hidden="true"/>
+                        <span class="o_mp_pct"><bdi t-esc="p.percent"/>%</span>
+                    </span>
+                    <span class="o_mp_name" t-esc="p.name"/>
+                    <span class="o_mp_sub"><bdi t-esc="p.code"/> · <t t-esc="p.client"/></span>
+                </button>
+            </div>
+            <div t-elif="state.failed" class="o_mp_empty">The projects could not be loaded. Refresh the page.</div>
+            <div t-else="" class="o_mp_empty"><i class="fa fa-circle-o-notch fa-spin" role="img" aria-label="Loading"/></div>
+        </div>
+    </t>
+
+    <t t-name="mizan_project_accounts.ProjectDashboard">
+        <div class="o_action o_mizan_project">
+            <t t-if="state.data" t-set="d" t-value="state.data"/>
+            <t t-if="state.data">
+                <header class="o_mpd_head">
+                    <span class="o_mp_icon o_mpd_icon" t-attf-style="background: {{ d.color }}">
+                        <i class="fa fa-building o_mp_glyph" role="img" aria-hidden="true"/>
+                        <span class="o_mp_pct"><bdi t-esc="d.percent"/>%</span>
+                    </span>
+                    <div class="o_mpd_title">
+                        <h1 t-esc="d.name"/>
+                        <p><bdi t-esc="d.code"/> · <t t-esc="d.client_name"/> · <t t-esc="d.mode"/></p>
+                        <div class="o_mpd_progress" role="progressbar" t-att-aria-valuenow="d.percent" aria-valuemin="0" aria-valuemax="100">
+                            <div t-attf-style="width: {{ Math.min(d.percent, 100) }}%"/>
+                        </div>
+                    </div>
+                    <div class="o_mpd_headbtns">
+                        <button type="button" class="btn btn-secondary" t-on-click="() => this.run(d.ledger)">
+                            <i class="fa fa-book me-1" role="img" aria-label="Ledger"/>Project ledger
+                        </button>
+                        <button type="button" class="btn btn-link" t-on-click="() => this.run(d.form)">Contract</button>
+                    </div>
+                </header>
+
+                <section class="o_mpd_entries">
+                    <button t-foreach="d.entries" t-as="e" t-key="e.key" type="button" class="o_mpd_entry"
+                            t-on-click="() => this.run(e.action)">
+                        <i t-attf-class="fa {{ e.icon }}" role="img" t-att-aria-label="e.label"/>
+                        <span t-esc="e.label"/>
+                    </button>
+                </section>
+
+                <div class="o_mpd_cols">
+                    <section class="o_mpd_card">
+                        <h2>Client account</h2>
+                        <button t-foreach="d.client_figures" t-as="f" t-key="f.label" type="button"
+                                class="o_mpd_row" t-att-class="{ o_mpd_link: f.action, o_mpd_watch: f.tone === 'watch' }"
+                                t-on-click="() => this.run(f.action)">
+                            <span t-esc="f.label"/><b><bdi t-esc="f.value"/></b>
+                        </button>
+                    </section>
+
+                    <section class="o_mpd_card">
+                        <h2>Project cost <small>— where it came from</small></h2>
+                        <button t-foreach="d.expenses" t-as="e" t-key="e.key" type="button"
+                                class="o_mpd_row o_mpd_link" t-att-class="{ o_mpd_zero: !e.raw }"
+                                t-on-click="() => this.run(e.action)">
+                            <span><i t-attf-class="o_mpd_dot o_mpd_src_{{ e.key }}"/><t t-esc="e.label"/></span><b><bdi t-esc="e.value"/></b>
+                        </button>
+                        <div class="o_mpd_row o_mpd_total"><span>Cost to date</span><b><bdi t-esc="d.cost_total"/></b></div>
+                        <div class="o_mpd_row"><span>Margin recognised</span><b><bdi t-esc="d.margin"/></b></div>
+                    </section>
+                </div>
+
+                <section class="o_mpd_card">
+                    <h2>Supplier bills</h2>
+                    <div t-if="!d.bills.length" class="text-muted">No supplier bill on this project yet.</div>
+                    <button t-foreach="d.bills" t-as="b" t-key="b.id" type="button" class="o_mpd_line"
+                            t-on-click="() => this.run(b.action)">
+                        <span class="o_mpd_line_main"><b t-esc="b.partner"/><small><bdi t-esc="b.name"/> · <bdi t-esc="b.date"/></small></span>
+                        <span class="o_mpd_line_side"><b><bdi t-esc="b.amount"/></b><small t-esc="b.state"/></span>
+                    </button>
+                </section>
+
+                <section class="o_mpd_card">
+                    <h2>Latest movements on the project's accounts</h2>
+                    <div t-if="!d.movements.length" class="text-muted">No entry on this project yet.</div>
+                    <div class="o_mpd_table" t-if="d.movements.length">
+                        <table class="table table-sm mb-0">
+                            <thead><tr><th>Date</th><th>Source</th><th>Description</th><th>Account</th><th class="text-end">Debit</th><th class="text-end">Credit</th></tr></thead>
+                            <tbody>
+                                <tr t-foreach="d.movements" t-as="mv" t-key="mv.id" class="o_mpd_click" t-on-click="() => this.run(mv.action)">
+                                    <td><bdi t-esc="mv.date"/></td>
+                                    <td><span t-attf-class="o_mpd_badge o_mpd_src_{{ mv.source_key }}" t-esc="mv.source"/></td>
+                                    <td t-esc="mv.label"/>
+                                    <td><bdi t-esc="mv.account"/></td>
+                                    <td class="text-end"><bdi t-esc="mv.debit"/></td>
+                                    <td class="text-end"><bdi t-esc="mv.credit"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </t>
+            <div t-elif="state.failed" class="o_mp_empty">The project could not be loaded. Refresh the page.</div>
+            <div t-else="" class="o_mp_empty"><i class="fa fa-circle-o-notch fa-spin" role="img" aria-label="Loading"/></div>
+        </div>
+    </t>
+</templates>

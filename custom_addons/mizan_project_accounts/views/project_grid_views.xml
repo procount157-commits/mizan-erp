@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_contract_project" model="ir.sequence">
+        <field name="name">Project number</field>
+        <field name="code">mizan.contract.project</field>
+        <field name="prefix">PRJ-%(year)s-</field>
+        <field name="padding">3</field>
+    </record>
+
+    <record id="action_project_grid" model="ir.actions.client">
+        <field name="name">Projects</field>
+        <field name="tag">mizan_project_grid</field>
+    </record>
+
+    <record id="view_project_new_form" model="ir.ui.view">
+        <field name="name">mizan.project.new.form</field>
+        <field name="model">mizan.project.new</field>
+        <field name="arch" type="xml">
+            <form string="New project">
+                <div class="alert alert-info" role="status">
+                    Creating the project opens its accounts (client, billing, work in progress, client retention,
+                    contract cost), its cost centre, its project and its site stock location, and starts it.
+                </div>
+                <group>
+                    <group>
+                        <field name="name" placeholder="Villa — Nad Al Sheba"/>
+                        <field name="partner_id" options="{'no_quick_create': True}"/>
+                        <field name="contract_value"/>
+                        <field name="budget_cost"/>
+                    </group>
+                    <group>
+                        <field name="billing_mode" widget="radio"/>
+                        <field name="retention_percent"/>
+                        <field name="advance_percent"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_create" type="object" string="Create the project" class="btn-primary"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_project_new" model="ir.actions.act_window">
+        <field name="name">New project</field>
+        <field name="res_model">mizan.project.new</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- The Contracting app opens on its projects. -->
+    <record id="mizan_core.menu_mizan_root" model="ir.ui.menu">
+        <field name="action" ref="action_project_grid"/>
+    </record>
+</odoo>

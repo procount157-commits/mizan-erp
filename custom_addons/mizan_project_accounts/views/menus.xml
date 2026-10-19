@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="menu_project_cards" name="Projects" parent="mizan_core.menu_mizan_contracting"
+              action="action_project_grid" sequence="5"/>
+    <menuitem id="menu_project_cards_list" name="Project figures" parent="mizan_core.menu_mizan_job_costing"
               action="action_project_cards" sequence="5"/>
 
     <menuitem id="menu_labour_day" name="Daily Labour" parent="mizan_core.menu_mizan_contracting"

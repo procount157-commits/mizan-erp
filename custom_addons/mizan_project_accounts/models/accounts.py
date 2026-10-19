@@ -103,6 +103,15 @@ class MizanContract(models.Model):
         raise UserError(_("All 99 project account numbers are used; extend the chart."))
 
     def action_create_project_accounts(self):
+        """Opening a project's books is the system's job, done with its
+        rights: the person creating the project may not manage the chart,
+        cost centres or stock locations, and should not need to."""
+        user = self.env.user
+        if not self.env.su and not (user.has_group("account.group_account_invoice")
+                                    or user.has_group("project.group_project_manager")
+                                    or user.has_group("base.group_system")):
+            raise UserError(_("Only accounting or project managers can open a project's accounts."))
+        self = self.sudo()
         Account = self.env["account.account"]
         for contract in self:
             company = contract.company_id

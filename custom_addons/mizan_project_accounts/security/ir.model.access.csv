@@ -12,3 +12,5 @@ access_stock_issue_user,mizan.stock.issue.user,model_mizan_stock_issue,stock.gro
 access_stock_issue_eng,mizan.stock.issue.eng,model_mizan_stock_issue,mizan_site.group_site_engineer,1,1,1,1
 access_stock_issue_line_user,mizan.stock.issue.line.user,model_mizan_stock_issue_line,stock.group_stock_user,1,1,1,1
 access_stock_issue_line_eng,mizan.stock.issue.line.eng,model_mizan_stock_issue_line,mizan_site.group_site_engineer,1,1,1,1
+access_project_new_account,mizan.project.new.account,model_mizan_project_new,account.group_account_invoice,1,1,1,1
+access_project_new_pm,mizan.project.new.pm,model_mizan_project_new,project.group_project_manager,1,1,1,1

@@ -6,3 +6,4 @@ from . import recognition
 from . import subcontract
 from . import labour
 from . import stock_issue
+from . import dashboard
