@@ -1,0 +1,269 @@
+# Translation of Odoo Server.
+# 	* mizan_mobile_api
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Supplier bills"
+msgstr "فواتير الموردين"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Subcontractors"
+msgstr "مقاولو الباطن"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Petty cash"
+msgstr "العهد"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Labour"
+msgstr "العمالة"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Stock"
+msgstr "المخزون"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Entries"
+msgstr "قيود مباشرة"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Notification"
+msgstr "تنبيه"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Top-up request"
+msgstr "طلب تعويض"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Retention withheld: %s"
+msgstr "المحتجز: %s"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "The manager's summary is for managers."
+msgstr "ملخص المدير متاح للمديرين فقط."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Projects are for managers and accounts."
+msgstr "المشاريع متاحة للمديرين والمحاسبين فقط."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Refused from the phone app"
+msgstr "رُفض من تطبيق الجوال"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Unknown approval."
+msgstr "طلب اعتماد غير معروف."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Take a photograph of the receipt."
+msgstr "صوّر الإيصال."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "The photograph could not be read."
+msgstr "تعذّرت قراءة الصورة."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Your login is not linked to an employee record."
+msgstr "حسابك غير مربوط بسجل موظف."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Petty cash top-up"
+msgstr "تعويض العهدة"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/approvals.py:0
+msgid "Only a manager can approve supplier bills."
+msgstr "المدير وحده يعتمد فواتير الموردين."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/approvals.py:0
+msgid "Only a manager can refuse supplier bills."
+msgstr "المدير وحده يرفض فواتير الموردين."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/approvals.py:0
+msgid "%s is waiting for the manager's approval and cannot be paid yet."
+msgstr "%s بانتظار اعتماد المدير ولا يمكن سدادها بعد."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/approvals.py:0
+msgid "Only a manager can approve payments to subcontractors."
+msgstr "المدير وحده يعتمد مدفوعات مقاولي الباطن."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/approvals.py:0
+msgid "Only a manager can refuse payments to subcontractors."
+msgstr "المدير وحده يرفض مدفوعات مقاولي الباطن."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/approvals.py:0
+msgid "Approved by %s and paid."
+msgstr "اعتمدها %s وسُدِّدت."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/approvals.py:0
+msgid "Type the amount paid and the retention withheld."
+msgstr "اكتب المبلغ المدفوع والمحتجز."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/approvals.py:0
+msgid "Sent for approval"
+msgstr "أُرسلت للاعتماد"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/approvals.py:0
+msgid "The payment of %(a)s to %(p)s waits for the manager's approval (%(r)s)."
+msgstr "دفعة %(a)s إلى %(p)s بانتظار اعتماد المدير (%(r)s)."
+
+#. module: mizan_mobile_api
+#: model:ir.model.fields,field_description:mizan_mobile_api.field_account_move__mizan_approval_state
+msgid "Manager's approval"
+msgstr "اعتماد المدير"
+
+#. module: mizan_mobile_api
+#: model:ir.model.fields.selection,name:mizan_mobile_api.selection__account_move__mizan_approval_state__to_approve
+#: model:ir.model.fields.selection,name:mizan_mobile_api.selection__mizan_payment_request__state__to_approve
+msgid "Waiting for the manager"
+msgstr "بانتظار المدير"
+
+#. module: mizan_mobile_api
+#: model:ir.model.fields.selection,name:mizan_mobile_api.selection__account_move__mizan_approval_state__approved
+msgid "Approved"
+msgstr "معتمدة"
+
+#. module: mizan_mobile_api
+#: model:ir.model.fields.selection,name:mizan_mobile_api.selection__account_move__mizan_approval_state__refused
+#: model:ir.model.fields.selection,name:mizan_mobile_api.selection__mizan_payment_request__state__refused
+msgid "Refused"
+msgstr "مرفوضة"
+
+#. module: mizan_mobile_api
+#: model:ir.model.fields.selection,name:mizan_mobile_api.selection__mizan_payment_request__state__paid
+msgid "Approved and paid"
+msgstr "معتمدة ومسددة"
+
+#. module: mizan_mobile_api
+#: model:ir.model.fields,field_description:mizan_mobile_api.field_res_company__mizan_bill_approval_amount
+#: model:ir.model.fields,field_description:mizan_mobile_api.field_res_config_settings__mizan_bill_approval_amount
+msgid "Supplier bills need the manager's approval from"
+msgstr "فواتير الموردين تحتاج اعتماد المدير ابتداءً من"
+
+#. module: mizan_mobile_api
+#: model:ir.model.fields,field_description:mizan_mobile_api.field_res_company__mizan_sc_payment_approval
+#: model:ir.model.fields,field_description:mizan_mobile_api.field_res_config_settings__mizan_sc_payment_approval
+msgid "Subcontractor payments need the manager's approval"
+msgstr "مدفوعات مقاولي الباطن تحتاج اعتماد المدير"
+
+#. module: mizan_mobile_api
+#: model_terms:ir.ui.view,arch_db:mizan_mobile_api.view_move_form_approval
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: mizan_mobile_api
+#: model_terms:ir.ui.view,arch_db:mizan_mobile_api.view_move_form_approval
+#: model_terms:ir.ui.view,arch_db:mizan_mobile_api.view_payment_request_list
+msgid "Refuse"
+msgstr "رفض"
+
+#. module: mizan_mobile_api
+#: model_terms:ir.ui.view,arch_db:mizan_mobile_api.view_move_form_approval
+msgid "This bill waits for the manager's approval before it can be paid."
+msgstr "هذه الفاتورة بانتظار اعتماد المدير قبل سدادها."
+
+#. module: mizan_mobile_api
+#: model_terms:ir.ui.view,arch_db:mizan_mobile_api.view_move_form_approval
+msgid "The manager refused this bill."
+msgstr "رفض المدير هذه الفاتورة."
+
+#. module: mizan_mobile_api
+#: model_terms:ir.ui.view,arch_db:mizan_mobile_api.view_payment_request_list
+msgid "Approve and pay"
+msgstr "اعتماد وسداد"
+
+#. module: mizan_mobile_api
+#: model:ir.actions.act_window,name:mizan_mobile_api.action_payment_request
+#: model_terms:ir.ui.view,arch_db:mizan_mobile_api.view_payment_request_list
+msgid "Subcontractor payments for approval"
+msgstr "مدفوعات مقاولي الباطن للاعتماد"
+
+#. module: mizan_mobile_api
+#: model:ir.ui.menu,name:mizan_mobile_api.menu_payment_request
+msgid "Payments for Approval"
+msgstr "مدفوعات للاعتماد"
+
+#. module: mizan_mobile_api
+#: model_terms:ir.ui.view,arch_db:mizan_mobile_api.view_settings_approvals
+msgid "Approvals"
+msgstr "الاعتمادات"
+
+#. module: mizan_mobile_api
+#: model_terms:ir.ui.view,arch_db:mizan_mobile_api.view_settings_approvals
+msgid "What waits for the manager"
+msgstr "ما ينتظر اعتماد المدير"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "The company today"
+msgstr "الشركة اليوم"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "Waiting for you"
+msgstr "ينتظرك"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "%s request(s) wait for your approval."
+msgstr "%s طلب بانتظار اعتمادك."

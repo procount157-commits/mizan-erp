@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_payment_request_account,mizan.payment.request.account,model_mizan_payment_request,account.group_account_invoice,1,1,1,0
+access_payment_request_manager,mizan.payment.request.manager,model_mizan_payment_request,mizan_hub.group_general_manager,1,1,0,0
+access_payment_request_readonly,mizan.payment.request.readonly,model_mizan_payment_request,account.group_account_readonly,1,0,0,0
