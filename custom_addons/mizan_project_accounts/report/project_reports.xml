@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ===== Project statement: one project, from the ledger =============== -->
+    <record id="report_project_statement" model="ir.actions.report">
+        <field name="name">Project Statement</field>
+        <field name="model">mizan.contract</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">mizan_project_accounts.project_statement</field>
+        <field name="report_file">mizan_project_accounts.project_statement</field>
+        <field name="print_report_name">'Project statement — %s' % object.code</field>
+        <field name="binding_model_id" ref="mizan_contracting.model_mizan_contract"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="project_statement">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="c">
+                <t t-call="web.external_layout">
+                    <t t-set="money" t-value="{'widget': 'monetary', 'display_currency': c.currency_id}"/>
+                    <div class="page" dir="rtl" style="font-family: 'Cairo', 'Noto Naskh Arabic', sans-serif;">
+                        <h2 class="mb-1">كشف المشروع / Project Statement</h2>
+                        <p class="mb-3"><strong t-field="c.name"/> — <span t-field="c.code"/> — العميل: <span t-field="c.partner_id.name"/></p>
+
+                        <table class="table table-sm" style="width:100%">
+                            <tr><td>قيمة العقد / Contract value</td><td class="text-end"><span t-field="c.contract_value" t-options="money"/></td>
+                                <td>نسبة الإنجاز / % complete</td><td class="text-end"><span t-esc="'%.1f' % c.completion_percent"/>%</td></tr>
+                            <tr><td>الإيراد المعترف به / Revenue recognised</td><td class="text-end"><span t-field="c.revenue_recognised" t-options="money"/></td>
+                                <td>التكلفة المعترف بها / Cost recognised</td><td class="text-end"><span t-field="c.cost_recognised" t-options="money"/></td></tr>
+                            <tr class="fw-bold"><td>هامش الربح / Margin recognised</td><td class="text-end"><span t-field="c.margin_to_date" t-options="money"/></td>
+                                <td>تكاليف تحت التنفيذ / WIP</td><td class="text-end"><span t-field="c.wip_balance" t-options="money"/></td></tr>
+                            <tr><td>المفوتر قبل الضريبة / Billed net</td><td class="text-end"><span t-field="c.billed_net" t-options="money"/></td>
+                                <td>رصيد الفوترة / Billing balance</td><td class="text-end"><span t-field="c.billing_balance" t-options="money"/></td></tr>
+                            <tr><td>المستحق على العميل / Client owes</td><td class="text-end"><span t-field="c.client_balance" t-options="money"/></td>
+                                <td>محتجز لدى العميل / Retention held</td><td class="text-end"><span t-field="c.retention_balance" t-options="money"/></td></tr>
+                        </table>
+
+                        <h4 class="mt-3">مصادر التكلفة / Cost by source</h4>
+                        <table class="table table-sm table-bordered" style="width:60%">
+                            <tr><td>فواتير الموردين</td><td class="text-end"><span t-field="c.cost_bills" t-options="money"/></td></tr>
+                            <tr><td>مقاولو الباطن</td><td class="text-end"><span t-field="c.cost_subcontract" t-options="money"/></td></tr>
+                            <tr><td>العهد</td><td class="text-end"><span t-field="c.cost_petty" t-options="money"/></td></tr>
+                            <tr><td>كروت العمال</td><td class="text-end"><span t-field="c.cost_labour" t-options="money"/></td></tr>
+                            <tr><td>صرف المخزون</td><td class="text-end"><span t-field="c.cost_stock" t-options="money"/></td></tr>
+                            <tr><td>قيود مباشرة وأخرى</td><td class="text-end"><span t-field="c.cost_other" t-options="money"/></td></tr>
+                            <tr class="fw-bold"><td>الإجمالي / Cost to date</td><td class="text-end"><span t-field="c.cost_incurred" t-options="money"/></td></tr>
+                        </table>
+
+                        <t t-set="lines" t-value="c.env['account.move.line'].search([('account_id', 'in', c._mizan_project_accounts().ids), ('parent_state', '=', 'posted')], order='date, id')"/>
+                        <h4 class="mt-3">دفتر المشروع / Project ledger</h4>
+                        <table class="table table-sm table-bordered" style="width:100%; font-size: 10px;">
+                            <thead><tr class="table-light">
+                                <th>التاريخ</th><th>القيد</th><th>المصدر</th><th>الحساب</th><th>البيان</th>
+                                <th class="text-end">مدين</th><th class="text-end">دائن</th></tr></thead>
+                            <tbody>
+                                <tr t-foreach="lines" t-as="l">
+                                    <td><span t-field="l.date"/></td>
+                                    <td><span t-field="l.move_name"/></td>
+                                    <td><span t-field="l.mizan_source"/></td>
+                                    <td><span t-esc="l.account_id.code"/></td>
+                                    <td><span t-field="l.name"/></td>
+                                    <td class="text-end"><span t-esc="'{:,.2f}'.format(l.debit) if l.debit else ''"/></td>
+                                    <td class="text-end"><span t-esc="'{:,.2f}'.format(l.credit) if l.credit else ''"/></td>
+                                </tr>
+                            </tbody>
+                            <tfoot><tr class="fw-bold">
+                                <td colspan="5">الإجمالي / Total</td>
+                                <td class="text-end"><span t-esc="'{:,.2f}'.format(sum(lines.mapped('debit')))"/></td>
+                                <td class="text-end"><span t-esc="'{:,.2f}'.format(sum(lines.mapped('credit')))"/></td>
+                            </tr></tfoot>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- ===== WIP schedule: every running project on one page (IFRS 15) ===== -->
+    <record id="report_wip_schedule" model="ir.actions.report">
+        <field name="name">Work-in-Progress Schedule</field>
+        <field name="model">mizan.contract</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">mizan_project_accounts.wip_schedule</field>
+        <field name="report_file">mizan_project_accounts.wip_schedule</field>
+        <field name="print_report_name">'WIP schedule'</field>
+        <field name="binding_model_id" ref="mizan_contracting.model_mizan_contract"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    <template id="wip_schedule">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-set="currency" t-value="docs[:1].currency_id"/>
+                <div class="page" dir="rtl" style="font-family: 'Cairo', 'Noto Naskh Arabic', sans-serif;">
+                    <h2 class="mb-1">جدول الأعمال تحت التنفيذ / WIP Schedule</h2>
+                    <p class="text-muted">نسبة الإنجاز وفق IFRS 15 — بتاريخ <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y')"/></p>
+                    <table class="table table-sm table-bordered" style="width:100%; font-size: 10px;">
+                        <thead><tr class="table-light">
+                            <th>المشروع</th>
+                            <th class="text-end">قيمة العقد</th>
+                            <th class="text-end">% إنجاز</th>
+                            <th class="text-end">الإيراد المعترف به</th>
+                            <th class="text-end">المفوتر</th>
+                            <th class="text-end">زيادة / (نقص) الفوترة</th>
+                            <th class="text-end">التكلفة حتى تاريخه</th>
+                            <th class="text-end">تحت التنفيذ</th>
+                            <th class="text-end">الهامش</th>
+                            <th class="text-end">على العميل</th>
+                            <th class="text-end">محتجزات</th>
+                        </tr></thead>
+                        <tbody>
+                            <tr t-foreach="docs" t-as="c">
+                                <td><span t-field="c.code"/> <span t-field="c.name"/></td>
+                                <td class="text-end"><span t-esc="'{:,.0f}'.format(c.contract_value)"/></td>
+                                <td class="text-end"><span t-esc="'%.1f' % c.completion_percent"/></td>
+                                <td class="text-end"><span t-esc="'{:,.0f}'.format(c.revenue_recognised)"/></td>
+                                <td class="text-end"><span t-esc="'{:,.0f}'.format(c.billed_net)"/></td>
+                                <td class="text-end"><span t-esc="'{:,.0f}'.format(-c.billing_balance)"/></td>
+                                <td class="text-end"><span t-esc="'{:,.0f}'.format(c.cost_incurred)"/></td>
+                                <td class="text-end"><span t-esc="'{:,.0f}'.format(c.wip_balance)"/></td>
+                                <td class="text-end"><span t-esc="'{:,.0f}'.format(c.margin_to_date)"/></td>
+                                <td class="text-end"><span t-esc="'{:,.0f}'.format(c.client_balance)"/></td>
+                                <td class="text-end"><span t-esc="'{:,.0f}'.format(c.retention_balance)"/></td>
+                            </tr>
+                        </tbody>
+                        <tfoot><tr class="fw-bold">
+                            <td>الإجمالي</td>
+                            <td class="text-end"><span t-esc="'{:,.0f}'.format(sum(docs.mapped('contract_value')))"/></td>
+                            <td/>
+                            <td class="text-end"><span t-esc="'{:,.0f}'.format(sum(docs.mapped('revenue_recognised')))"/></td>
+                            <td class="text-end"><span t-esc="'{:,.0f}'.format(sum(docs.mapped('billed_net')))"/></td>
+                            <td class="text-end"><span t-esc="'{:,.0f}'.format(-sum(docs.mapped('billing_balance')))"/></td>
+                            <td class="text-end"><span t-esc="'{:,.0f}'.format(sum(docs.mapped('cost_incurred')))"/></td>
+                            <td class="text-end"><span t-esc="'{:,.0f}'.format(sum(docs.mapped('wip_balance')))"/></td>
+                            <td class="text-end"><span t-esc="'{:,.0f}'.format(sum(docs.mapped('margin_to_date')))"/></td>
+                            <td class="text-end"><span t-esc="'{:,.0f}'.format(sum(docs.mapped('client_balance')))"/></td>
+                            <td class="text-end"><span t-esc="'{:,.0f}'.format(sum(docs.mapped('retention_balance')))"/></td>
+                        </tr></tfoot>
+                    </table>
+                    <p class="small text-muted">زيادة الفوترة = المفوتر أكثر من المكتسب (التزام عقد). النقص = إيراد مكتسب لم يُفوتر بعد (أصل عقد). المبالغ بـ <span t-esc="currency.name"/>.</p>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

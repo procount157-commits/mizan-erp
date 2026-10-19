@@ -26,10 +26,13 @@ class AccountMoveLine(models.Model):
     ], string="Source", compute="_compute_mizan_source")
 
     def _compute_mizan_source(self):
-        Recognition = self.env["mizan.contract.recognition"]
-        Claim = self.env["mizan.progress.claim"]
+        # Only asks where an entry came from (a payslip, an expense claim…);
+        # someone who may read the ledger line may know its source, even
+        # without rights on payroll itself.
+        Recognition = self.env["mizan.contract.recognition"].sudo()
+        Claim = self.env["mizan.progress.claim"].sudo()
         for line in self:
-            move = line.move_id
+            move = line.move_id.sudo()
             line.mizan_source = move._mizan_source(Recognition, Claim)
 
     def _mizan_contract_from_analytic(self):

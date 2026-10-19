@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Miqyas Project Accounts",
-    "version": "1.0",
+    "version": "1.1",
     "category": "Accounting/Accounting",
     "summary": "Every project readable from the chart of accounts: its own client, billing, cost, retention and WIP accounts, fed by the entry screens",
     "description": """The CFO's way of keeping contract books (docs/superpowers/specs/
@@ -30,6 +30,7 @@
         "views/ledger_views.xml",
         "views/recognition_views.xml",
         "report/progress_statement.xml",
+        "report/project_reports.xml",
         "wizard/wizard_views.xml",
         "views/subcontract_views.xml",
         "views/labour_views.xml",

@@ -9,6 +9,25 @@ from odoo import _, models
 from odoo.exceptions import UserError
 
 
+class MizanContract(models.Model):
+    _inherit = "mizan.contract"
+
+    def action_invoice_instalment(self):
+        """An invoice to the client that is not a measured claim: an agreed
+        instalment, or an invoice against an advance. It credits the billing
+        account; progress is recorded in its own window."""
+        self.ensure_one()
+        journal = self.env["account.journal"].search(
+            [("type", "=", "sale"), ("company_id", "=", self.company_id.id)], limit=1)
+        return {
+            "type": "ir.actions.act_window", "name": _("Instalment invoice — %s", self.name),
+            "res_model": "account.move", "views": [[False, "form"]], "target": "current",
+            "context": {"default_move_type": "out_invoice", "default_partner_id": self.partner_id.id,
+                        "default_mizan_contract_id": self.id, "default_journal_id": journal.id,
+                        "default_ref": _("%s — instalment", self.code)},
+        }
+
+
 class MizanProgressClaim(models.Model):
     _inherit = "mizan.progress.claim"
 
@@ -44,7 +63,29 @@ class MizanProgressClaim(models.Model):
 class AccountMove(models.Model):
     _inherit = "account.move"
 
+    def _mizan_route_customer_invoice(self):
+        """Any invoice to the client that names the project — a claim, an
+        instalment, an invoice against an advance — credits the project's
+        billing account (the sieve), never revenue, and debits the project's
+        client account. Revenue comes only from the recognition."""
+        for move in self:
+            contract = move.mizan_contract_id
+            if move.state != "draft" or move.move_type not in ("out_invoice", "out_refund") \
+                    or not contract or not contract.billing_account_id:
+                continue
+            income = move.line_ids.filtered(
+                lambda l: l.display_type == "product"
+                and l.account_id.account_type in ("income", "income_other")
+                and l.account_id != contract.billing_account_id)
+            if income:
+                income.with_context(mizan_routing=True).write({"account_id": contract.billing_account_id.id})
+            term = move.line_ids.filtered(
+                lambda l: l.display_type == "payment_term" and l.account_id != contract.receivable_account_id)
+            if term:
+                term.with_context(mizan_routing=True).write({"account_id": contract.receivable_account_id.id})
+
     def _post(self, soft=True):
+        self._mizan_route_customer_invoice()
         posted = super()._post(soft=soft)
         Claim = self.env["mizan.progress.claim"]
         for move in posted:

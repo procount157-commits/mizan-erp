@@ -1417,3 +1417,105 @@ msgstr "%s مصروف بالفعل؛ أعد المواد بحركة جديدة."
 #: code:addons/mizan_project_accounts/models/billing.py:0
 msgid "Raise the invoice for %s first."
 msgstr "أصدر فاتورة %s أولاً."
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__cost_bills
+msgid "Supplier bills"
+msgstr "فواتير الموردين"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__cost_subcontract
+msgid "Subcontractors"
+msgstr "مقاولو الباطن"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__cost_petty
+msgid "Petty cash"
+msgstr "العهد"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__cost_labour
+msgid "Labour cards"
+msgstr "كروت العمال"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__cost_stock
+msgid "Stock issued"
+msgstr "المخزون المصروف"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__cost_other
+msgid "Journal entries and other"
+msgstr "قيود مباشرة وأخرى"
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_contract__margin_to_date
+msgid "Margin recognised"
+msgstr "هامش الربح المعترف به"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_contract_form_accounts
+msgid "Invoice an instalment"
+msgstr "فاتورة دفعة"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_contract_form_accounts
+msgid "Where the cost came from"
+msgstr "مصادر التكلفة"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Where the cost came from"
+msgstr "مصادر التكلفة"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Supplier bills"
+msgstr "فواتير موردين"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Subcontractors"
+msgstr "مقاولو باطن"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Petty cash"
+msgstr "عهد"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Labour"
+msgstr "عمالة"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Stock"
+msgstr "مخزون"
+
+#. module: mizan_project_accounts
+#: model_terms:ir.ui.view,arch_db:mizan_project_accounts.view_project_card_kanban
+msgid "Entries"
+msgstr "قيود"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.report,name:mizan_project_accounts.report_project_statement
+msgid "Project Statement"
+msgstr "كشف المشروع"
+
+#. module: mizan_project_accounts
+#: model:ir.actions.report,name:mizan_project_accounts.report_wip_schedule
+msgid "Work-in-Progress Schedule"
+msgstr "جدول الأعمال تحت التنفيذ"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/billing.py:0
+msgid "Instalment invoice — %s"
+msgstr "فاتورة دفعة — %s"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/billing.py:0
+msgid "%s — instalment"
+msgstr "%s — دفعة"

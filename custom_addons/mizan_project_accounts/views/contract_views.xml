@@ -8,6 +8,9 @@
             <button name="action_create_recognition" position="before">
                 <button name="action_progress_window" type="object" string="Progress to date" icon="fa-percent"
                         class="btn-primary" invisible="state != 'running' or not has_project_accounts"/>
+                <button name="action_invoice_instalment" type="object" string="Invoice an instalment" icon="fa-file-text-o"
+                        invisible="state != 'running' or not has_project_accounts"
+                        groups="account.group_account_invoice"/>
                 <button name="action_create_project_accounts" type="object" string="Create project accounts"
                         icon="fa-book" invisible="has_project_accounts or state == 'cancel'"
                         groups="account.group_account_manager"/>
@@ -37,6 +40,19 @@
                             <field name="wip_balance"/>
                             <field name="cost_recognised"/>
                             <field name="retention_balance"/>
+                            <field name="margin_to_date"/>
+                        </group>
+                    </group>
+                    <group string="Where the cost came from">
+                        <group>
+                            <field name="cost_bills"/>
+                            <field name="cost_subcontract"/>
+                            <field name="cost_petty"/>
+                        </group>
+                        <group>
+                            <field name="cost_labour"/>
+                            <field name="cost_stock"/>
+                            <field name="cost_other"/>
                         </group>
                     </group>
                     <div class="d-flex gap-2 flex-wrap">
@@ -97,6 +113,17 @@
                             <div class="col-6">
                                 <div class="text-muted">Revenue recognised</div>
                                 <div class="fw-bold"><field name="revenue_recognised" widget="monetary"/></div>
+                            </div>
+                        </div>
+                        <div class="small mt-2 pt-2 border-top" t-if="record.has_project_accounts.raw_value">
+                            <div class="text-muted mb-1">Where the cost came from</div>
+                            <div class="d-flex flex-wrap gap-1">
+                                <span class="badge text-bg-light" t-if="record.cost_bills.raw_value">Supplier bills <field name="cost_bills" widget="monetary"/></span>
+                                <span class="badge text-bg-light" t-if="record.cost_subcontract.raw_value">Subcontractors <field name="cost_subcontract" widget="monetary"/></span>
+                                <span class="badge text-bg-light" t-if="record.cost_petty.raw_value">Petty cash <field name="cost_petty" widget="monetary"/></span>
+                                <span class="badge text-bg-light" t-if="record.cost_labour.raw_value">Labour <field name="cost_labour" widget="monetary"/></span>
+                                <span class="badge text-bg-light" t-if="record.cost_stock.raw_value">Stock <field name="cost_stock" widget="monetary"/></span>
+                                <span class="badge text-bg-light" t-if="record.cost_other.raw_value">Entries <field name="cost_other" widget="monetary"/></span>
                             </div>
                         </div>
                         <div t-else="" class="alert alert-warning py-1 px-2 small mb-0" role="status">

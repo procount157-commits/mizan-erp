@@ -193,13 +193,44 @@ class MizanContract(models.Model):
                                       + contract._mizan_balance(contract.cost_account_id))
         super(MizanContract, self - with_accounts)._compute_cost_incurred()
 
+    cost_bills = fields.Monetary(compute="_compute_cost_by_source", string="Supplier bills")
+    cost_subcontract = fields.Monetary(compute="_compute_cost_by_source", string="Subcontractors")
+    cost_petty = fields.Monetary(compute="_compute_cost_by_source", string="Petty cash")
+    cost_labour = fields.Monetary(compute="_compute_cost_by_source", string="Labour cards")
+    cost_stock = fields.Monetary(compute="_compute_cost_by_source", string="Stock issued")
+    cost_other = fields.Monetary(compute="_compute_cost_by_source", string="Journal entries and other")
+    margin_to_date = fields.Monetary(compute="_compute_cost_by_source", string="Margin recognised",
+                                     help="Revenue recognised less cost recognised.")
+
+    SOURCE_FIELDS = {"bill": "cost_bills", "subcontract": "cost_subcontract", "petty": "cost_petty",
+                     "expense": "cost_petty", "labour": "cost_labour", "stock": "cost_stock"}
+
+    def _compute_cost_by_source(self):
+        """Where the project's cost came from, read from the WIP account's
+        debits (the recognition moves cost out of WIP, so it is skipped)."""
+        Line = self.env["account.move.line"]
+        for contract in self:
+            totals = dict.fromkeys(set(self.SOURCE_FIELDS.values()) | {"cost_other"}, 0.0)
+            if contract.wip_account_id:
+                lines = Line.search([("account_id", "=", contract.wip_account_id.id),
+                                     ("parent_state", "=", "posted")])
+                for line in lines:
+                    source = line.mizan_source
+                    if source == "recognition":
+                        continue
+                    totals[self.SOURCE_FIELDS.get(source, "cost_other")] += line.debit - line.credit
+            for field, value in totals.items():
+                contract[field] = value
+            contract.margin_to_date = contract.revenue_recognised - contract.cost_recognised
+
     def _mizan_invalidate_figures(self):
         """The figures read the ledger; after an entry is posted in the same
         transaction they must be read again."""
         self.invalidate_recordset(["wip_balance", "cost_recognised", "billed_net", "billing_balance",
                                    "client_balance", "retention_balance", "cost_incurred",
                                    "completion_percent", "revenue_earned", "revenue_recognised",
-                                   "revenue_to_recognise"])
+                                   "revenue_to_recognise", "cost_bills", "cost_subcontract", "cost_petty",
+                                   "cost_labour", "cost_stock", "cost_other", "margin_to_date"])
 
     def _mizan_ledger_action(self, accounts, name):
         self.ensure_one()

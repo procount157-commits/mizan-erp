@@ -30,7 +30,7 @@
                             </tr>
                             <tr>
                                 <td><strong>قيمة العقد / Contract value:</strong> <span t-field="claim.contract_id.contract_value" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td>
-                                <td><strong>نسبة الإنجاز / % complete:</strong> <span t-esc="'%.1f%%' % claim.percent_complete"/></td>
+                                <td><strong>نسبة الإنجاز / % complete:</strong> <span t-esc="'%.1f' % claim.percent_complete"/>%</td>
                             </tr>
                         </table>
 
@@ -71,7 +71,7 @@
                             <tr class="fw-bold"><td>الإجمالي التراكمي / Gross to date</td><td class="text-end"><span t-field="claim.gross_to_date" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
                             <tr><td>ناقص: المعتمد سابقاً / Less previously certified</td><td class="text-end"><span t-field="claim.previous_certified" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
                             <tr class="fw-bold"><td>قيمة هذه الفترة / This period</td><td class="text-end"><span t-field="claim.amount_this_period" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
-                            <tr><td>ناقص: المحتجزات <span t-esc="'%.0f%%' % claim.retention_percent"/> / Less retention</td><td class="text-end"><span t-field="claim.retention_amount" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
+                            <tr><td>ناقص: المحتجزات <span t-esc="'%.0f' % claim.retention_percent"/>% / Less retention</td><td class="text-end"><span t-field="claim.retention_amount" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
                             <tr><td>ناقص: استرداد الدفعة المقدمة / Less advance recovery</td><td class="text-end"><span t-field="claim.advance_recovery" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
                             <tr class="fw-bold table-light"><td>صافي المستحق قبل الضريبة / Net payable before VAT</td><td class="text-end"><span t-field="claim.net_payable" t-options="{'widget': 'monetary', 'display_currency': claim.currency_id}"/></td></tr>
                         </table>
