@@ -58,3 +58,5 @@ access_mizan_plant_charge_readonly,mizan.plant.charge read-only,model_mizan_plan
 access_mizan_progress_claim_line_readonly,mizan.progress.claim.line read-only,model_mizan_progress_claim_line,account.group_account_readonly,1,0,0,0
 access_mizan_subcontract_variation_readonly,mizan.subcontract.variation read-only,model_mizan_subcontract_variation,account.group_account_readonly,1,0,0,0
 access_mizan_contract_variation_line_readonly,mizan.contract.variation.line read-only,model_mizan_contract_variation_line,account.group_account_readonly,1,0,0,0
+access_mizan_contract_readonly,mizan.contract read-only,model_mizan_contract,account.group_account_readonly,1,0,0,0
+access_mizan_contract_project_manager,mizan.contract project manager,model_mizan_contract,project.group_project_manager,1,0,0,0

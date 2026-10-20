@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../api.dart';
 import '../theme.dart';
 import '../widgets.dart';
+import 'cashflow.dart';
 import 'insights.dart';
 
 class OverviewScreen extends StatelessWidget {
@@ -65,6 +66,7 @@ class OverviewScreen extends StatelessWidget {
           ],
           const SizedBox(height: 14),
           const InsightsCard(),
+          const CashflowCard(),
           if (hero != null) ...[
             const SizedBox(height: 14),
             Container(
@@ -91,7 +93,10 @@ class OverviewScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(16),
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                       Text('${c['title']}', style: const TextStyle(color: Brand.muted, fontWeight: FontWeight.w600)),
-                      Money('${c['value']}', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: _tone(c['tone']))),
+                      // Money splits number from unit; a count of days or documents is a sentence.
+                      ['safety', 'expiry'].contains(c['key'])
+                          ? Text('${c['value']}', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: _tone(c['tone'])))
+                          : Money('${c['value']}', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: _tone(c['tone']))),
                       const SizedBox(height: 4),
                       ...List<String>.from(c['lines'] ?? []).map((l) =>
                           Text(l, style: const TextStyle(color: Brand.muted, fontSize: 13))),

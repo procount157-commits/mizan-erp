@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Miqyas Site",
-    "version": "1.0",
+    "version": "1.2",
     "category": "Project",
     "summary": "The engineer's screen: his jobs, the daily report, and the four things he raises",
     "description": """An engineer given a login today gets the whole back office on a phone
@@ -33,12 +33,15 @@ That separation is the reason a site engineer can be given a login at all.
     "data": [
         "security/site_groups.xml",
         "security/ir.model.access.csv",
+        "security/incident_rules.xml",
         "data/sequence.xml",
+        "data/incident_sequence.xml",
         "data/reminder.xml",
         "data/trades.xml",
         "views/site_report_views.xml",
         "views/site_capture_views.xml",
         "views/menus.xml",
+        "views/incident_views.xml",
     ],
     "assets": {
         "web.assets_backend": [

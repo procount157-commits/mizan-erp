@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cf_week_list" model="ir.ui.view">
+        <field name="name">mizan.cashflow.week.list</field>
+        <field name="model">mizan.cashflow.week</field>
+        <field name="arch" type="xml">
+            <list string="Cash flow forecast" create="0" edit="0" delete="0" decoration-danger="short"
+                  action="action_open_lines" type="object">
+                <header>
+                    <button name="action_rebuild" type="object" string="Rebuild now" class="btn-primary" display="always"/>
+                </header>
+                <field name="name"/>
+                <field name="week_start" optional="hide"/>
+                <field name="opening"/>
+                <field name="inflow" decoration-success="inflow &gt; 0"/>
+                <field name="outflow" decoration-danger="outflow &gt; 0"/>
+                <field name="closing" decoration-bf="1" decoration-danger="closing &lt; 0"/>
+                <field name="short" column_invisible="1"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cf_week_graph" model="ir.ui.view">
+        <field name="name">mizan.cashflow.week.graph</field>
+        <field name="model">mizan.cashflow.week</field>
+        <field name="arch" type="xml">
+            <graph string="Cash flow forecast" type="line" sample="0">
+                <field name="week_start" interval="week"/>
+                <field name="closing" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_cf_line_list" model="ir.ui.view">
+        <field name="name">mizan.cashflow.line.list</field>
+        <field name="model">mizan.cashflow.line</field>
+        <field name="arch" type="xml">
+            <list string="Forecast lines" create="0" edit="0" delete="0" action="action_open_document" type="object"
+                  decoration-muted="estimate" decoration-warning="late">
+                <field name="date"/>
+                <field name="source"/>
+                <field name="partner_id"/>
+                <field name="ref"/>
+                <field name="late" optional="show"/>
+                <field name="estimate" optional="show"/>
+                <field name="amount" sum="Total" decoration-success="amount &gt; 0" decoration-danger="amount &lt; 0"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cf_line_pivot" model="ir.ui.view">
+        <field name="name">mizan.cashflow.line.pivot</field>
+        <field name="model">mizan.cashflow.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Forecast by source and week" sample="0">
+                <field name="source" type="row"/>
+                <field name="week_start" interval="week" type="col"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_cf_line_search" model="ir.ui.view">
+        <field name="name">mizan.cashflow.line.search</field>
+        <field name="model">mizan.cashflow.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="partner_id"/>
+                <field name="ref"/>
+                <filter name="in" string="Coming in" domain="[('amount', '&gt;', 0)]"/>
+                <filter name="out" string="Going out" domain="[('amount', '&lt;', 0)]"/>
+                <filter name="late" string="Late" domain="[('late', '=', True)]"/>
+                <filter name="estimate" string="Estimates" domain="[('estimate', '=', True)]"/>
+                <group expand="0" string="Group by">
+                    <filter name="by_source" string="Source" context="{'group_by': 'source'}"/>
+                    <filter name="by_week" string="Week" context="{'group_by': 'week_start:week'}"/>
+                    <filter name="by_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_cf_week" model="ir.actions.act_window">
+        <field name="name">Cash flow forecast</field>
+        <field name="res_model">mizan.cashflow.week</field>
+        <field name="view_mode">list,graph</field>
+        <field name="domain">[('company_id', 'in', allowed_company_ids)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No forecast yet</p>
+            <p>Press «Rebuild now». It is rebuilt every night by itself.</p>
+        </field>
+    </record>
+    <record id="action_cf_line" model="ir.actions.act_window">
+        <field name="name">What moves the cash</field>
+        <field name="res_model">mizan.cashflow.line</field>
+        <field name="view_mode">pivot,list</field>
+        <field name="domain">[('company_id', 'in', allowed_company_ids)]</field>
+    </record>
+
+    <menuitem id="menu_cf_root" name="Cash Flow" sequence="46"
+              web_icon="mizan_cashflow,static/description/icon.png"
+              groups="account.group_account_invoice,mizan_hub.group_general_manager,mizan_owner.group_owner"/>
+    <menuitem id="menu_cf_weeks" name="13-week forecast" parent="menu_cf_root" action="action_cf_week" sequence="1"/>
+    <menuitem id="menu_cf_lines" name="By source and week" parent="menu_cf_root" action="action_cf_line" sequence="2"/>
+</odoo>

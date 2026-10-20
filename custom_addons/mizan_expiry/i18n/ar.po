@@ -1,0 +1,773 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_expiry
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-20 06:25+0000\n"
+"PO-Revision-Date: 2026-10-20 06:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/owner.py:0
+msgid "%(n)s: %(d)s day(s) left"
+msgstr "%(n)s: باقي %(d)s يوم"
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/owner.py:0
+msgid "%(n)s: expired %(d)s day(s) ago"
+msgstr "%(n)s: انتهت منذ %(d)s يوم"
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/expiry.py:0
+msgid "%(what)s expired on %(date)s. Renew it now."
+msgstr "انتهت صلاحية %(what)s في %(date)s. جدّدها الآن."
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/expiry.py:0
+msgid "%(what)s expires on %(date)s (%(d)s day(s) left). %(who)s renews it."
+msgstr "تنتهي صلاحية %(what)s في %(date)s (باقي %(d)s يوم). المسؤول عن التجديد: %(who)s."
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/owner.py:0
+msgid "%s document(s)"
+msgstr "%s مستند"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: mizan_expiry
+#: model_terms:ir.actions.act_window,help:mizan_expiry.action_expiry
+msgid ""
+"Add the trade licence, the insurance policies and the vehicles. Workers' visas, labour cards,\n"
+"               Emirates IDs and passports appear here from their employee records."
+msgstr "أضف الرخصة التجارية ووثائق التأمين والمركبات. إقامات العمّال وبطاقات العمل والهويات والجوازات تظهر هنا من سجلات الموظفين."
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__alert_stage
+msgid "Alert Stage"
+msgstr "مرحلة التنبيه"
+
+#. module: mizan_expiry
+#: model:ir.actions.act_window,name:mizan_expiry.action_expiry_all
+#: model:ir.ui.menu,name:mizan_expiry.menu_expiry_all
+msgid "All documents"
+msgstr "كل المستندات"
+
+#. module: mizan_expiry
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_search
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__name
+msgid ""
+"As the people who renew it call it: Trade licence, CAR policy, Ahmed's visa."
+msgstr "كما يسمّيه من يجدّده: الرخصة التجارية، وثيقة CAR، إقامة أحمد."
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__attachment_name
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_renew__attachment_name
+msgid "Attachment Name"
+msgstr "اسم المرفق"
+
+#. module: mizan_expiry
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_form
+msgid "Belongs to"
+msgstr "يخص"
+
+#. module: mizan_expiry
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_renew_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__company_id
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_search
+msgid "Company"
+msgstr "الشركة"
+
+#. module: mizan_expiry
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_form
+msgid "Copy and cost"
+msgstr "النسخة والتكلفة"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__attachment
+msgid "Copy of the document"
+msgstr "نسخة المستند"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_renew__attachment
+msgid "Copy of the renewed document"
+msgstr "نسخة المستند بعد التجديد"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__create_uid
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_renew__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__create_date
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_renew__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__issuer
+msgid "DED, Civil Defence, the insurer, the RTA…"
+msgstr "الدائرة الاقتصادية، الدفاع المدني، شركة التأمين، هيئة الطرق…"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__days_left
+msgid "Days Left"
+msgstr "الأيام المتبقية"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__display_name
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_renew__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_renew__document_id
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_form
+msgid "Document"
+msgstr "المستند"
+
+#. module: mizan_expiry
+#: model:ir.model,name:mizan_expiry.model_mizan_expiry_document
+msgid "Document that expires"
+msgstr "مستند له تاريخ انتهاء"
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__kind__eid
+#. odoo-python
+#: code:addons/mizan_expiry/models/sources.py:0
+msgid "Emirates ID"
+msgstr "الهوية الإماراتية"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_hr_employee__mizan_eid_expiry
+msgid "Emirates ID expiry"
+msgstr "انتهاء الهوية الإماراتية"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_hr_employee__mizan_eid_number
+msgid "Emirates ID number"
+msgstr "رقم الهوية الإماراتية"
+
+#. module: mizan_expiry
+#: model:ir.model,name:mizan_expiry.model_hr_employee
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: mizan_expiry
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_search
+msgid "Employees"
+msgstr "الموظفون"
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/owner.py:0
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__state__expired
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_form
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_search
+msgid "Expired"
+msgstr "منتهية"
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/expiry.py:0
+msgid "Expired: %s"
+msgstr "انتهت الصلاحية: %s"
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/expiry.py:0
+msgid "Expires in %(d)s day(s): %(what)s"
+msgstr "تنتهي خلال %(d)s يوم: %(what)s"
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__state__soon
+msgid "Expires soon"
+msgstr "تنتهي قريباً"
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/owner.py:0
+#: code:addons/mizan_expiry/models/sources.py:0
+#: model:ir.actions.act_window,name:mizan_expiry.action_expiry
+#: model:ir.ui.menu,name:mizan_expiry.menu_expiry_root
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_employee_form_expiry
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_calendar
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_list
+msgid "Expiries"
+msgstr "الصلاحيات"
+
+#. module: mizan_expiry
+#: model:ir.actions.server,name:mizan_expiry.cron_expiry_daily_ir_actions_server
+msgid "Expiries: refresh and warn"
+msgstr "الصلاحيات: تحديث وتنبيه"
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/owner.py:0
+msgid "Expiring within 30 days"
+msgstr "تنتهي خلال 30 يوماً"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__expiry_date
+msgid "Expiry Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: mizan_expiry
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_search
+msgid "Expiry month"
+msgstr "شهر الانتهاء"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: mizan_expiry
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_search
+msgid "Group by"
+msgstr "تجميع حسب"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: mizan_expiry
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_form
+msgid "How it is renewed, who to call, what to bring…"
+msgstr "طريقة التجديد، بمن نتصل، وما المطلوب…"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__id
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_renew__id
+msgid "ID"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__message_has_error
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__kind__insurance
+msgid "Insurance policy"
+msgstr "وثيقة تأمين"
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/sources.py:0
+msgid "Insurance — %s"
+msgstr "تأمين — %s"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__issue_date
+msgid "Issue Date"
+msgstr "تاريخ الإصدار"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__issuer
+msgid "Issued by"
+msgstr "جهة الإصدار"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__kind
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_search
+msgid "Kind"
+msgstr "النوع"
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__kind__labour_card
+#. odoo-python
+#: code:addons/mizan_expiry/models/sources.py:0
+msgid "Labour card"
+msgstr "بطاقة العمل"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__write_uid
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_renew__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__write_date
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_renew__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__renewal_cost
+msgid "Last renewal cost"
+msgstr "تكلفة آخر تجديد"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_renew__reference
+msgid "Leave empty if the number did not change."
+msgstr "اتركه فارغاً إن لم يتغير الرقم."
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__kind__licence
+msgid "Licence or permit"
+msgstr "رخصة أو تصريح"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__reference
+msgid "Licence, policy, plate, visa or ID number."
+msgstr "رقم الرخصة أو الوثيقة أو اللوحة أو الإقامة أو الهوية."
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__kind__medical
+#. odoo-python
+#: code:addons/mizan_expiry/models/sources.py:0
+msgid "Medical insurance"
+msgstr "التأمين الصحي"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_hr_employee__mizan_medical_expiry
+msgid "Medical insurance expiry"
+msgstr "انتهاء التأمين الصحي"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: mizan_expiry
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_search
+msgid "Mine to renew"
+msgstr "عليّ تجديدها"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_hr_employee__mizan_expiry_count
+msgid "Mizan Expiry Count"
+msgstr "عدد الصلاحيات"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: mizan_expiry
+#: model:ir.ui.menu,name:mizan_expiry.menu_expiry_attention
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_search
+msgid "Needs attention"
+msgstr "تحتاج انتباهاً"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_renew__expiry_date
+msgid "New expiry date"
+msgstr "تاريخ الانتهاء الجديد"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_renew__issue_date
+msgid "New issue date"
+msgstr "تاريخ الإصدار الجديد"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_renew__reference
+msgid "New number"
+msgstr "الرقم الجديد"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/expiry.py:0
+msgid "Nobody"
+msgstr "لا أحد"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__note
+msgid "Note"
+msgstr "ملاحظات"
+
+#. module: mizan_expiry
+#: model_terms:ir.actions.act_window,help:mizan_expiry.action_expiry
+msgid "Nothing is about to expire"
+msgstr "لا شيء على وشك الانتهاء"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__reference
+msgid "Number"
+msgstr "الرقم"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__kind__other
+msgid "Other"
+msgstr "أخرى"
+
+#. module: mizan_expiry
+#: model:ir.model,name:mizan_expiry.model_mizan_owner
+msgid "Owner page"
+msgstr "صفحة المالك"
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__kind__passport
+#. odoo-python
+#: code:addons/mizan_expiry/models/sources.py:0
+msgid "Passport"
+msgstr "جواز السفر"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_hr_employee__mizan_passport_expiry
+msgid "Passport expiry"
+msgstr "انتهاء جواز السفر"
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__kind__plant
+msgid "Plant inspection or registration"
+msgstr "فحص أو تسجيل معدة"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__plant_id
+msgid "Plant or vehicle"
+msgstr "المعدة أو المركبة"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__contract_id
+msgid "Project"
+msgstr "المشروع"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__days_left
+msgid "Refreshed every night."
+msgstr "تُحدّث كل ليلة."
+
+#. module: mizan_expiry
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_form
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_list
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_renew_form
+msgid "Renew"
+msgstr "تجديد"
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/expiry.py:0
+msgid "Renew %s"
+msgstr "تجديد %s"
+
+#. module: mizan_expiry
+#: model:ir.model,name:mizan_expiry.model_mizan_expiry_renew
+msgid "Renew a document"
+msgstr "تجديد مستند"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_renew__cost
+msgid "Renewal cost"
+msgstr "تكلفة التجديد"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__responsible_id
+msgid "Renewed by"
+msgstr "المسؤول عن التجديد"
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/expiry.py:0
+msgid "Renewed by %(who)s: %(old)s → %(new)s%(cost)s."
+msgstr "جدّدها %(who)s: %(old)s ← %(new)s%(cost)s."
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/expiry.py:0
+msgid "Renewed until %s"
+msgstr "جُدّدت حتى %s"
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__kind__visa
+#. odoo-python
+#: code:addons/mizan_expiry/models/sources.py:0
+msgid "Residence visa"
+msgstr "الإقامة"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__source_id
+msgid "Source"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__source_field
+msgid "Source Field"
+msgstr "حقل المصدر"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__source_model
+msgid "Source Model"
+msgstr "نموذج المصدر"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: mizan_expiry
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_search
+msgid "Status"
+msgstr "الحالة"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model,name:mizan_expiry.model_mizan_subcontract
+msgid "Subcontract"
+msgstr "عقد الباطن"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__partner_id
+msgid "Subcontractor / company"
+msgstr "مقاول الباطن / الجهة"
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__kind__sub_insurance
+msgid "Subcontractor insurance"
+msgstr "تأمين مقاول الباطن"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__notice_days
+msgid "The first warning goes out this many days before the date."
+msgstr "يُرسل أول تنبيه قبل التاريخ بهذا العدد من الأيام."
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/expiry.py:0
+msgid "The new expiry date must come after the issue date."
+msgstr "يجب أن يكون تاريخ الانتهاء الجديد بعد تاريخ الإصدار."
+
+#. module: mizan_expiry
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_form
+msgid ""
+"This date comes from the employee or subcontract record and stays in step "
+"with it."
+msgstr "هذا التاريخ مأخوذ من سجل الموظف أو عقد الباطن ويتحدّث معه تلقائياً."
+
+#. module: mizan_expiry
+#: model:ir.model.constraint,message:mizan_expiry.constraint_mizan_expiry_document_source_uniq
+msgid "This record already has its expiry row."
+msgstr "لهذا السجل صف صلاحية مسبقاً."
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__kind__trade_licence
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_form
+msgid "Trade licence"
+msgstr "الرخصة التجارية"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__state__valid
+msgid "Valid"
+msgstr "سارية"
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__kind__vehicle
+msgid "Vehicle registration"
+msgstr "تسجيل مركبة"
+
+#. module: mizan_expiry
+#: model_terms:ir.ui.view,arch_db:mizan_expiry.view_expiry_search
+msgid "Vehicles and plant"
+msgstr "المركبات والمعدات"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__notice_days
+msgid "Warn days before"
+msgstr "التنبيه قبل (أيام)"
+
+#. module: mizan_expiry
+#: model:ir.model.fields,field_description:mizan_expiry.field_mizan_expiry_document__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: mizan_expiry
+#: model:ir.model.fields,help:mizan_expiry.field_mizan_expiry_document__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: mizan_expiry
+#. odoo-python
+#: code:addons/mizan_expiry/models/owner.py:0
+msgid "and %s more"
+msgstr "و%s أخرى"
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__alert_stage__expired
+msgid "expired"
+msgstr "منتهية"
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__alert_stage__none
+msgid "none"
+msgstr "لا شيء"
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__alert_stage__notice
+msgid "notice"
+msgstr "تنبيه أول"
+
+#. module: mizan_expiry
+#: model:ir.model.fields.selection,name:mizan_expiry.selection__mizan_expiry_document__alert_stage__week
+msgid "week"
+msgstr "قبل أسبوع"

@@ -883,8 +883,8 @@ msgstr "التاريخ"
 
 #. module: mizan_project_accounts
 #: model:ir.model.fields,field_description:mizan_project_accounts.field_account_move__mizan_source_kind
-msgid "Created by"
-msgstr "أُنشئ بواسطة"
+msgid "Raised from"
+msgstr "مصدر القيد"
 
 #. module: mizan_project_accounts
 #: model:ir.model.fields.selection,name:mizan_project_accounts.selection__mizan_labour_day__fraction__1
@@ -1982,3 +1982,25 @@ msgstr "أرقام المشاريع"
 #: code:addons/mizan_project_accounts/models/accounts.py:0
 msgid "Only accounting or project managers can open a project's accounts."
 msgstr "فتح حسابات المشروع لمسؤولي المحاسبة أو مديري المشاريع فقط."
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/plant_hours.py:0
+msgid "%(report)s: %(hours)s h worked, %(idle)s h standing"
+msgstr "%(report)s: %(hours)s ساعة عمل، %(idle)s ساعة توقف"
+
+#. module: mizan_project_accounts
+#. odoo-python
+#: code:addons/mizan_project_accounts/models/plant_hours.py:0
+msgid "%s plant charge(s) drafted for the office to post."
+msgstr "أُعدّت %s رسوم معدات كمسودة ليُرحّلها المكتب."
+
+#. module: mizan_project_accounts
+#: model:ir.model.fields,field_description:mizan_project_accounts.field_mizan_plant_charge__site_plant_id
+msgid "From site report"
+msgstr "من تقرير الموقع"
+
+#. module: mizan_project_accounts
+#: model:ir.model.constraint,message:mizan_project_accounts.constraint_mizan_plant_charge_site_plant_uniq
+msgid "These plant hours are already charged."
+msgstr "ساعات المعدات هذه محمّلة مسبقاً."

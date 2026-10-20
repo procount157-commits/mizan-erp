@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_expiry_list" model="ir.ui.view">
+        <field name="name">mizan.expiry.document.list</field>
+        <field name="model">mizan.expiry.document</field>
+        <field name="arch" type="xml">
+            <list string="Expiries" decoration-danger="state == 'expired'" decoration-warning="state == 'soon'">
+                <field name="name"/>
+                <field name="kind"/>
+                <field name="reference" optional="show"/>
+                <field name="employee_id" optional="show"/>
+                <field name="partner_id" optional="hide"/>
+                <field name="plant_id" optional="hide"/>
+                <field name="expiry_date"/>
+                <field name="days_left"/>
+                <field name="responsible_id" widget="many2one_avatar_user" optional="show"/>
+                <field name="state" widget="badge" decoration-danger="state == 'expired'"
+                       decoration-warning="state == 'soon'" decoration-success="state == 'valid'"/>
+                <button name="action_renew" type="object" string="Renew" icon="fa-refresh"
+                        invisible="state == 'valid'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_expiry_kanban" model="ir.ui.view">
+        <field name="name">mizan.expiry.document.kanban</field>
+        <field name="model">mizan.expiry.document</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" records_draggable="0" group_create="0" class="o_kanban_small_column">
+                <field name="state"/>
+                <field name="days_left"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex justify-content-between">
+                            <field name="name" class="fw-bold"/>
+                            <span t-attf-class="badge #{record.state.raw_value == 'expired' ? 'text-bg-danger' : record.state.raw_value == 'soon' ? 'text-bg-warning' : 'text-bg-success'}">
+                                <t t-if="record.days_left.raw_value &lt; 0">-</t><t t-esc="Math.abs(record.days_left.raw_value)"/>
+                            </span>
+                        </div>
+                        <field name="kind" class="text-muted small"/>
+                        <div class="d-flex justify-content-between mt-1">
+                            <field name="expiry_date"/>
+                            <field name="responsible_id" widget="many2one_avatar_user"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_expiry_calendar" model="ir.ui.view">
+        <field name="name">mizan.expiry.document.calendar</field>
+        <field name="model">mizan.expiry.document</field>
+        <field name="arch" type="xml">
+            <calendar string="Expiries" date_start="expiry_date" color="kind" mode="month" quick_create="0">
+                <field name="name"/>
+                <field name="responsible_id"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_expiry_form" model="ir.ui.view">
+        <field name="name">mizan.expiry.document.form</field>
+        <field name="model">mizan.expiry.document</field>
+        <field name="arch" type="xml">
+            <form string="Document">
+                <header>
+                    <button name="action_renew" type="object" string="Renew" class="btn-primary"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Expired" bg_color="text-bg-danger" invisible="state != 'expired'"/>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Trade licence"/></h1>
+                    </div>
+                    <div class="alert alert-info" role="status" invisible="not source_model">
+                        This date comes from the employee or subcontract record and stays in step with it.
+                    </div>
+                    <group>
+                        <group>
+                            <field name="kind"/>
+                            <field name="reference"/>
+                            <field name="issuer"/>
+                            <field name="responsible_id"/>
+                        </group>
+                        <group>
+                            <field name="issue_date"/>
+                            <field name="expiry_date" readonly="source_model"/>
+                            <field name="days_left"/>
+                            <field name="notice_days"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Belongs to">
+                            <field name="employee_id"/>
+                            <field name="partner_id"/>
+                            <field name="plant_id"/>
+                            <field name="contract_id"/>
+                        </group>
+                        <group string="Copy and cost">
+                            <field name="attachment" filename="attachment_name"/>
+                            <field name="attachment_name" invisible="1"/>
+                            <field name="renewal_cost"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="source_model" invisible="1"/>
+                        </group>
+                    </group>
+                    <field name="note" placeholder="How it is renewed, who to call, what to bring…"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_expiry_search" model="ir.ui.view">
+        <field name="name">mizan.expiry.document.search</field>
+        <field name="model">mizan.expiry.document</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="reference"/>
+                <field name="employee_id"/>
+                <field name="partner_id"/>
+                <filter name="attention" string="Needs attention" domain="[('state', 'in', ('soon', 'expired'))]"/>
+                <filter name="expired" string="Expired" domain="[('state', '=', 'expired')]"/>
+                <filter name="mine" string="Mine to renew" domain="[('responsible_id', '=', uid)]"/>
+                <separator/>
+                <filter name="company_docs" string="Company" domain="[('kind', 'in', ('trade_licence', 'licence', 'insurance'))]"/>
+                <filter name="staff_docs" string="Employees" domain="[('employee_id', '!=', False)]"/>
+                <filter name="fleet_docs" string="Vehicles and plant" domain="[('kind', 'in', ('vehicle', 'plant'))]"/>
+                <separator/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group by">
+                    <filter name="by_kind" string="Kind" context="{'group_by': 'kind'}"/>
+                    <filter name="by_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="by_month" string="Expiry month" context="{'group_by': 'expiry_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_expiry_renew_form" model="ir.ui.view">
+        <field name="name">mizan.expiry.renew.form</field>
+        <field name="model">mizan.expiry.renew</field>
+        <field name="arch" type="xml">
+            <form string="Renew">
+                <group>
+                    <field name="document_id" readonly="1"/>
+                    <field name="issue_date"/>
+                    <field name="expiry_date"/>
+                    <field name="reference"/>
+                    <field name="cost"/>
+                    <field name="attachment" filename="attachment_name"/>
+                    <field name="attachment_name" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" type="object" string="Renew" class="btn-primary"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_expiry" model="ir.actions.act_window">
+        <field name="name">Expiries</field>
+        <field name="res_model">mizan.expiry.document</field>
+        <field name="view_mode">kanban,list,calendar,form</field>
+        <field name="context">{'search_default_attention': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing is about to expire</p>
+            <p>Add the trade licence, the insurance policies and the vehicles. Workers' visas, labour cards,
+               Emirates IDs and passports appear here from their employee records.</p>
+        </field>
+    </record>
+    <record id="action_expiry_all" model="ir.actions.act_window">
+        <field name="name">All documents</field>
+        <field name="res_model">mizan.expiry.document</field>
+        <field name="view_mode">list,kanban,calendar,form</field>
+    </record>
+
+    <menuitem id="menu_expiry_root" name="Expiries" sequence="45"
+              web_icon="mizan_expiry,static/description/icon.png"
+              groups="hr.group_hr_user,account.group_account_invoice,mizan_hub.group_general_manager,mizan_owner.group_owner"/>
+    <menuitem id="menu_expiry_attention" name="Needs attention" parent="menu_expiry_root" action="action_expiry" sequence="1"/>
+    <menuitem id="menu_expiry_all" name="All documents" parent="menu_expiry_root" action="action_expiry_all" sequence="2"/>
+</odoo>

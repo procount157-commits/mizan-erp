@@ -123,8 +123,8 @@
         </field>
     </record>
 
-    <menuitem id="menu_variations" name="Variation Orders"
-              parent="mizan_core.menu_mizan_contracting"
-              action="action_variation" sequence="25"/>
+    <!-- Its menu is in mizan_core, which depends on this module: a menu here
+         under mizan_core's Operations would need the reverse dependency,
+         and a fresh database would refuse to install. -->
 
 </odoo>

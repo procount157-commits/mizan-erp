@@ -1,0 +1,376 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mizan_cashflow
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-20 06:29+0000\n"
+"PO-Revision-Date: 2026-10-20 06:29+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mizan_cashflow
+#: model:ir.ui.menu,name:mizan_cashflow.menu_cf_weeks
+msgid "13-week forecast"
+msgstr "توقع 13 أسبوعاً"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: mizan_cashflow
+#: model:ir.ui.menu,name:mizan_cashflow.menu_cf_lines
+msgid "By source and week"
+msgstr "حسب المصدر والأسبوع"
+
+#. module: mizan_cashflow
+#: model:ir.ui.menu,name:mizan_cashflow.menu_cf_root
+msgid "Cash Flow"
+msgstr "التدفق النقدي"
+
+#. module: mizan_cashflow
+#. odoo-python
+#: code:addons/mizan_cashflow/models/forecast.py:0
+msgid "Cash and banks today"
+msgstr "النقد والبنوك اليوم"
+
+#. module: mizan_cashflow
+#. odoo-python
+#: code:addons/mizan_cashflow/models/owner.py:0
+#: model:ir.actions.act_window,name:mizan_cashflow.action_cf_week
+#: model_terms:ir.ui.view,arch_db:mizan_cashflow.view_cf_week_graph
+#: model_terms:ir.ui.view,arch_db:mizan_cashflow.view_cf_week_list
+msgid "Cash flow forecast"
+msgstr "توقع التدفق النقدي"
+
+#. module: mizan_cashflow
+#: model:ir.model,name:mizan_cashflow.model_mizan_cashflow_line
+msgid "Cash flow forecast line"
+msgstr "بند توقع التدفق النقدي"
+
+#. module: mizan_cashflow
+#: model:ir.model,name:mizan_cashflow.model_mizan_cashflow_week
+msgid "Cash flow forecast week"
+msgstr "أسبوع توقع التدفق النقدي"
+
+#. module: mizan_cashflow
+#: model:ir.actions.server,name:mizan_cashflow.cron_cashflow_rebuild_ir_actions_server
+msgid "Cash flow forecast: rebuild"
+msgstr "توقع التدفق النقدي: إعادة البناء"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields.selection,name:mizan_cashflow.selection__mizan_cashflow_line__source__opening
+msgid "Cash in the banks"
+msgstr "النقد في البنوك"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields.selection,name:mizan_cashflow.selection__mizan_cashflow_line__source__cheque_out
+msgid "Cheques issued"
+msgstr "شيكات صادرة"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields.selection,name:mizan_cashflow.selection__mizan_cashflow_line__source__cheque_in
+msgid "Cheques received"
+msgstr "شيكات واردة"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__closing
+msgid "Closing cash"
+msgstr "النقد في نهاية الأسبوع"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__inflow
+#: model_terms:ir.ui.view,arch_db:mizan_cashflow.view_cf_line_search
+msgid "Coming in"
+msgstr "يدخل"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__company_id
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__create_uid
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__create_date
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__currency_id
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields.selection,name:mizan_cashflow.selection__mizan_cashflow_line__source__customer
+msgid "Customer invoices"
+msgstr "فواتير العملاء"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__display_name
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__ref
+msgid "Document"
+msgstr "المستند"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__estimate
+msgid "Estimate"
+msgstr "تقديري"
+
+#. module: mizan_cashflow
+#: model_terms:ir.ui.view,arch_db:mizan_cashflow.view_cf_line_search
+msgid "Estimates"
+msgstr "التقديرات"
+
+#. module: mizan_cashflow
+#: model_terms:ir.ui.view,arch_db:mizan_cashflow.view_cf_line_pivot
+msgid "Forecast by source and week"
+msgstr "التوقع حسب المصدر والأسبوع"
+
+#. module: mizan_cashflow
+#: model_terms:ir.ui.view,arch_db:mizan_cashflow.view_cf_line_list
+msgid "Forecast lines"
+msgstr "بنود التوقع"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__outflow
+#: model_terms:ir.ui.view,arch_db:mizan_cashflow.view_cf_line_search
+msgid "Going out"
+msgstr "يخرج"
+
+#. module: mizan_cashflow
+#: model_terms:ir.ui.view,arch_db:mizan_cashflow.view_cf_line_search
+msgid "Group by"
+msgstr "تجميع حسب"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__id
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__id
+msgid "ID"
+msgstr ""
+
+#. module: mizan_cashflow
+#. odoo-python
+#: code:addons/mizan_cashflow/models/owner.py:0
+msgid "In 13 weeks: %s"
+msgstr "بعد 13 أسبوعاً: %s"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,help:mizan_cashflow.field_mizan_cashflow_line__late
+msgid "Its date has passed; counted in the first week."
+msgstr "فات تاريخه؛ يُحسب في الأسبوع الأول."
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__write_uid
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__write_date
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__late
+#: model_terms:ir.ui.view,arch_db:mizan_cashflow.view_cf_line_search
+msgid "Late"
+msgstr "متأخر"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__line_ids
+msgid "Line"
+msgstr "البند"
+
+#. module: mizan_cashflow
+#. odoo-python
+#: code:addons/mizan_cashflow/models/owner.py:0
+msgid "Lowest cash, next 13 weeks"
+msgstr "أدنى رصيد نقدي خلال 13 أسبوعاً"
+
+#. module: mizan_cashflow
+#. odoo-python
+#: code:addons/mizan_cashflow/models/owner.py:0
+msgid "Lowest in the week of %s"
+msgstr "الأدنى في أسبوع %s"
+
+#. module: mizan_cashflow
+#. odoo-python
+#: code:addons/mizan_cashflow/models/owner.py:0
+msgid "Next 4 weeks: in %(i)s · out %(o)s"
+msgstr "الأسابيع الأربعة القادمة: يدخل %(i)s · يخرج %(o)s"
+
+#. module: mizan_cashflow
+#: model_terms:ir.actions.act_window,help:mizan_cashflow.action_cf_week
+msgid "No forecast yet"
+msgstr "لا يوجد توقع بعد"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__opening
+msgid "Opening cash"
+msgstr "النقد في بداية الأسبوع"
+
+#. module: mizan_cashflow
+#: model:ir.model,name:mizan_cashflow.model_mizan_owner
+msgid "Owner page"
+msgstr "صفحة المالك"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__partner_id
+#: model_terms:ir.ui.view,arch_db:mizan_cashflow.view_cf_line_search
+msgid "Partner"
+msgstr "الجهة"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields.selection,name:mizan_cashflow.selection__mizan_cashflow_line__source__payroll
+msgid "Payroll"
+msgstr "الرواتب"
+
+#. module: mizan_cashflow
+#: model_terms:ir.actions.act_window,help:mizan_cashflow.action_cf_week
+msgid "Press «Rebuild now». It is rebuilt every night by itself."
+msgstr "اضغط «أعد البناء الآن». يُعاد بناؤه كل ليلة تلقائياً."
+
+#. module: mizan_cashflow
+#: model_terms:ir.ui.view,arch_db:mizan_cashflow.view_cf_week_list
+msgid "Rebuild now"
+msgstr "أعد البناء الآن"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__res_id
+msgid "Res"
+msgstr ""
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__res_model
+msgid "Res Model"
+msgstr ""
+
+#. module: mizan_cashflow
+#: model:ir.model.fields.selection,name:mizan_cashflow.selection__mizan_cashflow_line__source__retention
+msgid "Retention release"
+msgstr "الإفراج عن المحجوز"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__short
+msgid "Runs short"
+msgstr "عجز"
+
+#. module: mizan_cashflow
+#. odoo-python
+#: code:addons/mizan_cashflow/models/owner.py:0
+msgid "Runs short in the week of %s"
+msgstr "يحدث عجز في أسبوع %s"
+
+#. module: mizan_cashflow
+#. odoo-python
+#: code:addons/mizan_cashflow/models/forecast.py:0
+msgid "Salaries for %s (%s contracts)"
+msgstr "رواتب %s (%s عقد)"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__source
+#: model_terms:ir.ui.view,arch_db:mizan_cashflow.view_cf_line_search
+msgid "Source"
+msgstr "المصدر"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields.selection,name:mizan_cashflow.selection__mizan_cashflow_line__source__subcontract
+msgid "Subcontractor payments"
+msgstr "دفعات مقاولي الباطن"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields.selection,name:mizan_cashflow.selection__mizan_cashflow_line__source__supplier
+msgid "Supplier bills"
+msgstr "فواتير الموردين"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,help:mizan_cashflow.field_mizan_cashflow_week__short
+msgid "The closing cash is below zero."
+msgstr "النقد في نهاية الأسبوع أقل من صفر."
+
+#. module: mizan_cashflow
+#: model_terms:ir.ui.view,arch_db:mizan_cashflow.view_cf_line_list
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields.selection,name:mizan_cashflow.selection__mizan_cashflow_line__source__vat
+msgid "VAT return"
+msgstr "إقرار ضريبة القيمة المضافة"
+
+#. module: mizan_cashflow
+#. odoo-python
+#: code:addons/mizan_cashflow/models/forecast.py:0
+msgid "VAT return for the quarter to %s"
+msgstr "إقرار الضريبة عن الربع المنتهي %s"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__week_id
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__name
+#: model_terms:ir.ui.view,arch_db:mizan_cashflow.view_cf_line_search
+msgid "Week"
+msgstr "الأسبوع"
+
+#. module: mizan_cashflow
+#. odoo-python
+#: code:addons/mizan_cashflow/models/forecast.py:0
+msgid "Week %s"
+msgstr "أسبوع %s"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_week__week_start
+msgid "Week Start"
+msgstr "بداية الأسبوع"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,field_description:mizan_cashflow.field_mizan_cashflow_line__week_start
+msgid "Week of"
+msgstr "أسبوع"
+
+#. module: mizan_cashflow
+#: model:ir.actions.act_window,name:mizan_cashflow.action_cf_line
+msgid "What moves the cash"
+msgstr "ما يحرّك النقد"
+
+#. module: mizan_cashflow
+#: model:ir.model.fields,help:mizan_cashflow.field_mizan_cashflow_line__estimate
+msgid "Worked out rather than read from a document."
+msgstr "محسوب تقديرياً وليس من مستند."
+
+#. module: mizan_cashflow
+#. odoo-python
+#: code:addons/mizan_cashflow/models/forecast.py:0
+msgid "after the defects year"
+msgstr "بعد سنة الصيانة"
+
+#. module: mizan_cashflow
+#. odoo-python
+#: code:addons/mizan_cashflow/models/forecast.py:0
+msgid "at completion"
+msgstr "عند الإنجاز"

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cron_cashflow_rebuild" model="ir.cron">
+        <field name="name">Cash flow forecast: rebuild</field>
+        <field name="model_id" ref="model_mizan_cashflow_week"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_rebuild()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(hours=1)).strftime('%Y-%m-%d 03:30:00')"/>
+    </record>
+</odoo>

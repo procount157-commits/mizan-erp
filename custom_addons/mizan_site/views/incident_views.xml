@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_incident_list" model="ir.ui.view">
+        <field name="name">mizan.site.incident.list</field>
+        <field name="model">mizan.site.incident</field>
+        <field name="arch" type="xml">
+            <list string="Safety incidents" decoration-danger="severity in ('high', 'critical') and state != 'closed'"
+                  decoration-muted="state == 'closed'">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="project_id"/>
+                <field name="kind"/>
+                <field name="severity" widget="badge" decoration-danger="severity in ('high', 'critical')"
+                       decoration-warning="severity == 'medium'"/>
+                <field name="injured_name" optional="show"/>
+                <field name="reporter_id" widget="many2one_avatar_user" optional="show"/>
+                <field name="lost_days" optional="hide" sum="Days lost"/>
+                <field name="state" widget="badge" decoration-success="state == 'closed'"
+                       decoration-warning="state != 'closed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_incident_kanban" model="ir.ui.view">
+        <field name="name">mizan.site.incident.kanban</field>
+        <field name="model">mizan.site.incident</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" records_draggable="0" group_create="0">
+                <field name="severity"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex justify-content-between">
+                            <field name="name" class="fw-bold"/>
+                            <field name="severity" widget="badge"/>
+                        </div>
+                        <field name="kind" class="small text-muted"/>
+                        <field name="project_id" class="small"/>
+                        <div class="d-flex justify-content-between mt-1">
+                            <field name="date" widget="date"/>
+                            <field name="reporter_id" widget="many2one_avatar_user"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_incident_form" model="ir.ui.view">
+        <field name="name">mizan.site.incident.form</field>
+        <field name="model">mizan.site.incident</field>
+        <field name="arch" type="xml">
+            <form string="Safety incident">
+                <header>
+                    <button name="action_investigate" type="object" string="Start investigation" class="btn-primary"
+                            invisible="state != 'reported'" groups="project.group_project_manager,mizan_hub.group_general_manager,account.group_account_manager"/>
+                    <button name="action_close" type="object" string="Close" class="btn-primary"
+                            invisible="state == 'closed'" groups="project.group_project_manager,mizan_hub.group_general_manager,account.group_account_manager"/>
+                    <button name="action_reopen" type="object" string="Reopen"
+                            invisible="state != 'closed'" groups="project.group_project_manager,mizan_hub.group_general_manager,account.group_account_manager"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="name"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="project_id"/>
+                            <field name="date"/>
+                            <field name="location"/>
+                            <field name="reporter_id"/>
+                        </group>
+                        <group>
+                            <field name="kind"/>
+                            <field name="severity"/>
+                            <field name="injured_name"/>
+                            <field name="injured_employee_id"/>
+                            <field name="lost_days" invisible="kind != 'lost_time'"/>
+                        </group>
+                    </group>
+                    <group string="What happened">
+                        <field name="description" nolabel="1" colspan="2"/>
+                    </group>
+                    <group string="What was done at once">
+                        <field name="immediate_action" nolabel="1" colspan="2"/>
+                    </group>
+                    <field name="photo" widget="image" class="oe_avatar" options="{'size': [320, 240]}"/>
+                    <group string="Investigation" invisible="state == 'reported'">
+                        <field name="root_cause"/>
+                        <field name="corrective_action"/>
+                        <field name="closed_by_id" invisible="state != 'closed'"/>
+                        <field name="closed_date" invisible="state != 'closed'"/>
+                    </group>
+                    <field name="company_id" invisible="1"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_incident_search" model="ir.ui.view">
+        <field name="name">mizan.site.incident.search</field>
+        <field name="model">mizan.site.incident</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="project_id"/>
+                <filter name="open" string="Open" domain="[('state', '!=', 'closed')]"/>
+                <filter name="serious" string="Serious" domain="['|', ('kind', 'in', ('medical', 'lost_time', 'fire')), ('severity', 'in', ('high', 'critical'))]"/>
+                <filter name="lti" string="Lost-time injuries" domain="[('kind', '=', 'lost_time')]"/>
+                <group expand="0" string="Group by">
+                    <filter name="by_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="by_kind" string="Kind" context="{'group_by': 'kind'}"/>
+                    <filter name="by_month" string="Month" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_incident" model="ir.actions.act_window">
+        <field name="name">Safety incidents</field>
+        <field name="res_model">mizan.site.incident</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context">{'search_default_open': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No incident recorded</p>
+            <p>Engineers raise incidents from the phone with a photograph; the project manager and the managers are told at once.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_site_incident" name="Safety Incident" parent="menu_site_raise"
+              action="action_incident" sequence="40"/>
+    <menuitem id="menu_site_incident_office" name="Safety Incidents" parent="mizan_core.menu_mizan_contracting"
+              action="action_incident" sequence="40"
+              groups="project.group_project_manager,mizan_hub.group_general_manager,account.group_account_manager"/>
+</odoo>

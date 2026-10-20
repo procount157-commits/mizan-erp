@@ -9,7 +9,8 @@
             <field name="category_id" ref="mizan_hub.module_category_proaccount"/>
             <field name="implied_ids"
                    eval="[(4, ref('project.group_project_user')),
-                          (4, ref('hr_timesheet.group_hr_timesheet_user'))]"/>
+                          (4, ref('hr_timesheet.group_hr_timesheet_user')),
+                          (4, ref('purchase_request.group_purchase_request_user'))]"/>
             <field name="comment">Files daily reports, raises material and
                 purchase requests, claims expenses and logs time — on his own
                 projects only. Approves nothing and posts nothing.</field>

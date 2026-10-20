@@ -28,6 +28,10 @@ class _SiteReportScreenState extends State<SiteReportScreen> {
   final _issues = TextEditingController();
   XFile? _photo;
   bool _busy = false;
+  final Map<int, TextEditingController> _worked = {};
+  final Map<int, TextEditingController> _idle = {};
+
+  TextEditingController _ctl(Map<int, TextEditingController> m, int id) => m.putIfAbsent(id, () => TextEditingController());
 
   @override
   void initState() {
@@ -72,6 +76,10 @@ class _SiteReportScreenState extends State<SiteReportScreen> {
         'work_stopped': _stopped,
         'stop_reason': _reason,
         'stop_hours': double.tryParse(_hours.text) ?? 0,
+        'plants': [
+          for (final id in {..._worked.keys, ..._idle.keys})
+            {'plant_id': id, 'hours': double.tryParse(_worked[id]?.text ?? '') ?? 0, 'idle': double.tryParse(_idle[id]?.text ?? '') ?? 0}
+        ],
         if (_photo != null) 'photo': base64Encode(await _photo!.readAsBytes()),
       }));
       if (!mounted) return;
@@ -82,6 +90,9 @@ class _SiteReportScreenState extends State<SiteReportScreen> {
         _issues.clear();
         _hours.clear();
         _photo = null;
+        for (final c in [..._worked.values, ..._idle.values]) {
+          c.clear();
+        }
         _stopped = false;
         _reason = null;
         final open = List<Map>.from(_form!['projects'] ?? []).where((p) => p['filed'] != true).toList();
@@ -191,6 +202,43 @@ class _SiteReportScreenState extends State<SiteReportScreen> {
               decoration: const InputDecoration(labelText: 'الساعات الضائعة'),
             ),
           ],
+          if (List.from(f['plants'] ?? []).isNotEmpty)
+            Card(
+              margin: const EdgeInsets.only(top: 8),
+              child: ExpansionTile(
+                leading: const Icon(Icons.precision_manufacturing_rounded, color: Brand.greenDark),
+                title: const Text('المعدات في الموقع', style: TextStyle(fontWeight: FontWeight.w700)),
+                subtitle: const Text('ساعات العمل والتوقف — تُحمّل على المشروع', style: TextStyle(fontSize: 12)),
+                childrenPadding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
+                children: List<Map>.from(f['plants']).map((p) {
+                  final id = p['id'] as int;
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Row(children: [
+                      Expanded(flex: 3, child: Text('${p['name']}', style: const TextStyle(fontSize: 13))),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        flex: 2,
+                        child: TextField(
+                          controller: _ctl(_worked, id),
+                          keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                          decoration: const InputDecoration(labelText: 'عمل (س)', isDense: true),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        flex: 2,
+                        child: TextField(
+                          controller: _ctl(_idle, id),
+                          keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                          decoration: const InputDecoration(labelText: 'توقف (س)', isDense: true),
+                        ),
+                      ),
+                    ]),
+                  );
+                }).toList(),
+              ),
+            ),
           const SizedBox(height: 12),
           OutlinedButton.icon(
             onPressed: () => _take(ImageSource.camera),

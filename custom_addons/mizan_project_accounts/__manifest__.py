@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Miqyas Project Accounts",
-    "version": "1.2",
+    "version": "1.3",
     "category": "Accounting/Accounting",
     "summary": "Every project readable from the chart of accounts: its own client, billing, cost, retention and WIP accounts, fed by the entry screens",
     "description": """The CFO's way of keeping contract books (docs/superpowers/specs/

@@ -153,6 +153,8 @@
               action="mizan_contracting.action_progress_claim" sequence="10"/>
     <menuitem id="menu_mizan_contracts" name="Contracts" parent="menu_mizan_contracting"
               action="mizan_contracting.action_mizan_contract" sequence="20"/>
+    <menuitem id="menu_variations" name="Variation Orders" parent="menu_mizan_contracting"
+              action="mizan_contracting.action_variation" sequence="25"/>
     <menuitem id="menu_mizan_boq" name="Bill of Quantities" parent="menu_mizan_contracting"
               action="mizan_contracting.action_boq_line" sequence="30"/>
     <menuitem id="menu_mizan_subcontracts" name="Subcontracts" parent="menu_mizan_contracting"

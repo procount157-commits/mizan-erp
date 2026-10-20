@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cf_week_accounts,mizan.cashflow.week.accounts,model_mizan_cashflow_week,account.group_account_invoice,1,0,0,0
+access_cf_week_gm,mizan.cashflow.week.gm,model_mizan_cashflow_week,mizan_hub.group_general_manager,1,0,0,0
+access_cf_week_owner,mizan.cashflow.week.owner,model_mizan_cashflow_week,mizan_owner.group_owner,1,0,0,0
+access_cf_line_accounts,mizan.cashflow.line.accounts,model_mizan_cashflow_line,account.group_account_invoice,1,0,0,0
+access_cf_line_gm,mizan.cashflow.line.gm,model_mizan_cashflow_line,mizan_hub.group_general_manager,1,0,0,0
+access_cf_line_owner,mizan.cashflow.line.owner,model_mizan_cashflow_line,mizan_owner.group_owner,1,0,0,0

@@ -1,6 +1,6 @@
 // Everything waiting for the manager, one card each, approve or refuse in
 // one tap: petty cash receipts with the photo, top-ups, large supplier
-// bills, payments to subcontractors.
+// bills, payments to subcontractors, materials asked for from the site.
 import 'package:flutter/material.dart';
 
 import '../api.dart';
@@ -12,6 +12,7 @@ const _kinds = {
   'topup': ('طلب تعويض عهدة', Icons.account_balance_wallet_rounded),
   'bill': ('فاتورة مورد', Icons.request_quote_rounded),
   'sc_payment': ('دفعة مقاول باطن', Icons.handshake_rounded),
+  'material': ('طلب مواد من الموقع', Icons.inventory_2_rounded),
 };
 
 class ApprovalsScreen extends StatefulWidget {
@@ -104,9 +105,12 @@ class _ApprovalsScreenState extends State<ApprovalsScreen> {
                         if ((it['project'] ?? '').toString().isNotEmpty)
                           Text('${it['project']}', style: const TextStyle(color: Brand.muted, fontSize: 13)),
                         if ((it['note'] ?? '').toString().isNotEmpty)
-                          Text('${it['note']}', style: const TextStyle(color: Brand.watch, fontSize: 13)),
-                        const SizedBox(height: 4),
-                        Money('${it['amount']}', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800)),
+                          Text('${it['note']}',
+                              style: TextStyle(color: it['kind'] == 'material' ? Brand.ink : Brand.watch, fontSize: 13, height: 1.5)),
+                        if ((it['amount'] ?? '').toString().isNotEmpty) ...[
+                          const SizedBox(height: 4),
+                          Money('${it['amount']}', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800)),
+                        ],
                       ]),
                     ),
                   ]),

@@ -137,9 +137,11 @@ class MizanMobile(models.AbstractModel):
         sel = lambda f: [{"key": k, "label": l} for k, l in Report._fields[f]._description_selection(self.env)]
         recent = Report.search([("author_id", "=", self.env.uid)], order="date desc, id desc", limit=10)
         state_label = dict(Report._fields["state"]._description_selection(self.env))
+        plants = self.env["mizan.plant"].search([("active", "=", True)], order="code")
         return {
             "date": today.strftime("%d/%m/%Y"), "projects": projects,
             "weather": sel("weather"), "reasons": sel("stop_reason"),
+            "plants": [{"id": p.id, "name": "%s %s" % (p.code, p.name)} for p in plants],
             "recent": [{"id": r.id, "name": r.name, "project": r.project_id.name, "date": r.date.strftime("%d/%m"),
                         "men": r.headcount, "state": r.state, "state_label": state_label.get(r.state, ""),
                         "stopped": r.work_stopped} for r in recent],
@@ -164,7 +166,7 @@ class MizanMobile(models.AbstractModel):
 
     @api.model
     def submit_site_report(self, project_id, work_done, weather="clear", issues=None, work_stopped=False,
-                           stop_reason=None, stop_hours=0, photo=None):
+                           stop_reason=None, stop_hours=0, photo=None, plants=None):
         if "engineer" not in self._roles():
             raise AccessError(_("The daily report is for site engineers."))
         if not (work_done or "").strip():
@@ -191,6 +193,10 @@ class MizanMobile(models.AbstractModel):
         if photo:
             values["photo"] = photo
         manpower = self._crew_manpower(project, today)
+        values["plant_ids"] = [(5, 0, 0)] + [
+            (0, 0, {"plant_id": int(p["plant_id"]), "hours": float(p.get("hours") or 0),
+                    "idle_hours": float(p.get("idle") or 0)})
+            for p in (plants or []) if p.get("plant_id") and (float(p.get("hours") or 0) or float(p.get("idle") or 0))]
         if report:
             report.manpower_ids.unlink()
             report.write(dict(values, manpower_ids=manpower))
@@ -246,3 +252,43 @@ class MizanMobile(models.AbstractModel):
             "vendor": (data.get("vendor_name") or "")[:80], "date": data.get("date") or "",
             "description": (data.get("description") or "")[:120], "kind": kind,
         }
+
+    # ------------------------------------------------------------ safety
+    @api.model
+    def incident_form(self):
+        if "engineer" not in self._roles():
+            raise AccessError(_("Safety incidents are raised by site engineers."))
+        Incident = self.env["mizan.site.incident"]
+        sel = lambda f: [{"key": k, "label": l} for k, l in Incident._fields[f]._description_selection(self.env)]
+        contracts = self._engineer_contracts().filtered("project_id")
+        recent = Incident.search([("reporter_id", "=", self.env.uid)], limit=10)
+        state_label = dict(Incident._fields["state"]._description_selection(self.env))
+        kind_label = dict(Incident._fields["kind"]._description_selection(self.env))
+        return {
+            "projects": [{"id": c.project_id.id, "name": c.name} for c in contracts],
+            "kinds": sel("kind"), "severities": sel("severity"),
+            "days_safe": Incident.days_without_lost_time(),
+            "recent": [{"id": i.id, "name": i.name, "kind": kind_label.get(i.kind, ""), "project": i.project_id.name,
+                        "date": fields.Datetime.context_timestamp(self, i.date).strftime("%d/%m %H:%M"),
+                        "state": i.state, "state_label": state_label.get(i.state, "")} for i in recent],
+        }
+
+    @api.model
+    def submit_incident(self, project_id, kind, description, severity="low", location=None, injured_name=None,
+                        immediate_action=None, photo=None):
+        if "engineer" not in self._roles():
+            raise AccessError(_("Safety incidents are raised by site engineers."))
+        if not (description or "").strip():
+            raise UserError(_("Describe what happened."))
+        if photo:
+            try:
+                base64.b64decode(photo, validate=True)
+            except Exception:
+                raise UserError(_("The photograph could not be read.")) from None
+        incident = self.env["mizan.site.incident"].create({
+            "project_id": int(project_id), "kind": kind, "severity": severity or "low",
+            "description": description.strip(), "location": location or False,
+            "injured_name": injured_name or False, "immediate_action": immediate_action or False,
+            "photo": photo or False,
+        })
+        return {"ok": True, "name": incident.name, "form": self.incident_form()}

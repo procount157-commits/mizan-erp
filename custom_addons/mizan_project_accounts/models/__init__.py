@@ -7,3 +7,5 @@ from . import subcontract
 from . import labour
 from . import stock_issue
 from . import dashboard
+from . import plant_hours
+from . import budget

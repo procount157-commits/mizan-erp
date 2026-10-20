@@ -6,6 +6,8 @@ import '../api.dart';
 import '../theme.dart';
 import '../widgets.dart';
 import 'insights.dart';
+import 'incident.dart';
+import 'materials.dart';
 
 class EngineerHome extends StatelessWidget {
   /// Opens another tab by its label (العمّال، التقرير اليومي، عهدتي).
@@ -19,6 +21,26 @@ class EngineerHome extends StatelessWidget {
     'cash': Icons.account_balance_wallet_rounded,
     'refused': Icons.receipt_long_rounded,
   };
+
+  Widget _action(BuildContext context, IconData icon, String label, Color color, VoidCallback onTap) => Expanded(
+        child: Material(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(16),
+            onTap: onTap,
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), border: Border.all(color: Brand.line)),
+              child: Column(children: [
+                CircleAvatar(radius: 20, backgroundColor: color.withValues(alpha: 0.1), child: Icon(icon, color: color)),
+                const SizedBox(height: 6),
+                Text(label, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
+              ]),
+            ),
+          ),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +92,16 @@ class EngineerHome extends StatelessWidget {
               ),
             ]),
           ),
+          const SizedBox(height: 12),
+          Row(children: [
+            _action(context, Icons.inventory_2_rounded, 'اطلب مواد', Brand.greenDark,
+                () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const MaterialsScreen()))),
+            const SizedBox(width: 10),
+            _action(context, Icons.photo_camera_rounded, 'صوّر إيصالاً', Brand.greenDark, () => open('عهدتي')),
+            const SizedBox(width: 10),
+            _action(context, Icons.health_and_safety_rounded, 'بلاغ سلامة', Brand.bad,
+                () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const IncidentScreen()))),
+          ]),
           const SectionTitle('مهام اليوم'),
           Card(
             child: Column(

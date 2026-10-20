@@ -173,6 +173,8 @@ Color stateColor(String state) {
   switch (state) {
     case 'submit':
     case 'submitted':
+    case 'to_approve':
+    case 'in_progress':
       return Brand.watch;
     case 'approve':
     case 'approved':
@@ -182,6 +184,7 @@ Color stateColor(String state) {
     case 'settled':
       return Brand.good;
     case 'cancel':
+    case 'rejected':
       return Brand.bad;
     default:
       return Brand.muted;

@@ -591,3 +591,189 @@ msgstr "المبلغ قبل الضريبة مع الضريبة لا يساوي �
 #: code:addons/mizan_mobile_api/models/engineer.py:0
 msgid "The VAT is not 5% of the subtotal."
 msgstr "الضريبة ليست 5% من المبلغ قبل الضريبة."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid " and %s more"
+msgstr " و%s أخرى"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Approved — to buy"
+msgstr "معتمد — للشراء"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Being bought"
+msgstr "قيد الشراء"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Bought"
+msgstr "تم الشراء"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Pieces"
+msgstr "وحدة"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Metres"
+msgstr "متر"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Square metres"
+msgstr "متر مربع"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Cubic metres"
+msgstr "متر مكعب"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Kilograms"
+msgstr "كيلوغرام"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Tonnes"
+msgstr "طن"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Litres"
+msgstr "لتر"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Material requests are for site engineers."
+msgstr "طلبات المواد لمهندسي المواقع."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Add at least one item with its quantity."
+msgstr "أضف صنفاً واحداً على الأقل مع كميته."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Materials requested for %s"
+msgstr "طلب مواد لمشروع %s"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "%(who)s asks for %(what)s, needed by %(day)s."
+msgstr "يطلب %(who)s: %(what)s، مطلوبة بتاريخ %(day)s."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Your material request is approved"
+msgstr "اعتُمد طلب المواد"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Your material request was refused"
+msgstr "رُفض طلب المواد"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "%(name)s: %(what)s."
+msgstr "%(name)s: %(what)s."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "Approved materials to buy"
+msgstr "مواد معتمدة للشراء"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/materials.py:0
+msgid "%(name)s for %(project)s: %(what)s. Make the purchase order."
+msgstr "%(name)s لمشروع %(project)s: %(what)s. أنشئ أمر الشراء."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Only a manager approves material requests."
+msgstr "المدير وحده يعتمد طلبات المواد."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "The cash flow forecast is for managers."
+msgstr "توقع التدفق النقدي للمدراء."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "Safety incidents are raised by site engineers."
+msgstr "بلاغات السلامة يرفعها مهندسو المواقع."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "Describe what happened."
+msgstr "صف ما حدث."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "Safety on site"
+msgstr "السلامة في المواقع"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "%s day(s) without a lost-time injury"
+msgstr "%s يوم دون إصابة مضيّعة للوقت"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "No record yet"
+msgstr "لا سجل بعد"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "%s incident(s) still open"
+msgstr "%s بلاغ ما زال مفتوحاً"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "%s of them serious"
+msgstr "منها %s خطير"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/mobile.py:0
+msgid "No lost-time injury on record"
+msgstr "لا إصابات مضيّعة للوقت مسجّلة"

@@ -9,3 +9,5 @@ mizan_ai
 mizan_reset
 mizan_project_accounts
 mizan_mobile_api
+mizan_expiry
+mizan_cashflow

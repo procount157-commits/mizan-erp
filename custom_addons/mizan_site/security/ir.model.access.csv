@@ -14,3 +14,8 @@ access_site_plant_ro,mizan.site.plant.readonly,model_mizan_site_plant,account.gr
 access_site_capture_engineer,mizan.site.capture.engineer,model_mizan_site_capture,mizan_site.group_site_engineer,1,1,1,1
 access_site_capture_pm,mizan.site.capture.pm,model_mizan_site_capture,project.group_project_manager,1,1,1,1
 access_site_capture_finance,mizan.site.capture.finance,model_mizan_site_capture,account.group_account_manager,1,1,1,1
+access_site_incident_engineer,mizan.site.incident.engineer,model_mizan_site_incident,mizan_site.group_site_engineer,1,1,1,0
+access_site_incident_manager,mizan.site.incident.manager,model_mizan_site_incident,project.group_project_manager,1,1,1,1
+access_site_incident_gm,mizan.site.incident.gm,model_mizan_site_incident,mizan_hub.group_general_manager,1,1,0,0
+access_site_incident_finance,mizan.site.incident.finance,model_mizan_site_incident,account.group_account_manager,1,1,1,1
+access_site_incident_ro,mizan.site.incident.readonly,model_mizan_site_incident,account.group_account_readonly,1,0,0,0

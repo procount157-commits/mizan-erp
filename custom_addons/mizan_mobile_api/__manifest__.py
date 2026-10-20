@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Miqyas Mobile API",
-    "version": "1.1",
+    "version": "1.3",
     "category": "Productivity",
     "summary": "The data the Miqyas phone app shows, by role: the manager's figures and approvals, the engineer's cash and crew",
     "description": """The native phone app does not open the system's pages; it asks for
@@ -20,7 +20,7 @@ answers it:
   day's crew on each project (labour cards).
 """,
     "author": "ProAccount",
-    "depends": ["mizan_owner", "mizan_pettycash", "mizan_project_accounts", "mizan_mobile", "mizan_ai"],
+    "depends": ["mizan_owner", "mizan_pettycash", "mizan_project_accounts", "mizan_mobile", "mizan_ai", "purchase_request"],
     "data": [
         "security/ir.model.access.csv",
         "views/approval_views.xml",

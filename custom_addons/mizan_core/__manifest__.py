@@ -1,6 +1,6 @@
 {
     "name": "Mizan Core",
-    "version": "1.0",
+    "version": "1.1",
     "category": "Accounting/Accounting",
     "summary": "Mizan ERP core — branded invoicing and quick access to daily accounting",
     "depends": [

@@ -109,7 +109,7 @@ class AccountMove(models.Model):
         ("advance", "Customer advance"), ("payment", "Customer payment"),
         ("sc_payment", "Subcontractor payment"), ("retention", "Retention release"),
         ("labour", "Labour card"), ("stock", "Stock issue"),
-    ], string="Created by", readonly=True, copy=False)
+    ], string="Raised from", readonly=True, copy=False)
 
     def _mizan_source(self, Recognition=None, Claim=None):
         self.ensure_one()

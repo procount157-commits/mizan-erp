@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_expiry_hr,mizan.expiry.document.hr,model_mizan_expiry_document,hr.group_hr_user,1,1,1,1
+access_expiry_accounts,mizan.expiry.document.accounts,model_mizan_expiry_document,account.group_account_invoice,1,1,1,1
+access_expiry_gm,mizan.expiry.document.gm,model_mizan_expiry_document,mizan_hub.group_general_manager,1,1,1,0
+access_expiry_owner,mizan.expiry.document.owner,model_mizan_expiry_document,mizan_owner.group_owner,1,1,1,1
+access_expiry_renew_hr,mizan.expiry.renew.hr,model_mizan_expiry_renew,hr.group_hr_user,1,1,1,1
+access_expiry_renew_accounts,mizan.expiry.renew.accounts,model_mizan_expiry_renew,account.group_account_invoice,1,1,1,1
+access_expiry_renew_gm,mizan.expiry.renew.gm,model_mizan_expiry_renew,mizan_hub.group_general_manager,1,1,1,1

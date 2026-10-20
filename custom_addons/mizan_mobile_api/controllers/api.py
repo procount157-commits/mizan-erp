@@ -10,7 +10,8 @@ from odoo.http import request
 METHODS = {
     "me", "counts", "manager_summary", "projects", "alerts", "alerts_read", "approvals", "decide",
     "manager_insights", "role_insights", "accountant_summary", "engineer_home", "site_report_form",
-    "submit_site_report", "read_receipt", "post_receipts", "my_cash", "submit_receipt", "request_topup", "crew", "save_crew",
+    "submit_site_report", "read_receipt", "material_form", "submit_material_request", "cashflow",
+    "incident_form", "submit_incident", "post_receipts", "my_cash", "submit_receipt", "request_topup", "crew", "save_crew",
 }
 
 

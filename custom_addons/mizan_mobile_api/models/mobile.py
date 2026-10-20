@@ -87,6 +87,22 @@ class MizanMobile(models.AbstractModel):
         for project in summary.get("projects", []):
             project.pop("action", None)
         summary["approvals"] = len(self.approvals()["items"])
+        # Safety on the manager's screen: days since a lost-time injury and
+        # what is still open.
+        Incident = self.env["mizan.site.incident"].sudo()
+        open_incidents = Incident.search([("state", "!=", "closed")])
+        days = Incident.days_without_lost_time()
+        if days is not None or open_incidents or Incident.search_count([]):
+            serious = open_incidents.filtered(lambda i: i.kind in ("medical", "lost_time", "fire")
+                                              or i.severity in ("high", "critical"))
+            summary.setdefault("cards", []).append({
+                "key": "safety", "title": _("Safety on site"),
+                "value": _("%s day(s) without a lost-time injury", days) if days is not None
+                else _("No lost-time injury on record"),
+                "tone": "bad" if serious else "watch" if open_incidents else "good",
+                "lines": [_("%s incident(s) still open", len(open_incidents))] +
+                         ([_("%s of them serious", len(serious))] if serious else []),
+            })
         return summary
 
     @api.model
@@ -161,6 +177,11 @@ class MizanMobile(models.AbstractModel):
                               "amount": self._money(r.amount), "date": r.date and r.date.strftime("%d/%m/%Y") or "",
                               "project": r.contract_id.name or "",
                               "note": _("Retention withheld: %s", self._money(r.retention_amount)) if r.retention_amount else ""})
+            for r in self.env["purchase.request"].sudo().search([("state", "=", "to_approve")], order="id desc", limit=50):
+                items.append({"kind": "material", "id": r.id, "title": r.name, "who": r.requested_by.name or "",
+                              "amount": self._money(sum(r.line_ids.mapped("estimated_cost"))) if any(r.line_ids.mapped("estimated_cost")) else "",
+                              "date": r.date_start.strftime("%d/%m/%Y") if r.date_start else "",
+                              "project": r.origin or "", "note": self._material_lines_text(r)})
         return {"items": items}
 
     def _project_name(self, line):
@@ -185,6 +206,11 @@ class MizanMobile(models.AbstractModel):
         elif kind == "sc_payment":
             req = self.env["mizan.payment.request"].browse(int(record_id))
             req.action_approve() if approve else req.action_refuse()
+        elif kind == "material":
+            if not _is_manager(self.env):
+                raise AccessError(_("Only a manager approves material requests."))
+            request = self.env["purchase.request"].sudo().browse(int(record_id))
+            request.button_approved() if approve else request.button_rejected()
         else:
             raise UserError(_("Unknown approval."))
         self._forget_insights("manager")
@@ -294,3 +320,22 @@ class MizanMobile(models.AbstractModel):
                 Day.create({"card_id": card_id, "date": day, "contract_id": int(contract_id), "fraction": fraction})
         self._forget_insights("engineer")
         return self.crew(contract_id, date)
+
+    # ------------------------------------------------------------ cash flow
+    @api.model
+    def cashflow(self):
+        """The 13-week forecast for the manager's chart, when installed."""
+        if not _is_manager(self.env):
+            raise AccessError(_("The cash flow forecast is for managers."))
+        if "mizan.cashflow.week" not in self.env:
+            return {"available": False}
+        weeks = self.env["mizan.cashflow.week"].get_forecast()
+        if not weeks:
+            return {"available": False}
+        low = min(weeks, key=lambda w: w.closing)
+        return {
+            "available": True, "opening": self._money(weeks[0].opening),
+            "low": self._money(low.closing), "low_week": low.name, "short": any(weeks.mapped("short")),
+            "weeks": [{"name": w.name, "closing": w.closing, "closing_label": self._money(w.closing),
+                       "in": self._money(w.inflow), "out": self._money(w.outflow), "short": w.short} for w in weeks],
+        }

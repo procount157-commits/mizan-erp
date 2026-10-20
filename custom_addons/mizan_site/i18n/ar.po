@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0-20260908\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-06 16:49+0000\n"
-"PO-Revision-Date: 2026-10-06 16:49+0000\n"
+"POT-Creation-Date: 2026-10-20 07:05+0000\n"
+"PO-Revision-Date: 2026-10-20 07:05+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+"Plural-Forms: \n"
 
 #. module: mizan_site
 #. odoo-python
@@ -24,7 +24,9 @@ msgstr "%(count)s رجلاً، %(hours).0f ساعة عمل. %(work)s"
 #. module: mizan_site
 #. odoo-python
 #: code:addons/mizan_site/models/site_report.py:0
-msgid "%(trade)s has no charge hand named and %(user)s is not linked to an employee record, so there is nobody to book the hours to."
+msgid ""
+"%(trade)s has no charge hand named and %(user)s is not linked to an employee"
+" record, so there is nobody to book the hours to."
 msgstr "لا يوجد معلّم مسمّى لـ %(trade)s، و%(user)s غير مرتبط بسجل موظف، فلا أحد تُقيَّد عليه الساعات."
 
 #. module: mizan_site
@@ -42,13 +44,22 @@ msgstr "سجّل %(user)s التقرير %(name)s لمشروع %(project)s%(stop
 #. module: mizan_site
 #. odoo-python
 #: code:addons/mizan_site/models/site_capture.py:0
-msgid "%(user)s photographed a supplier bill for %(project)s. It is a draft waiting for you to check and post."
+msgid ""
+"%(user)s photographed a supplier bill for %(project)s. It is a draft waiting"
+" for you to check and post."
 msgstr "صوّر %(user)s فاتورة مورّد لمشروع %(project)s. وهي مسودة تنتظر مراجعتك وترحيلها."
 
 #. module: mizan_site
 #. odoo-python
+#: code:addons/mizan_site/models/incident.py:0
+msgid "%(who)s reported %(name)s: %(what)s"
+msgstr "أبلغ %(who)s عن %(name)s: %(what)s"
+
+#. module: mizan_site
+#. odoo-python
 #: code:addons/mizan_site/models/site_report.py:0
-msgid "%s does not take timesheets, so there is nowhere for these hours to go."
+msgid ""
+"%s does not take timesheets, so there is nowhere for these hours to go."
 msgstr "لا يقبل %s الجداول الزمنية، فليس لهذه الساعات مكان تذهب إليه."
 
 #. module: mizan_site
@@ -69,26 +80,31 @@ msgid "Acknowledge"
 msgstr "إقرار بالاطلاع"
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__message_needaction
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__message_needaction
 msgid "Action Needed"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__activity_ids
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__activity_ids
 msgid "Activities"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__activity_exception_decoration
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__activity_exception_decoration
 msgid "Activity Exception Decoration"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__activity_state
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__activity_state
 msgid "Activity State"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__activity_type_icon
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__activity_type_icon
 msgid "Activity Type Icon"
 msgstr ""
@@ -115,6 +131,7 @@ msgid "Anything that will be argued about later."
 msgstr "كل ما سيُتنازع عليه لاحقاً."
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__message_attachment_count
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__message_attachment_count
 msgid "Attachment Count"
 msgstr ""
@@ -141,8 +158,16 @@ msgid "Camera"
 msgstr "الكاميرا"
 
 #. module: mizan_site
+#. odoo-python
+#: code:addons/mizan_site/models/incident.py:0
+msgid "Cause: %(c)s. Changed: %(a)s"
+msgstr "السبب: %(c)s. ما تغيّر: %(a)s"
+
+#. module: mizan_site
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_capture__description
-msgid "Cement, diesel, a hired pump. The office reads this before it reads the photograph."
+msgid ""
+"Cement, diesel, a hired pump. The office reads this before it reads the "
+"photograph."
 msgstr "إسمنت، ديزل، مضخة مستأجرة. المكتب يقرأ هذا قبل أن ينظر في الصورة."
 
 #. module: mizan_site
@@ -166,11 +191,30 @@ msgid "Client or consultant"
 msgstr "العميل أو الاستشاري"
 
 #. module: mizan_site
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_form
 #: model_terms:ir.ui.view,arch_db:mizan_site.view_site_capture_form
 msgid "Close"
 msgstr "إغلاق"
 
 #. module: mizan_site
+#. odoo-python
+#: code:addons/mizan_site/models/incident.py:0
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__state__closed
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__closed_by_id
+msgid "Closed By"
+msgstr "أغلقه"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__closed_date
+msgid "Closed Date"
+msgstr "تاريخ الإغلاق"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__company_id
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__company_id
 msgid "Company"
 msgstr "الشركة"
@@ -187,11 +231,14 @@ msgstr "مركز التكلفة"
 
 #. module: mizan_site
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_report__analytic_account_id
-msgid "Costs posted to this cost center are what drive the progress calculation, so every job cost must carry it."
+msgid ""
+"Costs posted to this cost center are what drive the progress calculation, so"
+" every job cost must carry it."
 msgstr "التكاليف المُرحَّلة إلى مركز التكلفة هذا هي ما يحرّك حساب الإنجاز، فيجب أن تحمله كل تكلفة مشروع."
 
 #. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_capture__create_uid
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__create_uid
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_manpower__create_uid
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_plant__create_uid
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__create_uid
@@ -200,11 +247,17 @@ msgstr ""
 
 #. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_capture__create_date
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__create_date
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_manpower__create_date
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_plant__create_date
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__create_date
 msgid "Created on"
 msgstr ""
+
+#. module: mizan_site
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__severity__critical
+msgid "Critical"
+msgstr "حرجة"
 
 #. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_capture__currency_id
@@ -235,11 +288,22 @@ msgid "Daily site report"
 msgstr "التقرير اليومي للموقع"
 
 #. module: mizan_site
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__kind__property
+msgid "Damage to property or plant"
+msgstr "تلف في ممتلكات أو معدات"
+
+#. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_capture__date
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__date
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__date
 #: model_terms:ir.ui.view,arch_db:mizan_site.view_site_report_search
 msgid "Date"
 msgstr "التاريخ"
+
+#. module: mizan_site
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_list
+msgid "Days lost"
+msgstr "الأيام الضائعة"
 
 #. module: mizan_site
 #. odoo-python
@@ -254,6 +318,7 @@ msgstr "الوصف"
 
 #. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_capture__display_name
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__display_name
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_manpower__display_name
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_plant__display_name
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__display_name
@@ -288,9 +353,21 @@ msgid "Electrician"
 msgstr "كهربائي"
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__injured_employee_id
+msgid "Employee hurt"
+msgstr "الموظف المصاب"
+
+#. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__author_id
 msgid "Engineer"
 msgstr "المهندس"
+
+#. module: mizan_site
+#: model_terms:ir.actions.act_window,help:mizan_site.action_incident
+msgid ""
+"Engineers raise incidents from the phone with a photograph; the project "
+"manager and the managers are told at once."
+msgstr "يبلّغ المهندسون عن الحوادث من الهاتف مع صورة، ويُبلَّغ مدير المشروع والمدراء فوراً."
 
 #. module: mizan_site
 #: model:ir.ui.menu,name:mizan_site.menu_site_expense
@@ -322,20 +399,36 @@ msgstr "سُجِّل بالرقم %s"
 
 #. module: mizan_site
 #: model:res.groups,comment:mizan_site.group_site_engineer
-msgid "Files daily reports, raises material and\n                purchase requests, claims expenses and logs time — on his own\n                projects only. Approves nothing and posts nothing."
+msgid ""
+"Files daily reports, raises material and\n"
+"                purchase requests, claims expenses and logs time — on his own\n"
+"                projects only. Approves nothing and posts nothing."
 msgstr "يسجّل التقارير اليومية، ويرفع طلبات المواد والشراء، ويطالب بالمصروفات ويسجّل وقته — على مشاريعه وحدها. لا يعتمد شيئاً ولا يرحّل شيئاً."
 
 #. module: mizan_site
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__kind__fire
+msgid "Fire"
+msgstr "حريق"
+
+#. module: mizan_site
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__kind__first_aid
+msgid "First aid"
+msgstr "إسعاف أولي"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__message_follower_ids
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__message_follower_ids
 msgid "Followers"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__message_partner_ids
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__message_partner_ids
 msgid "Followers (Partners)"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,help:mizan_site.field_mizan_site_incident__activity_type_icon
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_report__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
@@ -361,6 +454,12 @@ msgid "Group By"
 msgstr "تجميع حسب"
 
 #. module: mizan_site
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_search
+msgid "Group by"
+msgstr "تجميع حسب"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__has_message
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__has_message
 msgid "Has Message"
 msgstr ""
@@ -369,6 +468,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__headcount
 msgid "Headcount"
 msgstr "العدد"
+
+#. module: mizan_site
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__severity__high
+msgid "High"
+msgstr "عالية"
 
 #. module: mizan_site
 #: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_report__weather__wind
@@ -417,6 +521,7 @@ msgstr "دفعتها أنا — أستردّها"
 
 #. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_capture__id
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__id
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_manpower__id
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_plant__id
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__id
@@ -424,21 +529,26 @@ msgid "ID"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__activity_exception_icon
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__activity_exception_icon
 msgid "Icon"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,help:mizan_site.field_mizan_site_incident__activity_exception_icon
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_report__activity_exception_icon
 msgid "Icon to indicate an exception activity."
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,help:mizan_site.field_mizan_site_incident__message_needaction
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_report__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,help:mizan_site.field_mizan_site_incident__message_has_error
+#: model:ir.model.fields,help:mizan_site.field_mizan_site_incident__message_has_sms_error
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_report__message_has_error
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_report__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
@@ -446,20 +556,49 @@ msgstr ""
 
 #. module: mizan_site
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_capture__supplier_id
-msgid "If the supplier is already in the system. Leave it empty and write the name below; accounting will match it."
+msgid ""
+"If the supplier is already in the system. Leave it empty and write the name "
+"below; accounting will match it."
 msgstr "إن كان المورّد مسجّلاً في النظام. وإلا فاتركه واكتب الاسم أدناه، والمحاسبة تطابقه."
 
 #. module: mizan_site
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_report__work_done
-msgid "In the words the bill of quantities uses, where it can be. A report saying 'block work continued' answers nothing later."
+msgid ""
+"In the words the bill of quantities uses, where it can be. A report saying "
+"'block work continued' answers nothing later."
 msgstr "بألفاظ جدول الكميات ما أمكن. فالتقرير الذي يقول «استمر عمل البلوك» لا يجيب عن شيء لاحقاً."
 
 #. module: mizan_site
 #: model_terms:ir.ui.view,arch_db:mizan_site.view_site_report_form
-msgid "In the words the bill of quantities uses. 'Block work continued' answers nothing two months later."
+msgid ""
+"In the words the bill of quantities uses. 'Block work continued' answers "
+"nothing two months later."
 msgstr "بألفاظ جدول الكميات. و«استمر عمل البلوك» لا يجيب عن شيء بعد شهرين."
 
 #. module: mizan_site
+#. odoo-python
+#: code:addons/mizan_site/models/incident.py:0
+msgid "Incident closed: %s"
+msgstr "أُغلق البلاغ: %s"
+
+#. module: mizan_site
+#. odoo-python
+#: code:addons/mizan_site/models/incident.py:0
+msgid "Investigate %s"
+msgstr "حقّق في %s"
+
+#. module: mizan_site
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__state__investigating
+msgid "Investigating"
+msgstr "قيد التحقيق"
+
+#. module: mizan_site
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_form
+msgid "Investigation"
+msgstr "التحقيق"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__message_is_follower
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__message_is_follower
 msgid "Is Follower"
 msgstr ""
@@ -471,12 +610,19 @@ msgid "It has already been submitted."
 msgstr "قُدّم بالفعل."
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__kind
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_search
+msgid "Kind"
+msgstr "النوع"
+
+#. module: mizan_site
 #: model:hr.job,name:mizan_site.trade_labourer
 msgid "Labourer"
 msgstr "عامل"
 
 #. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_capture__write_uid
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__write_uid
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_manpower__write_uid
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_plant__write_uid
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__write_uid
@@ -485,6 +631,7 @@ msgstr ""
 
 #. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_capture__write_date
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__write_date
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_manpower__write_date
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_plant__write_date
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__write_date
@@ -493,8 +640,30 @@ msgstr ""
 
 #. module: mizan_site
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_manpower__subcontractor_id
-msgid "Leave empty for own labour. A subcontractor's men are counted here but their cost arrives on his account, not the payroll."
+msgid ""
+"Leave empty for own labour. A subcontractor's men are counted here but their"
+" cost arrives on his account, not the payroll."
 msgstr "اتركه فارغاً للعمالة الخاصة. فرجال مقاول الباطن يُعدّون هنا لكن تكلفتهم تصل على حسابه لا على الرواتب."
+
+#. module: mizan_site
+#: model:ir.model.fields,help:mizan_site.field_mizan_site_incident__location
+msgid "Level 3 slab, gate 2, crane base…"
+msgstr "سقف الطابق الثالث، البوابة 2، قاعدة الرافعة…"
+
+#. module: mizan_site
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_search
+msgid "Lost-time injuries"
+msgstr "إصابات مضيّعة للوقت"
+
+#. module: mizan_site
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__kind__lost_time
+msgid "Lost-time injury"
+msgstr "إصابة مضيّعة للوقت"
+
+#. module: mizan_site
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__severity__low
+msgid "Low"
+msgstr "منخفضة"
 
 #. module: mizan_site
 #: model_terms:ir.ui.view,arch_db:mizan_site.view_site_report_list
@@ -538,6 +707,16 @@ msgid "Material not on site"
 msgstr "المواد غير متوفرة بالموقع"
 
 #. module: mizan_site
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__kind__medical
+msgid "Medical treatment"
+msgstr "علاج طبي"
+
+#. module: mizan_site
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__severity__medium
+msgid "Medium"
+msgstr "متوسطة"
+
+#. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_manpower__headcount
 #: model_terms:ir.ui.view,arch_db:mizan_site.view_site_report_form
 #: model_terms:ir.ui.view,arch_db:mizan_site.view_site_report_list
@@ -546,15 +725,19 @@ msgstr "الرجال"
 
 #. module: mizan_site
 #: model_terms:ir.actions.act_window,help:mizan_site.action_site_report
-msgid "Men, plant, what was built, what stopped and why — with a photograph. It is what a delay claim is argued from later."
+msgid ""
+"Men, plant, what was built, what stopped and why — with a photograph. It is "
+"what a delay claim is argued from later."
 msgstr "الرجال والمعدات وما نُفِّذ وما توقف ولماذا — مع صورة. وهو ما تُبنى عليه مطالبة التأخير لاحقاً."
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__message_has_error
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__message_has_error
 msgid "Message Delivery error"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__message_ids
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__message_ids
 msgid "Messages"
 msgstr ""
@@ -567,9 +750,15 @@ msgstr "تقاريري"
 #. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__mizan_next_method
 msgid "Mizan Next Method"
-msgstr ""
+msgstr "الإجراء التالي"
 
 #. module: mizan_site
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_search
+msgid "Month"
+msgstr "الشهر"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__my_activity_date_deadline
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__my_activity_date_deadline
 msgid "My Activity Deadline"
 msgstr ""
@@ -585,12 +774,19 @@ msgid "My Time"
 msgstr "وقتي"
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__name
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__name
 msgid "Name"
 msgstr "الاسم"
 
 #. module: mizan_site
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__kind__near_miss
+msgid "Near miss"
+msgstr "كاد أن يقع"
+
+#. module: mizan_site
 #. odoo-python
+#: code:addons/mizan_site/models/incident.py:0
 #: code:addons/mizan_site/models/site_report.py:0
 msgid "New"
 msgstr "جديد"
@@ -601,21 +797,25 @@ msgid "Next Action"
 msgstr "الإجراء التالي"
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__activity_calendar_event_id
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__activity_calendar_event_id
 msgid "Next Activity Calendar Event"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__activity_date_deadline
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__activity_summary
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__activity_summary
 msgid "Next Activity Summary"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__activity_type_id
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__activity_type_id
 msgid "Next Activity Type"
 msgstr ""
@@ -637,6 +837,11 @@ msgid "No expense category exists yet. Ask the office to create one."
 msgstr "لا توجد فئة مصروفات بعد. اطلب من المكتب إنشاء واحدة."
 
 #. module: mizan_site
+#: model_terms:ir.actions.act_window,help:mizan_site.action_incident
+msgid "No incident recorded"
+msgstr "لا توجد بلاغات"
+
+#. module: mizan_site
 #: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_report__stop_reason__labour
 msgid "No labour"
 msgstr "لا توجد عمالة"
@@ -649,35 +854,49 @@ msgstr "لم يُقَرّ بالاطلاع"
 #. module: mizan_site
 #. odoo-python
 #: code:addons/mizan_site/models/site_report.py:0
-msgid "Nothing has been filed for %(project)s today. Men, plant, what was built and what stopped — it is what a delay claim is argued from later."
+msgid ""
+"Nothing has been filed for %(project)s today. Men, plant, what was built and"
+" what stopped — it is what a delay claim is argued from later."
 msgstr "لم يُسجَّل تقرير لمشروع %(project)s اليوم. العمالة والمعدات وما نُفِّذ وما توقف — هذا ما تُبنى عليه مطالبة التأخير لاحقاً."
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__message_needaction_counter
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__message_needaction_counter
 msgid "Number of Actions"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__message_has_error_counter
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__message_has_error_counter
 msgid "Number of errors"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,help:mizan_site.field_mizan_site_incident__message_needaction_counter
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_report__message_needaction_counter
 msgid "Number of messages requiring action"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,help:mizan_site.field_mizan_site_incident__message_has_error_counter
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_report__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr ""
 
 #. module: mizan_site
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_search
+msgid "Open"
+msgstr "مفتوحة"
+
+#. module: mizan_site
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_manpower__employee_id
-msgid "Optional. Naming somebody makes the hours chargeable to a real person on the timesheet."
+msgid ""
+"Optional. Naming somebody makes the hours chargeable to a real person on the"
+" timesheet."
 msgstr "اختياري. وتسمية شخص تجعل الساعات قابلة للتحميل على شخص حقيقي في الجدول الزمني."
 
 #. module: mizan_site
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__kind__other
 #: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_report__stop_reason__other
 msgid "Other"
 msgstr "أخرى"
@@ -686,6 +905,11 @@ msgstr "أخرى"
 #: model:hr.job,name:mizan_site.trade_painter
 msgid "Painter"
 msgstr "دهّان"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__photo
+msgid "Photo"
+msgstr "الصورة"
 
 #. module: mizan_site
 #. odoo-javascript
@@ -744,7 +968,9 @@ msgstr "المعدات في الموقع"
 
 #. module: mizan_site
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_plant__idle_hours
-msgid "Plant paid for and not working. It is the figure a hire decision is later reviewed against."
+msgid ""
+"Plant paid for and not working. It is the figure a hire decision is later "
+"reviewed against."
 msgstr "معدات مدفوعة الأجر وغير عاملة. وهو الرقم الذي يُراجَع عليه قرار الاستئجار لاحقاً."
 
 #. module: mizan_site
@@ -760,7 +986,9 @@ msgstr "ترحيل الساعات إلى الجدول الزمني"
 #. module: mizan_site
 #. odoo-python
 #: code:addons/mizan_site/models/site_report.py:0
-msgid "Posting labour to the ledger belongs to whoever owns the cost. File the report; the office turns the hours into cost."
+msgid ""
+"Posting labour to the ledger belongs to whoever owns the cost. File the "
+"report; the office turns the hours into cost."
 msgstr "ترحيل العمالة إلى الدفاتر من شأن من يملك التكلفة. سجّل التقرير، والمكتب يحوّل الساعات إلى تكلفة."
 
 #. module: mizan_site
@@ -771,7 +999,9 @@ msgstr "المشكلات"
 
 #. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_capture__project_id
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__project_id
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__project_id
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_search
 #: model_terms:ir.ui.view,arch_db:mizan_site.view_site_report_search
 msgid "Project"
 msgstr "المشروع"
@@ -787,6 +1017,7 @@ msgid "Raise"
 msgstr "ارفع"
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__rating_ids
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__rating_ids
 msgid "Ratings"
 msgstr ""
@@ -806,7 +1037,9 @@ msgstr "جارٍ قراءة الصورة…"
 
 #. module: mizan_site
 #: model:res.groups,comment:mizan_site.group_site_manager
-msgid "Reads every project's reports and\n                acknowledges them."
+msgid ""
+"Reads every project's reports and\n"
+"                acknowledges them."
 msgstr "يقرأ تقارير كل المشاريع ويُقرّ بالاطلاع عليها."
 
 #. module: mizan_site
@@ -816,7 +1049,8 @@ msgstr "سبب توقف العمل"
 
 #. module: mizan_site
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_report__weather
-msgid "Recorded because it is the first thing asked when a day is claimed as lost."
+msgid ""
+"Recorded because it is the first thing asked when a day is claimed as lost."
 msgstr "يُسجَّل لأنه أول ما يُسأل عنه حين يُدّعى ضياع يوم."
 
 #. module: mizan_site
@@ -826,6 +1060,7 @@ msgid "Remove"
 msgstr "حذف"
 
 #. module: mizan_site
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_form
 #: model_terms:ir.ui.view,arch_db:mizan_site.view_site_report_form
 msgid "Reopen"
 msgstr "إعادة فتح"
@@ -837,6 +1072,17 @@ msgid "Report"
 msgstr "التقرير"
 
 #. module: mizan_site
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__state__reported
+msgid "Reported"
+msgstr "مُبلَّغ عنه"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__reporter_id
+msgid "Reported by"
+msgstr "المبلِّغ"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__activity_user_id
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__activity_user_id
 msgid "Responsible User"
 msgstr ""
@@ -848,9 +1094,38 @@ msgid "Retake"
 msgstr "أعد التصوير"
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__message_has_sms_error
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__message_has_sms_error
 msgid "SMS Delivery error"
 msgstr ""
+
+#. module: mizan_site
+#: model:ir.model,name:mizan_site.model_mizan_site_incident
+#: model:ir.ui.menu,name:mizan_site.menu_site_incident
+msgid "Safety Incident"
+msgstr "بلاغ سلامة"
+
+#. module: mizan_site
+#: model:ir.ui.menu,name:mizan_site.menu_site_incident_office
+msgid "Safety Incidents"
+msgstr "بلاغات السلامة"
+
+#. module: mizan_site
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_form
+msgid "Safety incident"
+msgstr "بلاغ سلامة"
+
+#. module: mizan_site
+#. odoo-python
+#: code:addons/mizan_site/models/incident.py:0
+msgid "Safety incident: %(kind)s on %(project)s"
+msgstr "بلاغ سلامة: %(kind)s في %(project)s"
+
+#. module: mizan_site
+#: model:ir.actions.act_window,name:mizan_site.action_incident
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_list
+msgid "Safety incidents"
+msgstr "بلاغات السلامة"
 
 #. module: mizan_site
 #: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_report__weather__sand
@@ -871,7 +1146,9 @@ msgstr "حُفظت كمطالبة مصروفات باسمك. قدّمها حين
 #. module: mizan_site
 #. odoo-python
 #: code:addons/mizan_site/models/site_report.py:0
-msgid "Say why work stopped. 'Work stopped' with no reason is the one line a delay claim cannot be built on."
+msgid ""
+"Say why work stopped. 'Work stopped' with no reason is the one line a delay "
+"claim cannot be built on."
 msgstr "بيّن سبب توقف العمل. «توقف العمل» بلا سبب هو السطر الوحيد الذي لا تُبنى عليه مطالبة تأخير."
 
 #. module: mizan_site
@@ -885,6 +1162,22 @@ msgstr "يرسله إلى المكتب. ولا يعود قابلاً للتعد�
 #: code:addons/mizan_site/models/site_capture.py:0
 msgid "Sent to accounting as a draft supplier bill."
 msgstr "أُرسلت إلى المحاسبة كمسودة فاتورة مورّد."
+
+#. module: mizan_site
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_search
+msgid "Serious"
+msgstr "خطيرة"
+
+#. module: mizan_site
+#. odoo-python
+#: code:addons/mizan_site/models/incident.py:0
+msgid "Serious incident: %(kind)s on %(project)s"
+msgstr "حادث خطير: %(kind)s في %(project)s"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__severity
+msgid "Severity"
+msgstr "الخطورة"
 
 #. module: mizan_site
 #: model:hr.job,name:mizan_site.trade_carpenter
@@ -935,16 +1228,28 @@ msgid "Site: remind engineers to file the daily report"
 msgstr "الموقع: تذكير المهندسين بتسجيل التقرير اليومي"
 
 #. module: mizan_site
+#: model:ir.model.fields.selection,name:mizan_site.selection__mizan_site_incident__kind__environment
+msgid "Spill or environmental"
+msgstr "تسرّب أو حادث بيئي"
+
+#. module: mizan_site
 #: model_terms:ir.ui.view,arch_db:mizan_site.view_site_report_form
 msgid "Standing"
 msgstr "متوقفة"
 
 #. module: mizan_site
-#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__state
-msgid "State"
-msgstr ""
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_form
+msgid "Start investigation"
+msgstr "ابدأ التحقيق"
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__state
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: mizan_site
+#: model:ir.model.fields,help:mizan_site.field_mizan_site_incident__activity_state
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_report__activity_state
 msgid ""
 "Status based on activities\n"
@@ -1011,13 +1316,17 @@ msgstr "هذه ليست صورة."
 
 #. module: mizan_site
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_report__project_id
-msgid "The job this day belongs to. Everything else on the report is read in terms of it."
+msgid ""
+"The job this day belongs to. Everything else on the report is read in terms "
+"of it."
 msgstr "المشروع الذي يخصه هذا اليوم. وكل ما عداه في التقرير يُقرأ في ضوئه."
 
 #. module: mizan_site
 #. odoo-python
 #: code:addons/mizan_site/models/site_report.py:0
-msgid "The labour on this report is already on the timesheet. Correct the timesheet, not the report it came from."
+msgid ""
+"The labour on this report is already on the timesheet. Correct the "
+"timesheet, not the report it came from."
 msgstr "عمالة هذا التقرير على الجدول الزمني أصلاً. صحّح الجدول لا التقرير الذي جاء منه."
 
 #. module: mizan_site
@@ -1049,7 +1358,9 @@ msgstr "هذا الشهر"
 
 #. module: mizan_site
 #: model_terms:ir.ui.view,arch_db:mizan_site.view_site_report_form
-msgid "This writes the manpower hours onto the project's timesheet, where they become labour cost. It can only be done once."
+msgid ""
+"This writes the manpower hours onto the project's timesheet, where they "
+"become labour cost. It can only be done once."
 msgstr "يكتب هذا ساعات العمالة على الجدول الزمني للمشروع، حيث تصير تكلفة عمالة. ولا يمكن إلا مرة واحدة."
 
 #. module: mizan_site
@@ -1068,6 +1379,7 @@ msgid "Trade"
 msgstr "المهنة"
 
 #. module: mizan_site
+#: model:ir.model.fields,help:mizan_site.field_mizan_site_incident__activity_exception_decoration
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_report__activity_exception_decoration
 msgid "Type of the exception activity on record."
 msgstr ""
@@ -1075,7 +1387,9 @@ msgstr ""
 #. module: mizan_site
 #. odoo-python
 #: code:addons/mizan_site/models/site_capture.py:0
-msgid "Type the amount on the receipt. It is the one figure the office cannot read reliably from a photograph."
+msgid ""
+"Type the amount on the receipt. It is the one figure the office cannot read "
+"reliably from a photograph."
 msgstr "اكتب المبلغ المكتوب على الإيصال. هو الرقم الوحيد الذي لا يقرؤه المكتب من الصورة بثقة."
 
 #. module: mizan_site
@@ -1085,14 +1399,22 @@ msgid "Weather"
 msgstr "الطقس"
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__website_message_ids
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__website_message_ids
 msgid "Website Messages"
 msgstr ""
 
 #. module: mizan_site
+#: model:ir.model.fields,help:mizan_site.field_mizan_site_incident__website_message_ids
 #: model:ir.model.fields,help:mizan_site.field_mizan_site_report__website_message_ids
 msgid "Website communication history"
 msgstr ""
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__description
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_form
+msgid "What happened"
+msgstr "ماذا حدث"
 
 #. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__mizan_next_hint
@@ -1120,9 +1442,35 @@ msgid "What was built today"
 msgstr "ما نُفِّذ اليوم"
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__corrective_action
+msgid "What was changed so it does not happen again"
+msgstr "ما الذي تغيّر حتى لا يتكرر"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__immediate_action
+#: model_terms:ir.ui.view,arch_db:mizan_site.view_incident_form
+msgid "What was done at once"
+msgstr "ما الذي فُعل فوراً"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__location
+msgid "Where on site"
+msgstr "أين في الموقع"
+
+#. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_capture__paid_by
 msgid "Who paid?"
 msgstr "من دفع؟"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__injured_name
+msgid "Who was hurt"
+msgstr "من أُصيب"
+
+#. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__root_cause
+msgid "Why it happened"
+msgstr "لماذا حدث"
 
 #. module: mizan_site
 #: model:ir.model.fields,field_description:mizan_site.field_mizan_site_report__stop_reason
@@ -1145,6 +1493,17 @@ msgid "Worked"
 msgstr "المُشتغَلة"
 
 #. module: mizan_site
+#: model:ir.model.fields,field_description:mizan_site.field_mizan_site_incident__lost_days
+msgid "Working days lost"
+msgstr "أيام العمل الضائعة"
+
+#. module: mizan_site
+#. odoo-python
+#: code:addons/mizan_site/models/incident.py:0
+msgid "Write why it happened and what was changed before closing %s."
+msgstr "اكتب سبب الحادث وما تغيّر قبل إغلاق %s."
+
+#. module: mizan_site
 #: model:ir.model.constraint,message:mizan_site.constraint_mizan_site_report_day_project_author_uniq
 msgid "You already filed a report for this project on this date."
 msgstr "سجّلت تقريراً لهذا المشروع في هذا التاريخ من قبل."
@@ -1152,7 +1511,9 @@ msgstr "سجّلت تقريراً لهذا المشروع في هذا التار
 #. module: mizan_site
 #. odoo-python
 #: code:addons/mizan_site/models/site_capture.py:0
-msgid "Your login is not linked to an employee record, so there is nobody to reimburse. Ask the office to link it."
+msgid ""
+"Your login is not linked to an employee record, so there is nobody to "
+"reimburse. Ask the office to link it."
 msgstr "حسابك غير مرتبط بسجل موظف، فلا أحد يُعاد له المبلغ. اطلب من المكتب ربطه."
 
 #. module: mizan_site

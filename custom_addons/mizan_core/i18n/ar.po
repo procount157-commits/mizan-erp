@@ -760,3 +760,8 @@ msgstr "<i class=\"fa fa-times me-1\" title=\"رفض\"/>رفض"
 #: model_terms:ir.ui.view,arch_db:mizan_core.view_mizan_petty_approve_kanban
 msgid "<i class=\"fa fa-user me-1\" title=\"Employee\"/>"
 msgstr "<i class=\"fa fa-user me-1\" title=\"الموظف\"/>"
+
+#. module: mizan_core
+#: model:ir.ui.menu,name:mizan_core.menu_variations
+msgid "Variation Orders"
+msgstr "أوامر التغيير"
