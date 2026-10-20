@@ -1,5 +1,7 @@
-// The tabs a person gets, by what they do: a manager's figures and
-// approvals, an engineer's crew and cash. Nobody sees the whole system.
+// The tabs a person gets, by what they do. One app, a different app for each
+// role: the manager's figures and approvals, the accountant's desk, the
+// engineer's day on site, the staff member's petty cash. Nobody sees the
+// whole system.
 import 'package:flutter/material.dart';
 
 import '../api.dart';
@@ -10,8 +12,10 @@ import 'alerts.dart';
 import 'approvals.dart';
 import 'cash.dart';
 import 'crew.dart';
+import 'engineer_home.dart';
 import 'overview.dart';
 import 'projects.dart';
+import 'site_report.dart';
 
 class _Tab {
   final String label;
@@ -30,6 +34,7 @@ class Shell extends StatefulWidget {
 
 class _ShellState extends State<Shell> {
   int _index = 0;
+  int _homeVersion = 0; // bumped to reload the home screen when it is shown again
   Map<String, dynamic> counts = {};
 
   List<String> get roles => List<String>.from(Api.instance.me?['roles'] ?? []);
@@ -49,10 +54,46 @@ class _ShellState extends State<Shell> {
         ));
       }
     });
+    Push.onOpen(_openFor);
+  }
+
+  /// A tapped notification opens where its record is handled.
+  void _openFor(String model) {
+    final approver = roles.contains('manager') || roles.contains('approver');
+    String tab;
+    switch (model) {
+      case 'account.move':
+      case 'mizan.payment.request':
+        tab = roles.contains('manager') ? 'الاعتمادات' : 'المحاسبة';
+        break;
+      case 'hr.expense.sheet':
+      case 'mizan.employee.advance':
+        tab = approver ? 'الاعتمادات' : roles.contains('accountant') ? 'المحاسبة' : 'عهدتي';
+        break;
+      case 'mizan.site.report':
+        tab = roles.contains('engineer') ? 'التقرير' : 'التنبيهات';
+        break;
+      default:
+        tab = 'التنبيهات';
+    }
+    open(tab);
+  }
+
+  /// Show a tab by its label, wherever it sits (or under «المزيد»).
+  void open(String label) {
+    final i = visibleTabs.indexWhere((t) => t.label == label);
+    if (i >= 0) {
+      setState(() => _index = i);
+    } else {
+      final t = tabs.where((t) => t.label == label).toList();
+      if (t.isNotEmpty) {
+        Navigator.of(context).push(MaterialPageRoute(builder: (_) => Scaffold(appBar: AppBar(title: Text(label)), body: t.first.page)));
+      }
+    }
+    refreshCounts();
   }
 
   Future<void> refreshCounts() async {
-    if (!roles.contains('manager') && !roles.contains('approver')) return;
     try {
       final c = await Api.instance.call('counts');
       if (mounted) setState(() => counts = Map<String, dynamic>.from(c));
@@ -61,26 +102,40 @@ class _ShellState extends State<Shell> {
 
   List<_Tab> get tabs {
     final t = <_Tab>[];
-    if (roles.contains('manager')) {
-      t.add(_Tab('الرئيسية', Icons.space_dashboard_outlined, Icons.space_dashboard_rounded, const OverviewScreen()));
-    }
+    final manager = roles.contains('manager');
+    final approver = manager || roles.contains('approver');
+    final accountant = roles.contains('accountant');
+    final engineer = roles.contains('engineer');
+    final staff = roles.contains('staff');
+    final approvals = _Tab('الاعتمادات', Icons.fact_check_outlined, Icons.fact_check_rounded,
+        ApprovalsScreen(onChanged: refreshCounts), badge: '${counts['approvals'] ?? 0}');
     final accounts = _Tab('المحاسبة', Icons.receipt_long_outlined, Icons.receipt_long_rounded, const AccountantScreen());
-    // An accountant opens on their own work; a manager on the figures.
-    final accountantFirst = roles.contains('accountant') && !roles.contains('manager');
-    if (accountantFirst) t.add(accounts);
-    if (roles.contains('manager') || roles.contains('approver')) {
-      t.add(_Tab('الاعتمادات', Icons.fact_check_outlined, Icons.fact_check_rounded,
-          ApprovalsScreen(onChanged: refreshCounts), badge: '${counts['approvals'] ?? 0}'));
+    final projects = _Tab('المشاريع', Icons.apartment_outlined, Icons.apartment_rounded, const ProjectsScreen());
+    final cash = _Tab('عهدتي', Icons.account_balance_wallet_outlined, Icons.account_balance_wallet_rounded, const CashScreen());
+
+    if (manager) {
+      // The owner: the company first, then what waits for him.
+      t.add(_Tab('الرئيسية', Icons.space_dashboard_outlined, Icons.space_dashboard_rounded, const OverviewScreen()));
+      t.add(approvals);
+      t.add(projects);
+      if (accountant) t.add(accounts);
+    } else if (accountant) {
+      // The accountant opens on today's desk.
+      t.add(accounts);
+      if (approver) t.add(approvals);
+      t.add(projects);
+    } else if (approver) {
+      t.add(approvals);
     }
-    if (roles.contains('accountant') && !accountantFirst) t.add(accounts);
-    if (roles.contains('manager') || roles.contains('accountant')) {
-      t.add(_Tab('المشاريع', Icons.apartment_outlined, Icons.apartment_rounded, const ProjectsScreen()));
-    }
-    if (roles.contains('engineer')) {
+    if (engineer) {
+      // The engineer's day: what is left to do, the crew, the report, the cash.
+      t.add(_Tab('الرئيسية', Icons.home_outlined, Icons.home_rounded,
+          EngineerHome(key: ValueKey('home$_homeVersion'), open: open)));
       t.add(_Tab('العمّال', Icons.groups_outlined, Icons.groups_rounded, const CrewScreen()));
-    }
-    if (roles.contains('engineer') || roles.contains('staff')) {
-      t.add(_Tab('عهدتي', Icons.account_balance_wallet_outlined, Icons.account_balance_wallet_rounded, const CashScreen()));
+      t.add(_Tab('التقرير', Icons.assignment_outlined, Icons.assignment_rounded, const SiteReportScreen()));
+      t.add(cash);
+    } else if (staff) {
+      t.add(cash);
     }
     t.add(_Tab('التنبيهات', Icons.notifications_none_rounded, Icons.notifications_rounded,
         AlertsScreen(onRead: refreshCounts), badge: '${counts['alerts'] ?? 0}'));
@@ -137,7 +192,10 @@ class _ShellState extends State<Shell> {
       bottomNavigationBar: NavigationBar(
         selectedIndex: _index,
         onDestinationSelected: (i) {
-          setState(() => _index = i);
+          setState(() {
+            if (t[i].label == 'الرئيسية' && i != _index) _homeVersion++;
+            _index = i;
+          });
           refreshCounts();
         },
         destinations: t

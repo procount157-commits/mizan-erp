@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../api.dart';
 import '../theme.dart';
 import '../widgets.dart';
+import 'insights.dart';
 
 class AccountantScreen extends StatefulWidget {
   const AccountantScreen({super.key});
@@ -60,6 +61,8 @@ class _AccountantScreenState extends State<AccountantScreen> {
             const SizedBox(width: 10),
             _stat('بانتظار المدير', '${d['waiting_manager']}', Icons.hourglass_top_rounded, const Color(0xFF7C3AED)),
           ]),
+          const SizedBox(height: 12),
+          const InsightsCard(role: 'accountant'),
           const SectionTitle('إيصالات عهدة معتمدة تنتظر الترحيل'),
           if (receipts.isEmpty)
             const Card(child: Padding(padding: EdgeInsets.all(16), child: Text('لا شيء ينتظر الترحيل.', style: TextStyle(color: Brand.muted)))),

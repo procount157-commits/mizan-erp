@@ -64,12 +64,14 @@ class MizanMobile(models.AbstractModel):
             "uid": user.id, "name": user.name, "first_name": (user.name or "").split(" ")[0],
             "lang": user.lang, "company": self.env.company.name, "roles": roles,
             "currency": self.env.company.currency_id.name,
-            "counts": self.counts() if ("manager" in roles or "approver" in roles) else {},
+            "counts": self.counts(),
+            "ai_ready": bool(self.env["mizan.ai"]._config().get("key")),
         }
 
     @api.model
     def counts(self):
-        out = {"approvals": len(self.approvals()["items"])}
+        roles = self._roles()
+        out = {"approvals": len(self.approvals()["items"]) if ("manager" in roles or "approver" in roles) else 0}
         out["alerts"] = self.env["mail.notification"].sudo().search_count([
             ("res_partner_id", "=", self.env.user.partner_id.id), ("is_read", "=", False)])
         return out
@@ -185,6 +187,7 @@ class MizanMobile(models.AbstractModel):
             req.action_approve() if approve else req.action_refuse()
         else:
             raise UserError(_("Unknown approval."))
+        self._forget_insights("manager")
         return {"ok": True, "counts": self.counts()}
 
     # ------------------------------------------------------------ engineer
@@ -235,6 +238,7 @@ class MizanMobile(models.AbstractModel):
             values["spend_kind"] = kind
         capture = self.env["mizan.site.capture"].create(values)
         capture.action_save()
+        self._forget_insights("engineer", "staff")
         return {"ok": True, "cash": self.my_cash()}
 
     @api.model
@@ -288,4 +292,5 @@ class MizanMobile(models.AbstractModel):
                 existing.fraction = fraction
             else:
                 Day.create({"card_id": card_id, "date": day, "contract_id": int(contract_id), "fraction": fraction})
+        self._forget_insights("engineer")
         return self.crew(contract_id, date)

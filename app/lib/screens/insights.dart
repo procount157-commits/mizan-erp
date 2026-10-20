@@ -1,6 +1,7 @@
-// Today's insights for the manager, and the short report. The figures are
-// the system's; the sentences are written from them (by the AI model when a
-// key is set in Settings → AI, by fixed rules otherwise).
+// Today's insights for whoever is looking — the manager's company, the
+// accountant's desk, the engineer's site — and a short report. The figures
+// are the system's; the sentences are written from them (by the AI model
+// when a key is set in Settings → AI, by fixed rules otherwise).
 import 'package:flutter/material.dart';
 
 import '../api.dart';
@@ -8,7 +9,9 @@ import '../theme.dart';
 import '../widgets.dart';
 
 class InsightsCard extends StatefulWidget {
-  const InsightsCard({super.key});
+  /// manager, accountant or engineer: each reads what concerns them.
+  final String role;
+  const InsightsCard({super.key, this.role = 'manager'});
   @override
   State<InsightsCard> createState() => _InsightsCardState();
 }
@@ -30,7 +33,7 @@ class _InsightsCardState extends State<InsightsCard> {
       _error = null;
     });
     try {
-      final d = await Api.instance.call('manager_insights', {'refresh': refresh});
+      final d = await Api.instance.call('role_insights', {'role': widget.role, 'refresh': refresh});
       if (mounted) setState(() => _data = Map<String, dynamic>.from(d));
     } catch (e) {
       if (mounted) setState(() => _error = e.toString());
@@ -92,7 +95,8 @@ class _InsightsCardState extends State<InsightsCard> {
             child: const Icon(Icons.auto_awesome_rounded, color: Brand.greenDark, size: 18),
           ),
           const SizedBox(width: 10),
-          const Expanded(child: Text('تحليلات اليوم', style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800))),
+          Expanded(child: Text(widget.role == 'engineer' ? 'نصائح اليوم' : widget.role == 'accountant' ? 'أولويات اليوم' : 'تحليلات اليوم',
+              style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w800))),
           if (d != null && d['source'] == 'ai') const Pill('ذكاء اصطناعي'),
           IconButton(
             visualDensity: VisualDensity.compact,

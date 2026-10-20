@@ -48,4 +48,15 @@ class Push {
   static void onForeground(void Function(RemoteMessage) handler) {
     if (_ready) FirebaseMessaging.onMessage.listen(handler);
   }
+
+  /// A notification tapped — from the background, or the one that started
+  /// the app: the handler gets the record's model to open the right tab.
+  static Future<void> onOpen(void Function(String model) handler) async {
+    if (!_ready) return;
+    FirebaseMessaging.onMessageOpenedApp.listen((m) => handler('${m.data['model'] ?? ''}'));
+    try {
+      final first = await FirebaseMessaging.instance.getInitialMessage();
+      if (first != null) handler('${first.data['model'] ?? ''}');
+    } catch (_) {}
+  }
 }

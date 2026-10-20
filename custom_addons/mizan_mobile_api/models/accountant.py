@@ -60,4 +60,5 @@ class MizanMobile(models.AbstractModel):
     def post_receipts(self, ids):
         sheets = self.env["hr.expense.sheet"].browse([int(i) for i in ids or []]).exists()
         sheets.action_mizan_post()
+        self._forget_insights("accountant")
         return self.accountant_summary()

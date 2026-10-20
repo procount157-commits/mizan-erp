@@ -140,6 +140,10 @@ class _ReceiptFormState extends State<ReceiptForm> {
   String? _kind;
   bool _vat = true;
   bool _busy = false;
+  bool _reading = false;
+  Map<String, dynamic>? _read; // what the AI read off the photo
+
+  bool get _aiReady => Api.instance.me?['ai_ready'] == true;
 
   @override
   void initState() {
@@ -152,9 +156,42 @@ class _ReceiptFormState extends State<ReceiptForm> {
   Future<void> _take(ImageSource source) async {
     try {
       final f = await ImagePicker().pickImage(source: source, maxWidth: 1600, imageQuality: 70);
-      if (f != null) setState(() => _photo = f);
+      if (f != null) {
+        setState(() {
+          _photo = f;
+          _read = null;
+        });
+        _readPhoto();
+      }
     } catch (_) {
       if (mounted && source == ImageSource.camera) _take(ImageSource.gallery);
+    }
+  }
+
+  /// The AI reads the receipt; the engineer checks the figures, he does not
+  /// type them. Nothing is sent until he presses the button.
+  Future<void> _readPhoto() async {
+    if (!_aiReady || _photo == null) return;
+    setState(() => _reading = true);
+    try {
+      final bytes = await _photo!.readAsBytes();
+      final r = Map<String, dynamic>.from(await Api.instance.call('read_receipt', {
+        'photo': base64Encode(bytes),
+        'mimetype': (_photo!.mimeType ?? '').isNotEmpty ? _photo!.mimeType : 'image/jpeg',
+      }));
+      if (!mounted || r['ok'] != true) return;
+      setState(() {
+        _read = r;
+        if (r['amount'] != null) _amount.text = '${r['amount']}';
+        final what = [r['vendor'], r['description']].where((x) => (x ?? '').toString().isNotEmpty).join(' — ');
+        if (_desc.text.isEmpty && what.isNotEmpty) _desc.text = what;
+        _vat = r['vat'] == true;
+        if (r['kind'] != null && widget.kinds.any((k) => k['key'] == r['kind'])) _kind = r['kind'];
+      });
+    } catch (_) {
+      // Reading is a help, not a step: the form still works by hand.
+    } finally {
+      if (mounted) setState(() => _reading = false);
     }
   }
 
@@ -204,6 +241,37 @@ class _ReceiptFormState extends State<ReceiptForm> {
           ),
         ),
         TextButton.icon(onPressed: () => _take(ImageSource.gallery), icon: const Icon(Icons.photo_library_rounded), label: const Text('من المعرض')),
+        if (_reading)
+          const Padding(
+            padding: EdgeInsets.only(bottom: 8),
+            child: Row(children: [
+              SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2, color: Brand.green)),
+              SizedBox(width: 10),
+              Text('الذكاء الاصطناعي يقرأ الإيصال…', style: TextStyle(color: Brand.greenDark, fontWeight: FontWeight.w600)),
+            ]),
+          ),
+        if (_read != null)
+          Container(
+            margin: const EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: (_read!['checked'] == true ? Brand.good : Brand.watch).withValues(alpha: 0.08),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Icon(Icons.auto_awesome_rounded, color: _read!['checked'] == true ? Brand.good : Brand.watch, size: 20),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  [
+                    'قرأ الذكاء الاصطناعي الإيصال — راجع المبلغ قبل الإرسال.',
+                    ...List<String>.from(_read!['notes'] ?? []),
+                  ].join('\n'),
+                  style: const TextStyle(fontSize: 13, height: 1.5),
+                ),
+              ),
+            ]),
+          ),
         const SizedBox(height: 8),
         TextField(
           controller: _amount,

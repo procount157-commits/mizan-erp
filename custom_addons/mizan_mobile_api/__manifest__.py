@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Miqyas Mobile API",
-    "version": "1.0",
+    "version": "1.1",
     "category": "Productivity",
     "summary": "The data the Miqyas phone app shows, by role: the manager's figures and approvals, the engineer's cash and crew",
     "description": """The native phone app does not open the system's pages; it asks for

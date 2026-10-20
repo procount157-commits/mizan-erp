@@ -309,3 +309,285 @@ msgstr "مهندس موقع: العمّال والعهدة"
 #: model:ir.model.fields.selection,name:mizan_mobile_api.selection__res_users__mizan_app_role__staff
 msgid "Staff: petty cash only"
 msgstr "موظف: العهدة فقط"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/notify.py:0
+msgid "A supplier bill waits for your approval"
+msgstr "فاتورة مورد بانتظار اعتمادك"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/notify.py:0
+msgid "%(who)s — %(name)s for %(amount)s. It cannot be paid until you approve it."
+msgstr "%(who)s — %(name)s بمبلغ %(amount)s. لا تُدفع حتى تعتمدها."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/notify.py:0
+msgid "A subcontractor payment waits for your approval"
+msgstr "دفعة مقاول باطن بانتظار اعتمادك"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/notify.py:0
+msgid "%(who)s asks to pay %(partner)s %(amount)s (%(contract)s)."
+msgstr "%(who)s يطلب دفع %(amount)s إلى %(partner)s (%(contract)s)."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/notify.py:0
+msgid "A receipt waits for your approval"
+msgstr "إيصال بانتظار اعتمادك"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/notify.py:0
+msgid "%(who)s sent %(name)s for %(amount)s."
+msgstr "أرسل %(who)s الإيصال %(name)s بمبلغ %(amount)s."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/notify.py:0
+msgid "Your receipt is approved"
+msgstr "اعتُمد إيصالك"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/notify.py:0
+msgid "%(name)s for %(amount)s was approved by %(by)s."
+msgstr "اعتمد %(by)s الإيصال %(name)s بمبلغ %(amount)s."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "Chase first"
+msgstr "تابِع أولاً"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "%(c)s owes %(a)s on %(i)s, %(l)s."
+msgstr "على %(c)s مبلغ %(a)s في الفاتورة %(i)s، %(l)s."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "Customers past due"
+msgstr "عملاء متأخرون"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "%(n)s invoice(s) past due, %(t)s in all."
+msgstr "%(n)s فاتورة متأخرة، مجموعها %(t)s."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "To pay this week"
+msgstr "للدفع هذا الأسبوع"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "%(n)s supplier bill(s) due within 7 days, %(t)s."
+msgstr "%(n)s فاتورة مورد تستحق خلال 7 أيام، مجموعها %(t)s."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "Receipts to post"
+msgstr "إيصالات للترحيل"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "%s approved petty-cash receipt(s) wait to be posted."
+msgstr "%s إيصال عهدة معتمد ينتظر الترحيل."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "Bank to match"
+msgstr "مطابقة البنك"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "%s bank line(s) are not matched yet."
+msgstr "%s حركة بنكية لم تُطابق بعد."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "With the manager"
+msgstr "عند المدير"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "%s item(s) wait for the manager's approval."
+msgstr "%s بند ينتظر اعتماد المدير."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "All clear"
+msgstr "لا شيء متأخر"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "Nothing is late or waiting today."
+msgstr "لا يوجد ما هو متأخر أو معلّق اليوم."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "Past its completion date by %s day(s)."
+msgstr "تجاوز موعد التسليم بـ %s يوم."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "%(d)s day(s) to the completion date, %(p)s complete."
+msgstr "باقي %(d)s يوم على موعد التسليم، والإنجاز %(p)s."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "Today is done"
+msgstr "أنجزت مهام اليوم"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "Crew and daily report are in. Good work."
+msgstr "سُجّلت يومية العمّال وأُرسل التقرير اليومي. عمل ممتاز."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/insights.py:0
+msgid "These insights are not for your role."
+msgstr "هذه التحليلات ليست لدورك."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "This screen is for site staff."
+msgstr "هذه الشاشة لموظفي الموقع."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "Today's crew"
+msgstr "يومية العمّال"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "%s worker(s) recorded today."
+msgstr "سُجّل %s عامل اليوم."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "Nobody is recorded on site today yet."
+msgstr "لم يُسجَّل أي عامل في الموقع اليوم."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "Daily site report"
+msgstr "التقرير اليومي للموقع"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "Filed: %s."
+msgstr "أُرسل: %s."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "Not filed yet for today."
+msgstr "لم يُرسل تقرير اليوم بعد."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "%s left. Ask for a top-up before it runs out."
+msgstr "باقي %s. اطلب تعويض العهدة قبل أن تنفد."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "%s available."
+msgstr "المتاح %s."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "Refused receipts"
+msgstr "إيصالات مرفوضة"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "%s receipt(s) refused this month — see why in Petty cash."
+msgstr "رُفض %s إيصال هذا الشهر — اطّلع على السبب في «عهدتي»."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "The daily report is for site engineers."
+msgstr "التقرير اليومي لمهندسي المواقع."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "Labourer"
+msgstr "عامل"
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "Write what was built today."
+msgstr "اكتب ما أُنجز اليوم."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "Say why work stopped."
+msgstr "اذكر سبب توقف العمل."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "Choose the project."
+msgstr "اختر المشروع."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "Today's report for %s is already filed."
+msgstr "تقرير اليوم لمشروع %s مُرسل مسبقاً."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "The total could not be read; type it."
+msgstr "تعذّرت قراءة الإجمالي؛ اكتبه بنفسك."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "Subtotal and VAT do not make the total; check the amount."
+msgstr "المبلغ قبل الضريبة مع الضريبة لا يساوي الإجمالي؛ راجع المبلغ."
+
+#. module: mizan_mobile_api
+#. odoo-python
+#: code:addons/mizan_mobile_api/models/engineer.py:0
+msgid "The VAT is not 5% of the subtotal."
+msgstr "الضريبة ليست 5% من المبلغ قبل الضريبة."
